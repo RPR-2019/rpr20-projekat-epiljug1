@@ -6,13 +6,13 @@ CREATE TABLE IF NOT EXISTS "developer" (
 	"email"	TEXT,
 	"username"	TEXT UNIQUE,
 	"password"	TEXT,
-	PRIMARY KEY("developer_id")
+	PRIMARY KEY("developer_id" AUTOINCREMENT)
 );
 CREATE TABLE IF NOT EXISTS "connections" (
 	"pr_id"	INTEGER,
 	"de_id"	INTEGER,
-	FOREIGN KEY("pr_id") REFERENCES "project"("project_id"),
-	FOREIGN KEY("de_id") REFERENCES "developer"("developer_id")
+	FOREIGN KEY("de_id") REFERENCES "developer"("developer_id"),
+	FOREIGN KEY("pr_id") REFERENCES "project"("project_id")
 );
 CREATE TABLE IF NOT EXISTS "bug" (
 	"bug_id"	INTEGER,
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS "bug" (
 	"date_created"	TEXT,
 	"projectID"	INTEGER,
 	"complexity"	TEXT,
-	PRIMARY KEY("bug_id"),
+	PRIMARY KEY("bug_id" AUTOINCREMENT),
 	FOREIGN KEY("projectID") REFERENCES "project"("project_id")
 );
 CREATE TABLE IF NOT EXISTS "project" (
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS "project" (
 	"opis"	TEXT,
 	"creator_id"	INTEGER,
 	"date_created"	TEXT,
-	PRIMARY KEY("project_id"),
+	PRIMARY KEY("project_id" AUTOINCREMENT),
 	FOREIGN KEY("creator_id") REFERENCES "developer"("developer_id")
 );
 INSERT INTO "developer" VALUES (1,'Evelin','Piljug','epiljug1@etf.unsa.ba','pilja','pass');
