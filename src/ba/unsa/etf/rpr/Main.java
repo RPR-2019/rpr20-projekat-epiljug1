@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
@@ -17,6 +18,7 @@ public  class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signup.fxml"));
         SignupController ctrl = new SignupController();
         loader.setController(ctrl);

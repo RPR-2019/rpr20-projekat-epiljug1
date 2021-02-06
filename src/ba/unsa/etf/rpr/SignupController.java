@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.util.regex.Pattern;
+
 public class SignupController {
 
     @FXML
@@ -30,7 +32,18 @@ public class SignupController {
     public SignupController(){
         System.out.println("SIGNUP CONTROLLER CTOR");
     }
+    public static boolean isValid(String email)
+    {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
 
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null)
+            return false;
+        return pat.matcher(email).matches();
+    }
     @FXML
     public void initialize(){
         namefld.getStyleClass().add("ok");
@@ -66,7 +79,7 @@ public class SignupController {
         } );
 
         emailfld.textProperty().addListener((observableValue, oldValue, newValue) ->{
-            if(emailfld.getText().trim().isEmpty()){
+            if(emailfld.getText().trim().isEmpty() || !isValid(newValue)){
                 emailfld.setStyle("-fx-border-color: red");
                 emailfld.getStyleClass().add("ok");
             }
