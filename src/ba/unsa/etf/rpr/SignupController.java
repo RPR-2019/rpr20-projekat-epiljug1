@@ -2,12 +2,19 @@ package ba.unsa.etf.rpr;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.regex.Pattern;
+
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class SignupController {
 
@@ -120,6 +127,18 @@ public class SignupController {
         alert.setContentText(s + " is empty");
         alert.showAndWait();
     }
+    @FXML
+    public void backAction(ActionEvent actionEvent) throws IOException {
+        closeWindow();
+        Stage signUpStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+        LoginController ctrl = new LoginController();
+        loader.setController(ctrl);
+        Parent root = loader.load();
+        signUpStage.setTitle("Login");
+        signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        signUpStage.show();
+    }
 
     @FXML
     public void signinAction(ActionEvent actionEvent) {
@@ -129,5 +148,9 @@ public class SignupController {
         else if(emailfld.getText().trim().isEmpty()) ALERT("E-mail Field");
         else if(usernamefld.getText().trim().isEmpty()) ALERT("Username Field");
         else if(passwordfld.getText().trim().isEmpty()) ALERT("Password Field");
+    }
+    public void closeWindow(){
+        Stage stage = (Stage) namefld.getScene().getWindow();
+        stage.close();
     }
 }
