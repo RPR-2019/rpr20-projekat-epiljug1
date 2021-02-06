@@ -1,0 +1,22 @@
+
+T
+java:S1659"7Declare "findDeveloperWithUsername" on a separate line.(õö“°8¿Û¾š÷.
+
+java:S1319I"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬ˆíò8® Öš÷.
+G
+java:S1659"*Declare "addDeveloper" on a separate line.(õö“°8âûÓš÷.
+g
+java:S20956"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üý™éþÿÿÿÿ8¯ð±™÷.
+K
+java:S2115")Add password protection to this database.(”ÛÚ¬þÿÿÿÿ8Ñ²¬™÷.
+B
+java:S1659"%Declare "findMax" on a separate line.(õö“°8ø¦³›÷.
+C
+java:S3010"!Remove this assignment of "conn".(”ÛÚ¬þÿÿÿÿ8Ñ²¬™÷.
+>
+java:S16439"Use a StringBuilder instead.(¥…ˆÇþÿÿÿÿ8¯ð±™÷.
+i
+java:S2095<"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8¯ð±™÷.
+W
+java:S1141;"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8¯ð±™÷.
+Z	java:S106O"9Replace this use of System.out or System.err by a logger.(„Ù×ýÿÿÿÿ8ä“„›÷.

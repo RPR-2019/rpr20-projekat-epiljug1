@@ -7,12 +7,22 @@ public class Project {
     private String name;
     private String description;
     private LocalDate dateProjectCreated;
+    private Developer creator;
     private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-    public Project(String name, String description) {
+    public Project(String name, String description, Developer creator) {
         this.name = name;
         this.description = description;
+        this.creator = creator;
         dateProjectCreated = LocalDate.now();
+    }
+
+    public Developer getCreator() {
+        return creator;
+    }
+
+    public void setCreator(Developer creator) {
+        this.creator = creator;
     }
 
     public String getName() {

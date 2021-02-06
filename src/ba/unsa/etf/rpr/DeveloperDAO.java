@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class DeveloperDAO {
     private static DeveloperDAO instance = null;
     private static Connection conn;
-    private PreparedStatement getAllDevelopers,findDeveloperWithUsername, addDeveloper, findMax;
+    private PreparedStatement getAllDevelopers,findDeveloperWithUsername, addDeveloper, findMax, findDeveloperById, findId, getAllProjectsForDeveloper;
 
     public static Connection getConn() {
         return conn;
@@ -43,6 +43,11 @@ public class DeveloperDAO {
             findDeveloperWithUsername = conn.prepareStatement("SELECT * FROM developer where username=?");
             addDeveloper = conn.prepareStatement("INSERT INTO developer values(?,?,?,?,?,?)");
             findMax = conn.prepareStatement("SELECT Max(developer_id) from developer");
+            findDeveloperById = conn.prepareStatement("SELECT * FROM developer where username = ?");
+            findId = conn.prepareStatement("SELECT developer_id from developer where username=?");
+            getAllProjectsForDeveloper = conn.prepareStatement("SELECT DISTINCT project.*\n" +
+                    "FROM project, connections, developer\n" +
+                    "WHERE project_id=connections.pr_id AND connections.de_id=developer_id AND developer_id=?;\n");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -83,8 +88,18 @@ public class DeveloperDAO {
         }
         return developers;
     }
-
-    public Developer findDeveloper(String username){
+    public Developer findDeveloperByID(int id){
+        Developer novi = null;
+        try {
+            findDeveloperById.setInt(1,id);
+            ResultSet rs = findDeveloperById.executeQuery();
+            novi = new Developer(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
+        return novi;
+    }
+    public Developer findDeveloperWithUsername(String username){
         Developer novi = null;
         try {
             findDeveloperWithUsername.setString(1,username);
@@ -104,7 +119,16 @@ public class DeveloperDAO {
         }
         return 1;
     }
-
+    public int findIdOfDeveloper(String username){
+        try{
+            findId.setString(1,username);
+            ResultSet rs = findId.executeQuery();
+            return rs.getInt(1);
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        return 0;
+    }
 
     public void addDeveloper(Developer developer){
         try {
@@ -119,6 +143,16 @@ public class DeveloperDAO {
             sqlException.printStackTrace();
         }
 
+    }
+
+    public void backToDefaultDatabase() throws SQLException {
+        Statement stmt = conn.createStatement();
+        stmt.executeUpdate("DELETE FROM connections");
+        stmt.executeUpdate("DELETE FROM bug");
+        stmt.executeUpdate("DELETE FROM project");
+        stmt.executeUpdate("DELETE FROM developer");
+
+        createDataBase();
     }
 
 

@@ -1,0 +1,27 @@
+
+C
+java:S3010"!Remove this assignment of "conn".(”ÛÚ¬şÿÿÿÿ8ùø›÷.
+P
+java:S1068".Remove this unused "addProject" private field.(ÇÀı°øÿÿÿÿ8æû›÷.
+T
+java:S1068"2Remove this unused "getAllProjects" private field.(ÇÀı°øÿÿÿÿ8«çú›÷.
+K
+java:S1659")Declare "findProject" on a separate line.(ÇÀı°øÿÿÿÿ8é°û›÷.
+J
+java:S1659"(Declare "addProject" on a separate line.(ÇÀı°øÿÿÿÿ8æû›÷.
+g
+java:S2095="EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üı™éşÿÿÿÿ8‰ƒú›÷.
+>
+java:S1643@"Use a StringBuilder instead.(¥…ˆÇşÿÿÿÿ8‰ƒú›÷.
+W
+java:S1141B"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8‰ƒú›÷.
+O
+java:S11441"-Remove this unused private "maxIndex" method.(¬®—ùÿÿÿÿ8üçü›÷.
+i
+java:S2095C"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8‰ƒú›÷.
+G
+java:S1659"%Declare "findMax" on a separate line.(ÇÀı°øÿÿÿÿ8õ—ø›÷.
+K
+java:S2115")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ8õ—ø›÷.
+Q
+java:S1068"/Remove this unused "findProject" private field.(ÇÀı°øÿÿÿÿ8é°û›÷.
