@@ -99,7 +99,7 @@ public class ProjectDAO {
             findProject.setString(1,naziv);
             findProject.setInt(2,id);
             ResultSet rs = findProject.executeQuery();
-            novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByID(rs.getInt(4)));
+            novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""));
             novi.setDateProjectCreated(getDate(rs.getString(5)));
         }catch (SQLException e){
             e.printStackTrace();
@@ -131,7 +131,7 @@ public class ProjectDAO {
         try {
             ResultSet rs = getAllProjects.executeQuery();
             while (rs.next()){
-                Project novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByID(rs.getInt(4)));
+                Project novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""));
                 novi.setDateProjectCreated(getDate(rs.getString(5)));
                 allProjects.add(novi);
             }

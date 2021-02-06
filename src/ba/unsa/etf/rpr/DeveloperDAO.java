@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class DeveloperDAO {
     private static DeveloperDAO instance = null;
     private static Connection conn;
-    private PreparedStatement getAllDevelopers,findDeveloperWithUsername, addDeveloper, findMax, findDeveloperById, findId, getAllProjectsForDeveloper;
+    private PreparedStatement getAllDevelopers,  addDeveloper, findMax, findDeveloperByIdorUsername, findId, getAllProjectsForDeveloper;
 
     public static Connection getConn() {
         return conn;
@@ -40,10 +40,10 @@ public class DeveloperDAO {
         }
 
         try{
-            findDeveloperWithUsername = conn.prepareStatement("SELECT * FROM developer where username=?");
+
             addDeveloper = conn.prepareStatement("INSERT INTO developer values(?,?,?,?,?,?)");
             findMax = conn.prepareStatement("SELECT Max(developer_id) from developer");
-            findDeveloperById = conn.prepareStatement("SELECT * FROM developer where username = ?");
+            findDeveloperByIdorUsername = conn.prepareStatement("SELECT * FROM developer where   developer_id=? or username = ? ");
             findId = conn.prepareStatement("SELECT developer_id from developer where username=?");
             getAllProjectsForDeveloper = conn.prepareStatement("SELECT DISTINCT project.*\n" +
                     "FROM project, connections, developer\n" +
@@ -88,28 +88,19 @@ public class DeveloperDAO {
         }
         return developers;
     }
-    public Developer findDeveloperByID(int id){
+    public Developer findDeveloperByIDorUsername(int id,String username){
         Developer novi = null;
         try {
-            findDeveloperById.setInt(1,id);
-            ResultSet rs = findDeveloperById.executeQuery();
+            findDeveloperByIdorUsername.setInt(1,id);
+            findDeveloperByIdorUsername.setString(2,username);
+            ResultSet rs = findDeveloperByIdorUsername.executeQuery();
             novi = new Developer(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
         return novi;
     }
-    public Developer findDeveloperWithUsername(String username){
-        Developer novi = null;
-        try {
-            findDeveloperWithUsername.setString(1,username);
-            ResultSet rs = findDeveloperWithUsername.executeQuery();
-            novi = new Developer(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
-        } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
-        }
-        return novi;
-    }
+
     private int maxIndex(){
         try {
             ResultSet rs = findMax.executeQuery();
