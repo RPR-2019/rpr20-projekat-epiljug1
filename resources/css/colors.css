@@ -1,0 +1,14 @@
+.okField{
+    -fx-control-border-color : greenyellow;
+}
+
+.ok{
+   -fx-control-inner-background:  #9C2827;
+}
+
+.ne{
+   -fx-border-color: red;
+   -fx-border-width: 2;
+   -fx-border-radius: 1;
+
+}

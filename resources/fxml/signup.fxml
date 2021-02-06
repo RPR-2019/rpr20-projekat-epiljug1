@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import java.net.URL?>
+<AnchorPane prefHeight="436.0" prefWidth="806.0" style="-fx-background-color: #29120F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"  >
+    <stylesheets>
+        <URL value="@/css/colors.css" />
+    </stylesheets>
+
+    <children>
+        <AnchorPane layoutX="445.0" layoutY="60.0" prefHeight="330.0" prefWidth="306.0" style="-fx-background-color: #9C2827;">
+            <children>
+            <VBox layoutX="49.0" layoutY="68.0" spacing="10.0">
+               <children>
+                      <TextField fx:id="namefld" layoutX="49.0" layoutY="74.0" prefHeight="30.0" prefWidth="218.0" promptText="name" style="-fx-background-color: transparent; -fx-border-color: #ebebea;" />
+                  <TextField fx:id="surnamefld" layoutX="49.0" layoutY="116.0" prefHeight="30.0" prefWidth="218.0" promptText="surname" style="-fx-background-color: transparent; -fx-border-color: #ebebea;" />
+                  <TextField fx:id="emailfld" layoutX="49.0" layoutY="156.0" prefHeight="30.0" prefWidth="218.0" promptText="e-mail" style="-fx-background-color: transparent; -fx-border-color: #ebebea;" />
+                  <TextField fx:id="usernamefld" layoutX="49.0" layoutY="197.0" prefHeight="30.0" prefWidth="218.0" promptText="username" style="-fx-background-color: transparent; -fx-border-color: #ebebea;" />
+                      <PasswordField fx:id="passwordfld" layoutX="49.0" layoutY="238.0" prefHeight="30.0" prefWidth="218.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #ebebea;" />
+               </children>
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+                <Button fx:id="signin" layoutX="100.0" layoutY="289.0" mnemonicParsing="false" onAction="#signinAction" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #E45652;" text="Sign up" textFill="WHITE" />
+                <Label layoutX="122.0" layoutY="26.0" style="-fx-background-color: transparent;" text="Sign up" textFill="#fcfafa">
+                    <font>
+                        <Font size="21.0" />
+                    </font></Label>
+            </children>
+        </AnchorPane>
+        <ImageView fitHeight="449.0" fitWidth="374.0" layoutY="2.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/login.jpg" />
+            </image>
+            <viewport>
+                <Rectangle2D height="650.0" width="550.0" />
+            </viewport>
+            <effect>
+                <InnerShadow blurType="GAUSSIAN" choke="0.28" height="255.0" radius="127.0" width="255.0" />
+            </effect>
+        </ImageView>
+        <Label fx:id="welcome" layoutX="25.0" layoutY="137.0" text="Welcome to Bug Tracker" textFill="WHITE" underline="true">
+            <font>
+                <Font name="System Bold" size="28.0" />
+            </font>
+        </Label>
+        <Label text="Label" />
+    </children>
+</AnchorPane>
