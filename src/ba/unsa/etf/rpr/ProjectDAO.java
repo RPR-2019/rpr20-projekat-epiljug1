@@ -10,6 +10,11 @@ import java.util.Scanner;
 public class ProjectDAO {
     private static ProjectDAO instance = null;
     private static DeveloperDAO instanceDeveloper = DeveloperDAO.getInstance();
+
+    public void backToDefaultDataBase() throws SQLException {
+        instanceDeveloper.backToDefaultDatabase();
+    }
+
     private static Connection conn;
     private PreparedStatement getAllProjects,findProject, addProject, findMax,findId,addProjectConnectionTable;
 

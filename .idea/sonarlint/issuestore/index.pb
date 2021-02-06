@@ -19,3 +19,5 @@ P
  src/ba/unsa/etf/rpr/Project.java,b\1\b1570960307649ae03026a011424f71de40be877
 S
 #src/ba/unsa/etf/rpr/ProjectDAO.java,a\8\a8685c17d28b85930c25df1092d3a3b112745ca1
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0

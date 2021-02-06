@@ -1,3 +1,16 @@
 
-]
-java:S2094"BRemove this empty class, write its code or make it an "interface".(‘£Ö†ıÿÿÿÿ
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†æ”‹ùÿÿÿÿ8œÏŠ§÷.
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—©œ»8» Ï¦÷.
+m	java:S1175"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ñÖ8ÊçÅ¦÷.
+x	java:S116
+"WRename this field "date_created" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä¤Õ‚şÿÿÿÿ8ˆ„Ä¦÷.
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—©œ»8» Ï¦÷.
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ïœ•£8œÏŠ§÷.
+o	java:S116"SRename this field "bug_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹ŞÈ8‡²Î¦÷.
+j	java:S1005"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ñÖ8ÊçÅ¦÷.
+t	java:S116"SRename this field "bug_type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸…Àáşÿÿÿÿ8ˆ„Ä¦÷.
+j	java:S1001"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô´¶‘8Çè‘§÷.
+j	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÄşëŠ8ÊçÅ¦÷.
+o	java:S100$"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•é±âúÿÿÿÿ8ÊçÅ¦÷.
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†æ”‹ùÿÿÿÿ8œÏŠ§÷.
+r	java:S117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•é±âúÿÿÿÿ8ÊçÅ¦÷.

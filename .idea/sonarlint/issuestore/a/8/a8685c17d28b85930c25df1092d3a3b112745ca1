@@ -1,27 +1,31 @@
 
-C
-java:S3010"!Remove this assignment of "conn".(”ÛÚ¬þÿÿÿÿ8ùø›÷.
-P
-java:S1068".Remove this unused "addProject" private field.(ÇÀý°øÿÿÿÿ8æû›÷.
-T
-java:S1068"2Remove this unused "getAllProjects" private field.(ÇÀý°øÿÿÿÿ8«çú›÷.
-K
-java:S1659")Declare "findProject" on a separate line.(ÇÀý°øÿÿÿÿ8é°û›÷.
-J
-java:S1659"(Declare "addProject" on a separate line.(ÇÀý°øÿÿÿÿ8æû›÷.
-g
-java:S2095="EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üý™éþÿÿÿÿ8‰ƒú›÷.
->
-java:S1643@"Use a StringBuilder instead.(¥…ˆÇþÿÿÿÿ8‰ƒú›÷.
-W
-java:S1141B"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8‰ƒú›÷.
-O
-java:S11441"-Remove this unused private "maxIndex" method.(¬®—ùÿÿÿÿ8üçü›÷.
-i
-java:S2095C"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8‰ƒú›÷.
 G
-java:S1659"%Declare "findMax" on a separate line.(ÇÀý°øÿÿÿÿ8õ—ø›÷.
+java:S1659"%Declare "findMax" on a separate line.(ß›Û‡üÿÿÿÿ8õ—ø›÷.
+J
+java:S1659"(Declare "addProject" on a separate line.(ß›Û‡üÿÿÿÿ8æû›÷.
 K
-java:S2115")Add password protection to this database.(”ÛÚ¬þÿÿÿÿ8õ—ø›÷.
-Q
-java:S1068"/Remove this unused "findProject" private field.(ÇÀý°øÿÿÿÿ8é°û›÷.
+java:S1659")Declare "findProject" on a separate line.(ß›Û‡üÿÿÿÿ8é°û›÷.
+>
+java:S1643E"Use a StringBuilder instead.(¥…ˆÇþÿÿÿÿ8‰ƒú›÷.
+W
+java:S1141G"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8‰ƒú›÷.
+K
+java:S2115")Add password protection to this database.(”ÛÚ¬þÿÿÿÿ8õ—ø›÷.
+Y
+java:S1659"7Declare "addProjectConnectionTable" on a separate line.(ß›Û‡üÿÿÿÿ8ŽîÂ§÷.
+?
+java:S1659V""Declare "year" on a separate line.(ÖÆ¼“8·…þ¥÷.
+<
+java:S1659V"Declare "i" on a separate line.(ÖÆ¼“8Â¦ÿ¥÷.
+g
+java:S2095B"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üý™éþÿÿÿÿ8‰ƒú›÷.
+@
+java:S1659V"#Declare "month" on a separate line.(ÖÆ¼“8·…þ¥÷.
+Ž
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(éÃ²Ò8Ýµ¦÷.
+F
+java:S1659"$Declare "findId" on a separate line.(ß›Û‡üÿÿÿÿ8¤Ð˜§÷.
+C
+java:S3010"!Remove this assignment of "conn".(”ÛÚ¬þÿÿÿÿ8ùø›÷.
+i
+java:S2095H"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8‰ƒú›÷.

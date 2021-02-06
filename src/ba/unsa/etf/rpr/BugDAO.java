@@ -11,6 +11,9 @@ public class BugDAO {
     private static Connection conn;
     private static BugDAO instance = null;
     private ProjectDAO instanceProjectDAO = ProjectDAO.getInstance();
+    public void backToDefaultDatabase() throws SQLException {
+        instanceProjectDAO.backToDefaultDataBase();
+    }
 
     private PreparedStatement getAllBugs,findBugByID, addBug, findMax ;
 

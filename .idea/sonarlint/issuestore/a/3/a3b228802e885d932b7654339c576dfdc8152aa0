@@ -1,3 +1,21 @@
 
-]
-java:S2094"BRemove this empty class, write its code or make it an "interface".(¶©³úÿÿÿÿ
+C
+java:S3010"!Remove this assignment of "conn".(”ÛÚ¬þÿÿÿÿ8®Ø¦÷.
+K
+java:S2115")Add password protection to this database.(”ÛÚ¬þÿÿÿÿ8ä†Õ¦÷.
+B
+java:S1659"%Declare "findMax" on a separate line.(§‡³ä8ä†Õ¦÷.
+i
+java:S2095?"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8ä†Õ¦÷.
+g
+java:S20959"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üý™éþÿÿÿÿ8ä†Õ¦÷.
+>
+java:S1643<"Use a StringBuilder instead.(¥…ˆÇþÿÿÿÿ8ä†Õ¦÷.
+W
+java:S1141>"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8ä†Õ¦÷.
+A
+java:S1659"$Declare "addBug" on a separate line.(§‡³ä8Ú¶×¦÷.
+F
+java:S1659")Declare "findBugByID" on a separate line.(§‡³ä8¨íÖ¦÷.
+’
+java:S1319p"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‘é½Öúÿÿÿÿ8ùâ°§÷.
