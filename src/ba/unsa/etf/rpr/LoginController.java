@@ -61,8 +61,16 @@ public class LoginController {
 
     }
 
-    public void signinAction(ActionEvent actionEvent) {
-
+    public void signinAction(ActionEvent actionEvent) throws IOException {
+        closeWindow();
+        Stage signUpStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"));
+        HomepageController ctrl = new HomepageController();
+        loader.setController(ctrl);
+        Parent root = loader.load();
+        signUpStage.setTitle("Home page");
+        signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        signUpStage.show();
     }
 
     public void signupAction(ActionEvent actionEvent) throws IOException {

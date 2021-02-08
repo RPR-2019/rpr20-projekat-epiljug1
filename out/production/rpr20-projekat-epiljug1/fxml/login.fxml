@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="436.0" prefWidth="806.0" style="-fx-background-color: #29120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <stylesheets>
+      <URL value="@/css/colors.css" />
+   </stylesheets>
+
+   <children>
+      <AnchorPane layoutX="445.0" layoutY="60.0" prefHeight="330.0" prefWidth="306.0" style="-fx-background-color: #9C2827;">
+         <children>
+            <VBox layoutX="44.0" layoutY="95.0" spacing="10.0">
+               <children>
+                  <TextField fx:id="usernamefld" layoutX="44.0" layoutY="95.0" prefHeight="30.0" prefWidth="218.0" promptText="username" style="-fx-background-color: transparent; -fx-border-color: #ebebea;">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></TextField>
+                  <PasswordField fx:id="passwordfld" layoutX="44.0" layoutY="172.0" prefHeight="30.0" prefWidth="218.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #ebebea;" />
+               </children>
+            </VBox>
+            <Button fx:id="signin" layoutX="100.0" layoutY="240.0" mnemonicParsing="false" onAction="#signinAction" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #E45652;" text="Sign in" textFill="WHITE" />
+            <Label layoutX="122.0" layoutY="26.0" style="-fx-background-color: transparent;" text="Sign In" textFill="#fcfafa">
+               <font>
+                  <Font size="21.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="449.0" fitWidth="374.0" layoutY="2.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/login.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D height="650.0" width="550.0" />
+         </viewport>
+         <effect>
+            <InnerShadow blurType="GAUSSIAN" choke="0.28" height="255.0" radius="127.0" width="255.0" />
+         </effect>
+      </ImageView>
+      <Label fx:id="welcome" layoutX="25.0" layoutY="137.0" text="Welcome to Bug Tracker" textFill="WHITE" underline="true">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      <Button fx:id="signup" layoutX="616.0" layoutY="406.0" mnemonicParsing="false" onAction="#signupAction" prefHeight="23.0" prefWidth="107.0" style="-fx-background-color: transparent;" text="Sign Up" textAlignment="CENTER" textFill="WHITE" underline="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label text="Label" />
+      <Label layoutX="453.0" layoutY="403.0" prefHeight="34.0" prefWidth="191.0" text="Don't have account?" textFill="#f2f2f2">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

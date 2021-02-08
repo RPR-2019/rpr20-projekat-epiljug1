@@ -143,7 +143,7 @@ public class SignupController {
     }
 
     @FXML
-    public void signinAction(ActionEvent actionEvent) {
+    public void signinAction(ActionEvent actionEvent) throws IOException {
         System.out.println("SIGN IN ACTION");
         if(namefld.getText().trim().isEmpty()) ALERT("Name Field");
         else if(surnamefld.getText().trim().isEmpty()) ALERT("Surname Field");
@@ -158,7 +158,15 @@ public class SignupController {
                 alert.showAndWait();
             }else
             developerDAO.addDeveloper(new Developer(namefld.getText(),surnamefld.getText(),emailfld.getText(),usernamefld.getText(),passwordfld.getText()));
-
+            closeWindow();
+            Stage signUpStage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"));
+            HomepageController ctrl = new HomepageController();
+            loader.setController(ctrl);
+            Parent root = loader.load();
+            signUpStage.setTitle("Home page");
+            signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            signUpStage.show();
         }
     }
     public void closeWindow(){
