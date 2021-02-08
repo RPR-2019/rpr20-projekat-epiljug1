@@ -32,26 +32,40 @@
     -fx-text-fill: white;
 
 }
+.menu-item .label{
+      -fx-font-size: 15 pt;
+      -fx-background-color: #b27670;
+      -fx-border-color : #b27670;
+ }
 
+ .menu-item:hover{
+     -fx-background-color: #b27670;
+ }
+ .anchor {
+    -fx-background-image: url("file:/C:/Users/PiLjA/IdeaProjects/rpr20-projekat-epiljug1/resources/images/login2.jpg");
 
+ }
+/*
+#file:hover{
+
+    -fx-border-color: #485167;
+    -fx-border-width: 0px 0px 3px 0px;
+}
 .menu:hover {
     -fx-background-color: #d15452;
+     -fx-border-color: #660099;
+     -fx-border-width: 0px 0px 3px 0px;
 }
 
-.menu-item .label{
-     -fx-font-size: 15 pt;
-     -fx-background-color: #b27670;
-}
-.menu-item:hover{
-    -fx-background-color: #b27670;
-}
 
-/*
+
+
+
 
 
 .context-menu .separator {
-    -fx-padding: 0.0em 0.333333em 0.0em 0.333333em; */
-/* 0 4 0 4 *//*
+    -fx-padding: 0.0em 0.333333em 0.0em 0.333333em;
+
 
 }
 
@@ -102,7 +116,9 @@
 }
 
 .btn:hover{
--fx-background-color : #a28481;
+    -fx-background-color : #a28481;
+    -fx-border-color: #660099;
+    -fx-border-width: 0px 0px 3px 0px;
 }
 .btn:pressed{
 -fx-background-color : #b27670;
