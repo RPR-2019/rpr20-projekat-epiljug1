@@ -6,7 +6,10 @@
    -fx-control-inner-background:  #9C2827;
    -fx-prompt-text-fill: white;
 }
-
+.menu .label
+{
+    -fx-text-fill: white;
+}
 
 .ne{
    -fx-border-color: red;
@@ -15,7 +18,7 @@
 
 }
 .btn{
--fx-background-color : #f3f3f3;
+-fx-background-color : #b7b8b8;
 }
 
 .btn:hover{
