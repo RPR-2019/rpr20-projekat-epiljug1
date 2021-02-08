@@ -30,6 +30,8 @@ public class HomepageController {
     Button btnSettings;
     @FXML
     TextField date;
+    @FXML
+    Label user;
     private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy");
     public HomepageController(){
 
@@ -38,6 +40,7 @@ public class HomepageController {
 
     @FXML
     public void initialize(){
+       // user.setText("Evelin Piljug");
         date.setText(LocalDate.now().format(myFormatObj));
     }
 

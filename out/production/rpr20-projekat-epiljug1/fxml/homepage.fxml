@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="568.0" prefWidth="815.0" styleClass="anchor" stylesheets="@../css/colors.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox layoutY="-1.0" prefHeight="31.0" prefWidth="815.0" style="-fx-background-color: b27670;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox layoutY="-1.0" prefHeight="31.0" prefWidth="815.0" style="-fx-background-color: #d35b50;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <MenuBar layoutY="-1.0" prefHeight="31.0" prefWidth="477.0" stylesheets="@../css/colors.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
               <menus>
@@ -31,6 +31,17 @@
                 </Menu>
               </menus>
             </MenuBar>
+            <Pane prefHeight="33.0" prefWidth="233.0" />
+            <ImageView blendMode="DARKEN" fitHeight="33.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/user.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="user" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="33.0" prefWidth="131.0" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
          </children>
       </HBox>
       <GridPane hgap="15.0" layoutX="67.0" layoutY="76.0" prefHeight="416.0" prefWidth="682.0" vgap="15.0" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="76.0">
@@ -55,7 +66,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="btnAllProjects" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="66.0" prefWidth="125.0" styleClass="btn" stylesheets="@../css/colors.css" text="Projects you've &#10;been added to" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1">
+            <Button fx:id="btnAllProjects" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="66.0" prefWidth="125.0" styleClass="btn" stylesheets="@../css/colors.css" text="Other projects" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1">
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -115,10 +126,11 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </GridPane>
-      <HBox layoutX="680.0" layoutY="538.0" prefHeight="30.0" prefWidth="156.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="-21.0">
+      <HBox layoutY="539.0" prefHeight="30.0" prefWidth="815.0" style="-fx-background-color: #d35b50;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Label layoutX="585.0" layoutY="592.0" maxHeight="1.7976931348623157E308" prefHeight="30.0" prefWidth="49.0" text="Date:" />
-            <TextField fx:id="date" alignment="CENTER_RIGHT" editable="false" layoutX="626.0" layoutY="591.0" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: transparent;" />
+            <Pane prefHeight="30.0" prefWidth="698.0" HBox.hgrow="ALWAYS" />
+            <Label layoutX="585.0" layoutY="592.0" maxHeight="1.7976931348623157E308" prefHeight="30.0" prefWidth="41.0" text="Date:" textFill="WHITE" />
+            <TextField fx:id="date" alignment="CENTER_RIGHT" editable="false" layoutX="626.0" layoutY="591.0" prefHeight="30.0" prefWidth="95.0" style="-fx-background-color: transparent;" stylesheets="@../css/colors.css" />
          </children>
       </HBox>
    </children>

@@ -8,12 +8,25 @@ public class Project {
     private String description;
     private LocalDate dateProjectCreated;
     private Developer creator;
+    private String client_name;
+    private String client_email;
     private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+
+    public Project(String name, String description, Developer creator, String client_name, String client_email) {
+        this.name = name;
+        this.description = description;
+        this.creator = creator;
+        this.client_name = client_name;
+        this.client_email = client_email;
+        dateProjectCreated = LocalDate.now();
+    }
 
     public Project(String name, String description, Developer creator) {
         this.name = name;
         this.description = description;
         this.creator = creator;
+        client_name="";
+        client_email="";
         dateProjectCreated = LocalDate.now();
     }
 
@@ -47,5 +60,21 @@ public class Project {
 
     public void setDateProjectCreated(LocalDate date_created) {
         this.dateProjectCreated = date_created;
+    }
+
+    public String getClient_name() {
+        return client_name;
+    }
+
+    public void setClient_name(String client_name) {
+        this.client_name = client_name;
+    }
+
+    public String getClient_email() {
+        return client_email;
+    }
+
+    public void setClient_email(String client_email) {
+        this.client_email = client_email;
     }
 }
