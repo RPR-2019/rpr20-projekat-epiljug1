@@ -1,5 +1,6 @@
 
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(ˆù‘—üÿÿÿÿ8‹ºì›÷.
-U	java:S106"9Replace this use of System.out or System.err by a logger.(Ö“¤8Öî§÷.
-U	java:S106"9Replace this use of System.out or System.err by a logger.(„ø8Öî§÷.
-U	java:S106"9Replace this use of System.out or System.err by a logger.(Ö“¤8˜”ï§÷.
+W	java:S125 "<This block of commented-out lines of code should be removed.(ãéÓ8¦ˆœÁ÷.
+‹
+java:S1130"nRemove the declaration of thrown exception 'java.sql.SQLException', as it cannot be thrown from method's body.(Á¯¦ş8¦ˆœÁ÷.
+V
+java:S1128"4Remove this unused import 'java.util.regex.Pattern'.(Ã•…Äúÿÿÿÿ8ÕÓÂ÷.

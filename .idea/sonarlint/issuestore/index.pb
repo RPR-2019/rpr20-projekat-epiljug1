@@ -21,3 +21,9 @@ S
 #src/ba/unsa/etf/rpr/ProjectDAO.java,a\8\a8685c17d28b85930c25df1092d3a3b112745ca1
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+H
+.idea/libraries/lib1.xml,0\c\0c365873abaed37e63ae68c9caa59daee764f84a
+X
+(src/ba/unsa/etf/rpr/LoginController.java,4\f\4ffd5ec0d674ff8f1a61b512aef5afb88b5cd93a
+Y
+)src/ba/unsa/etf/rpr/SignupController.java,9\4\943cd6851833fd97a1f120b7e24a73380b36b01c

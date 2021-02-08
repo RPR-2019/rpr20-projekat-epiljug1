@@ -1,31 +1,31 @@
 
-G
-java:S1659"%Declare "findMax" on a separate line.(ß›Û‡üÿÿÿÿ8õ—ø›÷.
-J
-java:S1659"(Declare "addProject" on a separate line.(ß›Û‡üÿÿÿÿ8æû›÷.
-K
-java:S1659")Declare "findProject" on a separate line.(ß›Û‡üÿÿÿÿ8é°û›÷.
->
-java:S1643E"Use a StringBuilder instead.(¥…ˆÇşÿÿÿÿ8‰ƒú›÷.
+e
+java:S2095"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üı™éşÿÿÿÿ8‰ƒú›÷.
+H
+java:S1659"(Declare "addProject" on a separate line.(ß›Û‡üÿÿÿÿ8æû›÷.
+D
+java:S1659"$Declare "findId" on a separate line.(ß›Û‡üÿÿÿÿ8¤Ğ˜§÷.
+A
+java:S3010"!Remove this assignment of "conn".(”ÛÚ¬şÿÿÿÿ8ùø›÷.
+I
+java:S2115")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ8õ—ø›÷.
 W
-java:S1141G"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8‰ƒú›÷.
-K
-java:S2115")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ8õ—ø›÷.
-Y
-java:S1659"7Declare "addProjectConnectionTable" on a separate line.(ß›Û‡üÿÿÿÿ8îÂ§÷.
-?
-java:S1659V""Declare "year" on a separate line.(ÖÆ¼“8·…ş¥÷.
-<
-java:S1659V"Declare "i" on a separate line.(ÖÆ¼“8Â¦ÿ¥÷.
+java:S1659"7Declare "addProjectConnectionTable" on a separate line.(ß›Û‡üÿÿÿÿ8îÂ§÷.
+=
+java:S1659""Declare "year" on a separate line.(ÖÆ¼“8·…ş¥÷.
+E
+java:S1659"%Declare "findMax" on a separate line.(ß›Û‡üÿÿÿÿ8õ—ø›÷.
 g
-java:S2095B"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üı™éşÿÿÿÿ8‰ƒú›÷.
-@
-java:S1659V"#Declare "month" on a separate line.(ÖÆ¼“8·…ş¥÷.
-
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(éÃ²Ò8İµ¦÷.
-F
-java:S1659"$Declare "findId" on a separate line.(ß›Û‡üÿÿÿÿ8¤Ğ˜§÷.
-C
-java:S3010"!Remove this assignment of "conn".(”ÛÚ¬şÿÿÿÿ8ùø›÷.
-i
-java:S2095H"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8‰ƒú›÷.
+java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8‰ƒú›÷.
+:
+java:S1659"Declare "i" on a separate line.(ÖÆ¼“8Â¦ÿ¥÷.
+<
+java:S1643"Use a StringBuilder instead.(¥…ˆÇşÿÿÿÿ8‰ƒú›÷.
+‹
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(éÃ²Ò8İµ¦÷.
+U
+java:S1141"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8‰ƒú›÷.
+I
+java:S1659")Declare "findProject" on a separate line.(ß›Û‡üÿÿÿÿ8é°û›÷.
+>
+java:S1659"#Declare "month" on a separate line.(ÖÆ¼“8·…ş¥÷.

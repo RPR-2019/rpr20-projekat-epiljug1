@@ -19,9 +19,9 @@ public  class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
-        LoginController ctrl = new LoginController();
-        loader.setController(ctrl);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"));
+       // LoginController ctrl = new LoginController();
+      //  loader.setController(ctrl);
         Parent root = loader.load();
         primaryStage.setTitle("Sing in");
         primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));

@@ -12,12 +12,13 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.regex.Pattern;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class SignupController {
-
+    DeveloperDAO developerDAO;
     @FXML
     public TextField namefld;
 
@@ -38,6 +39,7 @@ public class SignupController {
 
     public SignupController(){
         System.out.println("SIGNUP CONTROLLER CTOR");
+        developerDAO  = DeveloperDAO.getInstance();
     }
     public static boolean isValid(String email)
     {
@@ -148,6 +150,16 @@ public class SignupController {
         else if(emailfld.getText().trim().isEmpty()) ALERT("E-mail Field");
         else if(usernamefld.getText().trim().isEmpty()) ALERT("Username Field");
         else if(passwordfld.getText().trim().isEmpty()) ALERT("Password Field");
+        else {
+            if(developerDAO.findIdOfDeveloper(usernamefld.getText())!=0){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Already exist developer with username: " + usernamefld.getText());
+                alert.showAndWait();
+            }else
+            developerDAO.addDeveloper(new Developer(namefld.getText(),surnamefld.getText(),emailfld.getText(),usernamefld.getText(),passwordfld.getText()));
+
+        }
     }
     public void closeWindow(){
         Stage stage = (Stage) namefld.getScene().getWindow();

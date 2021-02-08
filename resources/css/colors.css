@@ -4,11 +4,26 @@
 
 .ok{
    -fx-control-inner-background:  #9C2827;
+   -fx-prompt-text-fill: white;
 }
+
 
 .ne{
    -fx-border-color: red;
    -fx-border-width: 2;
    -fx-border-radius: 1;
 
+}
+
+.button{
+-fx-background-color : #F3F3F3;
+}
+
+
+.button : hover{
+-fx-background-color : #a28481;
+}
+
+.button : pressed{
+-fx-background-color : #b27670;
 }

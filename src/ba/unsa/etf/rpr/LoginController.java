@@ -30,6 +30,8 @@ public class LoginController {
     public void initialize(){
         usernamefld.getStyleClass().add("ok");
         usernamefld.setStyle("-fx-border-color: red");
+
+
         passwordfld.getStyleClass().add("ok");
         passwordfld.setStyle("-fx-border-color: red");
         usernamefld.textProperty().addListener((observableValue, oldValue, newValue) ->{
@@ -54,6 +56,7 @@ public class LoginController {
             }
         } );
     }
+
     public LoginController(){
 
     }
