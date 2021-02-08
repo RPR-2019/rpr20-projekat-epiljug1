@@ -1,9 +1,9 @@
 
-£
-java:S1186="€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(’ï¢Éýÿÿÿÿ8§ˆœÁ÷.
-£
-java:S11869"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦¯ÇÑÿÿÿÿÿ8ÙÉíÂ÷.
-N
-java:S1172A"2Remove this unused method parameter "actionEvent".(êÕ†A8ÛÆåÂ÷.
 x
-java:S1192 "VDefine a constant instead of duplicating this literal "-fx-border-color: red" 4 times.(ÛÎ’Ïüÿÿÿÿ8ùø„Ã÷.
+java:S1192 "VDefine a constant instead of duplicating this literal "-fx-border-color: red" 4 times.(ÛÎ’Ïüÿÿÿÿ8ð‚õþ÷.
+£
+java:S1186@"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(’ï¢Éýÿÿÿÿ8ð‚õþ÷.
+£
+java:S1186<"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦¯ÇÑÿÿÿÿÿ8ð‚õþ÷.
+N
+java:S1172D"2Remove this unused method parameter "actionEvent".(êÕ†A8ð‚õþ÷.

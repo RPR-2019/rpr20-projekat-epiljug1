@@ -27,3 +27,5 @@ X
 (src/ba/unsa/etf/rpr/LoginController.java,4\f\4ffd5ec0d674ff8f1a61b512aef5afb88b5cd93a
 Y
 )src/ba/unsa/etf/rpr/SignupController.java,9\4\943cd6851833fd97a1f120b7e24a73380b36b01c
+J
+.idea/libraries/javafx.xml,f\0\f01fa3cc38467805c9ad58fa176b2fe7146a6a5c

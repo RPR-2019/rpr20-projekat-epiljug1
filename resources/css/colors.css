@@ -1,5 +1,5 @@
 .okField{
-    -fx-control-border-color : greenyellow;
+    -fx-background-color : #F3F3F3;
 }
 
 .ok{
@@ -14,16 +14,14 @@
    -fx-border-radius: 1;
 
 }
-
-.button{
--fx-background-color : #F3F3F3;
+.btn{
+-fx-background-color : #f3f3f3;
 }
 
-
-.button : hover{
+.btn:hover{
 -fx-background-color : #a28481;
 }
-
-.button : pressed{
+.btn:pressed{
 -fx-background-color : #b27670;
 }
+

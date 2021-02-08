@@ -1,10 +1,14 @@
 
-t
-java:S37767"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(·òşÿÿÿÿ8ÁÔŸÂ÷.
-[	java:S106‘"9Replace this use of System.out or System.err by a logger.(æŸ¯Îıÿÿÿÿ8÷´é¾÷.
-U	java:S106("9Replace this use of System.out or System.err by a logger.(£ï«¦8÷´é¾÷.
-z
-java:S1192H"]Define a constant instead of duplicating this literal "-fx-border-color: lightgreen" 5 times.(°¾²ò8ş³™À÷.
+g
+java:S3973Ÿ"IUse indentation to denote the code conditionally executed by this "else".(ÔÍØ8ğ‚õş÷.
 y
-java:S11929"WDefine a constant instead of duplicating this literal "-fx-border-color: red" 10 times.(¼Æ‚åùÿÿÿÿ8ş³™À÷.
-j	java:S100|"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îıã8öçÁ÷.
+java:S1192;"WDefine a constant instead of duplicating this literal "-fx-border-color: red" 10 times.(¼Æ‚åùÿÿÿÿ8ğ‚õş÷.
+z
+java:S1192J"]Define a constant instead of duplicating this literal "-fx-border-color: lightgreen" 5 times.(°¾²ò8ğ‚õş÷.
+O
+java:S1128"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ8ğ‚õş÷.
+U	java:S106)"9Replace this use of System.out or System.err by a logger.(£ï«¦8ğ‚õş÷.
+t
+java:S37769"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(·òşÿÿÿÿ8ğ‚õş÷.
+j	java:S100~"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îıã8ğ‚õş÷.
+[	java:S106“"9Replace this use of System.out or System.err by a logger.(æŸ¯Îıÿÿÿÿ8ğ‚õş÷.

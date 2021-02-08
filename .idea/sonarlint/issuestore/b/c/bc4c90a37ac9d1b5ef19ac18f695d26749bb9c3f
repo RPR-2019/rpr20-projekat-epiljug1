@@ -1,6 +1,7 @@
 
-W	java:S125 "<This block of commented-out lines of code should be removed.(ãéÓ8¦ˆœÁ÷.
-‹
-java:S1130"nRemove the declaration of thrown exception 'java.sql.SQLException', as it cannot be thrown from method's body.(Á¯¦ş8¦ˆœÁ÷.
 V
-java:S1128"4Remove this unused import 'java.util.regex.Pattern'.(Ã•…Äúÿÿÿÿ8ÕÓÂ÷.
+java:S1128"4Remove this unused import 'java.util.regex.Pattern'.(Ã•…Äúÿÿÿÿ8ï‚õş÷.
+X	java:S125"<This block of commented-out lines of code should be removed.(Œí©×8ï‚õş÷.
+‹
+java:S1130"nRemove the declaration of thrown exception 'java.sql.SQLException', as it cannot be thrown from method's body.(Á¯¦ş8ï‚õş÷.
+W	java:S125 "<This block of commented-out lines of code should be removed.(ãéÓ8ï‚õş÷.
