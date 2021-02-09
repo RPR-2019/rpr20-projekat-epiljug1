@@ -19,7 +19,8 @@ public class ProjectDAO {
     }
 
     private static Connection conn;
-    private PreparedStatement getAllProjects,findProject, addProject, findMax,findId,addProjectConnectionTable, getAllProjectsOfDeveloper;
+    private PreparedStatement getAllProjects,findProject, addProject, findMax,findId,addProjectConnectionTable,
+            getAllProjectsOfDeveloper, getAllProjectsUserIsAssigned;
 
     public static Connection getConn() {
         return conn;
@@ -56,6 +57,7 @@ public class ProjectDAO {
             findMax = conn.prepareStatement("SELECT Max(project_id) from project");
             findId = conn.prepareStatement("SELECT project_id FROM project where   naziv=? and opis=? ");
             addProjectConnectionTable = conn.prepareStatement("INSERT INTO connections values(?,?)");
+            getAllProjectsUserIsAssigned = conn.prepareStatement("select project.* from project,connections where connections.pr_id=project.project_id and connections.de_id=?");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -144,6 +146,24 @@ public class ProjectDAO {
         }catch (SQLException sqlException){
             sqlException.printStackTrace();
         }
+        return allProjects;
+    }
+
+    public ArrayList<Project> getAllProjectsForDeveloper(Developer developer){
+        int id = instanceDeveloper.findIdOfDeveloper(developer.getUsername());
+        ArrayList<Project> allProjects = new ArrayList<>();
+        try{
+            getAllProjectsUserIsAssigned.setInt(1,id);
+            ResultSet rs = getAllProjectsUserIsAssigned.executeQuery();
+            while (rs.next()){
+                Project novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""),rs.getString(6),rs.getString(7));
+                novi.setDateProjectCreated(getDate(rs.getString(5)));
+                allProjects.add(novi);
+            }
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+
         return allProjects;
     }
 

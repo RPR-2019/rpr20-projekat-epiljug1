@@ -46,6 +46,16 @@ public class HomepageController {
         date.setText(LocalDate.now().format(myFormatObj));
     }
 
+    public void listAllProjects(ActionEvent actionEvent) throws IOException {
+        Stage allProjects = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/otherProjects.fxml"));
+        OtherProjectsController ctrl = new OtherProjectsController(developer);
+        loader.setController(ctrl);
+        Parent root = loader.load();
+        allProjects.setTitle("Other projects");
+        allProjects.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        allProjects.show();
+    }
     public void listAllYourProjects(ActionEvent actionEvent) throws IOException {
 
         Stage allProjects = new Stage();
@@ -59,12 +69,8 @@ public class HomepageController {
     }
     @FXML
     public void logoutAction(ActionEvent actionEvent) throws IOException {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText("");
-        alert.setContentText("Do you want to logout?");
 
-        Optional<ButtonType> result = alert.showAndWait();
+        Optional<ButtonType> result = AlertMaker.alertCONFIRMATION("","Do you want to log out?");
 
         if (result.get() == ButtonType.OK){
             closeWindow();

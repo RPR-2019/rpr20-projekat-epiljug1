@@ -1,30 +1,30 @@
 
-T
-java:S1659"9Declare "findDeveloperByIdorUsername" on a separate line.(Ê„Ë8âûÓš÷.
-?
-java:S1659"$Declare "findId" on a separate line.(Ê„Ë8ßÈ¨÷.
-Y
-java:S1068">Remove this unused "getAllProjectsForDeveloper" private field.(Ê„Ë8óÓ§÷.
-S
-java:S1659"8Declare "getAllProjectsForDeveloper" on a separate line.(Ê„Ë8ø¦³›÷.
-@
-java:S1659"%Declare "findMax" on a separate line.(Ê„Ë8‚É¥¦÷.
-I
-java:S2115")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ8Ñ²¬™÷.
-X	java:S106"9Replace this use of System.out or System.err by a logger.(„Ù×ıÿÿÿÿ8ä“„›÷.
-g
-java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8„¥ü§÷.
-U
-java:S1141"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8¯ğ±™÷.
+[
+java:S1068">Remove this unused "getAllProjectsForDeveloper" private field.(Ê„Ë8óÓ§÷.
+>
+java:S1643>"Use a StringBuilder instead.(¥…ˆÇşÿÿÿÿ8¯ğ±™÷.
+V
+java:S1659"9Declare "findDeveloperByIdorUsername" on a separate line.(Ê„Ë8ø¦³›÷.
+j
+java:S2095Œ"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8¯ğ±™÷.
+Z	java:S106T"9Replace this use of System.out or System.err by a logger.(„Ù×ıÿÿÿÿ8ä“„›÷.
 A
-java:S3010"!Remove this assignment of "conn".(”ÛÚ¬şÿÿÿÿ8Ñ²¬™÷.
-E
-java:S1659"*Declare "addDeveloper" on a separate line.(Ê„Ë8óÓ§÷.
+java:S1659"$Declare "findId" on a separate line.(Ê„Ë8‚É¥¦÷.
+C
+java:S3010"!Remove this assignment of "conn".(”ÛÚ¬şÿÿÿÿ8Ñ²¬™÷.
 g
-java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8¯ğ±™÷.
-<
-java:S1643"Use a StringBuilder instead.(¥…ˆÇşÿÿÿÿ8¯ğ±™÷.
-e
-java:S2095"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üı™éşÿÿÿÿ8¯ğ±™÷.
-‹
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬ˆíò8® Öš÷.
+java:S2095;"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üı™éşÿÿÿÿ8¯ğ±™÷.
+B
+java:S1659"%Declare "findMax" on a separate line.(Ê„Ë8ßÈ¨÷.
+i
+java:S2095A"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8„¥ü§÷.
+
+java:S1319N"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬ˆíò8® Öš÷.
+U
+java:S1659"8Declare "getAllProjectsForDeveloper" on a separate line.(Ê„Ë8óÓ§÷.
+K
+java:S2115")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ8Ñ²¬™÷.
+W
+java:S1141@"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8¯ğ±™÷.
+G
+java:S1659"*Declare "addDeveloper" on a separate line.(Ê„Ë8âûÓš÷.

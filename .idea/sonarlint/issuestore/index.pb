@@ -31,3 +31,17 @@ J
 .idea/libraries/javafx.xml,f\0\f01fa3cc38467805c9ad58fa176b2fe7146a6a5c
 [
 +src/ba/unsa/etf/rpr/HomepageController.java,1\a\1a2fe259b1a5567bd95d3940674a32ac4d4febef
+S
+#src/ba/unsa/etf/rpr/AlertMaker.java,7\1\7145829e0365131f3d28bb09597249972bec278b
+e
+5out/production/rpr20-projekat-epiljug1/css/colors.css,b\0\b01439237a15918018f0bd99157fab6815f46780
+i
+9out/production/rpr20-projekat-epiljug1/css/dark-theme.css,8\9\89ea18adbe107d74e2915eff5590a8b54d2eef72
+i
+9out/production/rpr20-projekat-epiljug1/fxml/homepage.fxml,f\b\fb12e112198cbe4bba31bc2ff6b43e4069ecb20c
+f
+6out/production/rpr20-projekat-epiljug1/fxml/login.fxml,3\3\33c1c30f78a975a6946f83ed385623fceaf49ca4
+m
+=out/production/rpr20-projekat-epiljug1/fxml/userProjects.fxml,5\c\5ca2c2ce5cc7a40731cb5978556067e936f01794
+_
+/src/ba/unsa/etf/rpr/UserProjectsController.java,9\f\9fe155aeb3110c219e4b132871ab6292269cc47e

@@ -9,24 +9,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="436.0" prefWidth="806.0" style="-fx-background-color: #29120F;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <stylesheets>
-      <URL value="@/css/colors.css" />
-   </stylesheets>
+<AnchorPane prefHeight="463.0" prefWidth="818.0" style="-fx-background-color: #2A2E37;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 
    <children>
-      <AnchorPane layoutX="445.0" layoutY="60.0" prefHeight="330.0" prefWidth="306.0" style="-fx-background-color: #9C2827;">
+      <AnchorPane layoutX="454.0" layoutY="68.0" prefHeight="330.0" prefWidth="306.0" style="-fx-background-color: #9C2827;">
          <children>
-            <VBox layoutX="44.0" layoutY="95.0" spacing="10.0">
+            <VBox layoutX="44.0" layoutY="95.0" spacing="10.0" stylesheets="@../css/colors.css">
                <children>
-                  <TextField fx:id="usernamefld" layoutX="44.0" layoutY="95.0" prefHeight="30.0" prefWidth="218.0" promptText="username" style="-fx-background-color: transparent; -fx-border-color: #ebebea;">
+                  <TextField fx:id="usernamefld" layoutX="44.0" layoutY="95.0" prefHeight="30.0" prefWidth="218.0" promptText="username" style="-fx-background-color: transparent; -fx-border-color: #ebebea;" stylesheets="@../css/colors.css">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets></TextField>
-                  <PasswordField fx:id="passwordfld" layoutX="44.0" layoutY="172.0" prefHeight="30.0" prefWidth="218.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #ebebea;" />
                </children>
             </VBox>
-            <Button fx:id="signin" defaultButton="true" layoutX="100.0" layoutY="240.0" mnemonicParsing="false" onAction="#signinAction" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #E45652;" text="Sign in" textFill="WHITE">
+            <Button fx:id="signin" defaultButton="true" layoutX="100.0" layoutY="240.0" mnemonicParsing="false" onAction="#signinAction" prefHeight="30.0" prefWidth="107.0" stylesheets="@../css/dark-theme.css" text="Sign in" textFill="WHITE">
                <font>
                   <Font size="19.0" />
                </font></Button>
@@ -34,9 +30,10 @@
                <font>
                   <Font size="21.0" />
                </font></Label>
+            <PasswordField fx:id="passwordfld" layoutX="44.0" layoutY="133.0" prefHeight="30.0" prefWidth="218.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #ebebea;" stylesheets="@../css/colors.css" />
          </children>
       </AnchorPane>
-      <ImageView fitHeight="449.0" fitWidth="374.0" layoutY="2.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="465.0" fitWidth="394.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/login.jpg" />
          </image>
@@ -52,16 +49,19 @@
             <Font name="System Bold" size="28.0" />
          </font>
       </Label>
-      <Button fx:id="signup" layoutX="616.0" layoutY="406.0" mnemonicParsing="false" onAction="#signupAction" prefHeight="23.0" prefWidth="107.0" style="-fx-background-color: transparent;" text="Sign Up" textAlignment="CENTER" textFill="WHITE" underline="true">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Label text="Label" />
-      <Label layoutX="453.0" layoutY="403.0" prefHeight="34.0" prefWidth="191.0" text="Don't have account?" textFill="#f2f2f2">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
+      <HBox layoutX="471.0" layoutY="412.0">
+         <children>
+            <Label layoutX="453.0" layoutY="408.0" prefHeight="34.0" prefWidth="191.0" text="Don't have account?" textFill="#f2f2f2">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Button fx:id="signup" layoutX="630.0" layoutY="404.0" mnemonicParsing="false" onAction="#signupAction" prefHeight="20.0" prefWidth="81.0" style="-fx-border-color: transparent;" styleClass="signup" stylesheets="@../css/dark-theme.css" text="Sign Up" textAlignment="CENTER" textFill="WHITE" underline="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

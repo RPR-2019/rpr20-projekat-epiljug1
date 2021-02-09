@@ -1,0 +1,8 @@
+
+X	java:S125"<This block of commented-out lines of code should be removed.(øÌ’Ã8¶€ç ø.
+G
+java:S1481"*Remove this unused "stage" local variable.(ØşéØ8¶€ç ø.
+V
+java:S1854"9Remove this useless assignment to local variable "stage".(ØşéØ8¶€ç ø.
+\
+java:S1118":Add a private constructor to hide the implicit public one.(‚«§éùÿÿÿÿ8Å¤ä ø.
