@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class SignupController {
-    DeveloperDAO developerDAO;
+
     @FXML
     public TextField namefld;
 
@@ -37,12 +37,15 @@ public class SignupController {
     @FXML
     public Button signin;
 
+    private DeveloperDAO developerDAO;
+    private Developer developer;
+
+
     public SignupController(){
         System.out.println("SIGNUP CONTROLLER CTOR");
         developerDAO  = DeveloperDAO.getInstance();
     }
-    public static boolean isValid(String email)
-    {
+    public static boolean isValid(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
@@ -53,6 +56,7 @@ public class SignupController {
             return false;
         return pat.matcher(email).matches();
     }
+
     @FXML
     public void initialize(){
         namefld.getStyleClass().add("ok");
@@ -144,6 +148,8 @@ public class SignupController {
 
     @FXML
     public void signinAction(ActionEvent actionEvent) throws IOException {
+
+
         System.out.println("SIGN IN ACTION");
         if(namefld.getText().trim().isEmpty()) ALERT("Name Field");
         else if(surnamefld.getText().trim().isEmpty()) ALERT("Surname Field");
@@ -156,17 +162,20 @@ public class SignupController {
                 alert.setTitle("Error");
                 alert.setContentText("Already exist developer with username: " + usernamefld.getText());
                 alert.showAndWait();
-            }else
-            developerDAO.addDeveloper(new Developer(namefld.getText(),surnamefld.getText(),emailfld.getText(),usernamefld.getText(),passwordfld.getText()));
-            closeWindow();
-            Stage signUpStage = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"));
-            HomepageController ctrl = new HomepageController();
-            loader.setController(ctrl);
-            Parent root = loader.load();
-            signUpStage.setTitle("Home page");
-            signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            signUpStage.show();
+            }else {
+                developer = new Developer(namefld.getText(),surnamefld.getText(),emailfld.getText(),usernamefld.getText(),passwordfld.getText());
+                developerDAO.addDeveloper(developer);
+
+                closeWindow();
+                Stage signUpStage = new Stage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"));
+                HomepageController ctrl = new HomepageController(developer);
+                loader.setController(ctrl);
+                Parent root = loader.load();
+                signUpStage.setTitle("Home page");
+                signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+                signUpStage.show();
+            }
         }
     }
     public void closeWindow(){

@@ -5,12 +5,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import javafx.scene.control.Button;
 import java.io.IOException;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
@@ -56,21 +53,32 @@ public class LoginController {
             }
         } );
     }
-
+    private DeveloperDAO developerDAO;
+    private Developer developer;
     public LoginController(){
+        developerDAO=DeveloperDAO.getInstance();
 
     }
 
     public void signinAction(ActionEvent actionEvent) throws IOException {
-        closeWindow();
-        Stage signUpStage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"));
-        HomepageController ctrl = new HomepageController();
-        loader.setController(ctrl);
-        Parent root = loader.load();
-        signUpStage.setTitle("Home page");
-        signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        signUpStage.show();
+        if(usernamefld.getText().trim().isEmpty()){
+            AlertMaker.alertERROR("Error occured","Username field is empty!");
+        }else if(passwordfld.getText().trim().isEmpty()){
+            AlertMaker.alertERROR("Error occured","Password fielad is empty!");
+        }else if(developerDAO.findIdOfDeveloper(usernamefld.getText())==0){
+            AlertMaker.alertERROR("Error occured","Developer with username: \""+usernamefld.getText()+"\" does not exsist!");
+        }else {
+            developer = developerDAO.findDeveloperByIDorUsername(0, usernamefld.getText());
+            closeWindow();
+            Stage signUpStage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"));
+            HomepageController ctrl = new HomepageController(developer);
+            loader.setController(ctrl);
+            Parent root = loader.load();
+            signUpStage.setTitle("Home page");
+            signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            signUpStage.show();
+        }
     }
 
     public void signupAction(ActionEvent actionEvent) throws IOException {

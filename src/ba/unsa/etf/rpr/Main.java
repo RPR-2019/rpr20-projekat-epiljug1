@@ -18,10 +18,15 @@ public  class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+//    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/userProjects.fxml"));
+//    UserProjectsController ctrl = new UserProjectsController(new Developer("Evelin","Piljug","epiljug1@etf.unsa.ba","pilja","pass"));
+//    loader.setController(ctrl);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+
         LoginController ctrl = new LoginController();
         loader.setController(ctrl);
+
 //        HomepageController ctrl = new HomepageController();
 //        loader.setController(ctrl);
         Parent root = loader.load();

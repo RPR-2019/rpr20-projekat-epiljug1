@@ -16,7 +16,17 @@
     -fx-background-color: #bb6a68;
     -fx-padding: 0em 0em 0em 0em;
     -fx-text-fill: white;
-}*/
+}
+* {
+    -fx-primary : #2A2E37;
+    -fx-secondary : #FFFF8D;
+    -fx-primarytext : #B2B2B2;
+    -fx-blue: #1976D2;
+    -fx-red: #FF0000;
+    -fx-color-1:#1976D2;
+}
+#d35b50
+*/
 .menu-bar .menu-button:hover, .menu-bar .menu-button:focused, .menu-bar .menu-button:showing {
     -fx-background: -fx-accent;
     -fx-background-color: #2e67bd;
@@ -26,7 +36,7 @@
 
 
 .menu-bar{
-  -fx-background-color: #d35b50;
+  -fx-background-color: #2A2E37;
 
 }
 

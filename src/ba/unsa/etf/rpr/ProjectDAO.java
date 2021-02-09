@@ -3,7 +3,10 @@ package ba.unsa.etf.rpr;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -88,15 +91,9 @@ public class ProjectDAO {
         }
     }
 
-    public    LocalDate getDate(String date){
-        int day=0, month=0, year=0, i=0;
-        for(String x : date.split(".")){
-            if(i==0) day = Integer.parseInt(x);
-            if(i==1) month = Integer.parseInt(x);
-            if(i==2) year = Integer.parseInt(x);
-            i++;
-        }
-        return LocalDate.of(year,month,day);
+    public  LocalDate getDate(String date){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        return LocalDate.parse(date, formatter);
     }
 
     public Project findProject(String naziv, int id){
@@ -159,6 +156,7 @@ public class ProjectDAO {
             while (rs.next()){
                 Project novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""),rs.getString(6),rs.getString(7));
                 novi.setDateProjectCreated(getDate(rs.getString(5)));
+
                 allProjects.add(novi);
             }
         }catch (SQLException sqlException){

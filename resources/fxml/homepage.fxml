@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="568.0" prefWidth="815.0" styleClass="anchor" stylesheets="@../css/colors.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="568.0" prefWidth="815.0" styleClass="anchor" stylesheets="@../css/dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox layoutY="-1.0" prefHeight="31.0" prefWidth="815.0" style="-fx-background-color: #d35b50;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox layoutY="-1.0" prefHeight="31.0" prefWidth="815.0" style="-fx-background-color: #272c3a;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <MenuBar layoutY="-1.0" prefHeight="31.0" prefWidth="477.0" stylesheets="@../css/colors.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <MenuBar layoutY="-1.0" prefHeight="31.0" prefWidth="477.0" stylesheets="@../css/dark-theme.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
               <menus>
                 <Menu fx:id="file" mnemonicParsing="false" text="File">
                   <items>
@@ -31,13 +29,13 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <Pane prefHeight="33.0" prefWidth="233.0" />
-            <ImageView blendMode="DARKEN" fitHeight="33.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+            <Pane prefHeight="33.0" prefWidth="204.0" />
+            <ImageView fitHeight="33.0" fitWidth="40.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/user.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="user" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="33.0" prefWidth="131.0" textFill="WHITE">
+            <Label fx:id="user" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="33.0" prefWidth="128.0" textFill="WHITE" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="16.0" />
                </font>
@@ -55,7 +53,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnYourProjects" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#listAllYourProjects" prefHeight="151.0" prefWidth="169.0" styleClass="btn" stylesheets="@../css/colors.css" text="Your projects" textFill="WHITE">
+            <Button fx:id="btnYourProjects" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#listAllYourProjects" prefHeight="151.0" prefWidth="169.0" text="Your projects" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -66,7 +64,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="btnAllProjects" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="66.0" prefWidth="125.0" styleClass="btn" stylesheets="@../css/colors.css" text="Other projects" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1">
+            <Button fx:id="btnAllProjects" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="66.0" prefWidth="125.0" text="Other projects" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1">
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -77,7 +75,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="btnLogOut" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#logoutAction" styleClass="btn" stylesheets="@../css/colors.css" text="Log out" textFill="WHITE" GridPane.rowIndex="1">
+            <Button fx:id="btnLogOut" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#logoutAction" text="Log out" textFill="WHITE" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -88,7 +86,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="btnAddProject" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="btn" stylesheets="@../css/colors.css" text="Add a new project" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="btnAddProject" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add a new project" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -99,7 +97,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="btnAllDev" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="159.0" prefWidth="195.0" styleClass="btn" stylesheets="@../css/colors.css" text="List all developers" textFill="WHITE" GridPane.columnIndex="2">
+            <Button fx:id="btnAllDev" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="159.0" prefWidth="195.0" text="List all developers" textFill="WHITE" GridPane.columnIndex="2">
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -110,7 +108,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="btnSettings" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="btn" stylesheets="@../css/colors.css" text="Settings" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="btnSettings" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Settings" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -126,7 +124,7 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </GridPane>
-      <HBox layoutY="539.0" prefHeight="30.0" prefWidth="815.0" style="-fx-background-color: #d35b50;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <HBox layoutY="539.0" prefHeight="30.0" prefWidth="815.0" style="-fx-background-color: #272c3a;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Pane prefHeight="30.0" prefWidth="698.0" HBox.hgrow="ALWAYS" />
             <Label layoutX="585.0" layoutY="592.0" maxHeight="1.7976931348623157E308" prefHeight="30.0" prefWidth="41.0" text="Date:" textFill="WHITE" />

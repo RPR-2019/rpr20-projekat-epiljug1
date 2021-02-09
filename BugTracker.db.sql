@@ -2,8 +2,8 @@ BEGIN TRANSACTION;
 CREATE TABLE IF NOT EXISTS "connections" (
 	"pr_id"	INTEGER,
 	"de_id"	INTEGER,
-	FOREIGN KEY("de_id") REFERENCES "developer"("developer_id"),
-	FOREIGN KEY("pr_id") REFERENCES "project"("project_id")
+	FOREIGN KEY("pr_id") REFERENCES "project"("project_id"),
+	FOREIGN KEY("de_id") REFERENCES "developer"("developer_id")
 );
 CREATE TABLE IF NOT EXISTS "developer" (
 	"developer_id"	INTEGER,
@@ -14,8 +14,6 @@ CREATE TABLE IF NOT EXISTS "developer" (
 	"password"	TEXT,
 	PRIMARY KEY("developer_id")
 );
-INSERT INTO "developer" VALUES (1,'Evelin','Piljug','epiljug1@etf.unsa.ba','pilja','pass');
-INSERT INTO "developer" VALUES (2,'Evelin2','Piljug2','epiljug2@etf.unsa.ba','pilja2','pass');
 CREATE TABLE IF NOT EXISTS "bug" (
 	"bug_id"	INTEGER,
 	"bug_name"	TEXT,
@@ -38,6 +36,10 @@ CREATE TABLE IF NOT EXISTS "project" (
 	PRIMARY KEY("project_id"),
 	FOREIGN KEY("creator_id") REFERENCES "developer"("developer_id")
 );
-INSERT INTO "project" VALUES (1,'projekat1','opis1',1,NULL,NULL,NULL);
-INSERT INTO "project" VALUES (2,'projekat2','opis2',2,NULL,NULL,NULL);
+INSERT INTO "developer" VALUES (1,'Evelin','Piljug','epiljug1@etf.unsa.ba','pilja','pass');
+INSERT INTO "developer" VALUES (2,'Evelin2','Piljug2','epiljug2@etf.unsa.ba','pilja2','pass');
+INSERT INTO "developer" VALUES (3,'test','test','test','test','test');
+INSERT INTO "developer" VALUES (4,'Novi','korisniilk','mail@mail.com','username','password');
+INSERT INTO "project" VALUES (1,'projekat1','opis1',1,'09.02.2021','kompanije.doo','client@mail.com');
+INSERT INTO "project" VALUES (2,'projekat2','opis2',2,'09.02.2021','kompanija2.doo','client2@mail.com');
 COMMIT;

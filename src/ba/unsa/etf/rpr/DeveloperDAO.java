@@ -114,7 +114,7 @@ public class DeveloperDAO {
         try{
             findId.setString(1,username);
             ResultSet rs = findId.executeQuery();
-            return rs.getInt(1);
+            if(rs.next())return rs.getInt(1);
         }catch (SQLException sqlException){
             sqlException.printStackTrace();
         }
