@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import java.net.*?>
 <?import javafx.geometry.*?>
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import java.net.URL?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="664.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="664.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@/css/dark-theme.css" />
     </stylesheets>
@@ -39,7 +38,6 @@
    <right>
       <VBox prefHeight="450.0" prefWidth="125.0" spacing="5.0" style="-fx-background-color: #2A2E37;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="31.0" prefWidth="112.0" />
             <Button mnemonicParsing="false" onAction="#openProjectAction" prefHeight="39.0" prefWidth="126.0" stylesheets="@../css/dark-theme.css" text="Open project" VBox.vgrow="NEVER" />
             <Button mnemonicParsing="false" onAction="#editProjectAction" prefHeight="39.0" prefWidth="124.0" stylesheets="@../css/dark-theme.css" text="Edit" VBox.vgrow="NEVER" />
             <Button mnemonicParsing="false" onAction="#closeWindow" prefHeight="39.0" prefWidth="124.0" stylesheets="@../css/dark-theme.css" text="Close" />

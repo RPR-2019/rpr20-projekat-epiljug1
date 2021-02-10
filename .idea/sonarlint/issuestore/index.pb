@@ -47,13 +47,7 @@ _
 /src/ba/unsa/etf/rpr/UserProjectsController.java,9\f\9fe155aeb3110c219e4b132871ab6292269cc47e
 `
 0src/ba/unsa/etf/rpr/OtherProjectsController.java,0\1\01d0243ec13fdc92221158b5e246990c16654196
-N
-resources/fxml/addProject.fxml,a\6\a6dd03c8e17f6faeaee0dc5ac4b1495268540c24
 ]
 -src/ba/unsa/etf/rpr/AddProjectController.java,1\9\19a5d4ad7c855349a5bc1137df244849a5d464b4
-R
-"resources/fxml/listDevelopers.fxml,6\4\6409ec4120b977e79895844f9d6470c4e1beb23e
 a
 1src/ba/unsa/etf/rpr/ListDevelopersController.java,b\f\bf0c869844a16df2ed039e826aa1748b576c445b
-Q
-!resources/fxml/otherProjects.fxml,9\d\9d5f21a4f4b64121e12c44c159e54e1411ec19f8

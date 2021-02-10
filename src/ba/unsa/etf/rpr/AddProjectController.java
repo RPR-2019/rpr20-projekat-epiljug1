@@ -39,6 +39,8 @@ public class AddProjectController {
     public void addAction(ActionEvent actionEvent){
         if(check(nameFld.getText(),"Name") && check(descriptionFld.getText(),"Description") && check(clientNameFld.getText(),"Client name field") && check(clientEmailFld.getText(),"Client e-mail")){
             projectDAO.addNewProject(new Project(nameFld.getText(),descriptionFld.getText(),developer,clientNameFld.getText(),clientEmailFld.getText()));
+            AlertMaker.alertINFORMATION("Information","Project has been successfully added!");
+            closeWindowAction(actionEvent);
         }
     }
 

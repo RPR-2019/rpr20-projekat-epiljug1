@@ -16,7 +16,13 @@ public class AlertMaker {
         styleAlert(alert);
         alert.showAndWait();
     }
-
+    public static void alertINFORMATION(String title, String content){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setContentText(content);
+        styleAlert(alert);
+        alert.showAndWait();
+    }
     public static Optional<ButtonType> alertCONFIRMATION(String title, String content){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");

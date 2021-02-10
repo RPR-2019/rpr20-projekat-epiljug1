@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class BugDAO {
 
-    private static Connection conn;
+    private  Connection conn;
     private static BugDAO instance = null;
     private ProjectDAO instanceProjectDAO = ProjectDAO.getInstance();
     public void backToDefaultDatabase() throws SQLException {
@@ -17,7 +17,7 @@ public class BugDAO {
 
     private PreparedStatement getAllBugs,findBugByID, addBug, findMax ;
 
-    public static Connection getConn() {
+    public  Connection getConn() {
         return conn;
     }
 
@@ -29,7 +29,10 @@ public class BugDAO {
     private BugDAO(){
         try{
             //connecting with database
-            conn = DriverManager.getConnection("jdbc:sqlite:BugTracker.db");
+            if(DeveloperDAO.getConn()!=null)
+                conn = DeveloperDAO.getConn();
+            else
+                conn = DriverManager.getConnection("jdbc:sqlite:BugTracker.db");
         }catch (SQLException e){
             e.printStackTrace();
         }

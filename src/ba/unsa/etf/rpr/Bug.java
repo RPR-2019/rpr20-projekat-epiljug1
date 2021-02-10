@@ -10,7 +10,7 @@ public class Bug {
     private LocalDate date_created;
     private Project project;
     private String complexity;
-    private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+    private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
 
     public Bug(String bug_name, String bug_type, String status, Project project, String complexity ) {
         this.bug_name = bug_name;

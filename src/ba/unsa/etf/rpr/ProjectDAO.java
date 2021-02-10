@@ -12,17 +12,17 @@ import java.util.Scanner;
 
 public class ProjectDAO {
     private static ProjectDAO instance = null;
-    private static DeveloperDAO instanceDeveloper = DeveloperDAO.getInstance();
+    private static DeveloperDAO instanceDeveloper;
 
     public void backToDefaultDataBase() throws SQLException {
         instanceDeveloper.backToDefaultDatabase();
     }
 
-    private static Connection conn;
+    private  Connection conn;
     private PreparedStatement getAllProjects,findProject, addProject, findMax,findId,addProjectConnectionTable,
             getAllProjectsOfDeveloper, getAllProjectsUserIsAssigned;
 
-    public static Connection getConn() {
+    public  Connection getConn() {
         return conn;
     }
 
@@ -32,9 +32,13 @@ public class ProjectDAO {
     }
 
     private ProjectDAO(){
+        instanceDeveloper = DeveloperDAO.getInstance();
         try{
             //connecting with database
-            conn = DriverManager.getConnection("jdbc:sqlite:BugTracker.db");
+            if(DeveloperDAO.getConn()!=null)
+                conn = DeveloperDAO.getConn();
+            else
+                conn = DriverManager.getConnection("jdbc:sqlite:BugTracker.db");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -94,7 +98,7 @@ public class ProjectDAO {
     }
 
     public  LocalDate getDate(String date){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
         return LocalDate.parse(date, formatter);
     }
 
@@ -106,6 +110,7 @@ public class ProjectDAO {
             ResultSet rs = findProject.executeQuery();
             novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""),rs.getString(6),rs.getString(7));
             novi.setDateProjectCreated(getDate(rs.getString(5)));
+
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -115,7 +120,8 @@ public class ProjectDAO {
     public void addNewProject(Project project){
         try{
             int id = maxIndex();
-            int idDevelopera = instanceDeveloper.findIdOfDeveloper(project.getCreator().getUsername());
+          //  int idDevelopera = instanceDeveloper.findIdOfDeveloper(project.getCreator().getUsername());
+           int idDevelopera = 1;
             addProject.setInt(1,id);
             addProject.setString(2,project.getName());
             addProject.setString(3,project.getDescription());
@@ -130,6 +136,7 @@ public class ProjectDAO {
 //            addProjectConnectionTable.executeUpdate();
 
             addProject.executeUpdate();
+
 
         }catch (SQLException sqlException){
             sqlException.printStackTrace();
