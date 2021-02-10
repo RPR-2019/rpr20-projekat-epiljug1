@@ -57,6 +57,15 @@
     -fx-text-fill: derive(-fx-secondary, 20%);
 }
 
+.text-field2
+{
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-secondary;
+    -fx-border-width: 0px 0px 1.5px 0px;
+    -fx-text-fill: white;
+    -fx-font-size : 15pt;
+}
+
 /*Login Screen Specific*/
 
 
@@ -69,17 +78,27 @@
 /*Main Screen CSS Styling starts here*/
 
 /*TablPane styling*/
+
+.tab:selected {
+
+    -fx-border-color: #660099;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
 .tab{
     -fx-background-color: -fx-primary;
+    -fx-border-color: transparent;
 }
 
 .tab-header-background{
     -fx-background-color: -fx-primary;
+        -fx-border-color: transparent;
 }
 
 .tab-label{
     -fx-text-fill: -fx-secondary;
-    -fx-font-size: 10pt;
+    -fx-background-color: transparent;
+    -fx-font-size: 13pt;
 }
 
 

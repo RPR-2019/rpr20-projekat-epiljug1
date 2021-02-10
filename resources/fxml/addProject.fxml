@@ -55,7 +55,7 @@
       </GridPane>
       <HBox layoutX="170.0" layoutY="366.0" prefHeight="39.0" prefWidth="212.0" spacing="10.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#addAction" prefHeight="39.0" prefWidth="98.0" stylesheets="@../css/dark-theme.css" text="Add" />
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#addAction" prefHeight="39.0" prefWidth="98.0" stylesheets="@../css/dark-theme.css" text="Add" />
             <Button cancelButton="true" mnemonicParsing="false" onAction="#closeWindowAction" prefHeight="39.0" prefWidth="98.0" stylesheets="@../css/dark-theme.css" text="Cancle" />
          </children>
       </HBox>
