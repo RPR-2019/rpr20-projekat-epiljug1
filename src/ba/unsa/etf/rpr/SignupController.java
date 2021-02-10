@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr;
 
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -165,16 +166,62 @@ public class SignupController {
             }else {
                 developer = new Developer(namefld.getText(),surnamefld.getText(),emailfld.getText(),usernamefld.getText(),passwordfld.getText());
                 developerDAO.addDeveloper(developer);
-
                 closeWindow();
+
                 Stage signUpStage = new Stage();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"));
                 HomepageController ctrl = new HomepageController(developer);
-                loader.setController(ctrl);
-                Parent root = loader.load();
-                signUpStage.setTitle("Home page");
-                signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+
+                final Parent[] roots={null};
+
+                Task<Boolean> loadingTask =new Task<> () {
+                    @Override
+                    protected Boolean call() {
+
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"));
+                        loader.setController(ctrl);
+                        try {
+                            roots[0] = loader.load();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            Thread.sleep(1500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        return true;
+                    }
+                };
+
+                loadingTask.setOnSucceeded(workerStateEvent ->{
+
+                    signUpStage.setScene(new Scene(roots[0],USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+                    signUpStage.show();
+                });
+
+
+                Parent secRoot = null;
+                try{
+                    secRoot=FXMLLoader.load(getClass().getResource("/fxml/loading.fxml"));
+                    secRoot.setVisible(true);
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+
+                signUpStage.setScene(new Scene(secRoot,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
                 signUpStage.show();
+
+                Thread thread = new Thread(loadingTask);
+                thread.start();
+//                closeWindow();
+//                Stage signUpStage = new Stage();
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"));
+//                HomepageController ctrl = new HomepageController(developer);
+//                loader.setController(ctrl);
+//                Parent root = loader.load();
+//                signUpStage.setTitle("Home page");
+//                signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+//                signUpStage.show();
             }
         }
     }

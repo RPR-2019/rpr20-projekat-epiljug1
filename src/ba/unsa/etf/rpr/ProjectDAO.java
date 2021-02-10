@@ -20,7 +20,7 @@ public class ProjectDAO {
 
     private  Connection conn;
     private PreparedStatement getAllProjects,findProject, addProject, findMax,findId,addProjectConnectionTable,
-            getAllProjectsOfDeveloper, getAllProjectsUserIsAssigned;
+            getAllProjectsOfDeveloper, getAllProjectsUserIsAssigned, updateProject;
 
     public  Connection getConn() {
         return conn;
@@ -55,6 +55,7 @@ public class ProjectDAO {
         }
 
         try{
+            updateProject = conn.prepareStatement("update project set naziv=?, opis=?, client_name=?,client_email=? where project_id=?");
             getAllProjectsOfDeveloper= conn.prepareStatement("select * from project where creator_id=?");
             findProject = conn.prepareStatement("SELECT * FROM project where naziv=? or project_id=?");
             addProject = conn.prepareStatement("INSERT INTO project values(?,?,?,?,?,?,?)");
@@ -193,6 +194,20 @@ public class ProjectDAO {
         }
         return allProjects;
     }
+
+    public void updateProject(int id, String name, String description, String client_name, String client_email){
+        try{
+            updateProject.setString(1,name);
+            updateProject.setString(2,description);
+            updateProject.setString(3,client_name);
+            updateProject.setString(4,client_email);
+            updateProject.setInt(5,id);
+            updateProject.executeUpdate();
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+    }
+
 
     int findID(Project project){
         try {

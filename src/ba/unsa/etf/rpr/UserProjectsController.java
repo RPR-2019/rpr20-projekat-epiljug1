@@ -4,10 +4,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class UserProjectsController {
     @FXML
@@ -62,7 +69,27 @@ public class UserProjectsController {
         }
     }
 
-    public void editProjectAction(ActionEvent actionEvent) {
-        System.out.println("EDIT");
+    public void editProjectAction(ActionEvent actionEvent) throws IOException {
+        Stage editProjectStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/editProject.fxml"));
+        EditProjectController ctrl = new EditProjectController(tableViewProjects.getSelectionModel().getSelectedItem());
+        loader.setController(ctrl);
+        Parent root = loader.load();
+        editProjectStage.setTitle("Edit project");
+        editProjectStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        editProjectStage.show();
+
+        editProjectStage.setOnHiding( event -> {
+                Project newProject = ctrl.getProject();
+                if (newProject != null) {
+                    try {
+                        System.out.println("refresh");
+                        listProjects.setAll(projectDAO.getAllProjectsOfDeveloper(developer));
+                        tableViewProjects.refresh();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            } );
     }
 }

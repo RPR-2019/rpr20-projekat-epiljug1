@@ -106,7 +106,7 @@ public class LoginController {
 
             Parent secRoot = null;
             try{
-                secRoot=FXMLLoader.load(getClass().getResource("/fxml/loading.fxml"));
+                secRoot=FXMLLoader.load(getClass().getResource("/fxml/loading2.fxml"));
                 secRoot.setVisible(true);
             }catch(IOException e){
                 e.printStackTrace();
