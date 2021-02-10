@@ -1,33 +1,40 @@
 
 
-java:S1319‡"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(éÃ²Ò8İµ¦÷.
-F
-java:S1659")Declare "findProject" on a separate line.(öüÔŠ8æû›÷.
->
-java:S1643N"Use a StringBuilder instead.(¥…ˆÇşÿÿÿÿ8‰ƒú›÷.
-E
-java:S1659"(Declare "addProject" on a separate line.(öüÔŠ8¤Ğ˜§÷.
-T
-java:S1659"7Declare "addProjectConnectionTable" on a separate line.(öüÔŠ8é°û›÷.
-W
-java:S1141P"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8‰ƒú›÷.
-C
-java:S3010$"!Remove this assignment of "conn".(”ÛÚ¬şÿÿÿÿ8îù×ø.
-B
-java:S1659"%Declare "findMax" on a separate line.(öüÔŠ8îÂ§÷.
-K
-java:S2115$")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ8îù×ø.
+java:S1319‹"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(éÃ²Ò8İµ¦÷.
 g
-java:S2095K"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üı™éşÿÿÿÿ8‰ƒú›÷.
+java:S2095M"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üı™éşÿÿÿÿ8‰ƒú›÷.
+Y
+java:S1659"7Declare "addProjectConnectionTable" on a separate line.(şÖ……ûÿÿÿÿ8é°û›÷.
+W
+java:S1659":Declare "getAllProjectsUserIsAssigned" on a separate line.(ÙçÒ¤8¨ŒªÆø.
+C
+java:S3010%"!Remove this assignment of "conn".(”ÛÚ¬şÿÿÿÿ8îù×ø.
+T
+java:S1659"7Declare "getAllProjectsOfDeveloper" on a separate line.(ÙçÒ¤8¨ŒªÆø.
 R
 java:S1128"5Remove this unused import 'java.text.ParseException'.(ñ®ï•8éÏ“ ø.
-A
-java:S1659"$Declare "findId" on a separate line.(öüÔŠ8õ—ø›÷.
+i
+java:S2095S"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8‰ƒú›÷.
+F
+java:S1659"$Declare "findId" on a separate line.(şÖ……ûÿÿÿÿ8õ—ø›÷.
+X	java:S125"<This block of commented-out lines of code should be removed.(½”ƒ¨8ø¡ªËø.
+K
+java:S1659")Declare "findProject" on a separate line.(şÖ……ûÿÿÿÿ8æû›÷.
+K
+java:S2115%")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ8îù×ø.
+_
+java:S1068"=Remove this unused "addProjectConnectionTable" private field.(şÖ……ûÿÿÿÿ8ø¡ªËø.
 “
-java:S1319–"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¡­Îìüÿÿÿÿ8ó³İø.
+java:S1319¬"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¡­Îìüÿÿÿÿ8ó³İø.
 T
 java:S1128"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ8§©‘ ø.
-T
-java:S1659"7Declare "getAllProjectsOfDeveloper" on a separate line.(öüÔŠ8îù×ø.
-i
-java:S2095Q"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8‰ƒú›÷.
+W
+java:S1141R"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8‰ƒú›÷.
+>
+java:S1643P"Use a StringBuilder instead.(¥…ˆÇşÿÿÿÿ8‰ƒú›÷.
+
+java:S1319š"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‡³©8¨ŒªÆø.
+J
+java:S1659"(Declare "addProject" on a separate line.(şÖ……ûÿÿÿÿ8¤Ğ˜§÷.
+G
+java:S1659"%Declare "findMax" on a separate line.(şÖ……ûÿÿÿÿ8îÂ§÷.

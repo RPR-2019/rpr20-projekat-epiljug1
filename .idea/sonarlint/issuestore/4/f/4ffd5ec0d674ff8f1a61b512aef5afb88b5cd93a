@@ -1,11 +1,11 @@
 
-p
-java:S1192A"NDefine a constant instead of duplicating this literal "Error occured" 3 times.(±ê‹þþÿÿÿÿ8Ç¯ù ø.
 x
 java:S1192"VDefine a constant instead of duplicating this literal "-fx-border-color: red" 4 times.(ÛÎ’Ïüÿÿÿÿ8ð‚õþ÷.
-z
-java:S14509"XRemove the "developer" field and declare it as a local variable in the relevant methods.(‚•è§ÿÿÿÿÿ8Ç¯ù ø.
-T
-java:S1172?"2Remove this unused method parameter "actionEvent".(™öÊÆûÿÿÿÿ8µéèšø.
+p
+java:S1192A"NDefine a constant instead of duplicating this literal "Error occured" 3 times.(±ê‹þþÿÿÿÿ8Ç¯ù ø.
 N
 java:S1172T"2Remove this unused method parameter "actionEvent".(êÕ†A8ð‚õþ÷.
+T
+java:S1172?"2Remove this unused method parameter "actionEvent".(™öÊÆûÿÿÿÿ8µéèšø.
+z
+java:S14509"XRemove the "developer" field and declare it as a local variable in the relevant methods.(‚•è§ÿÿÿÿÿ8Ç¯ù ø.
