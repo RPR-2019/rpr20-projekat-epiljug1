@@ -124,11 +124,13 @@ public class ProjectDAO {
             addProject.setString(6,project.getClient_name());
             addProject.setString(7,project.getClient_email());
 
-            addProjectConnectionTable.setInt(1,id);
-            addProjectConnectionTable.setInt(2,idDevelopera);
+//            addProjectConnectionTable.setInt(1,id);
+//            addProjectConnectionTable.setInt(2,idDevelopera);
+//
+//            addProjectConnectionTable.executeUpdate();
 
-            addProjectConnectionTable.executeUpdate();
             addProject.executeUpdate();
+
         }catch (SQLException sqlException){
             sqlException.printStackTrace();
         }
@@ -195,5 +197,13 @@ public class ProjectDAO {
             sqlException.printStackTrace();
         }
         return 0;
+    }
+
+    public void close() {
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

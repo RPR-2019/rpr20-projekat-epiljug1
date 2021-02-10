@@ -126,4 +126,12 @@ public class BugDAO {
         }
         return allBugs;
     }
+
+    public void close() {
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

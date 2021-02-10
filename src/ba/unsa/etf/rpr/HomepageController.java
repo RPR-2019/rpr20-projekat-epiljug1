@@ -33,9 +33,10 @@ public class HomepageController {
     @FXML
     Label user;
     private Developer developer;
-    private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-
+    private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
+    private ProjectDAO projectDAO;
     public HomepageController(Developer developer){
+        projectDAO=ProjectDAO.getInstance();
         this.developer=developer;
     }
 
@@ -46,6 +47,16 @@ public class HomepageController {
         date.setText(LocalDate.now().format(myFormatObj));
     }
 
+    public void listAllDevelopers(ActionEvent actionEvent) throws IOException {
+        Stage allProjects = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/listDevelopers.fxml"));
+        ListDevelopersController ctrl = new ListDevelopersController(developer);
+        loader.setController(ctrl);
+        Parent root = loader.load();
+        allProjects.setTitle("All developers");
+        allProjects.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        allProjects.show();
+    }
     public void listAllProjects(ActionEvent actionEvent) throws IOException {
         Stage allProjects = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/otherProjects.fxml"));
@@ -87,8 +98,28 @@ public class HomepageController {
         }
 
     }
+
+    @FXML
+    public void addNewProjectAction(ActionEvent actionEvent) throws IOException {
+        Stage allProjects = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addProject.fxml"));
+        AddProjectController ctrl = new AddProjectController(developer);
+        loader.setController(ctrl);
+        Parent root = loader.load();
+        allProjects.setTitle("Add project");
+        allProjects.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        allProjects.show();
+    }
+    @FXML
+    public void proba(ActionEvent actionEvent){
+        Project novi = new Project("naziv","desc",developer,"client","mejl");
+        projectDAO.addNewProject(novi);
+    }
+
     public void closeWindow(){
         Stage stage = (Stage) btnAddProject.getScene().getWindow();
         stage.close();
     }
+
+
 }

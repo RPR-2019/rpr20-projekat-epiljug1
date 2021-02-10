@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class DeveloperDAO {
     private static DeveloperDAO instance = null;
     private static Connection conn;
-    private PreparedStatement getAllDevelopers,  addDeveloper, findMax, findDeveloperByIdorUsername, findId, getAllProjectsForDeveloper;
+    private PreparedStatement getAllDevelopers,  addDeveloper, findMax, findDeveloperByIdorUsername, findId, getAllProjectsForDeveloper,getAllDevelopersInsteadOfOne;
 
     public static Connection getConn() {
         return conn;
@@ -48,6 +48,7 @@ public class DeveloperDAO {
             getAllProjectsForDeveloper = conn.prepareStatement("SELECT DISTINCT project.*\n" +
                     "FROM project, connections, developer\n" +
                     "WHERE project_id=connections.pr_id AND connections.de_id=developer_id AND developer_id=?;\n");
+            getAllDevelopersInsteadOfOne = conn.prepareStatement("select * from developer where developer_id!=?");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -75,13 +76,28 @@ public class DeveloperDAO {
         }
     }
 
+    public ArrayList<Developer> getAllDevelopers(int id){
+        ArrayList<Developer> developers = new ArrayList<>();
+        try{
+            getAllDevelopersInsteadOfOne.setInt(1,id);
+            ResultSet rs = getAllDevelopersInsteadOfOne.executeQuery();
+            while(rs.next()) {
+                developers.add(new Developer(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
+               // System.out.println("RS1 = " + rs.getInt(1));
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return developers;
+    }
+
     public ArrayList<Developer> getAllDevelopers(){
         ArrayList<Developer> developers = new ArrayList<>();
         try{
             ResultSet rs = getAllDevelopers.executeQuery();
             while(rs.next()) {
                 developers.add(new Developer(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
-                System.out.println("RS1 = " + rs.getInt(1));
+               // System.out.println("RS1 = " + rs.getInt(1));
             }
         }catch (SQLException e){
             e.printStackTrace();
@@ -146,5 +162,20 @@ public class DeveloperDAO {
         createDataBase();
     }
 
+    public void connect(){
+        try{
+            //connecting with database
+            conn = DriverManager.getConnection("jdbc:sqlite:BugTracker.db");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+    public void close() {
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

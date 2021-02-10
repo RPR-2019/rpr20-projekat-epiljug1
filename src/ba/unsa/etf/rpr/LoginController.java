@@ -82,6 +82,7 @@ public class LoginController {
     }
 
     public void signupAction(ActionEvent actionEvent) throws IOException {
+
         closeWindow();
         Stage signUpStage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signup.fxml"));
@@ -92,6 +93,7 @@ public class LoginController {
         signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         signUpStage.show();
     }
+
 
     public void closeWindow(){
         Stage stage = (Stage) usernamefld.getScene().getWindow();

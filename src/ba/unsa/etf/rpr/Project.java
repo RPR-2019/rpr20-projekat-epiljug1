@@ -10,7 +10,7 @@ public class Project {
     private Developer creator;
     private String client_name;
     private String client_email;
-    private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+    private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
 
     public Project(String name, String description, Developer creator, String client_name, String client_email) {
         this.name = name;
