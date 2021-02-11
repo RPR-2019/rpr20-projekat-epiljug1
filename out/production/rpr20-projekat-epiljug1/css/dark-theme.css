@@ -82,6 +82,15 @@
     -fx-text-fill: derive(-fx-secondary, 20%);
 }
 
+.text-field3
+{
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-secondary;
+    -fx-border-width: 1.5px 1.5px 1.5px 1.5px;
+    -fx-text-fill: black;
+    -fx-font-size : 14pt;
+}
+
 .text-field2
 {
     -fx-background-color: transparent;
@@ -114,6 +123,7 @@
     -fx-background-color: -fx-primary;
     -fx-border-color: transparent;
 }
+
 
 .tab-header-background{
     -fx-background-color: -fx-primary;

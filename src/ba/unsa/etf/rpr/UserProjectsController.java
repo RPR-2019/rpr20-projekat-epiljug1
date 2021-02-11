@@ -50,13 +50,8 @@ public class UserProjectsController {
     public void openProjectAction(javafx.event.ActionEvent actionEvent) {
         System.out.println("OPEN");
         Project project = tableViewProjects.getSelectionModel().getSelectedItem();
-        if(project!=null) {
-            System.out.println(project.getName());
-            System.out.println(project.getDescription());
-            System.out.println(project.getClient_name());
-            System.out.println(project.getClient_email());
-            System.out.println(project.getDateProjectCreated());
-        }
+        ShowProjectController ctrl = new ShowProjectController(project);
+        StageHandler.loadWindow(getClass().getResource("/fxml/showProject.fxml"),project.getName(),ctrl);
     }
 
     public void editProjectAction(ActionEvent actionEvent) throws IOException {

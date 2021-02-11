@@ -67,8 +67,8 @@ public class ProjectDAO {
             findId = conn.prepareStatement("SELECT project_id FROM project where   naziv=? and opis=? ");
             addProjectConnectionTable = conn.prepareStatement("INSERT INTO connections values(?,?)");
             getAllProjectsUserIsAssigned = conn.prepareStatement("select project.* from project,connections where connections.pr_id=project.project_id and connections.de_id=?");
-            countBugs = conn.prepareStatement("select count(*) from project a,bug b where a.project_id=b.project_id");
-            countSolvedBugs = conn.prepareStatement("select count(*) from project a, bug b where a.project_id=b.project_id and b.solver_id is not null and b.solver_id!=0");
+            countBugs = conn.prepareStatement("select count(*) from project a,bug b where a.project_id=b.projectID and a.project_id=?");
+            countSolvedBugs = conn.prepareStatement("select count(*) from project a, bug b where a.project_id=b.projectID  and a.project_id=? and b.solver_id is not null and b.solver_id!=0");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -213,20 +213,25 @@ public class ProjectDAO {
             sqlException.printStackTrace();
         }
     }
-
-    public ObservableList<PieChart.Data> getProjectGraphStatistic() {
+    public ObservableList<PieChart.Data> getProjectGraphStatistic(Project project) {
+        int id = findID(project);
+        System.out.println(">>>ID je " + id);
         ObservableList<PieChart.Data> data = FXCollections.observableArrayList();
         try {
+            countBugs.setInt(1,id);
+            countSolvedBugs.setInt(1,id);
             ResultSet rs1= countBugs.executeQuery();
             ResultSet rs2= countSolvedBugs.executeQuery();
 
             if (rs1.next()) {
                 int count = rs1.getInt(1);
+                System.out.println("COUNT 1 = " + count);
                 data.add(new PieChart.Data("Total bugs (" + count + ")", count));
             }
 
             if (rs2.next()) {
                 int count = rs2.getInt(1);
+                System.out.println("COUNT 2 = " + count);
                 data.add(new PieChart.Data("Solved bugs (" + count + ")", count));
             }
         }
