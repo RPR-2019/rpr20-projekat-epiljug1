@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS "bug" (
 	"date_created"	TEXT,
 	"projectID"	INTEGER,
 	"complexity"	TEXT,
+	"solver_id" INTEGER,
 	FOREIGN KEY("projectID") REFERENCES "project"("project_id"),
 	PRIMARY KEY("bug_id")
 );

@@ -10,15 +10,25 @@ public class Bug {
     private LocalDate date_created;
     private Project project;
     private String complexity;
+    private int solver_id;
     private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
 
-    public Bug(String bug_name, String bug_type, String status, Project project, String complexity ) {
+    public Bug(String bug_name, String bug_type, String status, Project project, String complexity,int id) {
         this.bug_name = bug_name;
         this.bug_type = bug_type;
         this.status = status;
         this.date_created = LocalDate.now();
         this.project = project;
         this.complexity = complexity;
+        this.solver_id = id;
+    }
+
+    public int getSolver_id() {
+        return solver_id;
+    }
+
+    public void setSolver_id(int solver_id) {
+        this.solver_id = solver_id;
     }
 
     public String getBug_name() {

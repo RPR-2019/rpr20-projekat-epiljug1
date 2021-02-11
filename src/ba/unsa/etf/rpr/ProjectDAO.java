@@ -1,5 +1,9 @@
 package ba.unsa.etf.rpr;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.*;
@@ -20,7 +24,7 @@ public class ProjectDAO {
 
     private  Connection conn;
     private PreparedStatement getAllProjects,findProject, addProject, findMax,findId,addProjectConnectionTable,
-            getAllProjectsOfDeveloper, getAllProjectsUserIsAssigned, updateProject;
+            getAllProjectsOfDeveloper, getAllProjectsUserIsAssigned, updateProject, countBugs, countSolvedBugs;
 
     public  Connection getConn() {
         return conn;
@@ -63,6 +67,8 @@ public class ProjectDAO {
             findId = conn.prepareStatement("SELECT project_id FROM project where   naziv=? and opis=? ");
             addProjectConnectionTable = conn.prepareStatement("INSERT INTO connections values(?,?)");
             getAllProjectsUserIsAssigned = conn.prepareStatement("select project.* from project,connections where connections.pr_id=project.project_id and connections.de_id=?");
+            countBugs = conn.prepareStatement("select count(*) from project a,bug b where a.project_id=b.project_id");
+            countSolvedBugs = conn.prepareStatement("select count(*) from project a, bug b where a.project_id=b.project_id and b.solver_id is not null and b.solver_id!=0");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -208,6 +214,27 @@ public class ProjectDAO {
         }
     }
 
+    public ObservableList<PieChart.Data> getProjectGraphStatistic() {
+        ObservableList<PieChart.Data> data = FXCollections.observableArrayList();
+        try {
+            ResultSet rs1= countBugs.executeQuery();
+            ResultSet rs2= countSolvedBugs.executeQuery();
+
+            if (rs1.next()) {
+                int count = rs1.getInt(1);
+                data.add(new PieChart.Data("Total bugs (" + count + ")", count));
+            }
+
+            if (rs2.next()) {
+                int count = rs2.getInt(1);
+                data.add(new PieChart.Data("Solved bugs (" + count + ")", count));
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
 
     int findID(Project project){
         try {

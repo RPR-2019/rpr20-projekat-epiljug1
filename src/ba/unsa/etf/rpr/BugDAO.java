@@ -51,7 +51,7 @@ public class BugDAO {
         try{
             findBugByID = conn.prepareStatement("SELECT * FROM bug WHERE bug_id = ?");
             findMax = conn.prepareStatement("SELECT Max(bug_id) from bug");
-            addBug = conn.prepareStatement("INSERT into bug values(?,?,?,?,?,?,?)");
+            addBug = conn.prepareStatement("INSERT into bug values(?,?,?,?,?,?,?,?)");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -92,7 +92,7 @@ public class BugDAO {
         try{
             findBugByID.setInt(1,id);
             ResultSet rs = findBugByID.executeQuery();
-            novi = new Bug(rs.getString(2),rs.getString(3),rs.getString(4),instanceProjectDAO.findProject("",rs.getInt(6)),rs.getString(7));
+            novi = new Bug(rs.getString(2),rs.getString(3),rs.getString(4),instanceProjectDAO.findProject("",rs.getInt(6)),rs.getString(7),rs.getInt(8));
             novi.setDate_created(instanceProjectDAO.getDate(rs.getString(5)));
             return  novi;
         }catch (SQLException sqlException){
@@ -109,6 +109,7 @@ public class BugDAO {
             addBug.setString(5,newBug.getDate_created());
             addBug.setInt(6,instanceProjectDAO.findID(newBug.getProject()));
             addBug.setString(7,newBug.getComplexity());
+            addBug.setInt(8,newBug.getSolver_id());
             addBug.executeUpdate();
         }catch (SQLException sqlException){
             sqlException.printStackTrace();
@@ -120,7 +121,7 @@ public class BugDAO {
         try{
             ResultSet rs = getAllBugs.executeQuery();
             while (rs.next()){
-                Bug newBug = new Bug(rs.getString(2),rs.getString(3),rs.getString(4),instanceProjectDAO.findProject("",rs.getInt(6)),rs.getString(7));
+                Bug newBug = new Bug(rs.getString(2),rs.getString(3),rs.getString(4),instanceProjectDAO.findProject("",rs.getInt(6)),rs.getString(7),rs.getInt(8));
                 newBug.setDate_created(instanceProjectDAO.getDate(rs.getString(5)));
                 allBugs.add(newBug);
             }
