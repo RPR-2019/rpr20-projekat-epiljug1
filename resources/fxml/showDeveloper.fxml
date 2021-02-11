@@ -6,20 +6,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="486.0" prefWidth="819.0" style="-fx-background-color: #2A2E37;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="551.0" prefWidth="927.0" style="-fx-background-color: #2A2E37;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TabPane prefHeight="486.0" prefWidth="819.0" stylesheets="@../css/dark-theme.css" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="551.0" prefWidth="927.0" stylesheets="@../css/dark-theme.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Developer">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="376.0" prefWidth="629.0">
                      <children>
-                        <GridPane hgap="10.0" layoutX="7.0" layoutY="15.0" prefHeight="364.0" prefWidth="688.0" vgap="10.0">
+                        <GridPane hgap="20.0" layoutX="82.0" layoutY="63.0" prefHeight="387.0" prefWidth="764.0" vgap="10.0">
                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="90.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="10.0" prefWidth="230.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="90.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="230.0" minWidth="10.0" prefWidth="230.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="260.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="260.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -46,22 +46,22 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="nameFld" editable="false" prefHeight="44.0" prefWidth="148.0" styleClass="text-field2" stylesheets="@../css/dark-theme.css" GridPane.columnIndex="1">
+                              <TextField fx:id="nameFld" alignment="CENTER" editable="false" prefHeight="44.0" prefWidth="148.0" styleClass="text-field2" stylesheets="@../css/dark-theme.css" GridPane.columnIndex="1">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="surnameFld" editable="false" styleClass="text-field2" stylesheets="@../css/dark-theme.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <TextField fx:id="surnameFld" alignment="CENTER" editable="false" styleClass="text-field2" stylesheets="@../css/dark-theme.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="emailFld" editable="false" styleClass="text-field2" stylesheets="@../css/dark-theme.css" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                              <TextField fx:id="emailFld" alignment="CENTER" editable="false" styleClass="text-field2" stylesheets="@../css/dark-theme.css" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="usernameFld" editable="false" styleClass="text-field2" stylesheets="@../css/dark-theme.css" GridPane.columnIndex="3">
+                              <TextField fx:id="usernameFld" alignment="CENTER" editable="false" styleClass="text-field2" stylesheets="@../css/dark-theme.css" GridPane.columnIndex="3">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -77,7 +77,7 @@
           </Tab>
           <Tab text="Developer's projects">
             <content>
-                   <TableView fx:id="tableViewProjects" prefHeight="396.0" prefWidth="702.0" stylesheets="@../css/dark-theme.css" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
+                   <TableView fx:id="tableViewProjects" prefHeight="474.0" prefWidth="878.0" stylesheets="@../css/dark-theme.css" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
                        <columns>
                            <TableColumn fx:id="colName" prefWidth="108.0" text="Name" />
                            <TableColumn fx:id="colDate" prefWidth="110.0" text="Date Created" />

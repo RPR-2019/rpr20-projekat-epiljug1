@@ -55,9 +55,8 @@
 
 
 .button:focused{
-    -fx-border-color: -fx-secondary;
-        -fx-background-color: -fx-secondary;
-        -fx-text-fill: -fx-primary;
+    -fx-border-color: red;
+
 }
 
 .button{
