@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
@@ -9,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="463.0" prefWidth="818.0" style="-fx-background-color: #2A2E37;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" prefHeight="463.0" prefWidth="818.0" style="-fx-background-color: #2A2E37;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
 
    <children>
       <AnchorPane layoutX="454.0" layoutY="68.0" prefHeight="330.0" prefWidth="306.0" style="-fx-background-color: #9C2827;">
@@ -20,9 +18,10 @@
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets></TextField>
+                  <PasswordField fx:id="passwordfld" prefHeight="30.0" prefWidth="218.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #ebebea;" stylesheets="@../css/colors.css" />
                </children>
             </VBox>
-            <Button fx:id="signin" defaultButton="true" layoutX="100.0" layoutY="240.0" mnemonicParsing="false" onAction="#signinAction" prefHeight="30.0" prefWidth="107.0" stylesheets="@../css/dark-theme.css" text="Sign in" textFill="WHITE">
+            <Button fx:id="signin" cache="true" defaultButton="true" layoutX="100.0" layoutY="240.0" mnemonicParsing="false" onAction="#signinAction" prefHeight="30.0" prefWidth="107.0" stylesheets="@../css/dark-theme.css" text="Sign in" textFill="WHITE">
                <font>
                   <Font size="19.0" />
                </font></Button>
@@ -30,7 +29,6 @@
                <font>
                   <Font size="21.0" />
                </font></Label>
-            <PasswordField fx:id="passwordfld" layoutX="44.0" layoutY="133.0" prefHeight="30.0" prefWidth="218.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #ebebea;" stylesheets="@../css/colors.css" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="465.0" fitWidth="394.0" opacity="0.45" pickOnBounds="true" preserveRatio="true">

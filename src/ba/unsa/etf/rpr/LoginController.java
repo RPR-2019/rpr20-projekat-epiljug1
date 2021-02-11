@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,8 +25,13 @@ public class LoginController {
     public Button signup;
     @FXML
     public Label welcome;
+
+    @FXML
+    public AnchorPane anchorPane;
+
     @FXML
     public void initialize(){
+
         usernamefld.getStyleClass().add("ok");
         usernamefld.setStyle("-fx-border-color: red");
 
@@ -62,13 +68,13 @@ public class LoginController {
     }
 
     public void signinAction(ActionEvent actionEvent) throws IOException {
-        if(usernamefld.getText().trim().isEmpty()){
+        if(usernamefld.getText().trim().isEmpty())
             AlertMaker.alertERROR("Error occured","Username field is empty!");
-        }else if(passwordfld.getText().trim().isEmpty()){
-            AlertMaker.alertERROR("Error occured","Password fielad is empty!");
-        }else if(developerDAO.findIdOfDeveloper(usernamefld.getText())==0){
+        else if(passwordfld.getText().trim().isEmpty())
+            AlertMaker.alertERROR("Error occured","Password field is empty!");
+        else if(developerDAO.findIdOfDeveloper(usernamefld.getText())==0)
             AlertMaker.alertERROR("Error occured","Developer with username: \""+usernamefld.getText()+"\" does not exsist!");
-        }else {
+        else {
             developer = developerDAO.findDeveloperByIDorUsername(0, usernamefld.getText());
             closeWindow();
 
@@ -98,7 +104,6 @@ public class LoginController {
             };
 
             loadingTask.setOnSucceeded(workerStateEvent ->{
-
                 homePageStage.setScene(new Scene(roots[0],USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
                 homePageStage.show();
             });
@@ -135,14 +140,15 @@ public class LoginController {
 
 
 
-        Stage signUpStage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signup.fxml"));
+//        Stage signUpStage = new Stage();
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signup.fxml"));
         SignupController ctrl = new SignupController();
-        loader.setController(ctrl);
-        Parent root = loader.load();
-        signUpStage.setTitle("Sign up");
-        signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        signUpStage.show();
+        StageHandler.loadWindow(getClass().getResource("/fxml/signup.fxml"),"Sign up",ctrl);
+//        loader.setController(ctrl);
+//        Parent root = loader.load();
+//        signUpStage.setTitle("Sign up");
+//        signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+//        signUpStage.show();
     }
 
 

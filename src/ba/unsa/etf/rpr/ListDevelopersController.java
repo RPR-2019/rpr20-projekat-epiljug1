@@ -51,6 +51,8 @@ public class ListDevelopersController {
         }
         @FXML
         public void showDeveloperAction(ActionEvent actionEvent) throws IOException {
+            Stage stage = (Stage) tableViewDevelopers.getScene().getWindow();
+            stage.close();
             Stage signUpStage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/showDeveloper.fxml"));
             ShowDeveloperController ctrl = new ShowDeveloperController(tableViewDevelopers.getSelectionModel().getSelectedItem());
@@ -59,6 +61,10 @@ public class ListDevelopersController {
             signUpStage.setTitle("Developer review");
             signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             signUpStage.show();
+            signUpStage.setOnHiding( windowEvent -> {
+                stage.show();
+            });
+
         }
 
         public void setDeveloper(Developer developer) {

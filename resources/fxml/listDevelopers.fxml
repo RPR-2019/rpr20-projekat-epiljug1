@@ -60,6 +60,7 @@
         <VBox prefHeight="480.0" prefWidth="155.0" spacing="5.0" style="-fx-background-color: #2A2E37;" BorderPane.alignment="CENTER">
             <children>
                 <Button mnemonicParsing="false" onAction="#showDeveloperAction" prefHeight="39.0" prefWidth="144.0" stylesheets="@../css/dark-theme.css" text="Show developer" VBox.vgrow="NEVER" />
+            <Button maxWidth="1.7976931348623157E308"    onAction="#closeWindow"    mnemonicParsing="false" prefHeight="39.0" prefWidth="144.0" text="Close" />
              </children>
             <BorderPane.margin>
                 <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />

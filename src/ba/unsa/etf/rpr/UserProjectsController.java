@@ -47,16 +47,6 @@ public class UserProjectsController {
         colClientEmail.setCellValueFactory(new PropertyValueFactory("client_email"));
     }
 
-
-    public void setDeveloper(Developer developer) {
-        this.developer = developer;
-    }
-
-
-    public void closeWindow(javafx.event.ActionEvent actionEvent){
-        Stage stage = (Stage) tableViewProjects.getScene().getWindow();
-        stage.close();
-    }
     public void openProjectAction(javafx.event.ActionEvent actionEvent) {
         System.out.println("OPEN");
         Project project = tableViewProjects.getSelectionModel().getSelectedItem();
@@ -70,15 +60,10 @@ public class UserProjectsController {
     }
 
     public void editProjectAction(ActionEvent actionEvent) throws IOException {
-        Stage editProjectStage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/editProject.fxml"));
+        closeWindow(actionEvent);
         EditProjectController ctrl = new EditProjectController(tableViewProjects.getSelectionModel().getSelectedItem());
-        loader.setController(ctrl);
-        Parent root = loader.load();
-        editProjectStage.setTitle("Edit project");
-        editProjectStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        editProjectStage.show();
 
+        Stage editProjectStage = StageHandler.loadWindow(getClass().getResource("/fxml/editProject.fxml"),"Edit project",ctrl );
         editProjectStage.setOnHiding( event -> {
                 Project newProject = ctrl.getProject();
                 if (newProject != null) {
@@ -86,10 +71,23 @@ public class UserProjectsController {
                         System.out.println("refresh");
                         listProjects.setAll(projectDAO.getAllProjectsOfDeveloper(developer));
                         tableViewProjects.refresh();
+                        ((Stage)tableViewProjects.getScene().getWindow()).show();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
             } );
+    }
+
+
+
+    public void setDeveloper(Developer developer) {
+        this.developer = developer;
+    }
+
+
+    public void closeWindow(javafx.event.ActionEvent actionEvent){
+        Stage stage = (Stage) tableViewProjects.getScene().getWindow();
+        stage.close();
     }
 }

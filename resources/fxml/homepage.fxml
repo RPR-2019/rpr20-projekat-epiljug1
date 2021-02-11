@@ -60,6 +60,17 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
+            <Button fx:id="btnAllDev" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#listAllDevelopers" prefHeight="159.0" prefWidth="195.0" text="List all developers" textFill="WHITE" GridPane.columnIndex="2">
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/users.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
             <Button fx:id="btnLogOut" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#logoutAction" text="Log out" textFill="WHITE" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
@@ -76,17 +87,6 @@
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/add_project.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font size="18.0" />
-               </font></Button>
-            <Button fx:id="btnAllDev" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#listAllDevelopers" prefHeight="159.0" prefWidth="195.0" text="List all developers" textFill="WHITE" GridPane.columnIndex="2">
-               <graphic>
-                  <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/users.png" />
                      </image>
                   </ImageView>
                </graphic>

@@ -55,6 +55,7 @@ public class AlertMaker {
 
         dialog.show();
         Toolkit.getDefaultToolkit().beep();
+
         dialog.setOnCloseRequest(dialogEvent -> {
             nodeToBeBlurred.setEffect(null);
             Stage stage= (Stage) nodeToBeBlurred.getScene().getWindow();

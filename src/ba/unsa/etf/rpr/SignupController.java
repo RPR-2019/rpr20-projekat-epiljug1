@@ -137,14 +137,15 @@ public class SignupController {
     @FXML
     public void backAction(ActionEvent actionEvent) throws IOException {
         closeWindow();
-        Stage signUpStage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+//        Stage signUpStage = new Stage();
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
         LoginController ctrl = new LoginController();
-        loader.setController(ctrl);
-        Parent root = loader.load();
-        signUpStage.setTitle("Login");
-        signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        signUpStage.show();
+        StageHandler.loadWindow(getClass().getResource("/fxml/login.fxml"),"Sign in",ctrl);
+//        loader.setController(ctrl);
+//        Parent root = loader.load();
+//        signUpStage.setTitle("Login");
+//        signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+//        signUpStage.show();
     }
 
     @FXML
