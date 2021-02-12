@@ -202,13 +202,13 @@
                                           <Font size="19.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="usernameFld" styleClass="text-field2" stylesheets="@../css/dark-theme.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="usernameFld" alignment="CENTER" editable="false" styleClass="text-field2" stylesheets="@../css/dark-theme.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <Label text="Developer e-mail:" textFill="WHITE" GridPane.rowIndex="2">
                                        <font>
                                           <Font size="19.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="emailFld" styleClass="text-field2" stylesheets="@../css/dark-theme.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="emailFld" alignment="CENTER" editable="false" styleClass="text-field2" stylesheets="@../css/dark-theme.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <Label text="Type text:" textFill="WHITE" GridPane.columnSpan="2" GridPane.rowIndex="3">
                                        <font>
                                           <Font size="19.0" />

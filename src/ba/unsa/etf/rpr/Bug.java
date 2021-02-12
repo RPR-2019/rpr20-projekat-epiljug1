@@ -11,6 +11,7 @@ public class Bug {
     private Project project;
     private String complexity;
     private int solver_id;
+    private int request_id;
     private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
 
     public Bug(String bug_name, String bug_type, String status, Project project, String complexity,int id) {
@@ -21,6 +22,15 @@ public class Bug {
         this.project = project;
         this.complexity = complexity;
         this.solver_id = id;
+        request_id = 0;
+    }
+
+    public int getRequest_id() {
+        return request_id;
+    }
+
+    public void setRequest_id(int request_id) {
+        this.request_id = request_id;
     }
 
     public int getSolver_id() {

@@ -53,9 +53,9 @@ public class BugDAO {
         try{
             findBugByID = conn.prepareStatement("SELECT * FROM bug WHERE bug_id = ?");
             findMax = conn.prepareStatement("SELECT Max(bug_id) from bug");
-            addBug = conn.prepareStatement("INSERT into bug values(?,?,?,?,?,?,?,?)");
+            addBug = conn.prepareStatement("INSERT into bug values(?,?,?,?,?,?,?,?,?)");
             getAllBugsForProject = conn.prepareStatement("SELECT * from bug where projectID=?");
-            getBugReguest = conn.prepareStatement("SELECT DISTINCT request.developer_id, bug.* from project, bug, request where project.project_id=? and project.project_id=bug.projectID and project.project_id=request.project_id and bug.bug_id=request.bug_id ");
+            getBugReguest = conn.prepareStatement("SELECT DISTINCT bug.* from bug, project where project.project_id=? and project.project_id=bug.projectID and bug.solver_id==0 and bug.request_id!=0");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -114,6 +114,7 @@ public class BugDAO {
             addBug.setInt(6,instanceProjectDAO.findID(newBug.getProject()));
             addBug.setString(7,newBug.getComplexity());
             addBug.setInt(8,newBug.getSolver_id());
+            addBug.setInt(9,0);
             addBug.executeUpdate();
         }catch (SQLException sqlException){
             sqlException.printStackTrace();
@@ -128,6 +129,7 @@ public class BugDAO {
             while (rs.next()){
                 Bug newBug = new Bug(rs.getString(2),rs.getString(3),rs.getString(4),instanceProjectDAO.findProject("",rs.getInt(6)),rs.getString(7),rs.getInt(8));
                 newBug.setDate_created(instanceProjectDAO.getDate(rs.getString(5)));
+                newBug.setRequest_id(rs.getInt(9));
                 allBugs.add(newBug);
             }
         }catch (SQLException sqlException){
@@ -143,6 +145,7 @@ public class BugDAO {
             while (rs.next()){
                 Bug newBug = new Bug(rs.getString(2),rs.getString(3),rs.getString(4),instanceProjectDAO.findProject("",rs.getInt(6)),rs.getString(7),rs.getInt(8));
                 newBug.setDate_created(instanceProjectDAO.getDate(rs.getString(5)));
+                newBug.setRequest_id(rs.getInt(9));
                 allBugs.add(newBug);
             }
         }catch (SQLException sqlException){
@@ -150,21 +153,22 @@ public class BugDAO {
         }
         return allBugs;
     }
-    public HashMap<Integer,Bug> getBugReportsForProject(int idProject){
-        HashMap<Integer,Bug> map = new HashMap<Integer,Bug>();
+    public ArrayList<Bug> getBugReportsForProject(int idProject){
+        ArrayList<Bug> allBugs = new ArrayList<>();
         try{
             getBugReguest.setInt(1,idProject);
             ResultSet rs = getBugReguest.executeQuery();
             while (rs.next()){
-                Bug newBug = new Bug(rs.getString(3),rs.getString(4),rs.getString(5),instanceProjectDAO.findProject("",rs.getInt(7)),rs.getString(8),rs.getInt(9));
-                newBug.setDate_created(instanceProjectDAO.getDate(rs.getString(6)));
-                map.put(rs.getInt(1),newBug);
+                Bug newBug = new Bug(rs.getString(2),rs.getString(3),rs.getString(4),instanceProjectDAO.findProject("",rs.getInt(6)),rs.getString(7),rs.getInt(8));
+                newBug.setDate_created(instanceProjectDAO.getDate(rs.getString(5)));
+                newBug.setRequest_id(rs.getInt(9));
+                allBugs.add(newBug);
             }
         }catch (SQLException sqlException){
             sqlException.printStackTrace();
         }
 
-        return map;
+        return allBugs;
     }
     public void close() {
         try {

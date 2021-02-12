@@ -13,6 +13,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class ShowProjectController {
     @FXML
@@ -57,6 +58,8 @@ public class ShowProjectController {
     @FXML
     public TableView<Bug> tableViewRequest;
 
+
+
     @FXML
     public TableColumn<Bug,String> colDev;
 
@@ -93,7 +96,6 @@ public class ShowProjectController {
     private DeveloperDAO developerDAO;
     private ObservableList<Bug> listBugs;
     private ObservableList<Bug> listReguest;
-    private HashMap<Integer,Bug> mapBugsRequests ;
 
 
     public ShowProjectController(Project project){
@@ -104,10 +106,8 @@ public class ShowProjectController {
         bugDAO = BugDAO.getInstance();
 
         int id = projectDAO.findID(project);
-        mapBugsRequests = bugDAO.getBugReportsForProject(id);
-
         listBugs = FXCollections.observableArrayList(bugDAO.getAllBugsForProject(id));
-        listReguest = FXCollections.observableArrayList(mapBugsRequests.values());
+        listReguest = FXCollections.observableArrayList(bugDAO.getBugReportsForProject(id));
 
     }
 
@@ -132,11 +132,10 @@ public class ShowProjectController {
         colCompl.setCellValueFactory(new PropertyValueFactory("complexity"));
 
         tableViewRequest.setItems(listReguest);
-        colDev.setCellValueFactory(data -> new SimpleStringProperty(developerDAO.findDeveloperByIDorUsername(data.getValue().getSolver_id(),"").toString()));
+        colDev.setCellValueFactory(data -> new SimpleStringProperty(developerDAO.findDeveloperByIDorUsername(data.getValue().getRequest_id(),"").toString()));
         colBug.setCellValueFactory(new PropertyValueFactory("bug_name"));
 
-        if(mapBugsRequests.size()!=0)notificationLbl.setText("You have "+mapBugsRequests.size()+" notifications");
-
+        if(listReguest.size()!=0)notificationLbl.setText("You have "+listReguest.size()+" notifications");
 
 
     }
@@ -144,6 +143,7 @@ public class ShowProjectController {
     public void approveAction(ActionEvent actionEvent){
 
         if(approveChk.isSelected()){
+            reset();
             if(tableViewRequest.getSelectionModel().getSelectedItem()==null){
                 AlertMaker.alertERROR("Error occured","You need to select the item!");
                 approveChk.setSelected(false);
@@ -162,6 +162,8 @@ public class ShowProjectController {
                 AlertMaker.alertERROR("Error occured","You need to select the item!");
                 denyChk.setSelected(false);
             }else {
+                setData();
+
                 System.out.println("DNY");
                 approveChk.setSelected(false);
                 grid.setDisable(false);
@@ -178,6 +180,9 @@ public class ShowProjectController {
 
     private void setData(){
         Bug bug = tableViewRequest.getSelectionModel().getSelectedItem();
+        Developer developer = developerDAO.findDeveloperByIDorUsername(bug.getRequest_id(),"");
+        usernameFld.setText(developer.getUsername());
+        emailFld.setText(developer.getEmail());
 
     }
 }
