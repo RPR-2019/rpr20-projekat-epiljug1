@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class BugDAO {
@@ -15,7 +17,7 @@ public class BugDAO {
         instanceProjectDAO.backToDefaultDataBase();
     }
 
-    private PreparedStatement getAllBugs,findBugByID, addBug, findMax ;
+    private PreparedStatement getAllBugs,findBugByID, addBug, findMax,getAllBugsForProject, getBugReguest;
 
     public  Connection getConn() {
         return conn;
@@ -52,6 +54,8 @@ public class BugDAO {
             findBugByID = conn.prepareStatement("SELECT * FROM bug WHERE bug_id = ?");
             findMax = conn.prepareStatement("SELECT Max(bug_id) from bug");
             addBug = conn.prepareStatement("INSERT into bug values(?,?,?,?,?,?,?,?)");
+            getAllBugsForProject = conn.prepareStatement("SELECT * from bug where projectID=?");
+            getBugReguest = conn.prepareStatement("SELECT DISTINCT request.developer_id, bug.* from project, bug, request where project.project_id=? and project.project_id=bug.projectID and project.project_id=request.project_id and bug.bug_id=request.bug_id ");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -116,6 +120,22 @@ public class BugDAO {
         }
     }
 
+    public ArrayList<Bug> getAllBugsForProject(int id){
+        ArrayList<Bug> allBugs = new ArrayList<>();
+        try{
+            getAllBugsForProject.setInt(1,id);
+            ResultSet rs = getAllBugsForProject.executeQuery();
+            while (rs.next()){
+                Bug newBug = new Bug(rs.getString(2),rs.getString(3),rs.getString(4),instanceProjectDAO.findProject("",rs.getInt(6)),rs.getString(7),rs.getInt(8));
+                newBug.setDate_created(instanceProjectDAO.getDate(rs.getString(5)));
+                allBugs.add(newBug);
+            }
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        return allBugs;
+    }
+
     public ArrayList<Bug> getAllBugs(){
         ArrayList<Bug> allBugs = new ArrayList<>();
         try{
@@ -130,7 +150,22 @@ public class BugDAO {
         }
         return allBugs;
     }
+    public HashMap<Integer,Bug> getBugReportsForProject(int idProject){
+        HashMap<Integer,Bug> map = new HashMap<Integer,Bug>();
+        try{
+            getBugReguest.setInt(1,idProject);
+            ResultSet rs = getBugReguest.executeQuery();
+            while (rs.next()){
+                Bug newBug = new Bug(rs.getString(3),rs.getString(4),rs.getString(5),instanceProjectDAO.findProject("",rs.getInt(7)),rs.getString(8),rs.getInt(9));
+                newBug.setDate_created(instanceProjectDAO.getDate(rs.getString(6)));
+                map.put(rs.getInt(1),newBug);
+            }
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
 
+        return map;
+    }
     public void close() {
         try {
             conn.close();
