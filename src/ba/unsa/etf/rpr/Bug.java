@@ -79,4 +79,11 @@ public class Bug {
     public void setComplexity(String complexity) {
         this.complexity = complexity;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Bug novi = (Bug) obj;
+        return getBug_name().equals(novi.getBug_name()) &&  getBug_type().equals(novi.getBug_type()) && getDate_created().equals(novi.getDate_created())
+                && getProject().getName().equals(novi.getProject().getName());
+    }
 }
