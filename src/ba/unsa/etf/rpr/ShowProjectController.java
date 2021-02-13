@@ -11,7 +11,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
+import javax.mail.MessagingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -90,13 +92,43 @@ public class ShowProjectController {
     @FXML
     public TextField emailFld;
 
+    @FXML
+    public TextArea textArea;
+
+    @FXML
+    TableView<Developer> tableViewDevelopers;
+    @FXML
+    public TableColumn<Developer,String> colNameDev;
+
+
+    @FXML
+    public TableColumn colUsernameDev;
+
+    @FXML
+    public TableColumn colEmailDev;
+
+
+    @FXML
+    public TextField searchFld;
+
+    @FXML
+    public TableView<Developer> tableViewSearch;
+
+    @FXML
+    public TableColumn colNameSearch;
+
+
+
+
     private Project project;
     private ProjectDAO projectDAO;
     private BugDAO bugDAO;
     private DeveloperDAO developerDAO;
     private ObservableList<Bug> listBugs;
     private ObservableList<Bug> listReguest;
+    private ObservableList<Developer> listDevelopers;
 
+    int id ;
 
     public ShowProjectController(Project project){
         this.project = project;
@@ -105,23 +137,25 @@ public class ShowProjectController {
         projectDAO = ProjectDAO.getInstance();
         bugDAO = BugDAO.getInstance();
 
-        int id = projectDAO.findID(project);
+        id = projectDAO.findID(project);
         listBugs = FXCollections.observableArrayList(bugDAO.getAllBugsForProject(id));
         listReguest = FXCollections.observableArrayList(bugDAO.getBugReportsForProject(id));
-
+        listDevelopers = FXCollections.observableArrayList(projectDAO.getAllDevelopersWhoWorksOnAProject(id));
     }
 
     private void loadData() {
         int id = projectDAO.findID(project);
         listBugs = FXCollections.observableArrayList(bugDAO.getAllBugsForProject(id));
         listReguest = FXCollections.observableArrayList(bugDAO.getBugReportsForProject(id));
+        listDevelopers = FXCollections.observableArrayList(projectDAO.getAllDevelopersWhoWorksOnAProject(id));
     }
     private void refresh(){
-        int id = projectDAO.findID(project);
         listBugs.setAll(bugDAO.getAllBugsForProject(id));
         listReguest.setAll(bugDAO.getBugReportsForProject(id));
+        listDevelopers.setAll(projectDAO.getAllDevelopersWhoWorksOnAProject(id));
         tableViewRequest.refresh();
         tableViewBugs.refresh();
+        tableViewDevelopers.refresh();
     }
     @FXML
     public void initialize(){
@@ -146,6 +180,11 @@ public class ShowProjectController {
         tableViewRequest.setItems(listReguest);
         colDev.setCellValueFactory(data -> new SimpleStringProperty(developerDAO.findDeveloperByIDorUsername(data.getValue().getRequest_id(),"").toString()));
         colBug.setCellValueFactory(new PropertyValueFactory("bug_name"));
+
+        tableViewDevelopers.setItems(listDevelopers);
+        colNameDev.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().toString()));
+        colUsernameDev.setCellValueFactory(new PropertyValueFactory("username"));
+        colEmailDev.setCellValueFactory(new PropertyValueFactory("email"));
 
         if(listReguest.size()!=0)notificationLbl.setText("You have "+listReguest.size()+" notifications");
 
@@ -205,6 +244,37 @@ public class ShowProjectController {
         }
     }
 
+    @FXML
+    public void sendMailAction(ActionEvent actionEvent){
+        if(textArea.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured","Text area is empty!");
+        else{
+            MailLoginController mailLoginController = new MailLoginController(project.getCreator());
+            Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/mailLogin.fxml"),"Mail info",mailLoginController);
+            stage.setOnHiding( event -> {
+                try {
+                    MailSender.sendEmail(mailLoginController.getEmail(),mailLoginController.getPassword(),emailFld.getText(),"Your request is denied",textArea.getText());
+                    AlertMaker.alertINFORMATION("Successfuly sended","Your mail is successfuly sended");
+                 } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+    }
+
+    @FXML
+    public void searchAction(ActionEvent actionEvent){
+
+    }
+
+    @FXML
+    public void addBtnAction(ActionEvent actionEvent){
+
+    }
+
+    @FXML
+    public void closeAction(ActionEvent actionEvent){
+        ((Stage)usernameFld.getScene().getWindow()).close();
+    }
     private void reset(){
         usernameFld.setText("");
         emailFld.setText("");

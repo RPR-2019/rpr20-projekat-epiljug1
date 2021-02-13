@@ -153,18 +153,17 @@ public class SignupController {
 
 
         System.out.println("SIGN IN ACTION");
-        if(namefld.getText().trim().isEmpty()) ALERT("Name Field");
-        else if(surnamefld.getText().trim().isEmpty()) ALERT("Surname Field");
-        else if(emailfld.getText().trim().isEmpty()) ALERT("E-mail Field");
-        else if(usernamefld.getText().trim().isEmpty()) ALERT("Username Field");
-        else if(passwordfld.getText().trim().isEmpty()) ALERT("Password Field");
+        if(namefld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured","Name field is empty!");
+        else if(surnamefld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured","Surname field is empty!");
+        else if(emailfld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured","E-mail field is empty!");
+        else if(!isValid(emailfld.getText())) AlertMaker.alertERROR("Error occured","E-mail field is not valid!");
+        else if(usernamefld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured","Username field is empty!");
+        else if(passwordfld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured","Password field is empty!");
         else {
             if(developerDAO.findIdOfDeveloper(usernamefld.getText())!=0){
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setContentText("Already exist developer with username: " + usernamefld.getText());
-                alert.showAndWait();
+                AlertMaker.alertERROR("Error occured","Already exist developer with username: " + usernamefld.getText());
             }else {
+                System.out.println("ADDING MEMBER TO DATABASE");
                 developer = new Developer(namefld.getText(),surnamefld.getText(),emailfld.getText(),usernamefld.getText(),passwordfld.getText());
                 developerDAO.addDeveloper(developer);
                 closeWindow();

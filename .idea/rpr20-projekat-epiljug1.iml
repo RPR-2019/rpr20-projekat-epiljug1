@@ -12,6 +12,6 @@
     <orderEntry type="library" name="lib1" level="project" />
     <orderEntry type="library" name="javafx" level="project" />
     <orderEntry type="library" name="org.xerial:sqlite-jdbc:3.21.0" level="project" />
-    <orderEntry type="library" name="javax.mail" level="project" />
+    <orderEntry type="library" name="javax.mail (1)" level="project" />
   </component>
 </module>

@@ -24,7 +24,8 @@ public class ProjectDAO {
 
     private  Connection conn;
     private PreparedStatement getAllProjects,findProject, addProject, findMax,findId,addProjectConnectionTable,
-            getAllProjectsOfDeveloper, getAllProjectsUserIsAssigned, updateProject, countBugs, countSolvedBugs;
+            getAllProjectsOfDeveloper, getAllProjectsUserIsAssigned, updateProject, countBugs, countSolvedBugs
+            , getAllDevelopersWhoWorksOnProject;
 
     public  Connection getConn() {
         return conn;
@@ -69,6 +70,8 @@ public class ProjectDAO {
             getAllProjectsUserIsAssigned = conn.prepareStatement("select project.* from project,connections where connections.pr_id=project.project_id and connections.de_id=?");
             countBugs = conn.prepareStatement("select count(*) from project a,bug b where a.project_id=b.projectID and a.project_id=?");
             countSolvedBugs = conn.prepareStatement("select count(*) from project a, bug b where a.project_id=b.projectID  and a.project_id=? and b.solver_id is not null and b.solver_id!=0");
+            getAllDevelopersWhoWorksOnProject
+                    = conn.prepareStatement("SELECT DISTINCT developer.* from developer, project, connections where project.project_id=? and project.project_id=connections.pr_id and developer.developer_id=connections.de_id");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -239,6 +242,23 @@ public class ProjectDAO {
             e.printStackTrace();
         }
         return data;
+    }
+
+    public ArrayList<Developer> getAllDevelopersWhoWorksOnAProject(int projectID){
+        ArrayList<Developer> listDevelopers = new ArrayList<>();
+        try{
+           // System.out.println("PROJECT ID = "+ projectID);
+            getAllDevelopersWhoWorksOnProject.setInt(1,projectID);
+            ResultSet rs = getAllDevelopersWhoWorksOnProject.executeQuery();
+            while (rs.next()){
+             //   System.out.println("DEVELOPER " + rs.getString(2));
+                listDevelopers.add(new Developer(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
+            }
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+
+        return listDevelopers;
     }
 
     int findID(Project project){
