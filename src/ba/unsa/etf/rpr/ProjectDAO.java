@@ -7,8 +7,6 @@ import javafx.scene.chart.PieChart;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -25,7 +23,7 @@ public class ProjectDAO {
     private  Connection conn;
     private PreparedStatement getAllProjects,findProject, addProject, findMax,findId,addProjectConnectionTable,
             getAllProjectsOfDeveloper, getAllProjectsUserIsAssigned, updateProject, countBugs, countSolvedBugs
-            , getAllDevelopersWhoWorksOnProject;
+            , getAllDevelopersWhoWorksOnProject, searchForDeveloper, addDeveloperOnProject, removeDeveloper;
 
     public  Connection getConn() {
         return conn;
@@ -72,6 +70,12 @@ public class ProjectDAO {
             countSolvedBugs = conn.prepareStatement("select count(*) from project a, bug b where a.project_id=b.projectID  and a.project_id=? and b.solver_id is not null and b.solver_id!=0");
             getAllDevelopersWhoWorksOnProject
                     = conn.prepareStatement("SELECT DISTINCT developer.* from developer, project, connections where project.project_id=? and project.project_id=connections.pr_id and developer.developer_id=connections.de_id");
+            searchForDeveloper
+                    = conn.prepareStatement("SELECT developer.* from developer where developer.username!=? and (LOWER(developer.ime)=LOWER(?) or LOWER(developer.prezime)=LOWER(?) or LOWER(developer.username)=LOWER(?) or LOWER(developer.email)=LOWER(?))");
+
+            addDeveloperOnProject = conn.prepareStatement("INSERT into connections VALUES(?,?)");
+            removeDeveloper = conn.prepareStatement("DELETE FROM connections where connections.pr_id=? and connections.de_id=?");
+            //MINUS SELECT DISTINCT developer.* from developer, project, connections where project.project_id=? and project.project_id=connections.pr_id and developer.developer_id=connections.de_id
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -260,6 +264,44 @@ public class ProjectDAO {
 
         return listDevelopers;
     }
+
+    public ArrayList<Developer> searchForDevelopers(String search , String creatorUsername){
+        ArrayList<Developer> listDevelopers = new ArrayList<>();
+        try{
+            searchForDeveloper.setString(1,creatorUsername);
+            searchForDeveloper.setString(2,search);
+            searchForDeveloper.setString(3,search);
+            searchForDeveloper.setString(4,search);
+            searchForDeveloper.setString(5,search);
+            ResultSet rs = searchForDeveloper.executeQuery();
+            while (rs.next())
+                listDevelopers.add(new Developer(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6)));
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        return listDevelopers;
+    }
+
+    public void removeDeveloperFromProject(int projectId, int developerId){
+        try {
+            removeDeveloper.setInt(1,projectId);
+            removeDeveloper.setInt(2,developerId);
+            removeDeveloper.executeUpdate();
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+    }
+
+    public void addDeveloperOnProject(int projectId, int developerId){
+        try {
+            addDeveloperOnProject.setInt(1,projectId);
+            addDeveloperOnProject.setInt(2,developerId);
+            addDeveloperOnProject.executeUpdate();
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+    }
+
 
     int findID(Project project){
         try {

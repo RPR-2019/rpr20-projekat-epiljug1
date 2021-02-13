@@ -58,8 +58,8 @@ public class AlertMaker {
 
         dialog.setOnCloseRequest(dialogEvent -> {
             nodeToBeBlurred.setEffect(null);
-            Stage stage= (Stage) nodeToBeBlurred.getScene().getWindow();
-            stage.close();
+           // Stage stage= (Stage) nodeToBeBlurred.getScene().getWindow();
+           // stage.close();
         });
 
         nodeToBeBlurred.setEffect(blur);

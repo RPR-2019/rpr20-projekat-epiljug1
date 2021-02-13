@@ -51,7 +51,12 @@ public class UserProjectsController {
         System.out.println("OPEN");
         Project project = tableViewProjects.getSelectionModel().getSelectedItem();
         ShowProjectController ctrl = new ShowProjectController(project);
-        StageHandler.loadWindow(getClass().getResource("/fxml/showProject.fxml"),project.getName(),ctrl);
+        Stage main = (Stage) tableViewProjects.getScene().getWindow();
+        main.close();
+        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/showProject.fxml"),project.getName(),ctrl);
+        stage.setOnHiding( event -> {
+            main.show();
+        });
     }
 
     public void editProjectAction(ActionEvent actionEvent) throws IOException {

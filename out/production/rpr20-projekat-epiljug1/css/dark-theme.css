@@ -81,6 +81,13 @@
     -jfx-focus-color: -fx-secondary;
     -fx-text-fill: derive(-fx-secondary, 20%);
 }
+.search{
+     -fx-text-fill: white;
+    -fx-font-size : 12pt;
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-secondary;
+    -fx-border-width: 1.5px 1.5px 1.5px 1.5px;
+}
 
 .text-field3
 {

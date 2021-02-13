@@ -13,11 +13,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-import javax.mail.MessagingException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class ShowProjectController {
+
+    @FXML
+    StackPane stackPane;
+
     @FXML
     PieChart pie;
 
@@ -115,7 +117,7 @@ public class ShowProjectController {
     public TableView<Developer> tableViewSearch;
 
     @FXML
-    public TableColumn colNameSearch;
+    public TableColumn<Developer,String> colNameSearch;
 
 
 
@@ -127,8 +129,9 @@ public class ShowProjectController {
     private ObservableList<Bug> listBugs;
     private ObservableList<Bug> listReguest;
     private ObservableList<Developer> listDevelopers;
+    private ObservableList<Developer> listSearchDevelopers;
 
-    int id ;
+    private int projectId;
 
     public ShowProjectController(Project project){
         this.project = project;
@@ -137,10 +140,17 @@ public class ShowProjectController {
         projectDAO = ProjectDAO.getInstance();
         bugDAO = BugDAO.getInstance();
 
-        id = projectDAO.findID(project);
-        listBugs = FXCollections.observableArrayList(bugDAO.getAllBugsForProject(id));
-        listReguest = FXCollections.observableArrayList(bugDAO.getBugReportsForProject(id));
-        listDevelopers = FXCollections.observableArrayList(projectDAO.getAllDevelopersWhoWorksOnAProject(id));
+        projectId = projectDAO.findID(project);
+        listBugs = FXCollections.observableArrayList(bugDAO.getAllBugsForProject(projectId));
+        listReguest = FXCollections.observableArrayList(bugDAO.getBugReportsForProject(projectId));
+        listDevelopers = FXCollections.observableArrayList(projectDAO.getAllDevelopersWhoWorksOnAProject(projectId));
+
+//        searchDeveloper = developerDAO.getAllDevelopers();
+//        listSearchDevelopers = FXCollections.observableArrayList(developerDAO.getAllDevelopers());
+//        listSearchDevelopers.stream()
+//                .filter(dev -> { return  dev.getUsername().equals(project.getCreator().getUsername()); })
+//                .findFirst().ifPresent(dev2 -> { listSearchDevelopers.remove(dev2);
+//        });
     }
 
     private void loadData() {
@@ -150,16 +160,15 @@ public class ShowProjectController {
         listDevelopers = FXCollections.observableArrayList(projectDAO.getAllDevelopersWhoWorksOnAProject(id));
     }
     private void refresh(){
-        listBugs.setAll(bugDAO.getAllBugsForProject(id));
-        listReguest.setAll(bugDAO.getBugReportsForProject(id));
-        listDevelopers.setAll(projectDAO.getAllDevelopersWhoWorksOnAProject(id));
+        listBugs.setAll(bugDAO.getAllBugsForProject(projectId));
+        listReguest.setAll(bugDAO.getBugReportsForProject(projectId));
+        listDevelopers.setAll(projectDAO.getAllDevelopersWhoWorksOnAProject(projectId));
         tableViewRequest.refresh();
         tableViewBugs.refresh();
         tableViewDevelopers.refresh();
     }
     @FXML
     public void initialize(){
-
 
 
         pie.setData(projectDAO.getProjectGraphStatistic(project));
@@ -185,6 +194,8 @@ public class ShowProjectController {
         colNameDev.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().toString()));
         colUsernameDev.setCellValueFactory(new PropertyValueFactory("username"));
         colEmailDev.setCellValueFactory(new PropertyValueFactory("email"));
+
+
 
         if(listReguest.size()!=0)notificationLbl.setText("You have "+listReguest.size()+" notifications");
 
@@ -261,20 +272,54 @@ public class ShowProjectController {
         }
     }
 
+
     @FXML
     public void searchAction(ActionEvent actionEvent){
-
+            if(!searchFld.getText().trim().isEmpty()){
+                listSearchDevelopers = FXCollections.observableArrayList(projectDAO.searchForDevelopers(searchFld.getText().trim(),project.getCreator().getUsername()));
+                for(Developer d: listSearchDevelopers){
+                    System.out.println("SEARCH : "  + d.getUsername());
+                }
+                tableViewSearch.setItems(FXCollections.observableList(listSearchDevelopers));
+                colNameSearch.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().toString()));
+            }
     }
 
     @FXML
     public void addBtnAction(ActionEvent actionEvent){
+            if(tableViewSearch.getSelectionModel().getSelectedItem()!=null){
+                String username = tableViewSearch.getSelectionModel().getSelectedItem().getUsername();
 
+                if(listDevelopers.stream().anyMatch(dev ->{ return  dev.getUsername().equals(username);})){
+                    AlertMaker.alertINFORMATION("INFORMATION","Developer \""+username+"\" already working on this project!");
+                }else{
+                    projectDAO.addDeveloperOnProject(projectId,developerDAO.findIdOfDeveloper(username));
+                    AlertMaker.showMaterialDialog(stackPane,"Successfuly added","\""+username+"\" has been succesfuly added to this project!");
+                    refresh();
+                }
+
+            }else AlertMaker.alertERROR("Error occured","You did not select any developer!");
+    }
+
+
+    @FXML
+    public void removeDeveloperAction(ActionEvent actionEvent){
+        if(tableViewDevelopers.getSelectionModel().getSelectedItem()!=null){
+            String username = tableViewDevelopers.getSelectionModel().getSelectedItem().getUsername();
+            projectDAO.removeDeveloperFromProject(projectId,developerDAO.findIdOfDeveloper(username));
+            AlertMaker.showMaterialDialog(stackPane,"Successfuly added","\""+username+"\" has been succesfuly removed from this project!");
+            refresh();
+        } else AlertMaker.alertERROR("Error occured","You did not select any developer!");
     }
 
     @FXML
     public void closeAction(ActionEvent actionEvent){
         ((Stage)usernameFld.getScene().getWindow()).close();
     }
+
+
+
+
     private void reset(){
         usernameFld.setText("");
         emailFld.setText("");
