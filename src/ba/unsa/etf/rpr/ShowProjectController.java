@@ -111,6 +111,18 @@ public class ShowProjectController {
 
     }
 
+    private void loadData() {
+        int id = projectDAO.findID(project);
+        listBugs = FXCollections.observableArrayList(bugDAO.getAllBugsForProject(id));
+        listReguest = FXCollections.observableArrayList(bugDAO.getBugReportsForProject(id));
+    }
+    private void refresh(){
+        int id = projectDAO.findID(project);
+        listBugs.setAll(bugDAO.getAllBugsForProject(id));
+        listReguest.setAll(bugDAO.getBugReportsForProject(id));
+        tableViewRequest.refresh();
+        tableViewBugs.refresh();
+    }
     @FXML
     public void initialize(){
 
@@ -173,6 +185,26 @@ public class ShowProjectController {
         }
     }
 
+    @FXML
+    public void confirmAction(ActionEvent actionEvent){
+        Bug bug = tableViewRequest.getSelectionModel().getSelectedItem();
+        if(bug==null){
+            AlertMaker.alertERROR("Error occured","You need to select the item!");
+            return;
+        }
+        if( approveChk.isSelected()) {
+            approveChk.setSelected(false);
+            bugDAO.approveRequestForSolving(bug.getRequest_id(), bug.getBug_name(), projectDAO.findID(bug.getProject()));
+            refresh();
+            pie.setData(projectDAO.getProjectGraphStatistic(project));
+        }
+        else if(denyChk.isSelected()){
+            denyChk.setSelected(false);
+            bugDAO.denyRequestForSolving(bug.getBug_name(), projectDAO.findID(bug.getProject()));
+            refresh();
+        }
+    }
+
     private void reset(){
         usernameFld.setText("");
         emailFld.setText("");
@@ -183,6 +215,5 @@ public class ShowProjectController {
         Developer developer = developerDAO.findDeveloperByIDorUsername(bug.getRequest_id(),"");
         usernameFld.setText(developer.getUsername());
         emailFld.setText(developer.getEmail());
-
     }
 }

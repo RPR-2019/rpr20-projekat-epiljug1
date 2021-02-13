@@ -17,7 +17,7 @@ public class BugDAO {
         instanceProjectDAO.backToDefaultDataBase();
     }
 
-    private PreparedStatement getAllBugs,findBugByID, addBug, findMax,getAllBugsForProject, getBugReguest;
+    private PreparedStatement getAllBugs,findBugByID, addBug, findMax,getAllBugsForProject, getBugReguest, approveRequest, denyRequest;
 
     public  Connection getConn() {
         return conn;
@@ -56,6 +56,8 @@ public class BugDAO {
             addBug = conn.prepareStatement("INSERT into bug values(?,?,?,?,?,?,?,?,?)");
             getAllBugsForProject = conn.prepareStatement("SELECT * from bug where projectID=?");
             getBugReguest = conn.prepareStatement("SELECT DISTINCT bug.* from bug, project where project.project_id=? and project.project_id=bug.projectID and bug.solver_id==0 and bug.request_id!=0");
+            approveRequest = conn.prepareStatement("UPDATE bug SET status='fixed', solver_id=?, request_id=0 where bug_name=? and projectID=?");
+            denyRequest = conn.prepareStatement("UPDATE bug SET request_id=0 where bug_name=? and projectID=?");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -169,6 +171,27 @@ public class BugDAO {
         }
 
         return allBugs;
+    }
+
+    public void approveRequestForSolving(int idSolver, String bugName, int bugProjectID){
+        try{
+            approveRequest.setInt(1,idSolver);
+            approveRequest.setString(2,bugName);
+            approveRequest.setInt(3,bugProjectID);
+            approveRequest.executeUpdate();
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+    }
+
+    public void denyRequestForSolving( String bugName, int bugProjectID){
+        try{
+            denyRequest.setString(1,bugName);
+            denyRequest.setInt(2,bugProjectID);
+            denyRequest.executeUpdate();
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
     }
     public void close() {
         try {

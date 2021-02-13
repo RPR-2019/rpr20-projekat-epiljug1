@@ -177,6 +177,9 @@
                                        </font>
                                     </Label>
                                     <CheckBox fx:id="denyChk" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#denyAction" />
+                                    <Pane prefHeight="39.0" prefWidth="43.0" />
+                                    <Button mnemonicParsing="false" onAction="#confirmAction" prefHeight="39.0" prefWidth="87.0" text="Confirm" />
+                                    <Pane prefHeight="39.0" prefWidth="16.0" />
                                  </children>
                               </HBox>
                               <GridPane fx:id="grid" disable="true" hgap="7.0" prefHeight="403.0" prefWidth="477.0" vgap="7.0">
