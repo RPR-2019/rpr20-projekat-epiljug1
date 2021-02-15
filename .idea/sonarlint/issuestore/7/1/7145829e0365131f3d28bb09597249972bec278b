@@ -1,8 +1,21 @@
 
-X	java:S125"<This block of commented-out lines of code should be removed.(øÌ’Ã8¶€ç ø.
-G
-java:S1481"*Remove this unused "stage" local variable.(ØşéØ8¶€ç ø.
-V
-java:S1854"9Remove this useless assignment to local variable "stage".(ØşéØ8¶€ç ø.
+]	java:S125="<This block of commented-out lines of code should be removed.(çË˜·şÿÿÿÿ8¶¨èù.
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8€çšèù.
 \
-java:S1118":Add a private constructor to hide the implicit public one.(‚«§éùÿÿÿÿ8Å¤ä ø.
+java:S1118":Add a private constructor to hide the implicit public one.(‚«§éùÿÿÿÿ8€çšèù.
+G
+java:S1481G"*Remove this unused "stage" local variable.(ØşéØ8€çšèù.
+Q
+java:S3740+"/Provide the parametrized type for this generic.(¦ŒÕãÿÿÿÿÿ8€çšèù.
+Q
+java:S3740+"/Provide the parametrized type for this generic.(¦ŒÕãÿÿÿÿÿ8€çšèù.
+N
+java:S1602;",Remove useless curly braces around statement(àšÈÕşÿÿÿÿ8¶¨èù.
+X	java:S125H"<This block of commented-out lines of code should be removed.(øÌ’Ã8€çšèù.
+V
+java:S1854G"9Remove this useless assignment to local variable "stage".(ØşéØ8€çšèù.
+\
+java:S1128":Remove this unused import 'javafx.scene.input.MouseEvent'.(˜¬‹æÿÿÿÿÿ8€çšèù.
+W
+java:S1128":Remove this unused import 'javafx.scene.layout.StackPane'.(™÷èò8€çšèù.

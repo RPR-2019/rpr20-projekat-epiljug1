@@ -1,40 +1,62 @@
 
-
-java:S1319‹"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(éÃ²Ò8İµ¦÷.
+\
+java:S1659":Declare "getAllProjectsUserIsAssigned" on a separate line.(«êÕóùÿÿÿÿ8–ºĞáù.
+M
+java:S1659"0Declare "searchForDeveloper" on a separate line.(ßËĞ8¨ªçù.
+P
+java:S1659"3Declare "addDeveloperOnProject" on a separate line.(ßËĞ8Ã–½çù.
 g
-java:S2095M"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üı™éşÿÿÿÿ8‰ƒú›÷.
-Y
-java:S1659"7Declare "addProjectConnectionTable" on a separate line.(şÖ……ûÿÿÿÿ8é°û›÷.
-W
-java:S1659":Declare "getAllProjectsUserIsAssigned" on a separate line.(ÙçÒ¤8¨ŒªÆø.
-C
-java:S3010%"!Remove this assignment of "conn".(”ÛÚ¬şÿÿÿÿ8îù×ø.
-T
-java:S1659"7Declare "getAllProjectsOfDeveloper" on a separate line.(ÙçÒ¤8¨ŒªÆø.
-R
-java:S1128"5Remove this unused import 'java.text.ParseException'.(ñ®ï•8éÏ“ ø.
-i
-java:S2095S"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8‰ƒú›÷.
-F
-java:S1659"$Declare "findId" on a separate line.(şÖ……ûÿÿÿÿ8õ—ø›÷.
-X	java:S125"<This block of commented-out lines of code should be removed.(½”ƒ¨8ø¡ªËø.
+java:S2095_"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üı™éşÿÿÿÿ8€²Õãù.
 K
-java:S1659")Declare "findProject" on a separate line.(şÖ……ûÿÿÿÿ8æû›÷.
-K
-java:S2115%")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ8îù×ø.
+java:S3010&".Remove this assignment of "instanceDeveloper".(°ÊÈ¨8–ºĞáù.
 _
-java:S1068"=Remove this unused "addProjectConnectionTable" private field.(şÖ……ûÿÿÿÿ8ø¡ªËø.
-“
-java:S1319¬"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¡­Îìüÿÿÿÿ8ó³İø.
-T
-java:S1128"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ8§©‘ ø.
+java:S1068"=Remove this unused "addProjectConnectionTable" private field.(şÖ……ûÿÿÿÿ8–ºĞáù.
 W
-java:S1141R"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8‰ƒú›÷.
->
-java:S1643P"Use a StringBuilder instead.(¥…ˆÇşÿÿÿÿ8‰ƒú›÷.
-
-java:S1319š"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‡³©8¨ŒªÆø.
-J
-java:S1659"(Declare "addProject" on a separate line.(şÖ……ûÿÿÿÿ8¤Ğ˜§÷.
+java:S1141d"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8€²Õãù.
+F
+java:S1659"$Declare "findId" on a separate line.(şÖ……ûÿÿÿÿ8–ºĞáù.
+Y
+java:S1659"7Declare "addProjectConnectionTable" on a separate line.(şÖ……ûÿÿÿÿ8–ºĞáù.
+i
+java:S2095e"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8€²Õãù.
+Y	java:S125“"<This block of commented-out lines of code should be removed.(½”ƒ¨8€²Õãù.
+K
+java:S2115,")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ8–ºĞáù.
+^	java:S125‰"<This block of commented-out lines of code should be removed.(Õò¶œşÿÿÿÿ8€²Õãù.
+I
+java:S1659"'Declare "countBugs" on a separate line.(«êÕóùÿÿÿÿ8–ºĞáù.
+\
+java:S1659"?Declare "getAllDevelopersWhoWorksOnProject" on a separate line.(ßËĞ8åÁÔáù.
+Y	java:S125ş"<This block of commented-out lines of code should be removed.(ãñìË8€²Õãù.
 G
-java:S1659"%Declare "findMax" on a separate line.(şÖ……ûÿÿÿÿ8îÂ§÷.
+java:S1659"%Declare "findMax" on a separate line.(şÖ……ûÿÿÿÿ8–ºĞáù.
+>
+java:S1643b"Use a StringBuilder instead.(¥…ˆÇşÿÿÿÿ8€²Õãù.
+
+java:S1319 "pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(éÃ²Ò8€²Õãù.
+J
+java:S1659"(Declare "addProject" on a separate line.(şÖ……ûÿÿÿÿ8–ºĞáù.
+Y
+java:S1659"7Declare "getAllProjectsOfDeveloper" on a separate line.(«êÕóùÿÿÿÿ8–ºĞáù.
+[	java:S106á"9Replace this use of System.out or System.err by a logger.(ñÌû¬úÿÿÿÿ8€²Õãù.
+Y	java:S125‚"<This block of commented-out lines of code should be removed.(äØñ„8€²Õãù.
+s	java:S117Ó"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òÖË˜şÿÿÿÿ8€²Õãù.
+“
+java:S1319Œ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ƒ³¦§ÿÿÿÿÿ8…ÙØãù.
+J
+java:S1659"-Declare "removeDeveloper" on a separate line.(ßËĞ8†¶¹èù.
+“
+java:S1319Á"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¡­Îìüÿÿÿÿ8€²Õãù.
+
+java:S1319¯"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‡³©8€²Õãù.
+[	java:S106ë"9Replace this use of System.out or System.err by a logger.(±ı‡£øÿÿÿÿ8€²Õãù.
+[	java:S106ñ"9Replace this use of System.out or System.err by a logger.(Î£çÔúÿÿÿÿ8€²Õãù.
+“
+java:S1319û"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¡†âáıÿÿÿÿ8€²Õãù.
+s	java:S117Ó"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òÖË˜şÿÿÿÿ8€²Õãù.
+K
+java:S1659")Declare "findProject" on a separate line.(şÖ……ûÿÿÿÿ8–ºĞáù.
+M
+java:S1659"+Declare "updateProject" on a separate line.(«êÕóùÿÿÿÿ8–ºĞáù.
+O
+java:S1659"-Declare "countSolvedBugs" on a separate line.(«êÕóùÿÿÿÿ8–ºĞáù.

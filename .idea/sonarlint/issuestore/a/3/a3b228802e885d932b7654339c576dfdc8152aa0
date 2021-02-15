@@ -1,21 +1,35 @@
 
-B
-java:S1659"%Declare "findMax" on a separate line.(§‡³ä8ä†Õ¦÷.
-K
-java:S2115 ")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ8ä†Õ¦÷.
-’
-java:S1319s"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‘é½Öúÿÿÿÿ8ùâ°§÷.
->
-java:S1643?"Use a StringBuilder instead.(¥…ˆÇşÿÿÿÿ8ä†Õ¦÷.
-F
-java:S1659")Declare "findBugByID" on a separate line.(§‡³ä8Ú¶×¦÷.
-C
-java:S3010 "!Remove this assignment of "conn".(”ÛÚ¬şÿÿÿÿ8®Ø¦÷.
-W
-java:S1141A"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8ä†Õ¦÷.
-i
-java:S2095B"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8ä†Õ¦÷.
+<
+java:S1643"Use a StringBuilder instead.(¥…ˆÇşÿÿÿÿ8ä†Õ¦÷.
 g
-java:S2095<"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üı™éşÿÿÿÿ8ä†Õ¦÷.
-A
-java:S1659"$Declare "addBug" on a separate line.(§‡³ä8¨íÖ¦÷.
+java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8ä†Õ¦÷.
+U
+java:S1141"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8ä†Õ¦÷.
+I
+java:S2115")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ8ä†Õ¦÷.
+
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‘é½Öúÿÿÿÿ8ùâ°§÷.
+e
+java:S2095"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üı™éşÿÿÿÿ8ä†Õ¦÷.
+
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Õäª­ùÿÿÿÿ8Æ†øÙù.
+‹
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(æØ›æ8Æ†øÙù.
+J
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8Æ†øÙù.
+N
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8Æ†øÙù.
+D
+java:S1659")Declare "findBugByID" on a separate line.(äÔûø8Æ†øÙù.
+?
+java:S1659"$Declare "addBug" on a separate line.(äÔûø8Æ†øÙù.
+@
+java:S1659"%Declare "findMax" on a separate line.(äÔûø8Æ†øÙù.
+M
+java:S1659"2Declare "getAllBugsForProject" on a separate line.(äÔûø8Æ†øÙù.
+F
+java:S1659"+Declare "getBugReguest" on a separate line.(äÔûø8Æ†øÙù.
+G
+java:S1659",Declare "approveRequest" on a separate line.(äÔûø8Æ†øÙù.
+D
+java:S1659")Declare "denyRequest" on a separate line.(äÔûø8Æ†øÙù.

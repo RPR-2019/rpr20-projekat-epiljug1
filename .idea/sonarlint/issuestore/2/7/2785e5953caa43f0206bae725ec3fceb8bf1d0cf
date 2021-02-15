@@ -1,0 +1,51 @@
+
+U	java:S106™"9Replace this use of System.out or System.err by a logger.(—È´78ÿÉşçù.
+v
+java:S1602¥"SRemove useless curly braces around statement and then remove useless return keyword(•’÷ùÿÿÿÿ8§¥Úçù.
+L
+java:S3740n"/Provide the parametrized type for this generic.(…ÃÉ½8ÌãËáù.
+Q
+java:S3740k"/Provide the parametrized type for this generic.(‰˜˜Ùúÿÿÿÿ8ÌãËáù.
+M
+java:S3740·"/Provide the parametrized type for this generic.(×Ø–8Ìü¦äù.
+V	java:S106å"9Replace this use of System.out or System.err by a logger.(ñ¦™¢8Ìü¦äù.
+l
+java:S1192Ò"NDefine a constant instead of duplicating this literal "Error occured" 6 times.(õÏÇ€8Ìü¦äù.
+M
+java:S3740Ä"/Provide the parametrized type for this generic.(ü¨ô‰8Ôş’âù.
+L
+java:S3740<"/Provide the parametrized type for this generic.(å±ĞÎ8ø¦Êáù.
+M
+java:S3740º"/Provide the parametrized type for this generic.(ŠÌ´Õ8ø¦Êáù.
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ÙÂçù.
+Q
+java:S3740G"/Provide the parametrized type for this generic.(û¼¿ışÿÿÿÿ8ø¦Êáù.
+L
+java:S37403"/Provide the parametrized type for this generic.(ö¶Ü’8ø¦Êáù.
+{
+java:S1192Ò"]Define a constant instead of duplicating this literal "You need to select the item!" 3 times.(õÏÇ€8Ìü¦äù.
+R
+java:S3740¿"/Provide the parametrized type for this generic.(·ŠÚåøÿÿÿÿ8Ìü¦äù.
+M
+java:S3740»"/Provide the parametrized type for this generic.(¢Â„Œ8ø¦Êáù.
+a
+java:S1155È">Use isEmpty() to check whether the collection is empty or not.(Ê–¾øÿÿÿÿ8Ìü¦äù.
+R
+java:S3740¸"/Provide the parametrized type for this generic.(Øğ¥¥şÿÿÿÿ8ø¦Êáù.
+^	java:S125”"<This block of commented-out lines of code should be removed.(ºœ¡şÿÿÿÿÿ8óáçù.
+Q
+java:S37400"/Provide the parametrized type for this generic.(ÊÚÎ¨ùÿÿÿÿ8ø¦Êáù.
+†
+java:S1450„"cRemove the "listSearchDevelopers" field and declare it as a local variable in the relevant methods.(éø¤šøÿÿÿÿ8½Ü©èù.
+P
+java:S1144œ"-Remove this unused private "loadData" method.(ÍÛµíıÿÿÿÿ8õ×ãçù.
+R
+java:S3740Ã"/Provide the parametrized type for this generic.(İİÊùÿÿÿÿ8Ìü¦äù.
+V	java:S106Õ"9Replace this use of System.out or System.err by a logger.(½•À8Ìü¦äù.
+Q
+java:S37409"/Provide the parametrized type for this generic.(ïû©ğÿÿÿÿÿ8ø¦Êáù.
+R
+java:S3740¹"/Provide the parametrized type for this generic.(ª¿îùÿÿÿÿ8ø¦Êáù.
+L
+java:S37406"/Provide the parametrized type for this generic.(”Ç«¢8ø¦Êáù.

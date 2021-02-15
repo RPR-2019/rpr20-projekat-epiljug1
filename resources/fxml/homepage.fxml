@@ -116,7 +116,7 @@
             <TextField fx:id="date" alignment="CENTER_RIGHT" editable="false" layoutX="626.0" layoutY="591.0" prefHeight="30.0" prefWidth="95.0" style="-fx-background-color: transparent;" stylesheets="@../css/colors.css" />
          </children>
       </HBox>
-      <HBox layoutX="675.0" layoutY="1.0" prefHeight="22.0" prefWidth="138.0" AnchorPane.leftAnchor="675.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="1.0">
+      <HBox layoutX="675.0" layoutY="1.0" prefHeight="22.0" prefWidth="138.0" AnchorPane.rightAnchor="2.0">
          <children>
             <ImageView fitHeight="33.0" fitWidth="40.0" opacity="0.23" pickOnBounds="true" preserveRatio="true" HBox.hgrow="ALWAYS">
                <image>

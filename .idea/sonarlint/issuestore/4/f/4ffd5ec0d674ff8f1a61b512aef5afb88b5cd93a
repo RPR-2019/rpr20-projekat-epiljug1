@@ -1,11 +1,18 @@
 
+R
+java:S1172"2Remove this unused method parameter "actionEvent".(™öÊÆûÿÿÿÿ8´¾Íßù.
 x
-java:S1192"VDefine a constant instead of duplicating this literal "-fx-border-color: red" 4 times.(ÛÎ’Ïüÿÿÿÿ8ð‚õþ÷.
-p
-java:S1192A"NDefine a constant instead of duplicating this literal "Error occured" 3 times.(±ê‹þþÿÿÿÿ8Ç¯ù ø.
-N
-java:S1172T"2Remove this unused method parameter "actionEvent".(êÕ†A8ð‚õþ÷.
-T
-java:S1172?"2Remove this unused method parameter "actionEvent".(™öÊÆûÿÿÿÿ8µéèšø.
-z
-java:S14509"XRemove the "developer" field and declare it as a local variable in the relevant methods.(‚•è§ÿÿÿÿÿ8Ç¯ù ø.
+java:S1450"XRemove the "developer" field and declare it as a local variable in the relevant methods.(‚•è§ÿÿÿÿÿ8´¾Íßù.
+L
+java:S1172"2Remove this unused method parameter "actionEvent".(êÕ†A8´¾Íßù.
+[	java:S125"<This block of commented-out lines of code should be removed.(•Šø–ùÿÿÿÿ8´¾Íßù.
+[	java:S125"<This block of commented-out lines of code should be removed.(•Šø–ùÿÿÿÿ8´¾Íßù.
+[	java:S125"<This block of commented-out lines of code should be removed.(ÙðÌöüÿÿÿÿ8´¾Íßù.
+v
+java:S1192"VDefine a constant instead of duplicating this literal "-fx-border-color: red" 4 times.(ÛÎ’Ïüÿÿÿÿ8´¾Íßù.
+n
+java:S1192"NDefine a constant instead of duplicating this literal "Error occured" 3 times.(±ê‹þþÿÿÿÿ8´¾Íßù.
+X
+java:S1854"=Remove this useless assignment to local variable "!unknown!".(ùÁªí8Â¬Óßù.
+†
+java:S1130"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(êÕ†A8Â¬Óßù.
