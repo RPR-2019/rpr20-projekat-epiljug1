@@ -19,6 +19,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.IllegalFormatCodePointException;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -59,19 +60,21 @@ public class ListDevelopersController {
         }
         @FXML
         public void showDeveloperAction(ActionEvent actionEvent) throws IOException {
-            Stage stage = (Stage) tableViewDevelopers.getScene().getWindow();
-            stage.close();
-            Stage signUpStage = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/showDeveloper.fxml"));
-            ShowDeveloperController ctrl = new ShowDeveloperController(tableViewDevelopers.getSelectionModel().getSelectedItem());
-            loader.setController(ctrl);
-            Parent root = loader.load();
-            signUpStage.setTitle("Developer review");
-            signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            signUpStage.show();
-            signUpStage.setOnHiding( windowEvent -> {
-                stage.show();
-            });
+            if(tableViewDevelopers.getSelectionModel().getSelectedItem()!=null) {
+                Stage stage = (Stage) tableViewDevelopers.getScene().getWindow();
+                stage.close();
+                Stage signUpStage = new Stage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/showDeveloper.fxml"));
+                ShowDeveloperController ctrl = new ShowDeveloperController(tableViewDevelopers.getSelectionModel().getSelectedItem());
+                loader.setController(ctrl);
+                Parent root = loader.load();
+                signUpStage.setTitle("Developer review");
+                signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+                signUpStage.show();
+                signUpStage.setOnHiding(windowEvent -> {
+                    stage.show();
+                });
+            }else AlertMaker.alertERROR("Error occured!","You did not selected any developer!");
 
         }
         @FXML

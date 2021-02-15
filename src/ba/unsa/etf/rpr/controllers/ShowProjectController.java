@@ -22,6 +22,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import javax.mail.MessagingException;
+
 public class ShowProjectController {
 
     @FXML
@@ -266,10 +268,10 @@ public class ShowProjectController {
                 try {
                     MailSender.sendEmail(mailLoginController.getEmail(),mailLoginController.getPassword(),emailFld.getText(),"Your request is denied",textArea.getText());
                     AlertMaker.alertINFORMATION("Successfuly sended","Your mail is successfuly sended");
-                    textArea.setText("");
-                 } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (MessagingException e) {
+                    AlertMaker.alertERROR("Error occured!","Something went wrong while sending! Please check your info");
                 }
+                textArea.setText("");
             });
         }
     }
