@@ -40,7 +40,7 @@
          <children>
             <Button mnemonicParsing="false" onAction="#openProjectAction" prefHeight="39.0" prefWidth="126.0" stylesheets="@../css/dark-theme.css" text="Open project" VBox.vgrow="NEVER" />
             <Button mnemonicParsing="false" onAction="#editProjectAction" prefHeight="39.0" prefWidth="124.0" stylesheets="@../css/dark-theme.css" text="Edit" VBox.vgrow="NEVER" />
-            <Button mnemonicParsing="false" onAction="#closeWindow" prefHeight="39.0" prefWidth="124.0" stylesheets="@../css/dark-theme.css" text="Close" />
+            <Button cancelButton="true" mnemonicParsing="false" onAction="#closeWindow" prefHeight="39.0" prefWidth="124.0" stylesheets="@../css/dark-theme.css" text="Close" />
          </children>
          <BorderPane.margin>
             <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />

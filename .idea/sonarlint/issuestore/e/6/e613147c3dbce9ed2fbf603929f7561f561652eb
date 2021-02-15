@@ -1,0 +1,29 @@
+
+J
+java:S3740"/Provide the parametrized type for this generic.(ì‘Ûüÿÿÿÿ
+N	java:S106@"9Replace this use of System.out or System.err by a logger.(œÑà˜
+N	java:S106C"9Replace this use of System.out or System.err by a logger.(ó¶¯
+N	java:S106?"9Replace this use of System.out or System.err by a logger.(ßò¤Í
+J
+java:S3740+"/Provide the parametrized type for this generic.(ìıÜ×ùÿÿÿÿ
+N	java:S106<"9Replace this use of System.out or System.err by a logger.(‹îÙê
+J
+java:S3740"/Provide the parametrized type for this generic.(ÊÚÎ¨ùÿÿÿÿ
+M
+java:S11727"2Remove this unused method parameter "actionEvent".(Ô¯ëèûÿÿÿÿ
+M
+java:S1172;"2Remove this unused method parameter "actionEvent".(ÌñÏñúÿÿÿÿ
+J
+java:S3740"/Provide the parametrized type for this generic.(ïû©ğÿÿÿÿÿ
+M	java:S106B"9Replace this use of System.out or System.err by a logger.(‰ÍŸ4
+S	java:S106A"9Replace this use of System.out or System.err by a logger.(Ìù…¦ùÿÿÿÿ
+E
+java:S3740"/Provide the parametrized type for this generic.(Ö†”ó
+J
+java:S3740*"/Provide the parametrized type for this generic.(—‡ïÂùÿÿÿÿ
+J
+java:S3740-"/Provide the parametrized type for this generic.(Ì±ìûÿÿÿÿ
+E
+java:S3740."/Provide the parametrized type for this generic.(Œá‘ù
+H
+java:S1068"-Remove this unused "developer" private field.(‚•è§ÿÿÿÿÿ

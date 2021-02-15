@@ -1,0 +1,15 @@
+
+N
+java:S16028",Remove useless curly braces around statement(àšÈÕşÿÿÿÿ8¶¨èù.
+G
+java:S1481D"*Remove this unused "stage" local variable.(ØşéØ8€çšèù.
+Q
+java:S3740("/Provide the parametrized type for this generic.(¦ŒÕãÿÿÿÿÿ8€çšèù.
+X	java:S125E"<This block of commented-out lines of code should be removed.(øÌ’Ã8€çšèù.
+V
+java:S1854D"9Remove this useless assignment to local variable "stage".(ØşéØ8€çšèù.
+Q
+java:S3740("/Provide the parametrized type for this generic.(¦ŒÕãÿÿÿÿÿ8€çšèù.
+]	java:S125:"<This block of commented-out lines of code should be removed.(çË˜·şÿÿÿÿ8¶¨èù.
+\
+java:S1118":Add a private constructor to hide the implicit public one.(‚«§éùÿÿÿÿ8€çšèù.

@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.StageHandler;
+import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
 import ba.unsa.etf.rpr.database.ProjectDAO;
@@ -35,7 +37,9 @@ public class OtherProjectsController {
         projectDAO = ProjectDAO.getInstance();
         listProjects = FXCollections.observableArrayList(projectDAO.getAllProjectsForDeveloper(developer));
     }
-
+    private Stage getStage(){
+        return (Stage) tableViewProjects.getScene().getWindow();
+    }
     @FXML
     public void initialize(){
         tableViewProjects.setItems(listProjects);
@@ -58,14 +62,14 @@ public class OtherProjectsController {
     }
     public void openProjectAction(javafx.event.ActionEvent actionEvent) {
         System.out.println("OPEN");
-        Project project = tableViewProjects.getSelectionModel().getSelectedItem();
-        if(project!=null) {
-            System.out.println(project.getName());
-            System.out.println(project.getDescription());
-            System.out.println(project.getClient_name());
-            System.out.println(project.getClient_email());
-            System.out.println(project.getDateProjectCreated());
-        }
+        if(tableViewProjects.getSelectionModel().getSelectedItem()!=null){
+            getStage().close();
+            ShowOtherProjectController ctrl = new ShowOtherProjectController(tableViewProjects.getSelectionModel().getSelectedItem());
+            Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/showOtherProject.fxml"),"Project info",ctrl);
+            stage.setOnHiding( event -> {
+               getStage().show();
+            });
+        }else AlertMaker.alertERROR("Error occured","You did not select any project!");
     }
 
 

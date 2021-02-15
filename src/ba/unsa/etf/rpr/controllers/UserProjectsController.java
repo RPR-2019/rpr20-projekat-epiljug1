@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
 import ba.unsa.etf.rpr.database.ProjectDAO;
@@ -47,35 +48,39 @@ public class UserProjectsController {
     }
 
     public void openProjectAction(javafx.event.ActionEvent actionEvent) {
-        System.out.println("OPEN");
-        Project project = tableViewProjects.getSelectionModel().getSelectedItem();
-        ShowProjectController ctrl = new ShowProjectController(project);
-        Stage main = (Stage) tableViewProjects.getScene().getWindow();
-        main.close();
-        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/showProject.fxml"),project.getName(),ctrl);
-        stage.setOnHiding( event -> {
-            main.show();
-        });
+        if(tableViewProjects.getSelectionModel().getSelectedItem()!=null) {
+            System.out.println("OPEN");
+            Project project = tableViewProjects.getSelectionModel().getSelectedItem();
+            ShowProjectController ctrl = new ShowProjectController(project);
+            Stage main = (Stage) tableViewProjects.getScene().getWindow();
+            main.close();
+            Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/showProject.fxml"), project.getName(), ctrl);
+            stage.setOnHiding(event -> {
+                main.show();
+            });
+        }else AlertMaker.alertERROR("Error occured","You did not select any project!");
     }
 
     public void editProjectAction(ActionEvent actionEvent) throws IOException {
-        closeWindow(actionEvent);
-        EditProjectController ctrl = new EditProjectController(tableViewProjects.getSelectionModel().getSelectedItem());
+        if(tableViewProjects.getSelectionModel().getSelectedItem()!=null) {
+            closeWindow(actionEvent);
+            EditProjectController ctrl = new EditProjectController(tableViewProjects.getSelectionModel().getSelectedItem());
 
-        Stage editProjectStage = StageHandler.loadWindow(getClass().getResource("/fxml/editProject.fxml"),"Edit project",ctrl );
-        editProjectStage.setOnHiding( event -> {
+            Stage editProjectStage = StageHandler.loadWindow(getClass().getResource("/fxml/editProject.fxml"), "Edit project", ctrl);
+            editProjectStage.setOnHiding(event -> {
                 Project newProject = ctrl.getProject();
                 if (newProject != null) {
                     try {
                         System.out.println("refresh");
                         listProjects.setAll(projectDAO.getAllProjectsOfDeveloper(developer));
                         tableViewProjects.refresh();
-                        ((Stage)tableViewProjects.getScene().getWindow()).show();
+                        ((Stage) tableViewProjects.getScene().getWindow()).show();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
-            } );
+            });
+        }else AlertMaker.alertERROR("Error occured","You did not select any project!");
     }
 
 

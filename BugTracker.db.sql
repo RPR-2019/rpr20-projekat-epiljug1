@@ -48,6 +48,8 @@ INSERT INTO "connections" VALUES (1,3);
 INSERT INTO "connections" VALUES (1,4);
 INSERT INTO "connections" VALUES (2,1);
 INSERT INTO "connections" VALUES (2,4);
+INSERT INTO "connections" VALUES (3,2);
+INSERT INTO "connections" VALUES (3,1);
 INSERT INTO "developer" VALUES (1,'Evelin','Piljug','piljugevelin28@gmail.com','pilja','pass');
 INSERT INTO "developer" VALUES (2,'Evelin2','Piljug2','epiljug1@etf.unsa.ba','pilja2','pass');
 INSERT INTO "developer" VALUES (3,'test','test','test','test','test');

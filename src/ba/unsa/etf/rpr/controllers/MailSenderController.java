@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import javax.mail.MessagingException;
 
@@ -55,5 +56,11 @@ public class MailSenderController {
                 }
             }
     }
+
+    @FXML
+    public void cancelAction(ActionEvent actionEvent){
+        ((Stage)textArea.getScene().getWindow()).close();
+    }
+
 
 }
