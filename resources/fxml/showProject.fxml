@@ -105,7 +105,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </VBox>
-                        <Label fx:id="notificationLbl" layoutX="22.0" layoutY="549.0" prefHeight="24.0" prefWidth="300.0" textFill="WHITE" />
+                        <Label fx:id="notificationLbl" layoutX="22.0" layoutY="549.0" prefHeight="24.0" prefWidth="300.0" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="22.0" />
                         <Button layoutX="987.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#closeAction" prefHeight="37.0" prefWidth="37.0" style="-fx-border-color: transparent;" AnchorPane.rightAnchor="2.0">
                            <graphic>
                               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">

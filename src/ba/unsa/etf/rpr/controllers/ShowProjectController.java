@@ -129,16 +129,16 @@ public class ShowProjectController {
 
 
 
-    private Project project;
-    private ProjectDAO projectDAO;
-    private BugDAO bugDAO;
-    private DeveloperDAO developerDAO;
+    private final Project project;
+    private final ProjectDAO projectDAO;
+    private final BugDAO bugDAO;
+    private final DeveloperDAO developerDAO;
     private ObservableList<Bug> listBugs;
     private ObservableList<Bug> listReguest;
     private ObservableList<Developer> listDevelopers;
     private ObservableList<Developer> listSearchDevelopers;
 
-    private int projectId;
+    private final int projectId;
 
     public ShowProjectController(Project project){
         this.project = project;
@@ -152,12 +152,6 @@ public class ShowProjectController {
         listReguest = FXCollections.observableArrayList(bugDAO.getBugReportsForProject(projectId));
         listDevelopers = FXCollections.observableArrayList(projectDAO.getAllDevelopersWhoWorksOnAProject(projectId));
 
-//        searchDeveloper = developerDAO.getAllDevelopers();
-//        listSearchDevelopers = FXCollections.observableArrayList(developerDAO.getAllDevelopers());
-//        listSearchDevelopers.stream()
-//                .filter(dev -> { return  dev.getUsername().equals(project.getCreator().getUsername()); })
-//                .findFirst().ifPresent(dev2 -> { listSearchDevelopers.remove(dev2);
-//        });
     }
 
     private void loadData() {
@@ -272,6 +266,7 @@ public class ShowProjectController {
                 try {
                     MailSender.sendEmail(mailLoginController.getEmail(),mailLoginController.getPassword(),emailFld.getText(),"Your request is denied",textArea.getText());
                     AlertMaker.alertINFORMATION("Successfuly sended","Your mail is successfuly sended");
+                    textArea.setText("");
                  } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -284,9 +279,9 @@ public class ShowProjectController {
     public void searchAction(ActionEvent actionEvent){
             if(!searchFld.getText().trim().isEmpty()){
                 listSearchDevelopers = FXCollections.observableArrayList(projectDAO.searchForDevelopers(searchFld.getText().trim(),project.getCreator().getUsername()));
-                for(Developer d: listSearchDevelopers){
-                    System.out.println("SEARCH : "  + d.getUsername());
-                }
+//                for(Developer d: listSearchDevelopers){
+//                    System.out.println("SEARCH : "  + d.getUsername());
+//                }
                 tableViewSearch.setItems(FXCollections.observableList(listSearchDevelopers));
                 colNameSearch.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().toString()));
             }

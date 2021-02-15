@@ -53,8 +53,6 @@ a
 1src/ba/unsa/etf/rpr/ListDevelopersController.java,b\f\bf0c869844a16df2ed039e826aa1748b576c445b
 T
 $src/ba/unsa/etf/rpr/LoadWebPage.java,9\7\97aa05f09a7b0425c6f215b1976b69d4df12e557
-L
-resources/css/dark-theme.css,7\4\74c9d3a2e304a8b43ce174351f803f2362a0371d
 R
 ".idea/libraries/javax_mail__1_.xml,b\e\be17996aa3c74af1d84c0d5ca752736dd2998c3a
 j

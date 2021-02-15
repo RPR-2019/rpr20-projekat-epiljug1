@@ -30,7 +30,7 @@ public class MailLoginController {
 
     @FXML
     public void okAction(ActionEvent actionEvent){
-        if(emailSender.getText().trim().isEmpty() || SignupController.isValid(emailSender.getText())  || passwordSender.getText().trim().isEmpty() ) AlertMaker.alertERROR("Error occured","Your info is invalid!");
+        if(emailSender.getText().trim().isEmpty() || !SignupController.isValid(emailSender.getText())  || passwordSender.getText().trim().isEmpty() ) AlertMaker.alertERROR("Error occured","Your info is invalid!");
         ((Stage) emailSender.getScene().getWindow()).close();
     }
 

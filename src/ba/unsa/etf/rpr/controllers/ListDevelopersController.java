@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.StageHandler;
+import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import javafx.collections.FXCollections;
@@ -12,6 +14,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +23,8 @@ import java.io.IOException;
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class ListDevelopersController {
+        @FXML
+        BorderPane mainStage;
 
         @FXML
         TableView<Developer> tableViewDevelopers;
@@ -67,6 +73,18 @@ public class ListDevelopersController {
                 stage.show();
             });
 
+        }
+        @FXML
+        public void  sendMailAction(ActionEvent actionEvent){
+            if(tableViewDevelopers.getSelectionModel().getSelectedItem()!=null){
+                MailSenderController mailSenderController = new MailSenderController(developer.getEmail(),tableViewDevelopers.getSelectionModel().getSelectedItem().getEmail());
+                BoxBlur blur = new BoxBlur(3, 3, 3);
+                mainStage.setEffect(blur);
+                Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/mailSender.fxml"),"Send mail",mailSenderController);
+                stage.setOnHiding(windowEvent -> {
+                    mainStage.setEffect(null);
+                });
+            }
         }
 
         public void setDeveloper(Developer developer) {

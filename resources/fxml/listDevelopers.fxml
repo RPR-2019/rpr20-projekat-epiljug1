@@ -6,12 +6,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="861.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="mainStage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="861.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@/css/dark-theme.css" />
     </stylesheets>
     <center>
-        <TableView fx:id="tableViewDevelopers" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/dark-theme.css" BorderPane.alignment="CENTER">
+        <TableView fx:id="tableViewDevelopers" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: transparent;" stylesheets="@../css/dark-theme.css" BorderPane.alignment="CENTER">
             <columns>
                 <TableColumn fx:id="colName" prefWidth="139.0" text="Name" />
                 <TableColumn fx:id="colSurname" prefWidth="111.0" text="Surname" />
@@ -32,6 +32,12 @@
                     </styleClass>
                 </ContextMenu>
             </contextMenu>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
         </TableView>
     </center>
     <top>
@@ -59,15 +65,19 @@
     <right>
         <VBox prefHeight="480.0" prefWidth="155.0" spacing="5.0" style="-fx-background-color: #2A2E37;" BorderPane.alignment="CENTER">
             <children>
-                <Button mnemonicParsing="false" onAction="#showDeveloperAction" prefHeight="39.0" prefWidth="144.0" stylesheets="@../css/dark-theme.css" text="Show developer" VBox.vgrow="NEVER" />
-            <Button maxWidth="1.7976931348623157E308"    onAction="#closeWindow"    mnemonicParsing="false" prefHeight="39.0" prefWidth="144.0" text="Close" />
+                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showDeveloperAction" prefHeight="39.0" prefWidth="144.0" stylesheets="@../css/dark-theme.css" text="Show developer" VBox.vgrow="NEVER" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#closeWindow" prefHeight="39.0" prefWidth="144.0" text="Close" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#sendMailAction" text="Send e-mail" />
              </children>
             <BorderPane.margin>
                 <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
             </BorderPane.margin>
             <padding>
-                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
             </padding>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
         </VBox>
     </right>
 </BorderPane>

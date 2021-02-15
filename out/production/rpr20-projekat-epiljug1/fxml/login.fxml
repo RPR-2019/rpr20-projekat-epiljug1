@@ -61,5 +61,14 @@
             </Button>
          </children>
       </HBox>
+      <Button layoutX="751.0" layoutY="7.0" mnemonicParsing="false" onAction="#closeAction" prefHeight="35.0" prefWidth="35.0" style="-fx-border-color: transparent;" stylesheets="@../css/dark-theme.css">
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/cancel.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

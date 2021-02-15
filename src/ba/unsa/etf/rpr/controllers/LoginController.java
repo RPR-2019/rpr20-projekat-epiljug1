@@ -155,6 +155,8 @@ public class LoginController {
 //        signUpStage.show();
     }
 
+    @FXML
+    public void closeAction(ActionEvent actionEvent){ closeWindow();}
 
     public void closeWindow(){
         Stage stage = (Stage) usernamefld.getScene().getWindow();
