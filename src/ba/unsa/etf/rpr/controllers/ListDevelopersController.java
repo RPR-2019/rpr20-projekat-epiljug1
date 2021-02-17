@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.StageHandler;
 import ba.unsa.etf.rpr.alert.AlertMaker;
+import ba.unsa.etf.rpr.database.ProjectDAO;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import javafx.collections.FXCollections;
@@ -13,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.layout.BorderPane;
@@ -38,14 +40,19 @@ public class ListDevelopersController {
         @FXML
         public TableColumn colEmail;
 
+        @FXML
+        public TextField searchFld;
+
         private ObservableList<Developer> listDevelopers;
         private DeveloperDAO developerDAO;
+        private ProjectDAO projectDAO;
         private Developer developer;
 
 
         public ListDevelopersController(Developer developer){
             this.developer=developer;
             developerDAO = DeveloperDAO.getInstance();
+            projectDAO = ProjectDAO.getInstance();
             listDevelopers = FXCollections.observableArrayList(developerDAO.getAllDevelopers(developerDAO.findIdOfDeveloper(developer.getUsername())));
         }
 
@@ -87,6 +94,15 @@ public class ListDevelopersController {
                 stage.setOnHiding(windowEvent -> {
                     mainStage.setEffect(null);
                 });
+            }
+        }
+
+        @FXML
+        public void searchAction(ActionEvent actionEvent){
+// listSearchDevelopers = FXCollections.observableArrayList(projectDAO.searchForDevelopers(searchFld.getText().trim(),project.getCreator().getUsername()));
+            if(!searchFld.getText().trim().isEmpty()){
+                listDevelopers.setAll(projectDAO.searchForDevelopers(searchFld.getText().trim(),developer.getUsername()));
+                tableViewDevelopers.refresh();
             }
         }
 

@@ -45,8 +45,6 @@ X
 .src/ba/unsa/etf/rpr/database/DeveloperDAO.java,5\8\58d14810a67779d235f9c76305e57535c65449bb
 j
 :src/ba/unsa/etf/rpr/controllers/EditProjectController.java,c\b\cb812370a2a0e5535b9deda19cf3391d00442918
-L
-resources/fxml/homepage.fxml,3\f\3fa872eb5479f658e7bba2572e3e9f879ea10703
 g
 7src/ba/unsa/etf/rpr/controllers/HomepageController.java,8\5\85d14b2167a5820f53db900fea66f6b1bb89ad1e
 l
@@ -85,3 +83,9 @@ j
 :src/ba/unsa/etf/rpr/controllers/ShowProjectController.java,a\d\adc2864e61a13578ce6222ec49203d69a3434b0a
 m
 =src/ba/unsa/etf/rpr/controllers/ListDevelopersController.java,7\8\78f89fa50276650d30cd565422e0acc03f5292ca
+k
+;out/production/rpr20-projekat-epiljug1/fxml/mailSender.fxml,c\6\c6814ea14197530f2d26ccd0fde79ea5269f6a99
+N
+resources/fxml/mailSender.fxml,b\4\b463fafbca721a32edb515b0a99a8b632b22080d
+o
+?src/ba/unsa/etf/rpr/controllers/ShowOtherProjectController.java,1\9\1956da0eef4c75cad4a9bf8296d70821ac57314e

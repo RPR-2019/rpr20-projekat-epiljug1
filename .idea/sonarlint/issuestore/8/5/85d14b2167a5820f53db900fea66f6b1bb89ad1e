@@ -1,10 +1,14 @@
 
+E	java:S108f")Either remove or fill this block of code.(å¥‡8÷°Ùú.
+R
+java:S3655\"5Call "result.isPresent()" before accessing the value.(ÃÇûŞ8÷°Ùú.
+O
+java:S1172L"2Remove this unused method parameter "actionEvent".(•Ùè8÷°Ùú.
 H
-java:S1172@"2Remove this unused method parameter "actionEvent".(ø˜†¢
-K
-java:S3655Z"5Call "result.isPresent()" before accessing the value.(ÃÇûŞ
->	java:S108d")Either remove or fill this block of code.(å¥‡
-H
-java:S11726"2Remove this unused method parameter "actionEvent".(‘Şş
-H
-java:S1172J"2Remove this unused method parameter "actionEvent".(•Ùè
+java:S11728"2Remove this unused method parameter "actionEvent".(‘Şş
+O
+java:S1172B"2Remove this unused method parameter "actionEvent".(ø˜†¢8÷°Ùú.
+[
+java:S1128"9Remove this unused import 'ba.unsa.etf.rpr.StageHandler'.(Üÿû†øÿÿÿÿ8üÊ•Ùú.
+Z
+java:S1128"8Remove this unused import 'javafx.application.Platform'.(§“óùÿÿÿÿ8üÊ•Ùú.

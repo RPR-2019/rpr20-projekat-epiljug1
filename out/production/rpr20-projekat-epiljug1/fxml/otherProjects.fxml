@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="861.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="815.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@/css/dark-theme.css" />
     </stylesheets>
@@ -39,7 +39,7 @@
         <VBox prefHeight="450.0" prefWidth="125.0" spacing="5.0" style="-fx-background-color: #2A2E37;" BorderPane.alignment="CENTER">
             <children>
                 <Button mnemonicParsing="false" onAction="#openProjectAction" prefHeight="39.0" prefWidth="126.0" stylesheets="@../css/dark-theme.css" text="Open project" VBox.vgrow="NEVER" />
-                <Button mnemonicParsing="false" onAction="#closeWindow" prefHeight="39.0" prefWidth="124.0" stylesheets="@../css/dark-theme.css" text="Close" />
+                <Button cancelButton="true" mnemonicParsing="false" onAction="#closeWindow" prefHeight="39.0" prefWidth="124.0" stylesheets="@../css/dark-theme.css" text="Close" />
             </children>
             <BorderPane.margin>
                 <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
