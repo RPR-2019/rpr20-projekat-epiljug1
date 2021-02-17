@@ -7,7 +7,7 @@ import java.net.URISyntaxException;
 
 public class LoadWebPage {
 
-    private void loadWebpage(String url) {
+    public static void loadWebpage(String url) {
         try {
             Desktop.getDesktop().browse(new URI(url));
         } catch (IOException | URISyntaxException e1) {

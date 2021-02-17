@@ -10,14 +10,16 @@ public class Project {
     private Developer creator;
     private String client_name;
     private String client_email;
+    private String code_link;
     private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
 
-    public Project(String name, String description, Developer creator, String client_name, String client_email) {
+    public Project(String name, String description, Developer creator, String client_name, String client_email,String code_link) {
         this.name = name;
         this.description = description;
         this.creator = creator;
         this.client_name = client_name;
         this.client_email = client_email;
+        this.code_link = code_link;
         dateProjectCreated = LocalDate.now();
     }
 
@@ -28,6 +30,14 @@ public class Project {
         client_name="";
         client_email="";
         dateProjectCreated = LocalDate.now();
+    }
+
+    public String getCode_link() {
+        return code_link;
+    }
+
+    public void setCode_link(String code_link) {
+        this.code_link = code_link;
     }
 
     public Developer getCreator() {

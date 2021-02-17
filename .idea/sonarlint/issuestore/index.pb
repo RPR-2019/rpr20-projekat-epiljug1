@@ -89,3 +89,9 @@ N
 resources/fxml/mailSender.fxml,b\4\b463fafbca721a32edb515b0a99a8b632b22080d
 o
 ?src/ba/unsa/etf/rpr/controllers/ShowOtherProjectController.java,1\9\1956da0eef4c75cad4a9bf8296d70821ac57314e
+n
+>out/production/rpr20-projekat-epiljug1/fxml/otherProjects.fxml,2\2\22852e0f7db86bf15580c5d8d6459773087e5385
+Q
+!resources/fxml/otherProjects.fxml,9\d\9d5f21a4f4b64121e12c44c159e54e1411ec19f8
+P
+ resources/fxml/userProjects.fxml,e\5\e59f81dcbe4e0f9d4bed65b6cb437ff9928edadf

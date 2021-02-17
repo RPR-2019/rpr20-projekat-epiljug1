@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS "project" (
 	"date_created"	TEXT,
 	"client_name"	TEXT,
 	"client_email"	TEXT,
+	"code_link" TEXT,
 	PRIMARY KEY("project_id"),
 	FOREIGN KEY("creator_id") REFERENCES "developer"("developer_id")
 );
@@ -55,14 +56,14 @@ INSERT INTO "developer" VALUES (2,'Evelin2','Piljug2','epiljug1@etf.unsa.ba','pi
 INSERT INTO "developer" VALUES (3,'test','test','test','test','test');
 INSERT INTO "developer" VALUES (4,'Novi','korisniilk','mail@mail.com','username','password');
 INSERT INTO "developer" VALUES (5,'novi','korisnik','mail@noviMail.com','nkorisnik','test');
-INSERT INTO "project" VALUES (1,'projekat1','opis111fasodjkng;ljsdfn;lgjns;dkfjng;kdfsjng;vkjsdfn;kvnbsdfg;kjnbeiastrngbs;dkfljnbstirgnbkdjfneustrbngpk;djfnbvigusrtnbvikjnsdfigb',1,'09.02.2021.','kompanije.doo','client@mail.com');
-INSERT INTO "project" VALUES (2,'projekat2','opis2',2,'09.02.2021.','kompanija2.doo','client2@mail.com');
-INSERT INTO "project" VALUES (3,'Novi projekat','Deskripcija',1,'10.02.2021.','Klijent','Klijent email');
-INSERT INTO "project" VALUES (4,'nazivEditova','desc',1,'10.02.2021.','client','mejl');
-INSERT INTO "project" VALUES (5,'RPR-tutorijal-5','aasdasasd',1,'10.02.2021.','ahjh','a2');
-INSERT INTO "project" VALUES (6,'RPR-tutorijal-7','a',1,'10.02.2021.','aaa','a2');
-INSERT INTO "project" VALUES (7,'naziv','desc',1,'10.02.2021.','client','mejl');
-INSERT INTO "project" VALUES (8,'naziv','desc',1,'11.02.2021.','client','mejl');
+INSERT INTO "project" VALUES (1,'projekat1','opis111fasodjkng;ljsdfn;lgjns;dkfjng;kdfsjng;vkjsdfn;kvnbsdfg;kjnbeiastrngbs;dkfljnbstirgnbkdjfneustrbngpk;djfnbvigusrtnbvikjnsdfigb',1,'09.02.2021.','kompanije.doo','client@mail.com','https://github.com/RPR-2019/rpr20-projekat-epiljug1');
+INSERT INTO "project" VALUES (2,'projekat2','opis2',2,'09.02.2021.','kompanija2.doo','client2@mail.com','link');
+INSERT INTO "project" VALUES (3,'Novi projekat','Deskripcija',1,'10.02.2021.','Klijent','Klijent email','link');
+INSERT INTO "project" VALUES (4,'nazivEditova','desc',1,'10.02.2021.','client','mejl','link');
+INSERT INTO "project" VALUES (5,'RPR-tutorijal-5','aasdasasd',1,'10.02.2021.','ahjh','a2','link');
+INSERT INTO "project" VALUES (6,'RPR-tutorijal-7','a',1,'10.02.2021.','aaa','a2','link');
+INSERT INTO "project" VALUES (7,'naziv','desc',1,'10.02.2021.','client','mejl','link');
+INSERT INTO "project" VALUES (8,'naziv','desc',1,'11.02.2021.','client','mejl','link');
 INSERT INTO "request" VALUES (2,1,1);
 INSERT INTO "bug" VALUES (1,'bugName','bugType','new','11.02.2021.',1,'high',0,2);
 INSERT INTO "bug" VALUES (2,'asdasd','asd','sdf','11.02.2021.',1,'asd',0,0);

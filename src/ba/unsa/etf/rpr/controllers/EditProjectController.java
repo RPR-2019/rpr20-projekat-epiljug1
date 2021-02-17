@@ -24,6 +24,9 @@ public class EditProjectController {
     TextField clientEmailFld;
 
     @FXML
+    TextField sourceCodeFld;
+
+    @FXML
     AnchorPane anchorPane;
 
     private Project project;
@@ -51,7 +54,10 @@ public class EditProjectController {
         if(descriptionFld.getText().trim().isEmpty()) {AlertMaker.alertERROR("Error occured","Description field is empty!");  return false;}
         if(clientNameFld.getText().trim().isEmpty()) {AlertMaker.alertERROR("Error occured","Client name field is empty!");  return false;}
         if(clientEmailFld.getText().trim().isEmpty()) {AlertMaker.alertERROR("Error occured","Client e-mail field is empty!");  return false;}
+        if(sourceCodeFld.getText().trim().isEmpty()) {AlertMaker.alertERROR("Error occured","Source code field is empty!");  return false;}
+
         return  true;
+
     }
 
     @FXML
@@ -59,7 +65,7 @@ public class EditProjectController {
         System.out.println("SAVE ACTION");
         int id = projectDAO.findID(project);
         if(check()){
-            projectDAO.updateProject(id,nameFld.getText(),descriptionFld.getText(),clientNameFld.getText(),clientEmailFld.getText());
+            projectDAO.updateProject(id,nameFld.getText(),descriptionFld.getText(),clientNameFld.getText(),clientEmailFld.getText(),sourceCodeFld.getText());
             AlertMaker.showMaterialDialog(anchorPane,"Changes saved","Project has been successfully edited!");
         }
     }

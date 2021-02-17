@@ -116,11 +116,7 @@ public class HomepageController {
         allProjects.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         allProjects.show();
     }
-    @FXML
-    public void proba(ActionEvent actionEvent){
-        Project novi = new Project("naziv","desc",developer,"client","mejl");
-        projectDAO.addNewProject(novi);
-    }
+
 
     public void closeWindow(){
         Stage stage = (Stage) btnAddProject.getScene().getWindow();

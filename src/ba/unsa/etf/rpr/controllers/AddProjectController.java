@@ -28,6 +28,9 @@ public class AddProjectController {
     @FXML
     AnchorPane anchorPane;
 
+    @FXML
+    TextField sourceCodeFld;
+
     private ProjectDAO projectDAO;
     private Developer developer;
 
@@ -45,8 +48,9 @@ public class AddProjectController {
     }
 
     public void addAction(ActionEvent actionEvent){
-        if(check(nameFld.getText(),"Name") && check(descriptionFld.getText(),"Description") && check(clientNameFld.getText(),"Client name field") && check(clientEmailFld.getText(),"Client e-mail")){
-            projectDAO.addNewProject(new Project(nameFld.getText(),descriptionFld.getText(),developer,clientNameFld.getText(),clientEmailFld.getText()));
+        if(check(nameFld.getText(),"Name") && check(descriptionFld.getText(),"Description") && check(clientNameFld.getText(),"Client name field")
+                && check(clientEmailFld.getText(),"Client e-mail") && check(sourceCodeFld.getText(),"Source code")){
+            projectDAO.addNewProject(new Project(nameFld.getText(),descriptionFld.getText(),developer,clientNameFld.getText(),clientEmailFld.getText(), sourceCodeFld.getText()));
             //AlertMaker.alertINFORMATION("Information","Project has been successfully added!");
             AlertMaker.showMaterialDialog(anchorPane,"New project added",nameFld.getText()+" has been added!");
         //    closeWindowAction(actionEvent);

@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.LoadWebPage;
 import ba.unsa.etf.rpr.database.BugDAO;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.database.ProjectDAO;
@@ -119,6 +120,12 @@ public class ShowOtherProjectController {
         colEmailDev.setCellValueFactory(new PropertyValueFactory("email"));
 
     }
+
+    @FXML
+    public void sourceCodeLinkAction(ActionEvent actionEvent){
+        LoadWebPage.loadWebpage(project.getCode_link());
+    }
+
 
     @FXML
     public void openBugAction(ActionEvent actionEvent){

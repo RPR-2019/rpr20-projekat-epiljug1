@@ -50,6 +50,7 @@ public class ShowProjectController {
     @FXML
     TextArea descFld;
 
+
     @FXML
     TableView<Bug> tableViewBugs;
 
@@ -181,6 +182,7 @@ public class ShowProjectController {
         clientEmailFld.setText(project.getClient_email());
         dateFld.setText(project.getDateProjectCreated());
         descFld.setText(project.getDescription());
+
 
         tableViewBugs.setItems(listBugs);
         colName.setCellValueFactory(new PropertyValueFactory("bug_name"));
@@ -322,6 +324,10 @@ public class ShowProjectController {
     }
 
 
+    @FXML
+    public void sourceCodeLinkAction(ActionEvent actionEvent){
+        LoadWebPage.loadWebpage(project.getCode_link());
+    }
 
 
     private void reset(){

@@ -17,10 +17,10 @@
             <Insets />
          </BorderPane.margin>
          <children>
-            <HBox alignment="CENTER_LEFT" prefWidth="649.0" spacing="10.0" style="-fx-background-color: #2A2E37;" VBox.vgrow="NEVER">
+            <HBox alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="815.0" spacing="10.0" style="-fx-background-color: #2A2E37;" VBox.vgrow="NEVER">
                <children>
-                  <TextField fx:id="searchFld" styleClass="search" stylesheets="@../css/dark-theme.css" />
-                   <Button mnemonicParsing="false" onAction="#searchAction" prefHeight="32.0" prefWidth="118.0" text="Search" GridPane.columnIndex="1">
+                  <TextField fx:id="searchFld" alignment="CENTER_RIGHT" styleClass="search" stylesheets="@../css/dark-theme.css" />
+                   <Button mnemonicParsing="false" onAction="#searchAction" prefHeight="40.0" prefWidth="132.0" text="Search" GridPane.columnIndex="1">
                        <graphic>
                            <ImageView fitHeight="30.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                                <image>
@@ -29,6 +29,17 @@
                            </ImageView>
                        </graphic>
                    </Button>
+                  <Pane prefHeight="40.0" prefWidth="30.0" HBox.hgrow="ALWAYS" />
+                  <ButtonBar>
+                     <buttons>
+                            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showDeveloperAction" prefHeight="39.0" prefWidth="144.0" stylesheets="@../css/dark-theme.css" text="Show developer" />
+                        <Button cancelButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#closeWindow" prefHeight="39.0" prefWidth="144.0" stylesheets="@../css/dark-theme.css" text="Close" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#sendMailAction" stylesheets="@../css/dark-theme.css" text="Send e-mail" />
+                     </buttons>
+                     <HBox.margin>
+                        <Insets right="6.0" />
+                     </HBox.margin>
+                  </ButtonBar>
                </children>
                <VBox.margin>
                   <Insets />
@@ -37,7 +48,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </HBox>
-              <TableView fx:id="tableViewDevelopers" prefHeight="521.0" prefWidth="662.0" style="-fx-border-color: transparent;" stylesheets="@../css/dark-theme.css">
+              <TableView fx:id="tableViewDevelopers" prefHeight="521.0" prefWidth="662.0" style="-fx-border-color: transparent;" stylesheets="@../css/dark-theme.css" VBox.vgrow="ALWAYS">
                   <columns>
                       <TableColumn fx:id="colName" prefWidth="139.0" text="Name" />
                       <TableColumn fx:id="colSurname" prefWidth="111.0" text="Surname" />
@@ -87,22 +98,4 @@
             </menus>
         </MenuBar>
     </top>
-    <right>
-        <VBox prefHeight="480.0" prefWidth="155.0" spacing="5.0" style="-fx-background-color: #2A2E37;" BorderPane.alignment="CENTER">
-            <children>
-                <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showDeveloperAction" prefHeight="39.0" prefWidth="144.0" stylesheets="@../css/dark-theme.css" text="Show developer" VBox.vgrow="NEVER" />
-            <Button cancelButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#closeWindow" prefHeight="39.0" prefWidth="144.0" stylesheets="@../css/dark-theme.css" text="Close" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#sendMailAction" stylesheets="@../css/dark-theme.css" text="Send e-mail" />
-             </children>
-            <BorderPane.margin>
-                <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
-            </BorderPane.margin>
-            <padding>
-                <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
-            </padding>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-        </VBox>
-    </right>
 </BorderPane>

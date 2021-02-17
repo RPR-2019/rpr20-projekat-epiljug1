@@ -1,30 +1,30 @@
 
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šüã¡øÿÿÿÿ
-c	java:S100("NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶ßñæ
 c	java:S100E"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô´¶‘
-c	java:S100,"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ïœ•£
 h	java:S116"SRename this field "bug_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹ŞÈ
-5
-java:S2097^"Add a type test to this method.(ÜÑã
-f	java:S117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ñÖ
-f	java:S117("QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶ßñæ
-c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ôì¾Ú
-h	java:S1008"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•é±âúÿÿÿÿ
-k	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•é±âúÿÿÿÿ
-q	java:S116
-"WRename this field "date_created" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä¤Õ‚şÿÿÿÿ
-h	java:S1000"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†æ”‹ùÿÿÿÿ
-]
-java:S2259`"BA "NullPointerException" could be thrown; "novi" is nullable here.(¥²Œ™øÿÿÿÿ
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šüã¡øÿÿÿÿ
-m	java:S116"SRename this field "bug_type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸…Àáşÿÿÿÿ
-k	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú˜½ùÿÿÿÿ
-k	java:S1170"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†æ”‹ùÿÿÿÿ
-c	java:S100I"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ñÖ
-i	java:S116"TRename this field "solver_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( î‘
-o	java:S116"URename this field "request_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª–Ïåüÿÿÿÿ
 f
 java:S1206^"PThis class overrides "equals()" and should therefore also override "hashCode()".(ÜÑã
-h	java:S100$"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ış»‘úÿÿÿÿ
-h	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú˜½ùÿÿÿÿ
+o	java:S116"URename this field "request_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª–Ïåüÿÿÿÿ
 c	java:S1004"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÄşëŠ
+k	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú˜½ùÿÿÿÿ
+]
+java:S2259`"BA "NullPointerException" could be thrown; "novi" is nullable here.(¥²Œ™øÿÿÿÿ
+k	java:S1170"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†æ”‹ùÿÿÿÿ
+h	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ú˜½ùÿÿÿÿ
+c	java:S100("NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶ßñæ
+h	java:S1008"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•é±âúÿÿÿÿ
+5
+java:S2097^"Add a type test to this method.(ÜÑã
+k	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•é±âúÿÿÿÿ
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šüã¡øÿÿÿÿ
+q	java:S116
+"WRename this field "date_created" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä¤Õ‚şÿÿÿÿ
+c	java:S100I"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ñÖ
+h	java:S100$"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ış»‘úÿÿÿÿ
+i	java:S116"TRename this field "solver_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( î‘
+h	java:S1000"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†æ”‹ùÿÿÿÿ
+m	java:S116"SRename this field "bug_type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸…Àáşÿÿÿÿ
+f	java:S117("QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶ßñæ
+f	java:S117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹ñÖ
+c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ôì¾Ú
+c	java:S100,"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ïœ•£
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šüã¡øÿÿÿÿ

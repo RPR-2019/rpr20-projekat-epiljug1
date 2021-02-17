@@ -60,10 +60,10 @@ public class ProjectDAO {
         }
 
         try{
-            updateProject = conn.prepareStatement("update project set naziv=?, opis=?, client_name=?,client_email=? where project_id=?");
+            updateProject = conn.prepareStatement("update project set naziv=?, opis=?, client_name=?,client_email=?, code_link=? where project_id=?");
             getAllProjectsOfDeveloper= conn.prepareStatement("select * from project where creator_id=?");
             findProject = conn.prepareStatement("SELECT * FROM project where naziv=? or project_id=?");
-            addProject = conn.prepareStatement("INSERT INTO project values(?,?,?,?,?,?,?)");
+            addProject = conn.prepareStatement("INSERT INTO project values(?,?,?,?,?,?,?,?)");
             findMax = conn.prepareStatement("SELECT Max(project_id) from project");
             findId = conn.prepareStatement("SELECT project_id FROM project where   naziv=? and opis=? ");
             addProjectConnectionTable = conn.prepareStatement("INSERT INTO connections values(?,?)");
@@ -124,7 +124,7 @@ public class ProjectDAO {
             findProject.setString(1,naziv);
             findProject.setInt(2,id);
             ResultSet rs = findProject.executeQuery();
-            novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""),rs.getString(6),rs.getString(7));
+            novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""),rs.getString(6),rs.getString(7),rs.getString(8));
             novi.setDateProjectCreated(getDate(rs.getString(5)));
 
         }catch (SQLException e){
@@ -145,7 +145,7 @@ public class ProjectDAO {
             addProject.setString(5,project.getDateProjectCreated());
             addProject.setString(6,project.getClient_name());
             addProject.setString(7,project.getClient_email());
-
+            addProject.setString(8,project.getCode_link());
 //            addProjectConnectionTable.setInt(1,id);
 //            addProjectConnectionTable.setInt(2,idDevelopera);
 //
@@ -164,7 +164,7 @@ public class ProjectDAO {
         try {
             ResultSet rs = getAllProjects.executeQuery();
             while (rs.next()){
-                Project novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""),rs.getString(6),rs.getString(7));
+                Project novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""),rs.getString(6),rs.getString(7),rs.getString(8));
                 novi.setDateProjectCreated(getDate(rs.getString(5)));
                 allProjects.add(novi);
             }
@@ -181,7 +181,7 @@ public class ProjectDAO {
             getAllProjectsUserIsAssigned.setInt(1,id);
             ResultSet rs = getAllProjectsUserIsAssigned.executeQuery();
             while (rs.next()){
-                Project novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""),rs.getString(6),rs.getString(7));
+                Project novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""),rs.getString(6),rs.getString(7),rs.getString(8));
                 novi.setDateProjectCreated(getDate(rs.getString(5)));
                 allProjects.add(novi);
             }
@@ -199,7 +199,7 @@ public class ProjectDAO {
             getAllProjectsOfDeveloper.setInt(1,id);
             ResultSet rs = getAllProjectsOfDeveloper.executeQuery();
             while (rs.next()){
-                Project novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""),rs.getString(6),rs.getString(7));
+                Project novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""),rs.getString(6),rs.getString(7),rs.getString(8));
                 novi.setDateProjectCreated(getDate(rs.getString(5)));
 
                 allProjects.add(novi);
@@ -210,13 +210,14 @@ public class ProjectDAO {
         return allProjects;
     }
 
-    public void updateProject(int id, String name, String description, String client_name, String client_email){
+    public void updateProject(int id, String name, String description, String client_name, String client_email,String code_link){
         try{
             updateProject.setString(1,name);
             updateProject.setString(2,description);
             updateProject.setString(3,client_name);
             updateProject.setString(4,client_email);
-            updateProject.setInt(5,id);
+            updateProject.setString(5,code_link);
+            updateProject.setInt(6,id);
             updateProject.executeUpdate();
         }catch (SQLException sqlException){
             sqlException.printStackTrace();

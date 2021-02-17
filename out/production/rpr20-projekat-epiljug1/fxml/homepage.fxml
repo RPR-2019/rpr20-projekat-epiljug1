@@ -93,7 +93,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="btnSettings" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#proba" text="Settings" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="btnSettings" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Settings" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
