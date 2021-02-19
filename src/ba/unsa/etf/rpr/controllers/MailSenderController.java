@@ -2,7 +2,6 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.email.MailSender;
-import ba.unsa.etf.rpr.model.Developer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -28,8 +27,8 @@ public class MailSenderController {
     @FXML
     TextField subjectFld;
 
-    private String sender;
-    private String receiver;
+    private final String sender;
+    private final String receiver;
 
     public MailSenderController(String sender, String receiver) {
         this.sender = sender;
@@ -49,7 +48,6 @@ public class MailSenderController {
         else{
                 try {
                     MailSender.sendEmail(sender,senderPassFld.getText(),receiver,subjectFld.getText(),textArea.getText());
-                    AlertMaker.alertINFORMATION("Successfuly sended","Your mail is successfuly sended");
                     textArea.setText("");
                 } catch (MessagingException e) {
                     AlertMaker.alertERROR("Error occured!","Something went wrong while sending! Please check your info");

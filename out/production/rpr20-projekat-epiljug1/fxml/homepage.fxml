@@ -39,7 +39,8 @@
         </rowConstraints>
          <children>
             <Button fx:id="btnYourProjects" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#listAllYourProjects" prefHeight="151.0" prefWidth="169.0" text="Your projects" textFill="WHITE">
-               <graphic>
+
+                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/list_book.png" />

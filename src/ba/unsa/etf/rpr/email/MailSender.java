@@ -1,5 +1,8 @@
 package ba.unsa.etf.rpr.email;
 
+import ba.unsa.etf.rpr.alert.AlertMaker;
+import javafx.scene.control.Dialog;
+
 import javax.mail.Session;
 import javax.mail.Transport;
 import java.util.Properties;
@@ -8,8 +11,9 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class MailSender {
-    public static void sendEmail(String sender, String password, String recipent,String subject, String text) throws MessagingException {
+    public static boolean sendEmail(String sender, String password, String recipent,String subject, String text) throws MessagingException {
         System.out.println("PREPARING MESSAGE");
+      //  Dialog dialog = AlertMaker.loadingMail();
         Properties properties = new Properties();
 
         properties.put("mail.smtp.auth","true");
@@ -28,6 +32,9 @@ public class MailSender {
         Message message = prepareMessage(session,sender,recipent,subject,text);
         Transport.send(message);
         System.out.println("MESSAGE SENT");
+      //  dialog.close();
+        AlertMaker.alertINFORMATION("Successfuly sended","Your mail is successfuly sended");
+        return true;
     }
 
 

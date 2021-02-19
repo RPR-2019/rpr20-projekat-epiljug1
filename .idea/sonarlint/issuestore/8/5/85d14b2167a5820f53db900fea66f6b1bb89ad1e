@@ -1,14 +1,18 @@
 
-O
-java:S1172B"2Remove this unused method parameter "actionEvent".(ø˜†¢8÷°Ùú.
-O
-java:S1172L"2Remove this unused method parameter "actionEvent".(•Ùè8÷°Ùú.
-H
-java:S11728"2Remove this unused method parameter "actionEvent".(‘Şş
-Z
-java:S1128"8Remove this unused import 'javafx.application.Platform'.(§“óùÿÿÿÿ8üÊ•Ùú.
-R
-java:S3655\"5Call "result.isPresent()" before accessing the value.(ÃÇûŞ8÷°Ùú.
-E	java:S108f")Either remove or fill this block of code.(å¥‡8÷°Ùú.
 [
 java:S1128"9Remove this unused import 'ba.unsa.etf.rpr.StageHandler'.(Üÿû†øÿÿÿÿ8üÊ•Ùú.
+R
+java:S3655a"5Call "result.isPresent()" before accessing the value.(ÃÇûŞ8šïò€û.
+Z
+java:S1128"8Remove this unused import 'javafx.application.Platform'.(§“óùÿÿÿÿ8üÊ•Ùú.
+O
+java:S1172="2Remove this unused method parameter "actionEvent".(‘Şş8šïò€û.
+O
+java:S1172G"2Remove this unused method parameter "actionEvent".(ø˜†¢8šïò€û.
+O
+java:S1172Q"2Remove this unused method parameter "actionEvent".(•Ùè8šïò€û.
+K
+java:S1068+".Remove this unused "projectDAO" private field.(µ»ãË8´í÷ÿú.
+E	java:S108k")Either remove or fill this block of code.(å¥‡8šïò€û.
+\
+java:S1128":Remove this unused import 'ba.unsa.etf.rpr.model.Project'.(Š¬û“ÿÿÿÿÿ8´í÷ÿú.

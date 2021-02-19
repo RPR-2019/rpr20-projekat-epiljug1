@@ -51,6 +51,11 @@ public class HomepageController {
     public void initialize(){
         user.setText(developer.getName()+ " "+developer.getSurname());
         date.setText(LocalDate.now().format(myFormatObj));
+
+        Tooltip tooltip = new Tooltip();
+        tooltip.setText("List all developers who are connected to this server");
+        btnAllDev.setTooltip(tooltip);
+
     }
 
     public void listAllDevelopers(ActionEvent actionEvent) throws IOException {

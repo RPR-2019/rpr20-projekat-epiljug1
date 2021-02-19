@@ -65,8 +65,6 @@ Y
 )src/ba/unsa/etf/rpr/alert/AlertMaker.java,a\9\a98592a8f2c89590affee67d38f7b4df56cf139b
 X
 (.idea/libraries/activation_1_1_rev_1.xml,9\f\9fedd737cbde0a2673477a10d7b5e516535c9c15
-L
-resources/css/dark-theme.css,7\4\74c9d3a2e304a8b43ce174351f803f2362a0371d
 o
 ?out/production/rpr20-projekat-epiljug1/fxml/listDevelopers.fxml,6\f\6f5465b35c3429acf4a86094d8f6e43680a2a22a
 I
@@ -95,3 +93,9 @@ Q
 !resources/fxml/otherProjects.fxml,9\d\9d5f21a4f4b64121e12c44c159e54e1411ec19f8
 P
  resources/fxml/userProjects.fxml,e\5\e59f81dcbe4e0f9d4bed65b6cb437ff9928edadf
+N
+resources/fxml/addProject.fxml,a\6\a6dd03c8e17f6faeaee0dc5ac4b1495268540c24
+O
+resources/fxml/editProject.fxml,6\c\6c03e0cdd52102e821e352c8ce5249dbdc68a29a
+q
+Aout/production/rpr20-projekat-epiljug1/fxml/showOtherProject.fxml,1\8\1821ba5199ae2551f76254c30d1dd18c5b44242b

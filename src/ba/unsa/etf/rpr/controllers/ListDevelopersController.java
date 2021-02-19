@@ -21,7 +21,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.IllegalFormatCodePointException;
+import java.util.stream.Collectors;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -44,6 +46,7 @@ public class ListDevelopersController {
         public TextField searchFld;
 
         private ObservableList<Developer> listDevelopers;
+        private ObservableList<Developer> listAllDevelopers;
         private DeveloperDAO developerDAO;
         private ProjectDAO projectDAO;
         private Developer developer;
@@ -54,6 +57,7 @@ public class ListDevelopersController {
             developerDAO = DeveloperDAO.getInstance();
             projectDAO = ProjectDAO.getInstance();
             listDevelopers = FXCollections.observableArrayList(developerDAO.getAllDevelopers(developerDAO.findIdOfDeveloper(developer.getUsername())));
+            listAllDevelopers = FXCollections.observableArrayList(developerDAO.getAllDevelopers(developerDAO.findIdOfDeveloper(developer.getUsername())));
         }
 
 
@@ -64,6 +68,19 @@ public class ListDevelopersController {
             colSurname.setCellValueFactory(new PropertyValueFactory("surname"));
             colUsername.setCellValueFactory(new PropertyValueFactory("username"));
             colEmail.setCellValueFactory(new PropertyValueFactory("email"));
+
+            searchFld.textProperty().addListener((observableValue, oldValue, newValue) ->{
+                if(!newValue.getBytes().toString().trim().isEmpty()){
+
+                    listDevelopers.setAll(listAllDevelopers.stream().filter(developer1 -> {
+                        return  developer1.getName().toLowerCase().contains(newValue.toLowerCase()) || developer1.getSurname().toLowerCase().contains(newValue.toLowerCase()) ||developer1.getUsername().toLowerCase().contains(newValue.toLowerCase()) || developer1.getEmail().toLowerCase().contains(newValue.toLowerCase());
+                    }).collect(Collectors.toCollection(ArrayList::new)));
+                    tableViewDevelopers.refresh();
+                }else{
+                    listDevelopers.setAll(listAllDevelopers);
+                    tableViewDevelopers.refresh();
+                }
+            });
         }
         @FXML
         public void showDeveloperAction(ActionEvent actionEvent) throws IOException {
@@ -97,14 +114,7 @@ public class ListDevelopersController {
             }
         }
 
-        @FXML
-        public void searchAction(ActionEvent actionEvent){
-// listSearchDevelopers = FXCollections.observableArrayList(projectDAO.searchForDevelopers(searchFld.getText().trim(),project.getCreator().getUsername()));
-            if(!searchFld.getText().trim().isEmpty()){
-                listDevelopers.setAll(projectDAO.searchForDevelopers(searchFld.getText().trim(),developer.getUsername()));
-                tableViewDevelopers.refresh();
-            }
-        }
+
 
         public void setDeveloper(Developer developer) {
             this.developer = developer;

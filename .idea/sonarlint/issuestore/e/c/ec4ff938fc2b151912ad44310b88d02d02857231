@@ -1,22 +1,24 @@
 
-r
-java:S1192C"WDefine a constant instead of duplicating this literal "-fx-border-color: red" 10 times.(¼Æ‚åùÿÿÿÿ
-s
-java:S1192R"]Define a constant instead of duplicating this literal "-fx-border-color: lightgreen" 5 times.(°¾²ò
-e
-java:S1192Ÿ"NDefine a constant instead of duplicating this literal "Error occured" 7 times.(ä»›à
-s
-java:S1450-"XRemove the "developer" field and declare it as a local variable in the relevant methods.(‚•è§ÿÿÿÿÿ
-N	java:S1061"9Replace this use of System.out or System.err by a logger.(£ï«¦
 m
 java:S3776A"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(·òşÿÿÿÿ
-d	java:S100†"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îıã
+r
+java:S1192C"WDefine a constant instead of duplicating this literal "-fx-border-color: red" 10 times.(¼Æ‚åùÿÿÿÿ
+e
+java:S1192Ÿ"NDefine a constant instead of duplicating this literal "Error occured" 7 times.(ä»›à
+T	java:S106©"9Replace this use of System.out or System.err by a logger.(ÌÇ‹šøÿÿÿÿ
+Q	java:S125Û"<This block of commented-out lines of code should be removed.(¶î.
 W	java:S125"<This block of commented-out lines of code should be removed.(•Šø–ùÿÿÿÿ
-W	java:S125“"<This block of commented-out lines of code should be removed.(ÙğÌöüÿÿÿÿ
 n
 java:S3776›"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(™öÊÆûÿÿÿÿ
-T	java:S106"9Replace this use of System.out or System.err by a logger.(æŸ¯Îıÿÿÿÿ
-T	java:S106©"9Replace this use of System.out or System.err by a logger.(ÌÇ‹šøÿÿÿÿ
+s
+java:S1450-"XRemove the "developer" field and declare it as a local variable in the relevant methods.(‚•è§ÿÿÿÿÿ
 ]
 java:S2142À"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
-Q	java:S125Û"<This block of commented-out lines of code should be removed.(¶î.
+d	java:S100†"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îıã
+s
+java:S1192R"]Define a constant instead of duplicating this literal "-fx-border-color: lightgreen" 5 times.(°¾²ò
+W	java:S125“"<This block of commented-out lines of code should be removed.(ÙğÌöüÿÿÿÿ
+T	java:S106"9Replace this use of System.out or System.err by a logger.(æŸ¯Îıÿÿÿÿ
+N	java:S1061"9Replace this use of System.out or System.err by a logger.(£ï«¦
+
+java:S1130"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(£ƒúÕúÿÿÿÿ8Ğ”ùÿú.

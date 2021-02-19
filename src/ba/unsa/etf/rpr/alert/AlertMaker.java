@@ -33,7 +33,25 @@ public class AlertMaker {
 
         return  alert.showAndWait();
     }
+    public static Dialog loadingMail( ){
 
+        Dialog dialog = new Dialog();
+
+
+        ButtonType type = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
+        ProgressIndicator progressIndicator = new ProgressIndicator();
+        dialog.setHeaderText("Sending...");
+     //   dialog.setContentText(body);
+       dialog.getDialogPane().getButtonTypes().add(type);
+
+        DialogPane dialogPane = dialog.getDialogPane();
+        dialogPane.getStylesheets().add(AlertMaker.class.getResource("/css/dark-theme.css").toExternalForm());
+        dialogPane.getStyleClass().add("custom-alert");
+
+        dialog.show();
+
+        return dialog;
+    }
     public static void showMaterialDialog( Node nodeToBeBlurred, String header, String body) {
         BoxBlur blur = new BoxBlur(3, 3, 3);
 
@@ -45,7 +63,6 @@ public class AlertMaker {
         dialog.setHeaderText(header);
         dialog.setContentText(body);
         dialog.getDialogPane().getButtonTypes().add(type);
-
         DialogPane dialogPane = dialog.getDialogPane();
         dialogPane.getStylesheets().add(AlertMaker.class.getResource("/css/dark-theme.css").toExternalForm());
         dialogPane.getStyleClass().add("custom-alert");

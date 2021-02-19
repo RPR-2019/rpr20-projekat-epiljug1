@@ -94,6 +94,8 @@
     -fx-font-size : 12pt;
     -fx-background-color: transparent;
     -fx-border-color: -fx-secondary;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
     -fx-border-width: 1.5px 1.5px 1.5px 1.5px;
 }
 

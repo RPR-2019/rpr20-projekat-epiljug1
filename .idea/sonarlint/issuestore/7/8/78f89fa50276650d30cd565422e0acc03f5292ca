@@ -1,26 +1,26 @@
 
+J
+java:S3740#"/Provide the parametrized type for this generic.(ÊÚÎ¨ùÿÿÿÿ
+J
+java:S3740@"/Provide the parametrized type for this generic.(ÇØÑ°úÿÿÿÿ
+h
+java:S1128"FRemove this unused import 'java.util.IllegalFormatCodePointException'.(¹®öÉüÿÿÿÿ8“Î¤´ú.
+X	java:S125f"<This block of commented-out lines of code should be removed.(„•€8ë­îú.
+E
+java:S3740B"/Provide the parametrized type for this generic.(…»Ì‹
 B
 java:S1602Q",Remove useless curly braces around statement(Áâ¿„
 J
-java:S3740@"/Provide the parametrized type for this generic.(ÇØÑ°úÿÿÿÿ
+java:S3740A"/Provide the parametrized type for this generic.(Åõ€¥ûÿÿÿÿ
 N
 java:S1602^",Remove useless curly braces around statement(°Î“éùÿÿÿÿ8Ðîã³ú.
 J
-java:S3740'"/Provide the parametrized type for this generic.(â¬Ëûþÿÿÿÿ
-h
-java:S1128"FRemove this unused import 'java.util.IllegalFormatCodePointException'.(¹®öÉüÿÿÿÿ8“Î¤´ú.
-T
-java:S1172r"2Remove this unused method parameter "actionEvent".(Ô¯ëèûÿÿÿÿ8°Ëá³ú.
-E
-java:S3740B"/Provide the parametrized type for this generic.(…»Ì‹
-J
-java:S3740A"/Provide the parametrized type for this generic.(Åõ€¥ûÿÿÿÿ
-J
 java:S3740?"/Provide the parametrized type for this generic.(—‡ïÂùÿÿÿÿ
-X	java:S125f"<This block of commented-out lines of code should be removed.(„•€8ë­îú.
-J
-java:S3740#"/Provide the parametrized type for this generic.(ÊÚÎ¨ùÿÿÿÿ
-E
-java:S3740)"/Provide the parametrized type for this generic.(ƒäÆ
 J
 java:S3740%"/Provide the parametrized type for this generic.(²¢Ìïúÿÿÿÿ
+J
+java:S3740'"/Provide the parametrized type for this generic.(â¬Ëûþÿÿÿÿ
+E
+java:S3740)"/Provide the parametrized type for this generic.(ƒäÆ
+T
+java:S1172r"2Remove this unused method parameter "actionEvent".(Ô¯ëèûÿÿÿÿ8°Ëá³ú.

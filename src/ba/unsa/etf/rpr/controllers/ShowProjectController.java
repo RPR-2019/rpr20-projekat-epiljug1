@@ -23,6 +23,8 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import javax.mail.MessagingException;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class ShowProjectController {
 
@@ -140,6 +142,7 @@ public class ShowProjectController {
     private ObservableList<Bug> listReguest;
     private ObservableList<Developer> listDevelopers;
     private ObservableList<Developer> listSearchDevelopers;
+    private ObservableList<Developer> allDevelopers;
 
     private final int projectId;
 
@@ -154,7 +157,8 @@ public class ShowProjectController {
         listBugs = FXCollections.observableArrayList(bugDAO.getAllBugsForProject(projectId));
         listReguest = FXCollections.observableArrayList(bugDAO.getBugReportsForProject(projectId));
         listDevelopers = FXCollections.observableArrayList(projectDAO.getAllDevelopersWhoWorksOnAProject(projectId));
-
+        listSearchDevelopers = FXCollections.observableArrayList(new ArrayList<Developer>());
+        allDevelopers =  FXCollections.observableArrayList(developerDAO.getAllDevelopers());
     }
 
     private void loadData() {
@@ -166,6 +170,8 @@ public class ShowProjectController {
     private void refresh(){
         listBugs.setAll(bugDAO.getAllBugsForProject(projectId));
         listReguest.setAll(bugDAO.getBugReportsForProject(projectId));
+        System.out.println("LIST REQUEST = " + listReguest.size());
+        setNotification();
         listDevelopers.setAll(projectDAO.getAllDevelopersWhoWorksOnAProject(projectId));
         tableViewRequest.refresh();
         tableViewBugs.refresh();
@@ -200,12 +206,34 @@ public class ShowProjectController {
         colUsernameDev.setCellValueFactory(new PropertyValueFactory("username"));
         colEmailDev.setCellValueFactory(new PropertyValueFactory("email"));
 
+        setNotification();
 
+        tableViewSearch.setItems(FXCollections.observableList(listSearchDevelopers));
+        colNameSearch.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().toString()));
 
-        if(listReguest.size()!=0)notificationLbl.setText("You have "+listReguest.size()+" notifications");
+        searchFld.textProperty().addListener((observableValue, oldValue, newValue) ->{
+            if(!newValue.getBytes().toString().trim().isEmpty()){
+
+                listSearchDevelopers.setAll(allDevelopers.stream().filter(developer1 -> {
+                    return  developer1.getName().toLowerCase().contains(newValue.toLowerCase()) || developer1.getSurname().toLowerCase().contains(newValue.toLowerCase()) ||developer1.getUsername().toLowerCase().contains(newValue.toLowerCase()) || developer1.getEmail().toLowerCase().contains(newValue.toLowerCase());
+                }).collect(Collectors.toCollection(ArrayList::new)));
+                tableViewSearch.refresh();
+            }else{
+                listDevelopers.clear();
+                tableViewSearch.refresh();
+            }
+        });
 
 
     }
+    private void setNotification(){
+        if (listReguest.size() != 0) {
+            notificationLbl.setText("You have " + listReguest.size() + " requests");
+        } else {
+            notificationLbl.setText("");
+        }
+    }
+
     @FXML
     public void approveAction(ActionEvent actionEvent){
 
@@ -269,7 +297,6 @@ public class ShowProjectController {
             stage.setOnHiding( event -> {
                 try {
                     MailSender.sendEmail(mailLoginController.getEmail(),mailLoginController.getPassword(),emailFld.getText(),"Your request is denied",textArea.getText());
-                    AlertMaker.alertINFORMATION("Successfuly sended","Your mail is successfuly sended");
                 } catch (MessagingException e) {
                     AlertMaker.alertERROR("Error occured!","Something went wrong while sending! Please check your info");
                 }
@@ -279,17 +306,7 @@ public class ShowProjectController {
     }
 
 
-    @FXML
-    public void searchAction(ActionEvent actionEvent){
-            if(!searchFld.getText().trim().isEmpty()){
-                listSearchDevelopers = FXCollections.observableArrayList(projectDAO.searchForDevelopers(searchFld.getText().trim(),project.getCreator().getUsername()));
-//                for(Developer d: listSearchDevelopers){
-//                    System.out.println("SEARCH : "  + d.getUsername());
-//                }
-                tableViewSearch.setItems(FXCollections.observableList(listSearchDevelopers));
-                colNameSearch.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().toString()));
-            }
-    }
+
 
     @FXML
     public void addBtnAction(ActionEvent actionEvent){
