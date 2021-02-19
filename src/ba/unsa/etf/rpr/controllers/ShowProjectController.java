@@ -72,6 +72,9 @@ public class ShowProjectController {
     public TableColumn colCompl;
 
     @FXML
+    public TableColumn<Bug,String> colSolver;
+
+    @FXML
     public TableView<Bug> tableViewRequest;
 
 
@@ -170,7 +173,6 @@ public class ShowProjectController {
     private void refresh(){
         listBugs.setAll(bugDAO.getAllBugsForProject(projectId));
         listReguest.setAll(bugDAO.getBugReportsForProject(projectId));
-        System.out.println("LIST REQUEST = " + listReguest.size());
         setNotification();
         listDevelopers.setAll(projectDAO.getAllDevelopersWhoWorksOnAProject(projectId));
         tableViewRequest.refresh();
@@ -196,6 +198,7 @@ public class ShowProjectController {
         colStatus.setCellValueFactory(new PropertyValueFactory("status"));
         colDate.setCellValueFactory(new PropertyValueFactory("date_created"));
         colCompl.setCellValueFactory(new PropertyValueFactory("complexity"));
+        colSolver.setCellValueFactory(data -> new SimpleStringProperty(developerDAO.findDeveloperByIDorUsername(data.getValue().getSolver_id(),"").getUsername()));
 
         tableViewRequest.setItems(listReguest);
         colDev.setCellValueFactory(data -> new SimpleStringProperty(developerDAO.findDeveloperByIDorUsername(data.getValue().getRequest_id(),"").toString()));

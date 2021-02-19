@@ -98,7 +98,7 @@ public class BugDAO {
         try{
             findBugByID.setInt(1,id);
             ResultSet rs = findBugByID.executeQuery();
-            novi = new Bug(rs.getString(2),rs.getString(3),rs.getString(4),instanceProjectDAO.findProject("",rs.getInt(6)),rs.getString(7),rs.getInt(8));
+            novi = new Bug(rs.getString(2),rs.getString(3),rs.getString(4),instanceProjectDAO.findProject("",rs.getInt(6)),rs.getString(7),rs.getInt(8),rs.getInt(9));
             novi.setDate_created(instanceProjectDAO.getDate(rs.getString(5)));
             return  novi;
         }catch (SQLException sqlException){
@@ -116,7 +116,7 @@ public class BugDAO {
             addBug.setInt(6,instanceProjectDAO.findID(newBug.getProject()));
             addBug.setString(7,newBug.getComplexity());
             addBug.setInt(8,newBug.getSolver_id());
-            addBug.setInt(9,0);
+            addBug.setInt(9,newBug.getRequest_id());
             addBug.executeUpdate();
         }catch (SQLException sqlException){
             sqlException.printStackTrace();
@@ -129,9 +129,8 @@ public class BugDAO {
             getAllBugsForProject.setInt(1,id);
             ResultSet rs = getAllBugsForProject.executeQuery();
             while (rs.next()){
-                Bug newBug = new Bug(rs.getString(2),rs.getString(3),rs.getString(4),instanceProjectDAO.findProject("",rs.getInt(6)),rs.getString(7),rs.getInt(8));
+                Bug newBug = new Bug(rs.getString(2),rs.getString(3),rs.getString(4),instanceProjectDAO.findProject("",rs.getInt(6)),rs.getString(7),rs.getInt(8),rs.getInt(9));
                 newBug.setDate_created(instanceProjectDAO.getDate(rs.getString(5)));
-                newBug.setRequest_id(rs.getInt(9));
                 allBugs.add(newBug);
             }
         }catch (SQLException sqlException){
@@ -145,9 +144,8 @@ public class BugDAO {
         try{
             ResultSet rs = getAllBugs.executeQuery();
             while (rs.next()){
-                Bug newBug = new Bug(rs.getString(2),rs.getString(3),rs.getString(4),instanceProjectDAO.findProject("",rs.getInt(6)),rs.getString(7),rs.getInt(8));
+                Bug newBug = new Bug(rs.getString(2),rs.getString(3),rs.getString(4),instanceProjectDAO.findProject("",rs.getInt(6)),rs.getString(7),rs.getInt(8),rs.getInt(9));
                 newBug.setDate_created(instanceProjectDAO.getDate(rs.getString(5)));
-                newBug.setRequest_id(rs.getInt(9));
                 allBugs.add(newBug);
             }
         }catch (SQLException sqlException){

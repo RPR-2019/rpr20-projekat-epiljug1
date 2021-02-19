@@ -99,3 +99,9 @@ O
 resources/fxml/editProject.fxml,6\c\6c03e0cdd52102e821e352c8ce5249dbdc68a29a
 q
 Aout/production/rpr20-projekat-epiljug1/fxml/showOtherProject.fxml,1\8\1821ba5199ae2551f76254c30d1dd18c5b44242b
+k
+;out/production/rpr20-projekat-epiljug1/fxml/addProject.fxml,8\3\83acdad2399740a36ab2bb6b40d178e37e438a71
+l
+<out/production/rpr20-projekat-epiljug1/fxml/editProject.fxml,c\2\c2d0708d80b81a54d427e9fba45dabb96efa6ef4
+L
+resources/fxml/homepage.fxml,3\f\3fa872eb5479f658e7bba2572e3e9f879ea10703

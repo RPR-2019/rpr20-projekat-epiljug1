@@ -1,18 +1,18 @@
 
-H
-java:S1172"2Remove this unused method parameter "actionEvent".(êÕ†A
-s
-java:S1450D"XRemove the "developer" field and declare it as a local variable in the relevant methods.(‚•è§ÿÿÿÿÿ
-W	java:S125‚"<This block of commented-out lines of code should be removed.(•Šø–ùÿÿÿÿ
 \
 java:S2142g"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
-W	java:S125—"<This block of commented-out lines of code should be removed.(ÙğÌöüÿÿÿÿ
-‰
-java:S1130"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(êÕ†A8œ»ò°ú.
-M
-java:S1172J"2Remove this unused method parameter "actionEvent".(™öÊÆûÿÿÿÿ
 q
 java:S1192("VDefine a constant instead of duplicating this literal "-fx-border-color: red" 4 times.(ÛÎ’Ïüÿÿÿÿ
 i
 java:S1192L"NDefine a constant instead of duplicating this literal "Error occured" 3 times.(±ê‹şşÿÿÿÿ
 W	java:S125“"<This block of commented-out lines of code should be removed.(•Šø–ùÿÿÿÿ
+M
+java:S1172J"2Remove this unused method parameter "actionEvent".(™öÊÆûÿÿÿÿ
+‰
+java:S1130"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(êÕ†A8œ»ò°ú.
+W	java:S125‚"<This block of commented-out lines of code should be removed.(•Šø–ùÿÿÿÿ
+H
+java:S1172"2Remove this unused method parameter "actionEvent".(êÕ†A
+W	java:S125—"<This block of commented-out lines of code should be removed.(ÙğÌöüÿÿÿÿ
+s
+java:S1450D"XRemove the "developer" field and declare it as a local variable in the relevant methods.(‚•è§ÿÿÿÿÿ

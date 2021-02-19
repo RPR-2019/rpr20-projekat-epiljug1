@@ -134,6 +134,7 @@
                                  <TableColumn fx:id="colStatus" prefWidth="133.0" text="Status" />
                                  <TableColumn fx:id="colDate" prefWidth="137.0" text="Date created" />
                               <TableColumn fx:id="colCompl" prefWidth="75.0" text="Complexity" />
+                              <TableColumn fx:id="colSolver" prefWidth="75.0" text="Solver" />
                              </columns>
                              <columnResizePolicy>
                                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

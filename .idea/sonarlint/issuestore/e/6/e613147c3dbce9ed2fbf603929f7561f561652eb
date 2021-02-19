@@ -1,26 +1,26 @@
 
 J
-java:S3740"/Provide the parametrized type for this generic.(ïû©ğÿÿÿÿÿ
+java:S3740"/Provide the parametrized type for this generic.(ì‘Ûüÿÿÿÿ
+H
+java:S1068!"-Remove this unused "developer" private field.(‚•è§ÿÿÿÿÿ
+E
+java:S3740"/Provide the parametrized type for this generic.(Ö†”ó
 J
 java:S3740"/Provide the parametrized type for this generic.(ÊÚÎ¨ùÿÿÿÿ
+J
+java:S3740."/Provide the parametrized type for this generic.(—‡ïÂùÿÿÿÿ
+J
+java:S3740"/Provide the parametrized type for this generic.(ïû©ğÿÿÿÿÿ
+N	java:S106@"9Replace this use of System.out or System.err by a logger.(‹îÙê
+M
+java:S1172;"2Remove this unused method parameter "actionEvent".(Ô¯ëèûÿÿÿÿ
 J
 java:S3740/"/Provide the parametrized type for this generic.(ìıÜ×ùÿÿÿÿ
 J
 java:S37401"/Provide the parametrized type for this generic.(Ì±ìûÿÿÿÿ
-E
-java:S3740"/Provide the parametrized type for this generic.(Ö†”ó
-E
-java:S37402"/Provide the parametrized type for this generic.(Œá‘ù
-H
-java:S1068!"-Remove this unused "developer" private field.(‚•è§ÿÿÿÿÿ
-J
-java:S3740."/Provide the parametrized type for this generic.(—‡ïÂùÿÿÿÿ
 M
 java:S1172?"2Remove this unused method parameter "actionEvent".(ÌñÏñúÿÿÿÿ
-J
-java:S3740"/Provide the parametrized type for this generic.(ì‘Ûüÿÿÿÿ
-M
-java:S1172;"2Remove this unused method parameter "actionEvent".(Ô¯ëèûÿÿÿÿ
-N	java:S106@"9Replace this use of System.out or System.err by a logger.(‹îÙê
 N
 java:S1602E",Remove useless curly braces around statement(ïÄÁèıÿÿÿÿ8™á¬¹ú.
+E
+java:S37402"/Provide the parametrized type for this generic.(Œá‘ù

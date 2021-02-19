@@ -1,15 +1,30 @@
 
-N
-java:S16028",Remove useless curly braces around statement(àšÈÕşÿÿÿÿ8¶¨èù.
-G
-java:S1481D"*Remove this unused "stage" local variable.(ØşéØ8€çšèù.
 Q
-java:S3740("/Provide the parametrized type for this generic.(¦ŒÕãÿÿÿÿÿ8€çšèù.
-X	java:S125E"<This block of commented-out lines of code should be removed.(øÌ’Ã8€çšèù.
+java:S3740:"/Provide the parametrized type for this generic.(¦ŒÕãÿÿÿÿÿ8€çšèù.
+Q
+java:S3740$"/Provide the parametrized type for this generic.(æÑ»Çùÿÿÿÿ8ûš‚¼û.
+Q
+java:S3740&"/Provide the parametrized type for this generic.(¦ŒÕãÿÿÿÿÿ8¯ìê»û.
 V
-java:S1854D"9Remove this useless assignment to local variable "stage".(ØşéØ8€çšèù.
+java:S1854U"9Remove this useless assignment to local variable "stage".(ØşéØ8€çšèù.
 Q
-java:S3740("/Provide the parametrized type for this generic.(¦ŒÕãÿÿÿÿÿ8€çšèù.
-]	java:S125:"<This block of commented-out lines of code should be removed.(çË˜·şÿÿÿÿ8¶¨èù.
+java:S3740:"/Provide the parametrized type for this generic.(¦ŒÕãÿÿÿÿÿ8€çšèù.
+g
+java:S1854*"ERemove this useless assignment to local variable "progressIndicator".(ÅÓßÖüÿÿÿÿ8ºÎî»û.
 \
 java:S1118":Add a private constructor to hide the implicit public one.(‚«§éùÿÿÿÿ8€çšèù.
+X	java:S125V"<This block of commented-out lines of code should be removed.(øÌ’Ã8€çšèù.
+X	java:S125,"<This block of commented-out lines of code should be removed.(×±×8¨‰í»û.
+X
+java:S1481*"6Remove this unused "progressIndicator" local variable.(ÅÓßÖüÿÿÿÿ8ºÎî»û.
+N
+java:S1602I",Remove useless curly braces around statement(àšÈÕşÿÿÿÿ8¶¨èù.
+Q
+java:S3740&"/Provide the parametrized type for this generic.(¦ŒÕãÿÿÿÿÿ8¯ìê»û.
+G
+java:S1481U"*Remove this unused "stage" local variable.(ØşéØ8€çšèù.
+q
+java:S11920"TDefine a constant instead of duplicating this literal "/css/dark-theme.css" 3 times.(í”ç†8¯ìê»û.
+]	java:S125K"<This block of commented-out lines of code should be removed.(çË˜·şÿÿÿÿ8¶¨èù.
+o
+java:S11921"MDefine a constant instead of duplicating this literal "custom-alert" 3 times.(ëØáˆşÿÿÿÿ8¯ìê»û.

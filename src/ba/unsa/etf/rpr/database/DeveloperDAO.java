@@ -112,10 +112,12 @@ public class DeveloperDAO {
             findDeveloperByIdorUsername.setInt(1,id);
             findDeveloperByIdorUsername.setString(2,username);
             ResultSet rs = findDeveloperByIdorUsername.executeQuery();
-            novi = new Developer(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+            if(rs.next())
+                novi = new Developer(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
+        if(novi==null) return new Developer("","","","","");
         return novi;
     }
 

@@ -14,14 +14,34 @@ public class Bug {
     private int request_id;
     private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
 
-    public Bug(String bug_name, String bug_type, String status, Project project, String complexity,int id) {
+    public Bug(String bug_name, String bug_type, String status, Project project, String complexity, int id_solver, int id_request) {
         this.bug_name = bug_name;
         this.bug_type = bug_type;
         this.status = status;
         this.date_created = LocalDate.now();
         this.project = project;
         this.complexity = complexity;
-        this.solver_id = id;
+        solver_id = id_solver;
+        request_id = id_request;
+    }
+    public Bug(String bug_name, String bug_type, String status, Project project, String complexity, int id_solver) {
+        this.bug_name = bug_name;
+        this.bug_type = bug_type;
+        this.status = status;
+        this.date_created = LocalDate.now();
+        this.project = project;
+        this.complexity = complexity;
+        solver_id = id_solver;
+        request_id = 0;
+    }
+    public Bug(String bug_name, String bug_type, String status, Project project, String complexity) {
+        this.bug_name = bug_name;
+        this.bug_type = bug_type;
+        this.status = status;
+        this.date_created = LocalDate.now();
+        this.project = project;
+        this.complexity = complexity;
+        solver_id = 0;
         request_id = 0;
     }
 
