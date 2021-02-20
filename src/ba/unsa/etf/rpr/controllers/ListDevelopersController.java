@@ -5,6 +5,7 @@ import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.database.ProjectDAO;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
+import ba.unsa.etf.rpr.reports.ReportsListDevelopersEN;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,10 +20,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JRException;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.IllegalFormatCodePointException;
 import java.util.stream.Collectors;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
@@ -115,7 +116,14 @@ public class ListDevelopersController {
         }
 
 
-
+        @FXML
+        public void exportAction(ActionEvent actionEvent){
+                try {
+                    new ReportsListDevelopersEN().showReport(developerDAO.getConn(),developerDAO.findIdOfDeveloper(developer.getUsername()));
+                } catch (JRException e1) {
+                    e1.printStackTrace();
+                }
+        }
         public void setDeveloper(Developer developer) {
             this.developer = developer;
         }

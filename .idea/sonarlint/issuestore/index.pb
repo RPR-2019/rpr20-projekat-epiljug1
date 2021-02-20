@@ -91,8 +91,6 @@ n
 >out/production/rpr20-projekat-epiljug1/fxml/otherProjects.fxml,2\2\22852e0f7db86bf15580c5d8d6459773087e5385
 Q
 !resources/fxml/otherProjects.fxml,9\d\9d5f21a4f4b64121e12c44c159e54e1411ec19f8
-P
- resources/fxml/userProjects.fxml,e\5\e59f81dcbe4e0f9d4bed65b6cb437ff9928edadf
 N
 resources/fxml/addProject.fxml,a\6\a6dd03c8e17f6faeaee0dc5ac4b1495268540c24
 O
