@@ -89,8 +89,6 @@ o
 ?src/ba/unsa/etf/rpr/controllers/ShowOtherProjectController.java,1\9\1956da0eef4c75cad4a9bf8296d70821ac57314e
 n
 >out/production/rpr20-projekat-epiljug1/fxml/otherProjects.fxml,2\2\22852e0f7db86bf15580c5d8d6459773087e5385
-Q
-!resources/fxml/otherProjects.fxml,9\d\9d5f21a4f4b64121e12c44c159e54e1411ec19f8
 N
 resources/fxml/addProject.fxml,a\6\a6dd03c8e17f6faeaee0dc5ac4b1495268540c24
 O
@@ -103,3 +101,9 @@ l
 <out/production/rpr20-projekat-epiljug1/fxml/editProject.fxml,c\2\c2d0708d80b81a54d427e9fba45dabb96efa6ef4
 L
 resources/fxml/homepage.fxml,3\f\3fa872eb5479f658e7bba2572e3e9f879ea10703
+m
+=.idea/libraries/net_sf_jasperreports_jasperreports_6_16_0.xml,e\e\ee91da85f373b80fa9a95a7ebeaf07015e6a4105
+h
+8src/ba/unsa/etf/rpr/reports/ReportsListDevelopersBS.java,0\2\0200e3ccf9a54edfd9ce3e3d3bd4ae65c95a9dfd
+h
+8src/ba/unsa/etf/rpr/reports/ReportsListDevelopersEN.java,2\6\26fba831f191c2496b767b7fc6dd43907009dd68

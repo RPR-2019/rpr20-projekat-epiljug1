@@ -54,7 +54,7 @@
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Export as PDF" />
+                        <MenuItem mnemonicParsing="false" onAction="#exportAction" text="Export as PDF" />
                         <MenuItem mnemonicParsing="false" onAction="#closeWindow" text="Close" />
                     </items>
                 </Menu>

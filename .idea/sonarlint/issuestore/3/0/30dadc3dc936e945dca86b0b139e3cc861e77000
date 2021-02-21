@@ -1,31 +1,31 @@
 
-:
-java:S1659"$Declare "addBug" on a separate line.(äÔûø
+‡
+java:S1319œ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(æØ›æ
 H
 java:S1659"2Declare "getAllBugsForProject" on a separate line.(äÔûø
 ‹
 java:S1319~"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Õäª­ùÿÿÿÿ
+`
+java:S2095E"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üı™éşÿÿÿÿ
 ;
 java:S1659"%Declare "findMax" on a separate line.(äÔûø
+D
+java:S2115%")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ
+B
+java:S1659",Declare "approveRequest" on a separate line.(äÔûø
+A
+java:S1659"+Declare "getBugReguest" on a separate line.(äÔûø
+7
+java:S1643H"Use a StringBuilder instead.(¥…ˆÇşÿÿÿÿ
+:
+java:S1659"$Declare "addBug" on a separate line.(äÔûø
+Œ
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‘é½Öúÿÿÿÿ
+?
+java:S1659")Declare "findBugByID" on a separate line.(äÔûø
+?
+java:S1659")Declare "denyRequest" on a separate line.(äÔûø
 b
 java:S2095K"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ
 P
 java:S1141J"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
-D
-java:S2115%")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ
-7
-java:S1643H"Use a StringBuilder instead.(¥…ˆÇşÿÿÿÿ
-A
-java:S1659"+Declare "getBugReguest" on a separate line.(äÔûø
-Œ
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‘é½Öúÿÿÿÿ
-`
-java:S2095E"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üı™éşÿÿÿÿ
-?
-java:S1659")Declare "denyRequest" on a separate line.(äÔûø
-‡
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(æØ›æ
-B
-java:S1659",Declare "approveRequest" on a separate line.(äÔûø
-?
-java:S1659")Declare "findBugByID" on a separate line.(äÔûø

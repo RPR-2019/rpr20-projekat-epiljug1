@@ -2,17 +2,21 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.StageHandler;
 import ba.unsa.etf.rpr.alert.AlertMaker;
+import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
 import ba.unsa.etf.rpr.database.ProjectDAO;
+import ba.unsa.etf.rpr.reports.ReportsListDevelopersEN;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JRException;
 
 public class OtherProjectsController {
     @FXML
@@ -30,10 +34,12 @@ public class OtherProjectsController {
 
     private ObservableList<Project> listProjects;
     private ProjectDAO projectDAO;
+    private DeveloperDAO developerDAO;
     private Developer developer;
 
     public OtherProjectsController(Developer developer){
         this.developer=developer;
+        developerDAO = DeveloperDAO.getInstance();
         projectDAO = ProjectDAO.getInstance();
         listProjects = FXCollections.observableArrayList(projectDAO.getAllProjectsForDeveloper(developer));
     }
@@ -60,6 +66,16 @@ public class OtherProjectsController {
         Stage stage = (Stage) tableViewProjects.getScene().getWindow();
         stage.close();
     }
+
+    @FXML
+    public void exportAction(ActionEvent actionEvent){
+        try {
+            new ReportsListDevelopersEN().showReport(projectDAO.getConn(),developerDAO.findIdOfDeveloper(developer.getUsername()),developer.getName()+" "+developer.getSurname() + "("+developer.getUsername()+")");
+        } catch (JRException e1) {
+            e1.printStackTrace();
+        }
+    }
+
     public void openProjectAction(javafx.event.ActionEvent actionEvent) {
         System.out.println("OPEN");
         if(tableViewProjects.getSelectionModel().getSelectedItem()!=null){

@@ -1,10 +1,12 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.alert.AlertMaker;
+import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
 import ba.unsa.etf.rpr.database.ProjectDAO;
 import ba.unsa.etf.rpr.StageHandler;
+import ba.unsa.etf.rpr.reports.ReportsListDevelopersEN;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,6 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JRException;
 
 import java.io.IOException;
 
@@ -30,11 +33,13 @@ public class UserProjectsController {
 
     private ObservableList<Project> listProjects;
     private ProjectDAO projectDAO;
+    private DeveloperDAO developerDAO;
     private Developer developer;
 
     public UserProjectsController(Developer developer){
         this.developer=developer;
         projectDAO = ProjectDAO.getInstance();
+        developerDAO = DeveloperDAO.getInstance();
         listProjects = FXCollections.observableArrayList(projectDAO.getAllProjectsOfDeveloper(developer));
     }
 
@@ -83,7 +88,14 @@ public class UserProjectsController {
         }else AlertMaker.alertERROR("Error occured","You did not select any project!");
     }
 
-
+    @FXML
+    public void exportAction(ActionEvent actionEvent){
+        try {
+            new ReportsListDevelopersEN().showReport(projectDAO.getConn(), developerDAO.findIdOfDeveloper(developer.getUsername()), developer);
+        } catch (JRException e1) {
+            e1.printStackTrace();
+        }
+    }
 
     public void setDeveloper(Developer developer) {
         this.developer = developer;
