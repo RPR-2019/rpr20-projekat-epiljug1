@@ -23,8 +23,8 @@
                   <ButtonBar>
                      <buttons>
                             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showDeveloperAction" prefHeight="39.0" prefWidth="144.0" stylesheets="@../css/dark-theme.css" text="Show developer" />
-                        <Button cancelButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#closeWindow" prefHeight="39.0" prefWidth="144.0" stylesheets="@../css/dark-theme.css" text="Close" />
                         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#sendMailAction" stylesheets="@../css/dark-theme.css" text="Send e-mail" />
+                        <Button cancelButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#closeWindow" prefHeight="39.0" prefWidth="144.0" stylesheets="@../css/dark-theme.css" text="Close" />
                      </buttons>
                      <HBox.margin>
                         <Insets right="6.0" />

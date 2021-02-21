@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
@@ -20,7 +21,7 @@ public  class Main extends Application {
 //    UserProjectsController ctrl = new UserProjectsController(new Developer("Evelin","Piljug","epiljug1@etf.unsa.ba","pilja","pass"));
 //    loader.setController(ctrl);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"), ResourceBundle.getBundle("Translation"));
 
         LoginController ctrl = new LoginController();
         loader.setController(ctrl);

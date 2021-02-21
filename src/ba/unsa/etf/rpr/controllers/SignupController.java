@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
@@ -140,15 +141,15 @@ public class SignupController {
     @FXML
     public void backAction(ActionEvent actionEvent) throws IOException {
         closeWindow();
-//        Stage signUpStage = new Stage();
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+        Stage signUpStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"), ResourceBundle.getBundle("Translation"));
         LoginController ctrl = new LoginController();
-        StageHandler.loadWindow(getClass().getResource("/fxml/login.fxml"),"Sign in",ctrl);
-//        loader.setController(ctrl);
-//        Parent root = loader.load();
-//        signUpStage.setTitle("Login");
-//        signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-//        signUpStage.show();
+     //   StageHandler.loadWindow(getClass().getResource("/fxml/login.fxml"),"Sign in",ctrl);
+        loader.setController(ctrl);
+        Parent root = loader.load();
+        signUpStage.setTitle("Login");
+        signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        signUpStage.show();
     }
 
     @FXML

@@ -67,8 +67,6 @@ X
 (.idea/libraries/activation_1_1_rev_1.xml,9\f\9fedd737cbde0a2673477a10d7b5e516535c9c15
 o
 ?out/production/rpr20-projekat-epiljug1/fxml/listDevelopers.fxml,6\f\6f5465b35c3429acf4a86094d8f6e43680a2a22a
-I
-resources/fxml/login.fxml,8\2\82c591fb13b8d561beda7548c6e5f0df218b604c
 d
 4src/ba/unsa/etf/rpr/controllers/LoginController.java,5\4\5455bf1b0821ddd13608d13054332d5d263e052f
 h

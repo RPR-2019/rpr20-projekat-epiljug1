@@ -11,10 +11,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -159,7 +162,26 @@ public class LoginController {
     public void closeAction(ActionEvent actionEvent){ closeWindow();}
 
     public void closeWindow(){
-        Stage stage = (Stage) usernamefld.getScene().getWindow();
-        stage.close();
+       ((Stage) usernamefld.getScene().getWindow()).close();
     }
+
+
+    private void promijeniJezik() throws IOException {
+        Stage stage = (Stage) usernamefld.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"), ResourceBundle.getBundle("Translation"));
+        loader.setController(this);
+        stage.setScene(new Scene(loader.load()));
+    }
+
+    public void switchToBS(MouseEvent mouseEvent) throws IOException {
+        Locale.setDefault(new Locale("bs","BA"));
+        promijeniJezik();
+    }
+
+    public void switchToEN(MouseEvent mouseEvent) throws IOException {
+        Locale.setDefault(new Locale("en","US"));
+        promijeniJezik();
+    }
+
+
 }

@@ -14,18 +14,18 @@
          <children>
             <VBox layoutX="44.0" layoutY="95.0" spacing="10.0" stylesheets="@../css/colors.css">
                <children>
-                  <TextField fx:id="usernamefld" layoutX="44.0" layoutY="95.0" prefHeight="30.0" prefWidth="218.0" promptText="username" style="-fx-background-color: transparent; -fx-border-color: #ebebea;" stylesheets="@../css/colors.css">
+                  <TextField fx:id="usernamefld" layoutX="44.0" layoutY="95.0" prefHeight="30.0" prefWidth="218.0" promptText="%username" style="-fx-background-color: transparent; -fx-border-color: #ebebea;" stylesheets="@../css/colors.css">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets></TextField>
-                  <PasswordField fx:id="passwordfld" prefHeight="30.0" prefWidth="218.0" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #ebebea;" stylesheets="@../css/colors.css" />
+                  <PasswordField fx:id="passwordfld" prefHeight="30.0" prefWidth="218.0" promptText="%password" style="-fx-background-color: transparent; -fx-border-color: #ebebea;" stylesheets="@../css/colors.css" />
                </children>
             </VBox>
-            <Button fx:id="signin" cache="true" defaultButton="true" layoutX="100.0" layoutY="240.0" mnemonicParsing="false" onAction="#signinAction" prefHeight="30.0" prefWidth="107.0" stylesheets="@../css/dark-theme.css" text="Sign in" textFill="WHITE">
+            <Button fx:id="signin" cache="true" defaultButton="true" layoutX="100.0" layoutY="240.0" mnemonicParsing="false" onAction="#signinAction" prefHeight="30.0" prefWidth="107.0" stylesheets="@../css/dark-theme.css" text="%sign_in" textFill="WHITE">
                <font>
                   <Font size="19.0" />
                </font></Button>
-            <Label layoutX="122.0" layoutY="26.0" style="-fx-background-color: transparent;" text="Sign In" textFill="#fcfafa">
+            <Label layoutX="122.0" layoutY="26.0" style="-fx-background-color: transparent;" text="%sign_in" textFill="#fcfafa">
                <font>
                   <Font size="21.0" />
                </font></Label>
@@ -42,19 +42,19 @@
             <InnerShadow blurType="GAUSSIAN" choke="0.28" height="255.0" radius="127.0" width="255.0" />
          </effect>
       </ImageView>
-      <Label fx:id="welcome" layoutX="25.0" layoutY="137.0" text="Welcome to Bug Tracker" textFill="WHITE" underline="true">
+      <Label fx:id="welcome" layoutX="25.0" layoutY="137.0" text="%welcome" textFill="WHITE" underline="true">
          <font>
             <Font name="System Bold" size="28.0" />
          </font>
       </Label>
       <HBox layoutX="471.0" layoutY="412.0">
          <children>
-            <Label layoutX="453.0" layoutY="408.0" prefHeight="34.0" prefWidth="191.0" text="Don't have account?" textFill="#f2f2f2">
+            <Label layoutX="453.0" layoutY="408.0" prefHeight="34.0" prefWidth="191.0" text="%new_acc" textFill="#f2f2f2">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Button fx:id="signup" layoutX="630.0" layoutY="404.0" mnemonicParsing="false" onAction="#signupAction" prefHeight="20.0" prefWidth="81.0" style="-fx-border-color: transparent;" styleClass="signup" stylesheets="@../css/dark-theme.css" text="Sign Up" textAlignment="CENTER" textFill="WHITE" underline="true">
+            <Button fx:id="signup" layoutX="630.0" layoutY="404.0" mnemonicParsing="false" onAction="#signupAction" prefHeight="20.0" prefWidth="81.0" style="-fx-border-color: transparent;" styleClass="signup" stylesheets="@../css/dark-theme.css" text="%sign_up" textAlignment="CENTER" textFill="WHITE" underline="true">
                <font>
                   <Font size="15.0" />
                </font>
@@ -70,5 +70,7 @@
             </ImageView>
          </graphic>
       </Button>
+      <Label layoutX="14.0" layoutY="432.0" onMouseClicked="#switchToEN" text="ENG" textFill="WHITE" />
+      <Label layoutX="52.0" layoutY="432.0" onMouseClicked="#switchToBS" text="BOS" textFill="WHITE" />
    </children>
 </AnchorPane>

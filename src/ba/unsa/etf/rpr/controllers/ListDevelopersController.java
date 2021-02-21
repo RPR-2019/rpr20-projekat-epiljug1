@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -82,6 +83,7 @@ public class ListDevelopersController {
                     tableViewDevelopers.refresh();
                 }
             });
+            tableViewDevelopers.setPlaceholder(new Label("There is no developers"));
         }
         @FXML
         public void showDeveloperAction(ActionEvent actionEvent) throws IOException {
