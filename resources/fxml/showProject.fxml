@@ -142,12 +142,12 @@
                          </TableView>
                         <VBox alignment="TOP_CENTER" layoutX="921.0" layoutY="1.0" prefHeight="242.0" prefWidth="126.0" spacing="5.0" stylesheets="@../css/dark-theme.css" AnchorPane.bottomAnchor="340.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
                            <children>
-                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="42.0" prefWidth="125.0" text="Edit" VBox.vgrow="NEVER">
+                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#editBugAction" prefHeight="42.0" prefWidth="125.0" text="Edit" VBox.vgrow="NEVER">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
                               </Button>
-                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="42.0" prefWidth="125.0" text="Add" VBox.vgrow="NEVER" />
+                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#addBugAction" prefHeight="42.0" prefWidth="125.0" text="Add" VBox.vgrow="NEVER" />
                            </children>
                            <padding>
                               <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />

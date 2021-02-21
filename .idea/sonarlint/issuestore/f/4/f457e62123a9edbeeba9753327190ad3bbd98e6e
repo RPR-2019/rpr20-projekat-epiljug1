@@ -1,27 +1,27 @@
 
 Q
-java:S3740-"/Provide the parametrized type for this generic.(ìıÜ×ùÿÿÿÿ8ßşıãù.
-U	java:S106J"9Replace this use of System.out or System.err by a logger.(›¹Ğò8ÖÊèù.
+java:S3740 "/Provide the parametrized type for this generic.(ì‘Ûüÿÿÿÿ8ßşıãù.
 Q
-java:S3740"/Provide the parametrized type for this generic.(ÊÚÎ¨ùÿÿÿÿ8ßşıãù.
+java:S3740"/Provide the parametrized type for this generic.(ÊÚÎ¨ùÿÿÿÿ8ßşıãù.
 L
-java:S3740/"/Provide the parametrized type for this generic.(Œá‘ù8ßşıãù.
+java:S3740"/Provide the parametrized type for this generic.(Ö†”ó8ßşıãù.
 L
-java:S3740"/Provide the parametrized type for this generic.(Ö†”ó8ßşıãù.
-Q
-java:S3740"/Provide the parametrized type for this generic.(ì‘Ûüÿÿÿÿ8ßşıãù.
+java:S37404"/Provide the parametrized type for this generic.(Œá‘ù8ßşıãù.
 N
-java:S1602:",Remove useless curly braces around statement(ïÄÁèıÿÿÿÿ8Ê‚Ôèù.
-T
-java:S1172]"2Remove this unused method parameter "actionEvent".(Ô¯ëèûÿÿÿÿ8ÖÊèù.
+java:S1602?",Remove useless curly braces around statement(ïÄÁèıÿÿÿÿ8Ê‚Ôèù.
 Q
-java:S3740,"/Provide the parametrized type for this generic.(—‡ïÂùÿÿÿÿ8ßşıãù.
+java:S3740"/Provide the parametrized type for this generic.(ïû©ğÿÿÿÿÿ8ßşıãù.
 Q
-java:S3740."/Provide the parametrized type for this generic.(Ì±ìûÿÿÿÿ8ßşıãù.
+java:S37403"/Provide the parametrized type for this generic.(Ì±ìûÿÿÿÿ8ßşıãù.
+Q
+java:S37402"/Provide the parametrized type for this generic.(ìıÜ×ùÿÿÿÿ8ßşıãù.
+U	java:S1069"9Replace this use of System.out or System.err by a logger.(‹îÙê8ßşıãù.
 T
-java:S11722"2Remove this unused method parameter "actionEvent".(ÌñÏñúÿÿÿÿ8­–Óèù.
+java:S11727"2Remove this unused method parameter "actionEvent".(ÌñÏñúÿÿÿÿ8­–Óèù.
 ‰
-java:S1130@"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ãÇ–É8½¯µ¸ú.
+java:S1130E"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(ãÇ–É8½¯µ¸ú.
+U	java:S106O"9Replace this use of System.out or System.err by a logger.(›¹Ğò8ÖÊèù.
+T
+java:S1172i"2Remove this unused method parameter "actionEvent".(Ô¯ëèûÿÿÿÿ8ÖÊèù.
 Q
-java:S3740"/Provide the parametrized type for this generic.(ïû©ğÿÿÿÿÿ8ßşıãù.
-U	java:S1064"9Replace this use of System.out or System.err by a logger.(‹îÙê8ßşıãù.
+java:S37401"/Provide the parametrized type for this generic.(—‡ïÂùÿÿÿÿ8ßşıãù.

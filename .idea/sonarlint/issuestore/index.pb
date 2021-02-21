@@ -107,3 +107,13 @@ h
 8src/ba/unsa/etf/rpr/reports/ReportsListDevelopersBS.java,0\2\0200e3ccf9a54edfd9ce3e3d3bd4ae65c95a9dfd
 h
 8src/ba/unsa/etf/rpr/reports/ReportsListDevelopersEN.java,2\6\26fba831f191c2496b767b7fc6dd43907009dd68
+Y
+)resources/reports/all_Developers_BS.jrxml,1\6\1686f743140fed0289b978510ec2bcb6353e40a0
+A
+BugTracker.db.log,1\4\1444d9132226c4c010f7a25d71fef29b519de121
+H
+BugTracker.db.properties,a\7\a7ac1d865fc48413e32a785179bd2acfea3195f7
+D
+BugTracker.db.script,3\3\3384f628c343bfbf8b354d6e7f9389c282054035
+r
+Bout/production/rpr20-projekat-epiljug1/fxml/loadingMailSender.fxml,6\9\69852565bd07fa30688c0e83c50f69227e692df1

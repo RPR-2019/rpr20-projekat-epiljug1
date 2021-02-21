@@ -1,39 +1,39 @@
 
-`
-java:S2095>"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üý™éþÿÿÿÿ
-<
-java:S3010"!Remove this assignment of "conn".(”ÛÚ¬þÿÿÿÿ
-P
-java:S1141C"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
-E
-java:S2115¬")Add password protection to this database.(”ÛÚ¬þÿÿÿÿ
+‹
+java:S1319Q"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÔÈ©óüÿÿÿÿ
+7
+java:S1643A"Use a StringBuilder instead.(¥…ˆÇþÿÿÿÿ
 @
 java:S1659"*Declare "addDeveloper" on a separate line.(á—â“
+Q	java:S125f"<This block of commented-out lines of code should be removed.(Ï­Íº
+`
+java:S2095>"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üý™éþÿÿÿÿ
+R
+java:S2696¬"6Make the enclosing method "static" or remove this set.(”ÛÚ¬þÿÿÿÿ
 b
 java:S2095D"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ
+†
+java:S1319`"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬ˆíò
+T
+java:S1068">Remove this unused "getAllProjectsForDeveloper" private field.(á—â“
 c
 java:S2095 "GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ
+Q	java:S125X"<This block of commented-out lines of code should be removed.(Ï­Íº
+<
+java:S3010"!Remove this assignment of "conn".(”ÛÚ¬þÿÿÿÿ
+D
+java:S2115")Add password protection to this database.(”ÛÚ¬þÿÿÿÿ
+O
+java:S1659"9Declare "findDeveloperByIdorUsername" on a separate line.(á—â“
+E
+java:S2115¬")Add password protection to this database.(”ÛÚ¬þÿÿÿÿ
+P
+java:S1141C"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+;
+java:S1659"%Declare "findMax" on a separate line.(á—â“
 :
 java:S1659"$Declare "findId" on a separate line.(á—â“
 N
 java:S1659"8Declare "getAllProjectsForDeveloper" on a separate line.(á—â“
-‹
-java:S1319Q"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÔÈ©óüÿÿÿÿ
-†
-java:S1319`"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬ˆíò
-D
-java:S2115")Add password protection to this database.(”ÛÚ¬þÿÿÿÿ
-;
-java:S1659"%Declare "findMax" on a separate line.(á—â“
-Q	java:S125X"<This block of commented-out lines of code should be removed.(Ï­Íº
-7
-java:S1643A"Use a StringBuilder instead.(¥…ˆÇþÿÿÿÿ
-O
-java:S1659"9Declare "findDeveloperByIdorUsername" on a separate line.(á—â“
-T
-java:S1068">Remove this unused "getAllProjectsForDeveloper" private field.(á—â“
 P
 java:S1659":Declare "getAllDevelopersInsteadOfOne" on a separate line.(á—â“
-Q	java:S125f"<This block of commented-out lines of code should be removed.(Ï­Íº
-R
-java:S2696¬"6Make the enclosing method "static" or remove this set.(”ÛÚ¬þÿÿÿÿ

@@ -1,31 +1,31 @@
 
-J
-java:S3740("/Provide the parametrized type for this generic.(²¢Ìïúÿÿÿÿ
-N
-java:S1602p",Remove useless curly braces around statement(°Î“éùÿÿÿÿ8Ğîã³ú.
-J
-java:S3740D"/Provide the parametrized type for this generic.(—‡ïÂùÿÿÿÿ
-p
-java:S1602L"SRemove useless curly braces around statement and then remove useless return keyword(×ĞëØ8­»Ä¼û.
-J
-java:S3740F"/Provide the parametrized type for this generic.(Åõ€¥ûÿÿÿÿ
-B
-java:S1602c",Remove useless curly braces around statement(Áâ¿„
-E
-java:S3740G"/Provide the parametrized type for this generic.(…»Ì‹
-J
-java:S3740*"/Provide the parametrized type for this generic.(â¬Ëûşÿÿÿÿ
+U
+java:S1172„"2Remove this unused method parameter "actionEvent".(Ô¯ëèûÿÿÿÿ8°Ëá³ú.
+W
+java:S2209z"5Change this instance-reference to a static reference.(Ôüäÿÿÿÿÿ8®èû.
 K
 java:S10684".Remove this unused "projectDAO" private field.(µ»ãË8õêÚ¼û.
 J
-java:S3740E"/Provide the parametrized type for this generic.(ÇØÑ°úÿÿÿÿ
-G
-java:S2116J"%Use "Arrays.toString(array)" instead.(®„áøÿÿÿÿ8·…·¼û.
-W
-java:S2209z"5Change this instance-reference to a static reference.(Ôüäÿÿÿÿÿ8®èû.
-U
-java:S1172„"2Remove this unused method parameter "actionEvent".(Ô¯ëèûÿÿÿÿ8°Ëá³ú.
-E
-java:S3740,"/Provide the parametrized type for this generic.(ƒäÆ
+java:S3740D"/Provide the parametrized type for this generic.(—‡ïÂùÿÿÿÿ
+J
+java:S3740*"/Provide the parametrized type for this generic.(â¬Ëûşÿÿÿÿ
 J
 java:S3740&"/Provide the parametrized type for this generic.(ÊÚÎ¨ùÿÿÿÿ
+J
+java:S3740E"/Provide the parametrized type for this generic.(ÇØÑ°úÿÿÿÿ
+E
+java:S3740,"/Provide the parametrized type for this generic.(ƒäÆ
+E
+java:S3740G"/Provide the parametrized type for this generic.(…»Ì‹
+B
+java:S1602c",Remove useless curly braces around statement(Áâ¿„
+J
+java:S3740("/Provide the parametrized type for this generic.(²¢Ìïúÿÿÿÿ
+J
+java:S3740F"/Provide the parametrized type for this generic.(Åõ€¥ûÿÿÿÿ
+p
+java:S1602L"SRemove useless curly braces around statement and then remove useless return keyword(×ĞëØ8­»Ä¼û.
+G
+java:S2116J"%Use "Arrays.toString(array)" instead.(®„áøÿÿÿÿ8·…·¼û.
+N
+java:S1602p",Remove useless curly braces around statement(°Î“éùÿÿÿÿ8Ğîã³ú.

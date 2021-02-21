@@ -339,6 +339,21 @@ public class ShowProjectController {
     }
 
     @FXML
+    public void addBugAction(ActionEvent actionEvent){
+        AddBugController addBugController = new AddBugController(project);
+        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/addBug.fxml"),"Add bug",addBugController);
+        stage.setOnHiding( event -> {
+            refresh();
+        });
+    }
+
+    @FXML
+    public void editBugAction(ActionEvent actionEvent){
+        EditBugController editBugController = new EditBugController(project,tableViewBugs.getSelectionModel().getSelectedItem());
+        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editBug.fxml"),"Add bug",editBugController);
+    }
+
+    @FXML
     public void closeAction(ActionEvent actionEvent){
         ((Stage)usernameFld.getScene().getWindow()).close();
     }
