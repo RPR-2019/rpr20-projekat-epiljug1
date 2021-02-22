@@ -2,17 +2,14 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.StageHandler;
 import ba.unsa.etf.rpr.alert.AlertMaker;
+import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.database.ProjectDAO;
 import ba.unsa.etf.rpr.model.Developer;
-import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.reports.ReportsListDevelopersEN;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -26,8 +23,6 @@ import net.sf.jasperreports.engine.JRException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
-
-import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class ListDevelopersController {
         @FXML
@@ -90,14 +85,8 @@ public class ListDevelopersController {
             if(tableViewDevelopers.getSelectionModel().getSelectedItem()!=null) {
                 Stage stage = (Stage) tableViewDevelopers.getScene().getWindow();
                 stage.close();
-                Stage signUpStage = new Stage();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/showDeveloper.fxml"));
                 ShowDeveloperController ctrl = new ShowDeveloperController(tableViewDevelopers.getSelectionModel().getSelectedItem());
-                loader.setController(ctrl);
-                Parent root = loader.load();
-                signUpStage.setTitle("Developer review");
-                signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-                signUpStage.show();
+                Stage signUpStage = StageHandler.loadWindow(getClass().getResource("/fxml/showDeveloper.fxml"),"Developer review",ctrl);
                 signUpStage.setOnHiding(windowEvent -> {
                     stage.show();
                 });

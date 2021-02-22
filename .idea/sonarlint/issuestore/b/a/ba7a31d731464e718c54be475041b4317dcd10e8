@@ -1,0 +1,11 @@
+
+T
+java:S4973:"9Use the "equals" method if value comparison was intended.(Ñ‚¾úüÿÿÿÿ
+N
+java:S4973G"9Use the "equals" method if value comparison was intended.(Ã‰\
+œ
+java:S1186R"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÿµ±áşÿÿÿÿ
+@
+java:S1068'"*Remove this unused "bugDAO" private field.(¨Û
+F
+java:S1068)"+Remove this unused "project" private field.(Ø¿Òåıÿÿÿÿ

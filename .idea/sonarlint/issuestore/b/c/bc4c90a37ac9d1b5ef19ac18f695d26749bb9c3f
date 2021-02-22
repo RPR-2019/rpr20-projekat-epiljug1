@@ -1,6 +1,6 @@
 
-W	java:S125%"<This block of commented-out lines of code should be removed.(ãéÓ8Ü•Øßù.
-]	java:S125"<This block of commented-out lines of code should be removed.(÷“æÈûÿÿÿÿ8Ü•Øßù.
 ‹
-java:S1130#"nRemove the declaration of thrown exception 'java.sql.SQLException', as it cannot be thrown from method's body.(Á¯¦ş8Ü•Øßù.
-X	java:S125"<This block of commented-out lines of code should be removed.(¥©š½8Ü•Øßù.
+java:S1130$"nRemove the declaration of thrown exception 'java.sql.SQLException', as it cannot be thrown from method's body.(Á¯¦ş8Ü•Øßù.
+]	java:S125"<This block of commented-out lines of code should be removed.(÷“æÈûÿÿÿÿ8Ü•Øßù.
+W	java:S125&"<This block of commented-out lines of code should be removed.(ãéÓ8Ü•Øßù.
+X	java:S125"<This block of commented-out lines of code should be removed.(¥©š½8Ü•Øßù.

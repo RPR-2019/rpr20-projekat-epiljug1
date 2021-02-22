@@ -3,9 +3,9 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.StageHandler;
 import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
+import ba.unsa.etf.rpr.database.ProjectDAO;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
-import ba.unsa.etf.rpr.database.ProjectDAO;
 import ba.unsa.etf.rpr.reports.ReportsListDevelopersEN;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -17,6 +17,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JRException;
+
+import java.io.IOException;
 
 public class OtherProjectsController {
     @FXML
@@ -76,7 +78,7 @@ public class OtherProjectsController {
         }
     }
 
-    public void openProjectAction(javafx.event.ActionEvent actionEvent) {
+    public void openProjectAction(javafx.event.ActionEvent actionEvent) throws IOException {
         System.out.println("OPEN");
         if(tableViewProjects.getSelectionModel().getSelectedItem()!=null){
             getStage().close();
@@ -85,6 +87,7 @@ public class OtherProjectsController {
             stage.setOnHiding( event -> {
                getStage().show();
             });
+
         }else AlertMaker.alertERROR("Error occured","You did not select any project!");
     }
 

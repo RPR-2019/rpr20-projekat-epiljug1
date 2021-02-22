@@ -94,7 +94,7 @@ public class LoginController {
                 @Override
                 protected Boolean call() {
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"), ResourceBundle.getBundle("Translation"));
                     loader.setController(ctrl);
                     try {
                         roots[0] = loader.load();
@@ -130,32 +130,14 @@ public class LoginController {
             Thread thread = new Thread(loadingTask);
             thread.start();
 
-//            Stage signUpStage = new Stage();
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"));
-//            HomepageController ctrl = new HomepageController(developer);
-//            loader.setController(ctrl);
-//            Parent root = loader.load();
-//            signUpStage.setTitle("Home page");
-//            signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-//            signUpStage.show();
+
         }
     }
 
     public void signupAction(ActionEvent actionEvent) throws IOException {
-
         closeWindow();
-
-
-
-//        Stage signUpStage = new Stage();
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signup.fxml"));
         SignupController ctrl = new SignupController();
         StageHandler.loadWindow(getClass().getResource("/fxml/signup.fxml"),"Sign up",ctrl);
-//        loader.setController(ctrl);
-//        Parent root = loader.load();
-//        signUpStage.setTitle("Sign up");
-//        signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-//        signUpStage.show();
     }
 
     @FXML

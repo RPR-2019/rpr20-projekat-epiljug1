@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="415.0" prefWidth="551.0" style="-fx-background-color: #2A2E37;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" prefHeight="415.0" prefWidth="551.0" style="-fx-background-color: #2A2E37;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <GridPane hgap="10.0" layoutX="37.0" layoutY="26.0" prefHeight="320.0" prefWidth="456.0" vgap="10.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="59.0" AnchorPane.topAnchor="26.0">
             <columnConstraints>
@@ -21,19 +20,19 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Name of project:" textAlignment="CENTER" textFill="WHITE">
+                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="%name_project" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font size="18.0" />
                     </font></Label>
-                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Decription:" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="1">
+                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="%description" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="1">
                     <font>
                         <Font size="18.0" />
                     </font></Label>
-                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Client name:" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="2">
+                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="%client_name" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="2">
                     <font>
                         <Font size="18.0" />
                     </font></Label>
-                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Client email:" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="3">
+                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="%client_email" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="3">
                     <font>
                         <Font size="18.0" />
                     </font></Label>
@@ -57,7 +56,7 @@
                     <font>
                         <Font size="16.0" />
                     </font></TextField>
-            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Source code(url):" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="4">
+            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="%source_code_url" textAlignment="CENTER" textFill="WHITE" GridPane.rowIndex="4">
                <font>
                   <Font size="18.0" />
                </font>
@@ -71,8 +70,8 @@
         </GridPane>
         <HBox layoutX="170.0" layoutY="366.0" prefHeight="39.0" prefWidth="212.0" spacing="10.0">
             <children>
-                <Button defaultButton="true" mnemonicParsing="false" onAction="#saveAction" prefHeight="39.0" prefWidth="98.0" stylesheets="@../css/dark-theme.css" text="Save" />
-                <Button cancelButton="true" mnemonicParsing="false" onAction="#closeWindowAction" prefHeight="39.0" prefWidth="98.0" stylesheets="@../css/dark-theme.css" text="Cancle" />
+                <Button defaultButton="true" mnemonicParsing="false" onAction="#saveAction" prefHeight="39.0" prefWidth="98.0" stylesheets="@../css/dark-theme.css" text="%save" />
+                <Button cancelButton="true" mnemonicParsing="false" onAction="#closeWindowAction" prefHeight="39.0" prefWidth="98.0" stylesheets="@../css/dark-theme.css" text="%close" />
             </children>
         </HBox>
     </children>

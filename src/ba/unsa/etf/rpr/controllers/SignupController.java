@@ -14,9 +14,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
@@ -141,15 +143,8 @@ public class SignupController {
     @FXML
     public void backAction(ActionEvent actionEvent) throws IOException {
         closeWindow();
-        Stage signUpStage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"), ResourceBundle.getBundle("Translation"));
         LoginController ctrl = new LoginController();
-     //   StageHandler.loadWindow(getClass().getResource("/fxml/login.fxml"),"Sign in",ctrl);
-        loader.setController(ctrl);
-        Parent root = loader.load();
-        signUpStage.setTitle("Login");
-        signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        signUpStage.show();
+        StageHandler.loadWindow(getClass().getResource("/fxml/login.fxml"),"Sign in",ctrl);
     }
 
     @FXML
@@ -181,7 +176,7 @@ public class SignupController {
                     @Override
                     protected Boolean call() {
 
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"), ResourceBundle.getBundle("Translation"));
                         loader.setController(ctrl);
                         try {
                             roots[0] = loader.load();
@@ -206,7 +201,7 @@ public class SignupController {
 
                 Parent secRoot = null;
                 try{
-                    secRoot=FXMLLoader.load(getClass().getResource("/fxml/loading.fxml"));
+                    secRoot=FXMLLoader.load(getClass().getResource("/fxml/loading.fxml"), ResourceBundle.getBundle("Translation"));
                     secRoot.setVisible(true);
                 }catch(IOException e){
                     e.printStackTrace();
@@ -217,18 +212,27 @@ public class SignupController {
 
                 Thread thread = new Thread(loadingTask);
                 thread.start();
-//                closeWindow();
-//                Stage signUpStage = new Stage();
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"));
-//                HomepageController ctrl = new HomepageController(developer);
-//                loader.setController(ctrl);
-//                Parent root = loader.load();
-//                signUpStage.setTitle("Home page");
-//                signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-//                signUpStage.show();
             }
         }
     }
+
+    private void promijeniJezik() throws IOException {
+        Stage stage = (Stage) usernamefld.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signup.fxml"), ResourceBundle.getBundle("Translation"));
+        loader.setController(this);
+        stage.setScene(new Scene(loader.load()));
+    }
+
+    public void switchToBS(MouseEvent mouseEvent) throws IOException {
+        Locale.setDefault(new Locale("bs","BA"));
+        promijeniJezik();
+    }
+
+    public void switchToEN(MouseEvent mouseEvent) throws IOException {
+        Locale.setDefault(new Locale("en","US"));
+        promijeniJezik();
+    }
+
     public void closeWindow(){
         Stage stage = (Stage) namefld.getScene().getWindow();
         stage.close();

@@ -1,49 +1,55 @@
 
-V	java:S106ù"9Replace this use of System.out or System.err by a logger.(½•À8Ç¡¬»û.
-{
-java:S1192ö"]Define a constant instead of duplicating this literal "You need to select the item!" 3 times.(õÏÇ€8Ç¡¬»û.
-a
-java:S1155é">Use isEmpty() to check whether the collection is empty or not.(ÔŒ²Úşÿÿÿÿ8Ç¡¬»û.
-H
-java:S2116Ú"%Use "Arrays.toString(array)" instead.(®„áøÿÿÿÿ8„ò¼û.
-L
-java:S3740B"/Provide the parametrized type for this generic.(”Ç«¢8ø¦Êáù.
-M
-java:S3740Ä"/Provide the parametrized type for this generic.(×Ø–8ø¦Êáù.
-L
-java:S3740?"/Provide the parametrized type for this generic.(ö¶Ü’8ø¦Êáù.
-l
-java:S1192ö"NDefine a constant instead of duplicating this literal "Error occured" 6 times.(õÏÇ€8Ç¡¬»û.
-v
-java:S1602¿"SRemove useless curly braces around statement and then remove useless return keyword(•’÷ùÿÿÿÿ8Ç¡¬»û.
 Q
 java:S3740V"/Provide the parametrized type for this generic.(û¼¿ışÿÿÿÿ8ø¦Êáù.
-Q
-java:S3740<"/Provide the parametrized type for this generic.(ÊÚÎ¨ùÿÿÿÿ8ø¦Êáù.
+M
+java:S3740Ä"/Provide the parametrized type for this generic.(×Ø–8ø¦Êáù.
+R
+java:S3740Å"/Provide the parametrized type for this generic.(Øğ¥¥şÿÿÿÿ8ø¦Êáù.
+M
+java:S3740Ò"/Provide the parametrized type for this generic.(ü¨ô‰8Ôş’âù.
 R
 java:S3740Ñ"/Provide the parametrized type for this generic.(İİÊùÿÿÿÿ8Ìü¦äù.
-Q
-java:S3740z"/Provide the parametrized type for this generic.(‰˜˜Ùúÿÿÿÿ8ÌãËáù.
+L
+java:S3740?"/Provide the parametrized type for this generic.(ö¶Ü’8ø¦Êáù.
+M
+java:S3740È"/Provide the parametrized type for this generic.(¢Â„Œ8ààúäû.
+L
+java:S3740H"/Provide the parametrized type for this generic.(å±ĞÎ8ø¦Êáù.
+R
+java:S3740Í"/Provide the parametrized type for this generic.(·ŠÚåøÿÿÿÿ8Ìü¦äù.
+R
+java:S3740Æ"/Provide the parametrized type for this generic.(ª¿îùÿÿÿÿ8ø¦Êáù.
+v
+java:S1602¿"SRemove useless curly braces around statement and then remove useless return keyword(•’÷ùÿÿÿÿ8Ç¡¬»û.
+V	java:S106ù"9Replace this use of System.out or System.err by a logger.(½•À8Ç¡¬»û.
+M
+java:S3740Ç"/Provide the parametrized type for this generic.(ŠÌ´Õ8ààúäû.
 Q
 java:S3740E"/Provide the parametrized type for this generic.(ïû©ğÿÿÿÿÿ8ø¦Êáù.
 L
 java:S3740}"/Provide the parametrized type for this generic.(…ÃÉ½8ààúäû.
-V	java:S106‰"9Replace this use of System.out or System.err by a logger.(ñ¦™¢8Ç¡¬»û.
-L
-java:S3740H"/Provide the parametrized type for this generic.(å±ĞÎ8ø¦Êáù.
-M
-java:S3740Ç"/Provide the parametrized type for this generic.(ŠÌ´Õ8ààúäû.
-M
-java:S3740Ò"/Provide the parametrized type for this generic.(ü¨ô‰8Ôş’âù.
-v
-java:S1602Ü"SRemove useless curly braces around statement and then remove useless return keyword(³Ìóåùÿÿÿÿ8„ò¼û.
-R
-java:S3740Æ"/Provide the parametrized type for this generic.(ª¿îùÿÿÿÿ8ø¦Êáù.
-R
-java:S3740Å"/Provide the parametrized type for this generic.(Øğ¥¥şÿÿÿÿ8ø¦Êáù.
-R
-java:S3740Í"/Provide the parametrized type for this generic.(·ŠÚåøÿÿÿÿ8Ìü¦äù.
-M
-java:S3740È"/Provide the parametrized type for this generic.(¢Â„Œ8ààúäû.
+Q
+java:S3740<"/Provide the parametrized type for this generic.(ÊÚÎ¨ùÿÿÿÿ8ø¦Êáù.
+H
+java:S2116Ú"%Use "Arrays.toString(array)" instead.(®„áøÿÿÿÿ8„ò¼û.
+{
+java:S1192ö"]Define a constant instead of duplicating this literal "You need to select the item!" 3 times.(õÏÇ€8Ç¡¬»û.
+Q
+java:S3740z"/Provide the parametrized type for this generic.(‰˜˜Ùúÿÿÿÿ8ÌãËáù.
 P
 java:S1144§"-Remove this unused private "loadData" method.(ÍÛµíıÿÿÿÿ8õ×ãçù.
+a
+java:S1155é">Use isEmpty() to check whether the collection is empty or not.(ÔŒ²Úşÿÿÿÿ8Ç¡¬»û.
+l
+java:S1192ö"NDefine a constant instead of duplicating this literal "Error occured" 6 times.(õÏÇ€8Ç¡¬»û.
+V	java:S106‰"9Replace this use of System.out or System.err by a logger.(ñ¦™¢8Ç¡¬»û.
+v
+java:S1602Ü"SRemove useless curly braces around statement and then remove useless return keyword(³Ìóåùÿÿÿÿ8„ò¼û.
+L
+java:S3740B"/Provide the parametrized type for this generic.(”Ç«¢8ø¦Êáù.
+O
+java:S1602Ù",Remove useless curly braces around statement(ïÄÁèıÿÿÿÿ8ÚÂá¬ü.
+\
+java:S1854á"9Remove this useless assignment to local variable "stage".(µ¾‚Œüÿÿÿÿ8ÚÂá¬ü.
+M
+java:S1481á"*Remove this unused "stage" local variable.(µ¾‚Œüÿÿÿÿ8ÚÂá¬ü.

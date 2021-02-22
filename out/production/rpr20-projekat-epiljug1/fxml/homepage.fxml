@@ -38,7 +38,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnYourProjects" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#listAllYourProjects" prefHeight="151.0" prefWidth="169.0" text="Your projects" textFill="WHITE">
+            <Button fx:id="btnYourProjects" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#listAllYourProjects" prefHeight="151.0" prefWidth="169.0" text="%your_projects" textFill="WHITE">
 
                 <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
@@ -50,7 +50,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="btnAllProjects" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#listAllProjects" prefHeight="66.0" prefWidth="125.0" text="Other projects" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1">
+            <Button fx:id="btnAllProjects" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#listAllProjects" prefHeight="66.0" prefWidth="125.0" text="%other_projects" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1">
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -61,7 +61,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="btnAllDev" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#listAllDevelopers" prefHeight="159.0" prefWidth="195.0" text="List all developers" textFill="WHITE" GridPane.columnIndex="2">
+            <Button fx:id="btnAllDev" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#listAllDevelopers" prefHeight="159.0" prefWidth="195.0" text="%all_dev" textFill="WHITE" GridPane.columnIndex="2">
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -72,7 +72,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="btnLogOut" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#logoutAction" text="Log out" textFill="WHITE" GridPane.rowIndex="1">
+            <Button fx:id="btnLogOut" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#logoutAction" text="%log_out" textFill="WHITE" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -83,7 +83,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="btnAddProject" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addNewProjectAction" text="Add a new project" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="btnAddProject" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addNewProjectAction" text="%add_project" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -113,7 +113,7 @@
       <HBox layoutY="539.0" prefHeight="30.0" prefWidth="815.0" style="-fx-background-color: #272c3a;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Pane prefHeight="30.0" prefWidth="680.0" HBox.hgrow="ALWAYS" />
-            <Label layoutX="585.0" layoutY="592.0" maxHeight="1.7976931348623157E308" prefHeight="30.0" prefWidth="41.0" text="Date:" textFill="WHITE" />
+            <Label layoutX="585.0" layoutY="592.0" maxHeight="1.7976931348623157E308" prefHeight="37.0" prefWidth="56.0" text="%date" textFill="WHITE" />
             <TextField fx:id="date" alignment="CENTER_RIGHT" editable="false" layoutX="626.0" layoutY="591.0" prefHeight="30.0" prefWidth="95.0" style="-fx-background-color: transparent;" stylesheets="@../css/colors.css" />
          </children>
       </HBox>

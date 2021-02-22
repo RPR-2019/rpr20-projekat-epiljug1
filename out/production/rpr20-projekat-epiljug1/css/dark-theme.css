@@ -76,6 +76,9 @@
     -fx-font-size: 12pt;
 }
 
+
+
+
 .button:hover {
     -fx-border-color: -fx-secondary;
     -fx-background-color: -fx-secondary;
@@ -128,6 +131,12 @@
     -fx-border-color: -fx-secondary;
     -fx-border-width: 1px 1px 1px 1px;
     -fx-text-fill: black;
+}
+
+
+/*label hover*/
+.label_for_language:hover{
+    -fx-text-fill: red;
 }
 
 

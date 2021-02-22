@@ -1,10 +1,4 @@
 
-J
-java:S1128"4Remove this unused import 'java.util.logging.Level'.(…µÛ¶
-S	java:S106"9Replace this use of System.out or System.err by a logger.(ı™øøÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ı™øøÿÿÿÿ
 P
-java:S1118":Add a private constructor to hide the implicit public one.(ÖÃ­™
-K
-java:S1128"5Remove this unused import 'java.util.logging.Logger'.(ƒ¥óš
-I
-java:S1128"4Remove this unused import 'javafx.stage.StageStyle'.(¶©2
+java:S1118":Add a private constructor to hide the implicit public one.(ÖÃ­™

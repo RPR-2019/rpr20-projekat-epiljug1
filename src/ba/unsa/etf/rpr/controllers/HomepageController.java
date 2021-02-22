@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -59,35 +60,16 @@ public class HomepageController {
     }
 
     public void listAllDevelopers(ActionEvent actionEvent) throws IOException {
-        Stage allProjects = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/listDevelopers.fxml"));
         ListDevelopersController ctrl = new ListDevelopersController(developer);
-        loader.setController(ctrl);
-        Parent root = loader.load();
-        allProjects.setTitle("All developers");
-        allProjects.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        allProjects.show();
+        StageHandler.loadWindow(getClass().getResource("/fxml/listDevelopers.fxml"),"All developers",ctrl);
     }
     public void listAllProjects(ActionEvent actionEvent) throws IOException {
-        Stage allProjects = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/otherProjects.fxml"));
         OtherProjectsController ctrl = new OtherProjectsController(developer);
-        loader.setController(ctrl);
-        Parent root = loader.load();
-        allProjects.setTitle("Other projects");
-        allProjects.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        allProjects.show();
+        StageHandler.loadWindow(getClass().getResource("/fxml/otherProjects.fxml"),"Other projects",ctrl);
     }
     public void listAllYourProjects(ActionEvent actionEvent) throws IOException {
-
-        Stage allProjects = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/userProjects.fxml"));
         UserProjectsController ctrl = new UserProjectsController(developer);
-        loader.setController(ctrl);
-        Parent root = loader.load();
-        allProjects.setTitle("All projects");
-        allProjects.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        allProjects.show();
+        StageHandler.loadWindow(getClass().getResource("/fxml/userProjects.fxml"),"All projects",ctrl);
     }
     @FXML
     public void logoutAction(ActionEvent actionEvent) throws IOException {
@@ -97,7 +79,7 @@ public class HomepageController {
         if (result.get() == ButtonType.OK){
             closeWindow();
             Stage signUpStage = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"), ResourceBundle.getBundle("Translation"));
             LoginController ctrl = new LoginController();
             loader.setController(ctrl);
             Parent root = loader.load();
@@ -113,7 +95,7 @@ public class HomepageController {
     @FXML
     public void addNewProjectAction(ActionEvent actionEvent) throws IOException {
         Stage allProjects = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addProject.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addProject.fxml"), ResourceBundle.getBundle("Translation"));
         AddProjectController ctrl = new AddProjectController(developer);
         loader.setController(ctrl);
         Parent root = loader.load();

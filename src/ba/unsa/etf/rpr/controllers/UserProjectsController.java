@@ -11,6 +11,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,6 +21,9 @@ import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JRException;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
+
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class UserProjectsController {
     @FXML
@@ -52,15 +58,17 @@ public class UserProjectsController {
         colClientEmail.setCellValueFactory(new PropertyValueFactory("client_email"));
     }
 
-    public void openProjectAction(javafx.event.ActionEvent actionEvent) {
+    public void openProjectAction(javafx.event.ActionEvent actionEvent) throws IOException {
         if(tableViewProjects.getSelectionModel().getSelectedItem()!=null) {
             System.out.println("OPEN");
             Project project = tableViewProjects.getSelectionModel().getSelectedItem();
-            ShowProjectController ctrl = new ShowProjectController(project);
+
             Stage main = (Stage) tableViewProjects.getScene().getWindow();
             main.close();
-            Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/showProject.fxml"), project.getName(), ctrl);
-            stage.setOnHiding(event -> {
+
+            ShowProjectController ctrl = new ShowProjectController(project);
+            Stage signUpStage = StageHandler.loadWindow(getClass().getResource("/fxml/showProject.fxml"),"Show project",ctrl);
+            signUpStage.setOnHiding(event -> {
                 main.show();
             });
         }else AlertMaker.alertERROR("Error occured","You did not select any project!");
