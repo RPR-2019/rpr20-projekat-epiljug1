@@ -7,13 +7,17 @@ import javafx.scene.effect.BoxBlur;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.util.Locale;
 import java.util.Optional;
 
 public class AlertMaker {
     public static void alertERROR(String title, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
-        alert.setHeaderText(title);
+        if(Locale.getDefault().getCountry().equals("US"))
+            alert.setHeaderText(title);
+        else
+            alert.setHeaderText("Došlo je do greške");
         alert.setContentText(content);
         styleAlert(alert);
         alert.showAndWait();

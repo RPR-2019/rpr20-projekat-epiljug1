@@ -3,6 +3,8 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.*;
 import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.email.MailSender;
+import ba.unsa.etf.rpr.enums.StageEnums;
+import ba.unsa.etf.rpr.enums.Validation;
 import ba.unsa.etf.rpr.model.Bug;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
@@ -301,7 +303,7 @@ public class ShowProjectController {
                 try {
                     MailSender.sendEmail(mailLoginController.getEmail(),mailLoginController.getPassword(),emailFld.getText(),"Your request is denied",textArea.getText());
                 } catch (MessagingException e) {
-                    AlertMaker.alertERROR("Error occured!","Something went wrong while sending! Please check your info");
+                    AlertMaker.alertERROR("Error occured!", Validation.SENDING_EMAIL.toString());
                 }
                 textArea.setText("");
             });
@@ -341,7 +343,7 @@ public class ShowProjectController {
     @FXML
     public void addBugAction(ActionEvent actionEvent){
         AddBugController addBugController = new AddBugController(project);
-        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/addBug.fxml"),"Add bug",addBugController);
+        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/addBug.fxml"),StageEnums.ADD_BUG,addBugController);
         stage.setOnHiding( event -> {
             refresh();
         });
@@ -350,7 +352,7 @@ public class ShowProjectController {
     @FXML
     public void editBugAction(ActionEvent actionEvent){
         EditBugController editBugController = new EditBugController(project,tableViewBugs.getSelectionModel().getSelectedItem());
-        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editBug.fxml"),"Add bug",editBugController);
+        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editBug.fxml"), StageEnums.EDIT_BUG,editBugController);
     }
 
     @FXML

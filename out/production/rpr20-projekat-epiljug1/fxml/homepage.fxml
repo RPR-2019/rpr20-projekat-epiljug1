@@ -13,6 +13,12 @@
           <Menu fx:id="file" mnemonicParsing="false" text="File">
             <items>
               <MenuItem mnemonicParsing="false" text="Close" />
+                  <Menu mnemonicParsing="false" text="Language">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="English" />
+                      <MenuItem mnemonicParsing="false" text="Bosnian" />
+                    </items>
+                  </Menu>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">

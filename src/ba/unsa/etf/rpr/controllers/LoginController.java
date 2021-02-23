@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.alert.AlertMaker;
+import ba.unsa.etf.rpr.enums.EmptyFld;
+import ba.unsa.etf.rpr.enums.StageEnums;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.StageHandler;
@@ -76,11 +78,14 @@ public class LoginController {
 
     public void signinAction(ActionEvent actionEvent) throws IOException {
         if(usernamefld.getText().trim().isEmpty())
-            AlertMaker.alertERROR("Error occured","Username field is empty!");
+            AlertMaker.alertERROR("Error occured", EmptyFld.USERNAME.toString());
         else if(passwordfld.getText().trim().isEmpty())
-            AlertMaker.alertERROR("Error occured","Password field is empty!");
+            AlertMaker.alertERROR("Error occured",EmptyFld.PASSWORD.toString());
         else if(developerDAO.findIdOfDeveloper(usernamefld.getText())==0)
-            AlertMaker.alertERROR("Error occured","Developer with username: \""+usernamefld.getText()+"\" does not exsist!");
+            if(Locale.getDefault().getCountry().equals("US"))
+                AlertMaker.alertERROR("Error occured","Developer with username: \""+usernamefld.getText()+"\" does not exsist!");
+            else
+                AlertMaker.alertERROR("Error occured","Developer sa korisničkim imenom: \""+usernamefld.getText()+"\" ne postoji!");
         else {
             developer = developerDAO.findDeveloperByIDorUsername(0, usernamefld.getText());
             closeWindow();
@@ -125,6 +130,7 @@ public class LoginController {
             }
 
             homePageStage.setScene(new Scene(secRoot,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+            homePageStage.setTitle(StageEnums.HOME_PAGE.toString());
             homePageStage.show();
 
             Thread thread = new Thread(loadingTask);
@@ -137,7 +143,7 @@ public class LoginController {
     public void signupAction(ActionEvent actionEvent) throws IOException {
         closeWindow();
         SignupController ctrl = new SignupController();
-        StageHandler.loadWindow(getClass().getResource("/fxml/signup.fxml"),"Sign up",ctrl);
+        StageHandler.loadWindow(getClass().getResource("/fxml/signup.fxml"), StageEnums.LOGIN,ctrl);
     }
 
     @FXML
@@ -150,6 +156,7 @@ public class LoginController {
 
     private void promijeniJezik() throws IOException {
         Stage stage = (Stage) usernamefld.getScene().getWindow();
+        stage.setTitle(StageEnums.LOGIN.toString());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"), ResourceBundle.getBundle("Translation"));
         loader.setController(this);
         stage.setScene(new Scene(loader.load()));

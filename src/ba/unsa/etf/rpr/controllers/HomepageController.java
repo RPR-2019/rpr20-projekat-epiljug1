@@ -2,25 +2,18 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.StageHandler;
 import ba.unsa.etf.rpr.alert.AlertMaker;
-import ba.unsa.etf.rpr.model.Developer;
-import ba.unsa.etf.rpr.model.Project;
 import ba.unsa.etf.rpr.database.ProjectDAO;
-import javafx.application.Platform;
+import ba.unsa.etf.rpr.enums.StageEnums;
+import ba.unsa.etf.rpr.model.Developer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.Optional;
-import java.util.ResourceBundle;
-
-import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class HomepageController {
     @FXML
@@ -54,38 +47,37 @@ public class HomepageController {
         date.setText(LocalDate.now().format(myFormatObj));
 
         Tooltip tooltip = new Tooltip();
-        tooltip.setText("List all developers who are connected to this server");
+        if(Locale.getDefault().getCountry().equals("US"))
+            tooltip.setText("List all developers who are connected to this server");
+        else
+            tooltip.setText("Prikaži sve developere koji su konektovani na server");
         btnAllDev.setTooltip(tooltip);
 
     }
 
-    public void listAllDevelopers(ActionEvent actionEvent) throws IOException {
+    public void listAllDevelopers(ActionEvent actionEvent) {
         ListDevelopersController ctrl = new ListDevelopersController(developer);
-        StageHandler.loadWindow(getClass().getResource("/fxml/listDevelopers.fxml"),"All developers",ctrl);
+        StageHandler.loadWindow(getClass().getResource("/fxml/listDevelopers.fxml"),StageEnums.ALL_DEVELOPERS,ctrl);
     }
-    public void listAllProjects(ActionEvent actionEvent) throws IOException {
+    public void listAllProjects(ActionEvent actionEvent) {
         OtherProjectsController ctrl = new OtherProjectsController(developer);
-        StageHandler.loadWindow(getClass().getResource("/fxml/otherProjects.fxml"),"Other projects",ctrl);
+        StageHandler.loadWindow(getClass().getResource("/fxml/otherProjects.fxml"),StageEnums.OTHER_PROJECTS,ctrl);
+
     }
-    public void listAllYourProjects(ActionEvent actionEvent) throws IOException {
+    public void listAllYourProjects(ActionEvent actionEvent){
         UserProjectsController ctrl = new UserProjectsController(developer);
-        StageHandler.loadWindow(getClass().getResource("/fxml/userProjects.fxml"),"All projects",ctrl);
+        StageHandler.loadWindow(getClass().getResource("/fxml/userProjects.fxml"), StageEnums.ALL_PROJECTS,ctrl);
+
     }
     @FXML
-    public void logoutAction(ActionEvent actionEvent) throws IOException {
+    public void logoutAction(ActionEvent actionEvent){
 
-        Optional<ButtonType> result = AlertMaker.alertCONFIRMATION("","Do you want to log out?");
+        Optional<ButtonType> result = AlertMaker.alertCONFIRMATION("",StageEnums.QUESTION_LOGOUT.toString());
 
         if (result.get() == ButtonType.OK){
             closeWindow();
-            Stage signUpStage = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"), ResourceBundle.getBundle("Translation"));
             LoginController ctrl = new LoginController();
-            loader.setController(ctrl);
-            Parent root = loader.load();
-            signUpStage.setTitle("Login");
-            signUpStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            signUpStage.show();
+            StageHandler.loadWindow(getClass().getResource("/fxml/login.fxml"),StageEnums.LOGIN ,ctrl);
         } else {
 
         }
@@ -94,20 +86,13 @@ public class HomepageController {
 
     @FXML
     public void addNewProjectAction(ActionEvent actionEvent) throws IOException {
-        Stage allProjects = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addProject.fxml"), ResourceBundle.getBundle("Translation"));
         AddProjectController ctrl = new AddProjectController(developer);
-        loader.setController(ctrl);
-        Parent root = loader.load();
-        allProjects.setTitle("Add project");
-        allProjects.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        allProjects.show();
+        StageHandler.loadWindow(getClass().getResource("/fxml/addProject.fxml"),StageEnums.ADD_PROJECT,ctrl);
     }
 
 
     public void closeWindow(){
-        Stage stage = (Stage) btnAddProject.getScene().getWindow();
-        stage.close();
+        ((Stage) btnAddProject.getScene().getWindow()).close();
     }
 
 

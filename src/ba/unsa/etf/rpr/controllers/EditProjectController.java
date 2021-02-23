@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.LoadWebPage;
 import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.model.Project;
 import ba.unsa.etf.rpr.database.ProjectDAO;
@@ -69,6 +70,7 @@ public class EditProjectController {
             AlertMaker.showMaterialDialog(anchorPane,"Changes saved","Project has been successfully edited!");
         }
     }
+
 
     public Project getProject(){
         return project;

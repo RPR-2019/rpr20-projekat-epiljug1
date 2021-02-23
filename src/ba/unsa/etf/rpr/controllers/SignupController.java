@@ -1,6 +1,9 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.alert.AlertMaker;
+import ba.unsa.etf.rpr.enums.EmptyFld;
+import ba.unsa.etf.rpr.enums.StageEnums;
+import ba.unsa.etf.rpr.enums.Validation;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.StageHandler;
@@ -152,12 +155,12 @@ public class SignupController {
 
 
         System.out.println("SIGN IN ACTION");
-        if(namefld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured","Name field is empty!");
-        else if(surnamefld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured","Surname field is empty!");
-        else if(emailfld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured","E-mail field is empty!");
-        else if(!isValid(emailfld.getText())) AlertMaker.alertERROR("Error occured","E-mail field is not valid!");
-        else if(usernamefld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured","Username field is empty!");
-        else if(passwordfld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured","Password field is empty!");
+        if(namefld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured",EmptyFld.NAME.toString());
+        else if(surnamefld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured",EmptyFld.SURNAME.toString());
+        else if(emailfld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured",EmptyFld.EMAIL.toString());
+        else if(!isValid(emailfld.getText())) AlertMaker.alertERROR("Error occured", Validation.EMAIL.toString());
+        else if(usernamefld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured",EmptyFld.USERNAME.toString());
+        else if(passwordfld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured", EmptyFld.PASSWORD.toString());
         else {
             if(developerDAO.findIdOfDeveloper(usernamefld.getText())!=0){
                 AlertMaker.alertERROR("Error occured","Already exist developer with username: " + usernamefld.getText());
@@ -218,6 +221,7 @@ public class SignupController {
 
     private void promijeniJezik() throws IOException {
         Stage stage = (Stage) usernamefld.getScene().getWindow();
+        stage.setTitle(StageEnums.LOGIN.toString());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/signup.fxml"), ResourceBundle.getBundle("Translation"));
         loader.setController(this);
         stage.setScene(new Scene(loader.load()));

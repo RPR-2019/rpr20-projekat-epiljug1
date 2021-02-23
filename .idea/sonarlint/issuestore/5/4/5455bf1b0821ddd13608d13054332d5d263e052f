@@ -1,22 +1,19 @@
 
-‰
-java:S1130"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(êÕ†A8×š³²ü.
 M
 java:S1172M"2Remove this unused method parameter "actionEvent".(™öÊÆûÿÿÿÿ
-q
-java:S1192+"VDefine a constant instead of duplicating this literal "-fx-border-color: red" 4 times.(ÛÎ’Ïüÿÿÿÿ
+‰
+java:S1130‰"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(êÕ†A8³âÀÍü.
+T
+java:S1172"1Remove this unused method parameter "mouseEvent".(‡Àƒüüÿÿÿÿ8×š³²ü.
 \
 java:S2142j"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
-^	java:S125š"<This block of commented-out lines of code should be removed.(ÙğÌöüÿÿÿÿ8¤²ü.
-i
-java:S1192O"NDefine a constant instead of duplicating this literal "Error occured" 3 times.(±ê‹şşÿÿÿÿ
+q
+java:S1192+"VDefine a constant instead of duplicating this literal "-fx-border-color: red" 4 times.(ÛÎ’Ïüÿÿÿÿ
 T
-java:S1172°"1Remove this unused method parameter "mouseEvent".(‡Àƒüüÿÿÿÿ8×š³²ü.
+java:S1172£"1Remove this unused method parameter "mouseEvent".(ºŸ…ñûÿÿÿÿ8ÚÉ³²ü.
 H
-java:S1172"2Remove this unused method parameter "actionEvent".(êÕ†A
+java:S1172‰"2Remove this unused method parameter "actionEvent".(êÕ†A
 s
 java:S1450G"XRemove the "developer" field and declare it as a local variable in the relevant methods.(‚•è§ÿÿÿÿÿ
-W	java:S125…"<This block of commented-out lines of code should be removed.(•Šø–ùÿÿÿÿ
-T
-java:S1172µ"1Remove this unused method parameter "mouseEvent".(ºŸ…ñûÿÿÿÿ8ÚÉ³²ü.
-^	java:S125–"<This block of commented-out lines of code should be removed.(•Šø–ùÿÿÿÿ8‡í²ü.
+i
+java:S1192O"NDefine a constant instead of duplicating this literal "Error occured" 3 times.(±ê‹şşÿÿÿÿ

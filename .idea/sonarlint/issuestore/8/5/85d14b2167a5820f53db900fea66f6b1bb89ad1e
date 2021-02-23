@@ -1,18 +1,26 @@
 
 Z
-java:S1128"8Remove this unused import 'javafx.application.Platform'.(§“óùÿÿÿÿ8üÊ•Ùú.
-[
-java:S1128"9Remove this unused import 'ba.unsa.etf.rpr.StageHandler'.(Üÿû†øÿÿÿÿ8üÊ•Ùú.
-K
-java:S1068+".Remove this unused "projectDAO" private field.(µ»ãË8´í÷ÿú.
-E	java:S108k")Either remove or fill this block of code.(å¥‡8šïò€û.
-O
-java:S1172G"2Remove this unused method parameter "actionEvent".(ø˜†¢8šïò€û.
-O
-java:S1172Q"2Remove this unused method parameter "actionEvent".(•Ùè8šïò€û.
-O
-java:S1172="2Remove this unused method parameter "actionEvent".(‘Şş8šïò€û.
-\
-java:S1128":Remove this unused import 'ba.unsa.etf.rpr.model.Project'.(Š¬û“ÿÿÿÿÿ8´í÷ÿú.
+java:S1128	"8Remove this unused import 'javafx.application.Platform'.(§“óùÿÿÿÿ8üÊ•Ùú.
 R
-java:S3655a"5Call "result.isPresent()" before accessing the value.(ÃÇûŞ8šïò€û.
+java:S3655V"5Call "result.isPresent()" before accessing the value.(ÃÇûŞ8·›Åáü.
+K
+java:S1068.".Remove this unused "projectDAO" private field.(µ»ãË8´í÷ÿú.
+O
+java:S1172L"2Remove this unused method parameter "actionEvent".(•Ùè8·›Åáü.
+L
+java:S1128"/Remove this unused import 'javafx.scene.Scene'.(Õü²8‘µ™áü.
+\
+java:S1128":Remove this unused import 'ba.unsa.etf.rpr.model.Project'.(Š¬û“ÿÿÿÿÿ8´í÷ÿú.
+M
+java:S1128"0Remove this unused import 'javafx.scene.Parent'.(²ä¡È8‘µ™áü.
+E	java:S108^")Either remove or fill this block of code.(å¥‡8·›Åáü.
+O
+java:S1172D"2Remove this unused method parameter "actionEvent".(ø˜†¢8‘šªÏü.
+W
+java:S1128"5Remove this unused import 'java.util.ResourceBundle'.(ıÆ£¯øÿÿÿÿ8­æ™áü.
+O
+java:S1172@"2Remove this unused method parameter "actionEvent".(‘Şş8šïò€û.
+U
+java:S1128"3Remove this unused import 'javafx.fxml.FXMLLoader'.(À‡ô³úÿÿÿÿ8­æ™áü.
+m
+java:S1128"PRemove this unused import 'javafx.scene.control.PopupControl.USE_COMPUTED_SIZE'.(¸ßøÁ8‘µ™áü.
