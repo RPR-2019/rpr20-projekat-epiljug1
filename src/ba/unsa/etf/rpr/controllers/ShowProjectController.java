@@ -438,11 +438,13 @@ public class ShowProjectController {
 
     @FXML
     public void editAssignedBugAction(ActionEvent actionEvent){
-        EditAssignedBugController editAssignedBugController = new EditAssignedBugController(project,tableViewBugs.getSelectionModel().getSelectedItem());
-        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editAssignedBug.fxml"), StageEnums.EDIT_BUG,editAssignedBugController);
-        stage.setOnHiding(event->{
-            refresh();
-        });
+        if(tableViewAssignedBugs.getSelectionModel().getSelectedItem()!=null) {
+            EditAssignedBugController editAssignedBugController = new EditAssignedBugController(project, tableViewAssignedBugs.getSelectionModel().getSelectedItem());
+            Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editAssignedBug.fxml"), StageEnums.EDIT_BUG, editAssignedBugController);
+            stage.setOnHiding(event -> {
+                refresh();
+            });
+        }else AlertMaker.alertERROR("Error occured!",BugInfo.SELECT.toString());
     }
 
     private Bug checkTable(TableView<Bug>table){

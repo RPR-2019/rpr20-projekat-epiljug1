@@ -51,16 +51,17 @@ public class EditAssignedBugController {
 
 
     public EditAssignedBugController(Project project, Bug bug) {
-        this.project = project;
-        this.bug = bug;
-
         bugDAO = BugDAO.getInstance();
         projectDAO = ProjectDAO.getInstance();
         developerDAO = DeveloperDAO.getInstance();
+        this.project = project;
+        this.bug = bug;
+
     }
 
     @FXML
     public void initialize(){
+        assignedRb.setSelected(true);
         nameFld.setText(bug.getBug_name());
         typeFld.setText(bug.getBug_type());
         descFld.setText(bug.getBug_desc());
@@ -69,9 +70,9 @@ public class EditAssignedBugController {
 
     }
     private void complexity(){
-        if(bug.getComplexity().contains("high")) high.setSelected(true);
+        if(bug.getComplexity().contains("High")) high.setSelected(true);
         else
-        if(bug.getComplexity().contains("medium")) medium.setSelected(true);
+        if(bug.getComplexity().contains("Medium")) medium.setSelected(true);
         else
             low.setSelected(true);
     }

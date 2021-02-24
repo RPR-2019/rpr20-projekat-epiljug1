@@ -37,7 +37,7 @@ public class OpenBugController {
         nameFld.setText(bug.getBug_name());
         typeFld.setText(bug.getBug_type());
         complFld.setText(bug.getComplexity());
-        if(!bug.getStatus().contains("Assigned"))
+        if(bug.getAssigned()==null)
             assignFld.setText(BugInfo.ALL_DEVELOPERS.toString());
         else
             assignFld.setText( bug.getAssigned().getUsername() );

@@ -1,9 +1,12 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.LoadWebPage;
+import ba.unsa.etf.rpr.StageHandler;
+import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.database.BugDAO;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.database.ProjectDAO;
+import ba.unsa.etf.rpr.enums.BugInfo;
 import ba.unsa.etf.rpr.model.Bug;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
@@ -157,10 +160,28 @@ public class ShowOtherProjectController {
     }
 
 
+
+    private Bug checkTable(TableView<Bug> table){
+        if(table.getSelectionModel().getSelectedItem()==null){ AlertMaker.alertERROR("Error occured", BugInfo.SELECT.toString()); return null;}
+        else return table.getSelectionModel().getSelectedItem();
+    }
+
     @FXML
     public void openBugAction(ActionEvent actionEvent){
-        System.out.println("OPEN BUG ACTION");
+        if(checkTable(tableViewBugs)!=null){
+            OpenBugController ctrl = new OpenBugController(tableViewBugs.getSelectionModel().getSelectedItem());
+            StageHandler.loadWindow(getClass().getResource("/fxml/openBug.fxml"),BugInfo.INFO.toString(),ctrl);
+        }
     }
+
+    @FXML
+    public void openBugActionAssigned(ActionEvent actionEvent){
+        if(checkTable(tableViewAssignedBugs)!=null){
+            OpenBugController ctrl = new OpenBugController(tableViewAssignedBugs.getSelectionModel().getSelectedItem());
+            StageHandler.loadWindow(getClass().getResource("/fxml/openBug.fxml"),BugInfo.INFO.toString(),ctrl);
+        }
+    }
+
 
     @FXML
     public void closeAction(ActionEvent actionEvent){

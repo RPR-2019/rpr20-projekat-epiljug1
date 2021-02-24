@@ -171,7 +171,7 @@
                         <right>
                             <VBox alignment="TOP_CENTER" prefHeight="242.0" prefWidth="126.0" spacing="5.0" stylesheets="@../css/dark-theme.css" BorderPane.alignment="CENTER">
                                 <children>
-                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#openBugAction" prefHeight="42.0" prefWidth="125.0" text="%open" VBox.vgrow="NEVER">
+                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#openBugActionAssigned" prefHeight="42.0" prefWidth="125.0" text="%open" VBox.vgrow="NEVER">
                                         <VBox.margin>
                                             <Insets />
                                         </VBox.margin>

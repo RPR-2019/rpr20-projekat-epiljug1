@@ -167,9 +167,9 @@
                                 <columns>
                                     <TableColumn fx:id="colAsgnName" prefWidth="139.0" text="%name" />
                                     <TableColumn fx:id="colAsgnType" prefWidth="130.0" text="%type" />
-                                    <TableColumn fx:id="colAsgnStatus" prefWidth="172.0" text="%status" />
-                                    <TableColumn fx:id="colAsgnDate" prefWidth="122.0" text="%date_created" />
-                                    <TableColumn fx:id="colAsgnCompl" prefWidth="172.0" text="%complexity" />
+                                    <TableColumn fx:id="colAsgnStatus" prefWidth="152.0" text="%status" />
+                                    <TableColumn fx:id="colAsgnDate" prefWidth="159.0" text="%date_created" />
+                                    <TableColumn fx:id="colAsgnCompl" prefWidth="155.0" text="%complexity" />
                                     <TableColumn fx:id="colAsgn" prefWidth="174.0" text="%assigned" />
                                 </columns>
                                 <padding>

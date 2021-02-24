@@ -103,9 +103,9 @@ public class EditBugController {
 
     }
     private void complexity(){
-        if(bug.getComplexity().contains("high")) high.setSelected(true);
+        if(bug.getComplexity().contains("High")) high.setSelected(true);
         else
-        if(bug.getComplexity().contains("medium")) medium.setSelected(true);
+        if(bug.getComplexity().contains("Medium")) medium.setSelected(true);
         else
             low.setSelected(true);
     }

@@ -65,8 +65,8 @@ public class BugDAO {
             denyRequest = conn.prepareStatement("UPDATE bug SET request_id=0 where bug_name=? and projectID=?");
             getSolvedBugs = conn.prepareStatement("SELECT * FROM bug where projectID=? and solver_id!=0");
             editBug = conn.prepareStatement("UPDATE bug set bug_name=?,bug_desc=?,bug_type=?,status=?,complexity=?,solver_id=? where bug_name=? and projectID=?");
-            getAssignedBugs = conn.prepareStatement("SELECT bug.*,bug_assigned.developer_id FROM bug,bug_assigned where bug.bug_id=bug_assigned.bug_id and bug_assigned.project_id=?");
-            getAssignedBugsDev = conn.prepareStatement("SELECT bug.*,bug_assigned.developer_id FROM bug,bug_assigned where bug.bug_id=bug_assigned.bug_id and bug_assigned.project_id=? and bug_assigned.developer_id=?");
+            getAssignedBugs = conn.prepareStatement("SELECT bug.*,bug_assigned.developer_id FROM bug,bug_assigned where bug.solver_id=0 and bug.bug_id=bug_assigned.bug_id and bug_assigned.project_id=?");
+            getAssignedBugsDev = conn.prepareStatement("SELECT bug.*,bug_assigned.developer_id FROM bug,bug_assigned where bug.solver_id=0 and bug.bug_id=bug_assigned.bug_id and bug_assigned.project_id=? and bug_assigned.developer_id=?");
             addAssign = conn.prepareStatement("INSERT INTO bug_assigned VALUES(?,?,?)");
         }catch (SQLException e){
             e.printStackTrace();
