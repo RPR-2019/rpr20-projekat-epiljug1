@@ -6,12 +6,12 @@ import java.time.format.DateTimeFormatter;
 public class Project {
     private String name;
     private String description;
-    private LocalDate dateProjectCreated;
+    private String dateProjectCreated;
     private Developer creator;
     private String client_name;
     private String client_email;
     private String code_link;
-    private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
+    private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 
     public Project(String name, String description, Developer creator, String client_name, String client_email,String code_link) {
         this.name = name;
@@ -20,7 +20,7 @@ public class Project {
         this.client_name = client_name;
         this.client_email = client_email;
         this.code_link = code_link;
-        dateProjectCreated = LocalDate.now();
+        dateProjectCreated = (LocalDate.now()).format(myFormatObj);
     }
 
     public Project(String name, String description, Developer creator) {
@@ -29,7 +29,7 @@ public class Project {
         this.creator = creator;
         client_name="";
         client_email="";
-        dateProjectCreated = LocalDate.now();
+        dateProjectCreated = (LocalDate.now()).format(myFormatObj);
     }
 
     public String getCode_link() {
@@ -65,10 +65,10 @@ public class Project {
     }
 
     public String getDateProjectCreated() {
-        return dateProjectCreated.format(myFormatObj);
+        return dateProjectCreated;
     }
 
-    public void setDateProjectCreated(LocalDate date_created) {
+    public void setDateProjectCreated(String date_created) {
         this.dateProjectCreated = date_created;
     }
 

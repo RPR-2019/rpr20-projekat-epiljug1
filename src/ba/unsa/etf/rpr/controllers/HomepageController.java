@@ -7,6 +7,8 @@ import ba.unsa.etf.rpr.enums.StageEnums;
 import ba.unsa.etf.rpr.model.Developer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -14,6 +16,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 public class HomepageController {
     @FXML
@@ -33,7 +36,7 @@ public class HomepageController {
     @FXML
     Label user;
     private Developer developer;
-    private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
+    private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
     private ProjectDAO projectDAO;
     public HomepageController(Developer developer){
         projectDAO=ProjectDAO.getInstance();
@@ -90,6 +93,23 @@ public class HomepageController {
         StageHandler.loadWindow(getClass().getResource("/fxml/addProject.fxml"),StageEnums.ADD_PROJECT,ctrl);
     }
 
+    private void changeLang() throws IOException {
+        Stage stage = (Stage) btnYourProjects.getScene().getWindow();
+        stage.setTitle(StageEnums.LOGIN.toString());
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"), ResourceBundle.getBundle("Translation"));
+        loader.setController(this);
+        stage.setScene(new Scene(loader.load()));
+    }
+
+    public void switchToBS(ActionEvent mouseEvent) throws IOException {
+        Locale.setDefault(new Locale("bs","BA"));
+        changeLang();
+    }
+
+    public void switchToEN(ActionEvent mouseEvent) throws IOException {
+        Locale.setDefault(new Locale("en","US"));
+        changeLang();
+    }
 
     public void closeWindow(){
         ((Stage) btnAddProject.getScene().getWindow()).close();

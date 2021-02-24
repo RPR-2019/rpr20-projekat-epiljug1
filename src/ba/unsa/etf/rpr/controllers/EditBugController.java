@@ -1,18 +1,21 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.Status;
+import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.database.BugDAO;
+import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.database.ProjectDAO;
+import ba.unsa.etf.rpr.enums.EmptyFld;
 import ba.unsa.etf.rpr.model.Bug;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 
@@ -23,64 +26,122 @@ public class EditBugController {
     @FXML
     TextField typeFld;
 
-    @FXML
-    ChoiceBox<String> statusChoice;
 
     @FXML
-    TextField complFld;
+    TextArea descFld;
 
     @FXML
-    Label solverLbl;
+    RadioButton high;
+
+    @FXML
+    RadioButton medium;
+
+    @FXML
+    RadioButton low;
+
+    @FXML
+    RadioButton newRb;
+
+    @FXML
+    RadioButton fixedRb;
+
 
     @FXML
     ChoiceBox<Developer> solverChoice;
 
+    @FXML
+    Label solverLbl;
+
+
     private ProjectDAO projectDAO;
     private BugDAO bugDAO;
-
+    private DeveloperDAO developerDAO;
     private Project project;
     private Bug bug;
 
-    private ObservableList<String> listOfStatus;
     private ObservableList<Developer> listOfDevelopers;
 
     public EditBugController(Project project,Bug bug){
         bugDAO = BugDAO.getInstance();
         projectDAO = ProjectDAO.getInstance();
+        developerDAO = DeveloperDAO.getInstance();
+
         this.project=project;
         this.bug = bug;
-        listOfStatus = FXCollections.observableArrayList(Status.allStatus());
         listOfDevelopers = FXCollections.observableArrayList(projectDAO.getAllDevelopersWhoWorksOnAProject(projectDAO.findID(project)));
     }
 
     @FXML
     public void initialize(){
-        if(bug.getStatus()!="fixed") {
-            solverLbl.setDisable(true);
-            solverChoice.setDisable(true);
-        }
+        newRb.setSelected(true);
+
         nameFld.setText(bug.getBug_name());
         typeFld.setText(bug.getBug_type());
-        statusChoice.setValue(bug.getStatus());
-        complFld.setText(bug.getComplexity());
-
-        statusChoice.setItems(listOfStatus);
+        descFld.setText(bug.getBug_desc());
+        complexity();
         solverChoice.setItems(listOfDevelopers);
 
-        statusChoice.setOnAction(event -> {
-            if(statusChoice.getValue()=="fixed"){
-                solverLbl.setDisable(false);
-                solverChoice.setDisable(false);
-            }else{
-                solverLbl.setDisable(true);
-                solverChoice.setDisable(true);
+
+        solverLbl.setDisable(true);
+        solverChoice.setDisable(true);
+
+
+        fixedRb.selectedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> obs, Boolean wasPreviouslySelected, Boolean isNowSelected) {
+                if (isNowSelected) {
+                    solverLbl.setDisable(false);
+                    solverChoice.setDisable(false);
+                }else {
+                    solverLbl.setDisable(true);
+                    solverChoice.setDisable(true);
+                }
             }
         });
+
     }
+    private void complexity(){
+        if(bug.getComplexity().contains("high")) high.setSelected(true);
+        else
+        if(bug.getComplexity().contains("medium")) medium.setSelected(true);
+        else
+            low.setSelected(true);
+    }
+    private String checkStatus(){
+        if(fixedRb.isSelected()) return "Fixed/Riješen";
+        return "New/Novi";
+    }
+
+
+    private String checkComplexity(){
+        if(high.isSelected()) return "High/Visoka";
+        if(medium.isSelected()) return "Medium/Srednja";
+        return "Low/Niska";
+    }
+
+
+    private boolean checkField(){
+        if(nameFld.getText().trim().isEmpty()){ AlertMaker.alertERROR("Error occured", EmptyFld.NAME.toString()); return  false;}
+        if(typeFld.getText().trim().isEmpty()){ AlertMaker.alertERROR("Error occured", EmptyFld.TYPE.toString()); return  false;}
+        return true;
+    }
+
+
 
     @FXML
     public void saveChangesAction(ActionEvent actionEvent){
+        if(checkField()) {
+            Bug newBug = new Bug(nameFld.getText(), descFld.getText(), typeFld.getText(), checkStatus(), project, checkComplexity());
+            newBug.setDate_created(bug.getDate_created());
+            if (fixedRb.isSelected() && solverChoice.getSelectionModel().getSelectedItem() == null) {
+                newBug.setRequest_id(0);
+                newBug.setSolver_id(developerDAO.findIdOfDeveloper(project.getCreator().getUsername()));
+            } else if (fixedRb.isSelected())
+                newBug.setSolver_id(developerDAO.findIdOfDeveloper(solverChoice.getSelectionModel().getSelectedItem().getUsername()));
 
+            bugDAO.editBug(newBug, bug.getBug_name(), projectDAO.findID(project));
+            cancleAction(actionEvent);
+        }
     }
 
     @FXML

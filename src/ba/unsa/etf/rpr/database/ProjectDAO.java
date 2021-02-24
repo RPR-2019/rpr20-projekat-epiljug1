@@ -12,6 +12,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class ProjectDAO {
@@ -125,7 +126,7 @@ public class ProjectDAO {
             findProject.setInt(2,id);
             ResultSet rs = findProject.executeQuery();
             novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""),rs.getString(6),rs.getString(7),rs.getString(8));
-            novi.setDateProjectCreated(getDate(rs.getString(5)));
+            novi.setDateProjectCreated(rs.getString(5));
 
         }catch (SQLException e){
             e.printStackTrace();
@@ -165,7 +166,7 @@ public class ProjectDAO {
             ResultSet rs = getAllProjects.executeQuery();
             while (rs.next()){
                 Project novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""),rs.getString(6),rs.getString(7),rs.getString(8));
-                novi.setDateProjectCreated(getDate(rs.getString(5)));
+                novi.setDateProjectCreated(rs.getString(5));
                 allProjects.add(novi);
             }
         }catch (SQLException sqlException){
@@ -182,7 +183,7 @@ public class ProjectDAO {
             ResultSet rs = getAllProjectsUserIsAssigned.executeQuery();
             while (rs.next()){
                 Project novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""),rs.getString(6),rs.getString(7),rs.getString(8));
-                novi.setDateProjectCreated(getDate(rs.getString(5)));
+                novi.setDateProjectCreated(rs.getString(5));
                 allProjects.add(novi);
             }
         }catch (SQLException sqlException){
@@ -200,7 +201,7 @@ public class ProjectDAO {
             ResultSet rs = getAllProjectsOfDeveloper.executeQuery();
             while (rs.next()){
                 Project novi = new Project(rs.getString(2),rs.getString(3), instanceDeveloper.findDeveloperByIDorUsername(rs.getInt(4),""),rs.getString(6),rs.getString(7),rs.getString(8));
-                novi.setDateProjectCreated(getDate(rs.getString(5)));
+                novi.setDateProjectCreated(rs.getString(5));
 
                 allProjects.add(novi);
             }
@@ -236,13 +237,19 @@ public class ProjectDAO {
             if (rs1.next()) {
                 int count = rs1.getInt(1);
                 System.out.println("COUNT 1 = " + count);
-                data.add(new PieChart.Data("Total bugs (" + count + ")", count));
+                if(Locale.getDefault().getCountry().equals("US"))
+                    data.add(new PieChart.Data("Total bugs (" + count + ")", count));
+                else
+                    data.add(new PieChart.Data("Ukupno bug-ova (" + count + ")", count));
             }
 
             if (rs2.next()) {
                 int count = rs2.getInt(1);
                 System.out.println("COUNT 2 = " + count);
-                data.add(new PieChart.Data("Solved bugs (" + count + ")", count));
+                if(Locale.getDefault().getCountry().equals("US"))
+                    data.add(new PieChart.Data("Solved bugs (" + count + ")", count));
+                else
+                    data.add(new PieChart.Data("Riješeni bug-ovi (" + count + ")", count));
             }
         }
         catch (Exception e) {

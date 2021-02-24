@@ -73,8 +73,27 @@ public class ShowProjectController {
     @FXML
     public TableColumn colCompl;
 
+
     @FXML
-    public TableColumn<Bug,String> colSolver;
+    TableView<Bug> tableViewSolvedBugs;
+
+    @FXML
+    public TableColumn colSolName;
+
+    @FXML
+    public TableColumn colSolType;
+
+    @FXML
+    public TableColumn colSolStatus;
+
+    @FXML
+    public TableColumn colSolDate;
+
+    @FXML
+    public TableColumn colSolCompl;
+
+    @FXML
+    public TableColumn<Bug,String> colSolSolver;
 
     @FXML
     public TableView<Bug> tableViewRequest;
@@ -144,6 +163,7 @@ public class ShowProjectController {
     private final BugDAO bugDAO;
     private final DeveloperDAO developerDAO;
     private ObservableList<Bug> listBugs;
+    private ObservableList<Bug> listSolvedBugs;
     private ObservableList<Bug> listReguest;
     private ObservableList<Developer> listDevelopers;
     private ObservableList<Developer> listSearchDevelopers;
@@ -160,10 +180,11 @@ public class ShowProjectController {
 
         projectId = projectDAO.findID(project);
         listBugs = FXCollections.observableArrayList(bugDAO.getAllBugsForProject(projectId));
+        listSolvedBugs = FXCollections.observableArrayList(bugDAO.getAllSolvedBugsForProject(projectId));
         listReguest = FXCollections.observableArrayList(bugDAO.getBugReportsForProject(projectId));
         listDevelopers = FXCollections.observableArrayList(projectDAO.getAllDevelopersWhoWorksOnAProject(projectId));
-        listSearchDevelopers = FXCollections.observableArrayList(new ArrayList<Developer>());
-        allDevelopers =  FXCollections.observableArrayList(developerDAO.getAllDevelopers());
+        allDevelopers =  FXCollections.observableArrayList(developerDAO.getAllDevelopers(developerDAO.findIdOfDeveloper(project.getCreator().getUsername())));
+        listSearchDevelopers = FXCollections.observableArrayList(allDevelopers);
     }
 
     private void loadData() {
@@ -174,18 +195,21 @@ public class ShowProjectController {
     }
     private void refresh(){
         listBugs.setAll(bugDAO.getAllBugsForProject(projectId));
+        listSolvedBugs.setAll(bugDAO.getAllSolvedBugsForProject(projectId));
         listReguest.setAll(bugDAO.getBugReportsForProject(projectId));
         setNotification();
         listDevelopers.setAll(projectDAO.getAllDevelopersWhoWorksOnAProject(projectId));
         tableViewRequest.refresh();
         tableViewBugs.refresh();
         tableViewDevelopers.refresh();
+        tableViewSolvedBugs.refresh();
     }
     @FXML
     public void initialize(){
 
 
         pie.setData(projectDAO.getProjectGraphStatistic(project));
+
         nameFld.setText(project.getName());
         creatorFld.setText(project.getCreator().toString());
         clientFld.setText(project.getClient_name());
@@ -200,7 +224,17 @@ public class ShowProjectController {
         colStatus.setCellValueFactory(new PropertyValueFactory("status"));
         colDate.setCellValueFactory(new PropertyValueFactory("date_created"));
         colCompl.setCellValueFactory(new PropertyValueFactory("complexity"));
-        colSolver.setCellValueFactory(data -> new SimpleStringProperty(developerDAO.findDeveloperByIDorUsername(data.getValue().getSolver_id(),"").getUsername()));
+
+        tableViewSolvedBugs.setItems(listSolvedBugs);
+        colSolName.setCellValueFactory(new PropertyValueFactory("bug_name"));
+        colSolType.setCellValueFactory(new PropertyValueFactory("bug_type"));
+        colSolStatus.setCellValueFactory(new PropertyValueFactory("status"));
+        colSolDate.setCellValueFactory(new PropertyValueFactory("date_created"));
+        colSolCompl.setCellValueFactory(new PropertyValueFactory("complexity"));
+        colSolSolver.setCellValueFactory(data -> new SimpleStringProperty(developerDAO.findDeveloperByIDorUsername(data.getValue().getSolver_id(),"").getUsername()));
+
+
+
 
         tableViewRequest.setItems(listReguest);
         colDev.setCellValueFactory(data -> new SimpleStringProperty(developerDAO.findDeveloperByIDorUsername(data.getValue().getRequest_id(),"").toString()));
@@ -233,7 +267,7 @@ public class ShowProjectController {
     }
     private void setNotification(){
         if (listReguest.size() != 0) {
-            notificationLbl.setText("You have " + listReguest.size() + " requests");
+            notificationLbl.setText( Validation.REQUESTS.toString() + listReguest.size()  );
         } else {
             notificationLbl.setText("");
         }
@@ -353,6 +387,9 @@ public class ShowProjectController {
     public void editBugAction(ActionEvent actionEvent){
         EditBugController editBugController = new EditBugController(project,tableViewBugs.getSelectionModel().getSelectedItem());
         Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editBug.fxml"), StageEnums.EDIT_BUG,editBugController);
+        stage.setOnHiding(event->{
+            refresh();
+        });
     }
 
     @FXML

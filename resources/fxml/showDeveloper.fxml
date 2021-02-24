@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -74,7 +75,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="%your_projects">
+          <Tab text="%dev_projects">
             <content>
                    <TableView fx:id="tableViewProjects" prefHeight="474.0" prefWidth="878.0" stylesheets="@../css/dark-theme.css" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="CENTER">
                        <columns>
@@ -90,7 +91,7 @@
                    </TableView>
             </content>
           </Tab>
-            <Tab text="%other_projects">
+            <Tab text="%dev_works_on">
                <content>
                    <TableView fx:id="tableViewOtherProjects" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/dark-theme.css" BorderPane.alignment="CENTER">
                        <columns>
@@ -109,12 +110,19 @@
             </Tab>
         </tabs>
       </TabPane>
-      <AnchorPane layoutX="779.0" prefHeight="36.0" prefWidth="136.0">
+      <AnchorPane layoutX="780.0" prefHeight="36.0" prefWidth="136.0">
          <children>
-            <Button cancelButton="true" layoutX="54.0" mnemonicParsing="false" onAction="#closeWindowAction" prefHeight="21.0" prefWidth="79.0" style="-fx-border-color: transparent;" styleClass="close" stylesheets="@../css/dark-theme.css" text="Close" textFill="#ffff8d" underline="true">
+            <Button cancelButton="true" layoutX="78.0" layoutY="4.0" mnemonicParsing="false" onAction="#closeWindowAction" style="-fx-border-color: transparent;" styleClass="close" stylesheets="@../css/dark-theme.css" textFill="#ffff8d" underline="true">
                <font>
                   <Font size="18.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/cancel.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
       </AnchorPane>

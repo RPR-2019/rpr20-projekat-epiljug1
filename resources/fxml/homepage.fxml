@@ -12,11 +12,11 @@
         <menus>
           <Menu fx:id="file" mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#logoutAction" text="Close" />
                   <Menu mnemonicParsing="false" text="Language">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="English" />
-                      <MenuItem mnemonicParsing="false" text="Bosnian" />
+                        <MenuItem mnemonicParsing="false" onAction="#switchToEN" text="English" />
+                      <MenuItem mnemonicParsing="false" onAction="#switchToBS" text="Bosnian" />
                     </items>
                   </Menu>
             </items>
@@ -118,9 +118,9 @@
       </GridPane>
       <HBox layoutY="539.0" prefHeight="30.0" prefWidth="815.0" style="-fx-background-color: #272c3a;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Pane prefHeight="30.0" prefWidth="680.0" HBox.hgrow="ALWAYS" />
-            <Label layoutX="585.0" layoutY="592.0" maxHeight="1.7976931348623157E308" prefHeight="37.0" prefWidth="56.0" text="%date" textFill="WHITE" />
-            <TextField fx:id="date" alignment="CENTER_RIGHT" editable="false" layoutX="626.0" layoutY="591.0" prefHeight="30.0" prefWidth="95.0" style="-fx-background-color: transparent;" stylesheets="@../css/colors.css" />
+            <Pane prefHeight="37.0" prefWidth="659.0" HBox.hgrow="ALWAYS" />
+            <Label layoutX="585.0" layoutY="592.0" maxHeight="1.7976931348623157E308" prefHeight="37.0" prefWidth="64.0" text="%date" textFill="WHITE" />
+            <TextField fx:id="date" alignment="CENTER_RIGHT" editable="false" layoutX="626.0" layoutY="591.0" prefHeight="37.0" prefWidth="133.0" style="-fx-background-color: transparent;" stylesheets="@../css/colors.css" />
          </children>
       </HBox>
       <HBox layoutX="675.0" layoutY="1.0" prefHeight="22.0" prefWidth="138.0" AnchorPane.rightAnchor="2.0">

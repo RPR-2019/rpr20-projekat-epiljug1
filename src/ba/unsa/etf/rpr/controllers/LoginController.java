@@ -154,7 +154,7 @@ public class LoginController {
     }
 
 
-    private void promijeniJezik() throws IOException {
+    private void changeLang() throws IOException {
         Stage stage = (Stage) usernamefld.getScene().getWindow();
         stage.setTitle(StageEnums.LOGIN.toString());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"), ResourceBundle.getBundle("Translation"));
@@ -164,12 +164,12 @@ public class LoginController {
 
     public void switchToBS(MouseEvent mouseEvent) throws IOException {
         Locale.setDefault(new Locale("bs","BA"));
-        promijeniJezik();
+        changeLang();
     }
 
     public void switchToEN(MouseEvent mouseEvent) throws IOException {
         Locale.setDefault(new Locale("en","US"));
-        promijeniJezik();
+        changeLang();
     }
 
 

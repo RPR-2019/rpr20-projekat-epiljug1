@@ -5,44 +5,56 @@ import java.time.format.DateTimeFormatter;
 
 public class Bug {
     private String bug_name;
+    private String bug_desc;
     private String bug_type;
     private String status;
-    private LocalDate date_created;
+    private String date_created;
     private Project project;
     private String complexity;
     private int solver_id;
     private int request_id;
     private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
 
-    public Bug(String bug_name, String bug_type, String status, Project project, String complexity, int id_solver, int id_request) {
+    public Bug(String bug_name,String bug_desc ,String bug_type, String status, Project project, String complexity, int id_solver, int id_request) {
         this.bug_name = bug_name;
+        this.bug_desc = bug_desc;
         this.bug_type = bug_type;
         this.status = status;
-        this.date_created = LocalDate.now();
+        this.date_created = LocalDate.now().format(myFormatObj);
         this.project = project;
         this.complexity = complexity;
         solver_id = id_solver;
         request_id = id_request;
     }
-    public Bug(String bug_name, String bug_type, String status, Project project, String complexity, int id_solver) {
+    public Bug(String bug_name,String bug_desc, String bug_type, String status, Project project, String complexity, int id_solver) {
         this.bug_name = bug_name;
         this.bug_type = bug_type;
+        this.bug_desc = bug_desc;
         this.status = status;
-        this.date_created = LocalDate.now();
+        this.date_created = LocalDate.now().format(myFormatObj);
         this.project = project;
         this.complexity = complexity;
         solver_id = id_solver;
         request_id = 0;
     }
-    public Bug(String bug_name, String bug_type, String status, Project project, String complexity) {
+    public Bug(String bug_name,String bug_desc, String bug_type, String status, Project project, String complexity) {
         this.bug_name = bug_name;
         this.bug_type = bug_type;
+        this.bug_desc = bug_desc;
         this.status = status;
-        this.date_created = LocalDate.now();
+        this.date_created = LocalDate.now().format(myFormatObj);
         this.project = project;
         this.complexity = complexity;
         solver_id = 0;
         request_id = 0;
+    }
+
+    public String getBug_desc() {
+        return bug_desc;
+    }
+
+    public void setBug_desc(String bug_desc) {
+        this.bug_desc = bug_desc;
     }
 
     public int getRequest_id() {
@@ -87,10 +99,10 @@ public class Bug {
 
 
     public String getDate_created() {
-        return date_created.format(myFormatObj);
+        return  date_created;
     }
 
-    public void setDate_created(LocalDate date_created) {
+    public void setDate_created(String date_created) {
         this.date_created = date_created;
     }
 

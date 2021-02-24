@@ -1,20 +1,17 @@
 package ba.unsa.etf.rpr.controllers;
 
-import ba.unsa.etf.rpr.Status;
 import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.database.BugDAO;
 import ba.unsa.etf.rpr.database.ProjectDAO;
+import ba.unsa.etf.rpr.enums.EmptyFld;
 import ba.unsa.etf.rpr.model.Bug;
 import ba.unsa.etf.rpr.model.Project;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
 
 public class AddBugController {
     @FXML
@@ -23,22 +20,26 @@ public class AddBugController {
     @FXML
     TextField typeFld;
 
-    @FXML
-    ChoiceBox<String> statusChoice;
 
     @FXML
-    TextField complFld;
+    RadioButton high;
+
+    @FXML
+    RadioButton medium;
+
+    @FXML
+    RadioButton low;
+
+    @FXML
+    TextArea descFld;
+
 
     private ProjectDAO projectDAO;
     private BugDAO bugDAO;
     private Project project;
 
 
-    private ObservableList<String> listOfStatus;
-
     public AddBugController(Project project){
-        listOfStatus = FXCollections.observableArrayList(Status.allStatus());
-
         this.project=project;
         bugDAO = BugDAO.getInstance();
         projectDAO = ProjectDAO.getInstance();
@@ -46,27 +47,28 @@ public class AddBugController {
 
     @FXML
     public void initialize(){
-            statusChoice.setItems(listOfStatus);
+        low.setSelected(true);
 
     }
-    private boolean check(String field, String nameField){
-        if(field.trim().isEmpty()) {
-            AlertMaker.alertERROR("Error occured", nameField + " field is empty");
-            return  false;
-        }
+
+
+
+    private String check(){
+        if(high.isSelected()) return "High/Visoka";
+        if(medium.isSelected()) return "Medium/Srednja";
+        return "Low/Niska";
+    }
+    private boolean checkField(){
+        if(nameFld.getText().trim().isEmpty()){ AlertMaker.alertERROR("Error occured", EmptyFld.NAME.toString()); return  false;}
+        if(typeFld.getText().trim().isEmpty()){ AlertMaker.alertERROR("Error occured", EmptyFld.TYPE.toString()); return  false;}
         return true;
     }
-    private boolean checkChoice(){
-        if(statusChoice.getSelectionModel().getSelectedItem()==null) {
-            AlertMaker.alertERROR("Error occured", "You did not select any status");
-            return  false;
-        }
-        return true;
-    }
+
+
     @FXML
     public void addBugAction(ActionEvent actionEvent){
-        if(check(nameFld.getText(),"Name") && check(typeFld.getText(),"Type")&& checkChoice() && check(complFld.getText(),"Complexity")){
-            bugDAO.addNewBug(new Bug(nameFld.getText(),typeFld.getText(),statusChoice.getSelectionModel().getSelectedItem(),project,complFld.getText()));
+        if(checkField()){
+            bugDAO.addNewBug(new Bug(nameFld.getText(),descFld.getText(),typeFld.getText(),"New/Novi",project,check()));
             cancleAction(actionEvent);
         }
     }

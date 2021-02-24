@@ -1,16 +1,12 @@
 
 A
 BugTracker.db.sql,6\d\6dff3e7cb552bd35f9d06974dbb4141b7cc2310c
-G
-.idea/libraries/lib.xml,5\6\563a23e064e6fdd2d09bd0c2d99ef456aff71a31
 M
 src/ba/unsa/etf/rpr/Main.java,b\c\bc4c90a37ac9d1b5ef19ac18f695d26749bb9c3f
 a
 1.idea/libraries/org_xerial_sqlite_jdbc_3_21_0.xml,5\4\5425a9e8197bbc593a3ad60641080ce9498caabd
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
-H
-.idea/libraries/lib1.xml,0\c\0c365873abaed37e63ae68c9caa59daee764f84a
 J
 .idea/libraries/javafx.xml,f\0\f01fa3cc38467805c9ad58fa176b2fe7146a6a5c
 e
@@ -121,14 +117,8 @@ s
 Cout/production/rpr20-projekat-epiljug1/Translation_bs_BA.properties,d\2\d2b9b6550b0f67c41f787f03d66d69d4fcb33c6d
 s
 Cout/production/rpr20-projekat-epiljug1/Translation_en_US.properties,d\1\d17888927b82e9492ef0bea8c01363021804bfef
-J
-resources/fxml/addBug.fxml,1\4\1430df18f983e9eb06caf49f3831da6748fd9a11
 L
 resources/css/dark-theme.css,7\4\74c9d3a2e304a8b43ce174351f803f2362a0371d
-K
-resources/fxml/editBug.fxml,9\e\9eed4465ab63c24317ddc73386c08d7f3b4c4dab
-R
-"resources/fxml/listDevelopers.fxml,6\4\6409ec4120b977e79895844f9d6470c4e1beb23e
 h
 8out/production/rpr20-projekat-epiljug1/fxml/loading.fxml,f\f\ffbbed49050a2c667ccc7437b51879f6dedd4385
 K
@@ -143,20 +133,10 @@ Q
 !resources/fxml/otherProjects.fxml,9\d\9d5f21a4f4b64121e12c44c159e54e1411ec19f8
 n
 >out/production/rpr20-projekat-epiljug1/fxml/showDeveloper.fxml,8\9\89cba61043abd1694a22e1133e8b8f517fd61a3e
-Q
-!resources/fxml/showDeveloper.fxml,0\6\0611dfddaa7717d29ee703570a9738ab3ab04a30
-T
-$resources/fxml/showOtherProject.fxml,3\5\35a3eef8d9fec52d7046946d56a0bfa950ddef58
 g
 7out/production/rpr20-projekat-epiljug1/fxml/signup.fxml,b\c\bcd1a4eb055bb7d19072e77c3b5ca5e061e1fbcc
 J
 resources/fxml/signup.fxml,d\6\d6bb1988d34202d2d4f15aef9842285995613abf
-P
- resources/Translation.properties,1\6\16da11ed28a04593d9825b11c421f14fb4b29ff5
-V
-&resources/Translation_bs_BA.properties,4\9\4960dd897e1b88ba964d498ad0a1120811996951
-V
-&resources/Translation_en_US.properties,a\6\a6142ffa65b83fb245a9695029380a844a46d322
 P
  resources/fxml/userProjects.fxml,e\5\e59f81dcbe4e0f9d4bed65b6cb437ff9928edadf
 Y

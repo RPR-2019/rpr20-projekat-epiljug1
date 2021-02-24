@@ -53,8 +53,16 @@ public class AddProjectController {
             projectDAO.addNewProject(new Project(nameFld.getText(),descriptionFld.getText(),developer,clientNameFld.getText(),clientEmailFld.getText(), sourceCodeFld.getText()));
             //AlertMaker.alertINFORMATION("Information","Project has been successfully added!");
             AlertMaker.showMaterialDialog(anchorPane,"New project added",nameFld.getText()+" has been added!");
-        //    closeWindowAction(actionEvent);
+            reset();
         }
+    }
+
+    private void reset(){
+        nameFld.setText("");
+        descriptionFld.setText("");
+        clientEmailFld.setText("");
+        clientNameFld.setText("");
+        sourceCodeFld.setText("");
     }
 
     public void closeWindowAction(ActionEvent actionEvent){

@@ -41,6 +41,12 @@ where d.developer_id!=$P{creator_id}]]>
 				</textElement>
 				<text><![CDATA[Bug Tracker]]></text>
 			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="60" y="52" width="458" height="1" forecolor="#000000" backcolor="#000000" uuid="a9044580-f03a-49da-9245-eecd8f3d3788"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
 		</band>
 	</title>
 	<pageHeader>

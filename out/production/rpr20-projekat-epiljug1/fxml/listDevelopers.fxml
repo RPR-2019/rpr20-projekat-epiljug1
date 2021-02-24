@@ -51,7 +51,8 @@
                   <contextMenu>
                       <ContextMenu>
                           <items>
-                              <MenuItem mnemonicParsing="false" onAction="#showDeveloperAction" text="Show developer" />
+                              <MenuItem mnemonicParsing="false" onAction="#showDeveloperAction" text="%show_dev" />
+                              <MenuItem mnemonicParsing="false" onAction="#sendMailAction" text="%send_mail" />
                           </items>
                           <styleClass>
                               <String fx:value="table-context" />

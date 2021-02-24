@@ -50,7 +50,7 @@ public class DeveloperDAO {
             getAllProjectsForDeveloper = conn.prepareStatement("SELECT DISTINCT project.*\n" +
                     "FROM project, connections, developer\n" +
                     "WHERE project_id=connections.pr_id AND connections.de_id=developer_id AND developer_id=?;\n");
-            getAllDevelopersInsteadOfOne = conn.prepareStatement("select * from developer where developer_id!=?");
+            getAllDevelopersInsteadOfOne = conn.prepareStatement("select * from developer where developer.developer_id!=?");
         }catch (SQLException e){
             e.printStackTrace();
         }

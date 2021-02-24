@@ -110,7 +110,7 @@
                            </padding>
                         </VBox>
                         <Label fx:id="notificationLbl" layoutX="22.0" layoutY="549.0" prefHeight="24.0" prefWidth="300.0" textFill="WHITE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="22.0" />
-                        <Button cancelButton="true" layoutX="987.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#closeAction" prefHeight="37.0" prefWidth="37.0" style="-fx-border-color: transparent;" AnchorPane.rightAnchor="2.0">
+                        <Button cancelButton="true" layoutX="984.0" layoutY="1.0" mnemonicParsing="false" onAction="#closeAction" style="-fx-border-color: transparent;" stylesheets="@../css/dark-theme.css" AnchorPane.rightAnchor="5.0">
                            <graphic>
                               <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -123,31 +123,33 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Bugs">
+          <Tab text="%active_bugs">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                         <TableView fx:id="tableViewBugs" layoutY="1.0" prefHeight="582.0" prefWidth="918.0" stylesheets="@../css/dark-theme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="1.0" BorderPane.alignment="CENTER">
+                         <TableView fx:id="tableViewBugs" layoutY="1.0" prefHeight="582.0" prefWidth="918.0" style="-fx-border-color: transparent;" stylesheets="@../css/dark-theme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="1.0" BorderPane.alignment="CENTER">
                              <columns>
                                  <TableColumn fx:id="colName" prefWidth="139.0" text="%name" />
                                  <TableColumn fx:id="colType" prefWidth="111.0" text="%type" />
                                  <TableColumn fx:id="colStatus" prefWidth="133.0" text="%status" />
                                  <TableColumn fx:id="colDate" prefWidth="137.0" text="%date_created" />
                               <TableColumn fx:id="colCompl" prefWidth="75.0" text="%complexity" />
-                              <TableColumn fx:id="colSolver" prefWidth="75.0" text="%solver" />
                              </columns>
                              <columnResizePolicy>
                                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                              </columnResizePolicy>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
                          </TableView>
                         <VBox alignment="TOP_CENTER" layoutX="921.0" layoutY="1.0" prefHeight="242.0" prefWidth="126.0" spacing="5.0" stylesheets="@../css/dark-theme.css" AnchorPane.bottomAnchor="340.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
                            <children>
+                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#addBugAction" prefHeight="42.0" prefWidth="125.0" text="%add" VBox.vgrow="NEVER" />
                               <Button alignment="CENTER" mnemonicParsing="false" onAction="#editBugAction" prefHeight="42.0" prefWidth="125.0" text="%edit" VBox.vgrow="NEVER">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
                               </Button>
-                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#addBugAction" prefHeight="42.0" prefWidth="125.0" text="%add" VBox.vgrow="NEVER" />
                            </children>
                            <padding>
                               <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
@@ -156,13 +158,36 @@
                      </children></AnchorPane>
             </content>
           </Tab>
+            <Tab text="%solved_bugs">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <children>
+                            <TableView fx:id="tableViewSolvedBugs" layoutY="1.0" prefHeight="582.0" prefWidth="1048.0" style="-fx-border-color: transparent;" stylesheets="@../css/dark-theme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0" BorderPane.alignment="CENTER">
+                                <columns>
+                                    <TableColumn fx:id="colSolName" prefWidth="139.0" text="%name" />
+                                    <TableColumn fx:id="colSolType" prefWidth="111.0" text="%type" />
+                                    <TableColumn fx:id="colSolStatus" prefWidth="133.0" text="%status" />
+                                    <TableColumn fx:id="colSolDate" prefWidth="137.0" text="%date_created" />
+                                    <TableColumn fx:id="colSolCompl" prefWidth="75.0" text="%complexity" />
+                                    <TableColumn fx:id="colSolSolver" prefWidth="75.0" text="%solver" />
+                                </columns>
+                                <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                </columnResizePolicy>
+                                <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                </padding>
+                            </TableView>
+                        </children></AnchorPane>
+                </content>
+            </Tab>
             <Tab text="%notifications">
               <content>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <top>
                         <Label prefHeight="52.0" prefWidth="395.0" text="%request_solving" textFill="WHITE" BorderPane.alignment="TOP_LEFT">
                            <font>
-                              <Font size="25.0" />
+                              <Font size="20.0" />
                            </font>
                         </Label>
                      </top>
@@ -245,10 +270,10 @@
                         </VBox>
                      </right>
                      <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                      <center>
-                        <TableView fx:id="tableViewRequest" prefHeight="501.0" prefWidth="523.0" style="-fx-border-color: transparent;" BorderPane.alignment="CENTER_LEFT">
+                        <TableView fx:id="tableViewRequest" prefHeight="489.0" prefWidth="500.0" style="-fx-border-color: transparent;" BorderPane.alignment="CENTER_LEFT">
                           <columns>
                             <TableColumn fx:id="colDev" prefWidth="249.0" text="%developer" />
                             <TableColumn fx:id="colBug" prefWidth="253.0" text="Bug" />
@@ -260,7 +285,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </BorderPane.margin>
                            <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </TableView>
                      </center>
@@ -276,7 +301,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TableView fx:id="tableViewDevelopers" layoutX="34.0" layoutY="53.0" prefHeight="481.0" prefWidth="638.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="376.0" AnchorPane.topAnchor="53.0">
+                        <TableView fx:id="tableViewDevelopers" layoutX="9.0" layoutY="53.0" prefHeight="518.0" prefWidth="663.0" style="-fx-border-color: transparent;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="376.0" AnchorPane.topAnchor="53.0">
                             <columns>
                                 <TableColumn fx:id="colNameDev" prefWidth="139.0" text="%name" />
                                 <TableColumn fx:id="colUsernameDev" prefWidth="200.0" text="%username" />
@@ -285,6 +310,9 @@
                             <columnResizePolicy>
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                             </columnResizePolicy>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
                         </TableView>
                         <GridPane hgap="10.0" layoutX="683.0" layoutY="41.0" prefHeight="509.0" prefWidth="340.0" vgap="10.0" AnchorPane.bottomAnchor="33.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="41.0">
                           <columnConstraints>
@@ -297,13 +325,16 @@
                               <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="84.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <TableView fx:id="tableViewSearch" prefHeight="320.0" prefWidth="335.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                              <TableView fx:id="tableViewSearch" prefHeight="320.0" prefWidth="335.0" style="-fx-border-color: transparent;" GridPane.columnSpan="2" GridPane.rowIndex="1">
                                 <columns>
                                   <TableColumn fx:id="colNameSearch" prefWidth="75.0" text="%name" />
                                 </columns>
                                  <columnResizePolicy>
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                  </columnResizePolicy>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
                               </TableView>
                               <HBox alignment="CENTER" prefHeight="88.0" prefWidth="341.0" GridPane.columnSpan="2">
                                  <children>

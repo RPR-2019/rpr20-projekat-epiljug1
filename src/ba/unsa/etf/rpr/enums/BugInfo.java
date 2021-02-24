@@ -2,32 +2,33 @@ package ba.unsa.etf.rpr.enums;
 
 import java.util.Locale;
 
-public enum Validation {
-    EMAIL{
+public enum BugInfo {
+    FIXED{
         @Override
         public String toString() {
             if(Locale.getDefault().getCountry().equals("US"))
-                return "E-mail is not valid!";
+                return "fixed";
             else
-                return "E-mail nije validan!";
+                return "riješen";
         }
     },
-    SENDING_EMAIL{
+    ASSIGNED{
         @Override
         public String toString() {
             if(Locale.getDefault().getCountry().equals("US"))
-                return "Something went wrong while sending! Please, check your info";
+                return "assigned";
             else
-                return "Došlo je do greške prilikom slanja mail-a! Molimo, provjerite svoje podatke";
+                return "dodijeljen";
         }
     },
-    REQUESTS{
+    NEW{
         @Override
         public String toString() {
             if(Locale.getDefault().getCountry().equals("US"))
-                return "Number of requests: ";
+                return "new";
             else
-                return "Broj zahtjeva: ";
+                return "novi";
+
         }
     };
 }
