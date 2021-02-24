@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.*;
 import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.email.MailSender;
+import ba.unsa.etf.rpr.enums.BugInfo;
 import ba.unsa.etf.rpr.enums.StageEnums;
 import ba.unsa.etf.rpr.enums.Validation;
 import ba.unsa.etf.rpr.model.Bug;
@@ -437,12 +438,34 @@ public class ShowProjectController {
 
     @FXML
     public void editAssignedBugAction(ActionEvent actionEvent){
-        EditBugController editBugController = new EditBugController(project,tableViewBugs.getSelectionModel().getSelectedItem());
-        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editBug.fxml"), StageEnums.EDIT_BUG,editBugController);
+        EditAssignedBugController editAssignedBugController = new EditAssignedBugController(project,tableViewBugs.getSelectionModel().getSelectedItem());
+        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editAssignedBug.fxml"), StageEnums.EDIT_BUG,editAssignedBugController);
         stage.setOnHiding(event->{
             refresh();
         });
     }
+
+    private Bug checkTable(TableView<Bug>table){
+        if(table.getSelectionModel().getSelectedItem()==null){ AlertMaker.alertERROR("Error occured", BugInfo.SELECT.toString()); return null;}
+        else return table.getSelectionModel().getSelectedItem();
+    }
+
+    @FXML
+    public void openBugAction(ActionEvent actionEvent){
+        if(checkTable(tableViewBugs)!=null){
+            OpenBugController ctrl = new OpenBugController(tableViewBugs.getSelectionModel().getSelectedItem());
+            StageHandler.loadWindow(getClass().getResource("/fxml/openBug.fxml"),BugInfo.INFO.toString(),ctrl);
+        }
+    }
+
+    @FXML
+    public void openBugActionAssigned(ActionEvent actionEvent){
+        if(checkTable(tableViewAssignedBugs)!=null){
+            OpenBugController ctrl = new OpenBugController(tableViewAssignedBugs.getSelectionModel().getSelectedItem());
+            StageHandler.loadWindow(getClass().getResource("/fxml/openBug.fxml"),BugInfo.INFO.toString(),ctrl);
+        }
+    }
+
 
     @FXML
     public void closeAction(ActionEvent actionEvent){

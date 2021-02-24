@@ -62,6 +62,24 @@ public class ShowOtherProjectController {
     public TableColumn colCompl;
 
     @FXML
+    TableView<Bug> tableViewAssignedBugs;
+
+    @FXML
+    public TableColumn colAsgnName;
+
+    @FXML
+    public TableColumn colAsgnType;
+
+    @FXML
+    public TableColumn colAsgnStatus;
+
+    @FXML
+    public TableColumn colAsgnDate;
+
+    @FXML
+    public TableColumn colAsgnCompl;
+
+    @FXML
     TableView<Developer> tableViewDevelopers;
 
     @FXML
@@ -73,20 +91,23 @@ public class ShowOtherProjectController {
     @FXML
     public TableColumn colEmailDev;
 
-    public ShowOtherProjectController(){
 
-    }
     private Project project;
+    private Developer developer;
+
     private ProjectDAO projectDAO;
     private BugDAO bugDAO;
     private DeveloperDAO developerDAO;
+
     private ObservableList<Bug> listBugs;
     private ObservableList<Developer> listDevelopers;
+    private ObservableList<Bug> listAssignedBugs;
 
     private  int projectId;
 
-    public ShowOtherProjectController(Project project){
+    public ShowOtherProjectController(Project project,Developer developer){
         this.project = project;
+        this.developer = developer;
 
         developerDAO = DeveloperDAO.getInstance();
         projectDAO = ProjectDAO.getInstance();
@@ -95,6 +116,7 @@ public class ShowOtherProjectController {
         projectId = projectDAO.findID(project);
         listBugs = FXCollections.observableArrayList(bugDAO.getAllBugsForProject(projectId));
         listDevelopers = FXCollections.observableArrayList(projectDAO.getAllDevelopersWhoWorksOnAProject(projectId));
+        listAssignedBugs = FXCollections.observableArrayList(bugDAO.getAllAssignedBugs(projectId,developerDAO.findIdOfDeveloper(developer.getUsername())));
     }
 
     @FXML
@@ -113,6 +135,14 @@ public class ShowOtherProjectController {
         colStatus.setCellValueFactory(new PropertyValueFactory("status"));
         colDate.setCellValueFactory(new PropertyValueFactory("date_created"));
         colCompl.setCellValueFactory(new PropertyValueFactory("complexity"));
+
+
+        tableViewAssignedBugs.setItems(listAssignedBugs);
+        colAsgnName.setCellValueFactory(new PropertyValueFactory("bug_name"));
+        colAsgnType.setCellValueFactory(new PropertyValueFactory("bug_type"));
+        colAsgnStatus.setCellValueFactory(new PropertyValueFactory("status"));
+        colAsgnDate.setCellValueFactory(new PropertyValueFactory("date_created"));
+        colAsgnCompl.setCellValueFactory(new PropertyValueFactory("complexity"));
 
         tableViewDevelopers.setItems(listDevelopers);
         colNameDev.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().toString()));

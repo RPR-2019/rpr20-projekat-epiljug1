@@ -14,7 +14,7 @@ public class Bug {
     private Developer assigned;
     private int solver_id;
     private int request_id;
-    private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
+    private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 
     public Bug(String bug_name,String bug_desc ,String bug_type, String status, Project project, String complexity, int id_solver, int id_request) {
         this.bug_name = bug_name;

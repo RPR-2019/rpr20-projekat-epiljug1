@@ -90,12 +90,13 @@ public class AddBugController {
     public void addBugAction(ActionEvent actionEvent){
         if(checkField()){
             Bug newBug = new Bug(nameFld.getText(),descFld.getText(),typeFld.getText(),"New/Novi",project,check());
+            if(isForAssign) newBug.setStatus("Assigned/Dodijeljen");
+            bugDAO.addNewBug(newBug);
             if(isForAssign){
                 System.out.println("DODAVANJE U TABLU ASSIGN");
-                newBug.setStatus("Assigned/Dodijeljen");
+
                 bugDAO.addAssign(projectDAO.findID(project),bugDAO.findId(newBug),developerDAO.findIdOfDeveloper(choiceAssign.getSelectionModel().getSelectedItem().getUsername()));
             }
-            bugDAO.addNewBug(newBug);
 
             cancleAction(actionEvent);
         }

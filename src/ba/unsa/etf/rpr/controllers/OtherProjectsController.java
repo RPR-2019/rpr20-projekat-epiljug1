@@ -82,7 +82,7 @@ public class OtherProjectsController {
         System.out.println("OPEN");
         if(tableViewProjects.getSelectionModel().getSelectedItem()!=null){
             getStage().close();
-            ShowOtherProjectController ctrl = new ShowOtherProjectController(tableViewProjects.getSelectionModel().getSelectedItem());
+            ShowOtherProjectController ctrl = new ShowOtherProjectController(tableViewProjects.getSelectionModel().getSelectedItem(),developer);
             Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/showOtherProject.fxml"),"Project info",ctrl);
             stage.setOnHiding( event -> {
                getStage().show();

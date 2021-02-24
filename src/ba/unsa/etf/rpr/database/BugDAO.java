@@ -175,7 +175,6 @@ public class BugDAO {
     }
 
     public void editBug(Bug bug, String name, int id){
-        //        editBug = conn.prepareStatement("UPDATE bug set bug_name=?,bug_desc=?,bug_type=?,status=?,complexity=?,solver_id=? where bug_name=? and projectID=?");
         try {
             editBug.setString(1,bug.getBug_name());
             editBug.setString(2,bug.getBug_desc());
@@ -201,7 +200,7 @@ public class BugDAO {
                 rs = getAssignedBugs.executeQuery();
             }else{
                 getAssignedBugsDev.setInt(1,idProject);
-                getAssignedBugsDev.setInt(1,idDeveloper);
+                getAssignedBugsDev.setInt(2,idDeveloper);
                 rs = getAssignedBugsDev.executeQuery();
             }
             while (rs.next()){

@@ -1,34 +1,24 @@
 package ba.unsa.etf.rpr.controllers;
 
-import ba.unsa.etf.rpr.Status;
 import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.database.BugDAO;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.database.ProjectDAO;
-import ba.unsa.etf.rpr.enums.BugInfo;
 import ba.unsa.etf.rpr.enums.EmptyFld;
 import ba.unsa.etf.rpr.model.Bug;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-
-
-public class EditBugController {
+public class EditAssignedBugController {
     @FXML
     TextField nameFld;
 
     @FXML
     TextField typeFld;
-
 
     @FXML
     TextArea descFld;
@@ -43,63 +33,39 @@ public class EditBugController {
     RadioButton low;
 
     @FXML
-    RadioButton newRb;
+    RadioButton assignedRb;
 
     @FXML
     RadioButton fixedRb;
 
 
     @FXML
-    ChoiceBox<Developer> solverChoice;
+    TextField assignedFld;
 
-    @FXML
-    Label solverLbl;
-
-
-    private ProjectDAO projectDAO;
-    private BugDAO bugDAO;
-    private DeveloperDAO developerDAO;
     private Project project;
     private Bug bug;
 
-    private ObservableList<Developer> listOfDevelopers;
+    private DeveloperDAO developerDAO;
+    private ProjectDAO projectDAO;
+    private BugDAO bugDAO;
 
-    public EditBugController(Project project,Bug bug){
+
+    public EditAssignedBugController(Project project, Bug bug) {
+        this.project = project;
+        this.bug = bug;
+
         bugDAO = BugDAO.getInstance();
         projectDAO = ProjectDAO.getInstance();
         developerDAO = DeveloperDAO.getInstance();
-
-        this.project=project;
-        this.bug = bug;
-        listOfDevelopers = FXCollections.observableArrayList(projectDAO.getAllDevelopersWhoWorksOnAProject(projectDAO.findID(project)));
     }
 
     @FXML
     public void initialize(){
-        newRb.setSelected(true);
-
         nameFld.setText(bug.getBug_name());
         typeFld.setText(bug.getBug_type());
         descFld.setText(bug.getBug_desc());
+        assignedFld.setText(bug.getAssigned().getName()+ " " + bug.getAssigned().getSurname());
         complexity();
-        solverChoice.setItems(listOfDevelopers);
-
-
-        solverLbl.setDisable(true);
-        solverChoice.setDisable(true);
-
-        fixedRb.selectedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> obs, Boolean wasPreviouslySelected, Boolean isNowSelected) {
-                if (isNowSelected) {
-                    solverLbl.setDisable(false);
-                    solverChoice.setDisable(false);
-                } else {
-                    solverLbl.setDisable(true);
-                    solverChoice.setDisable(true);
-                }
-            }
-        });
 
     }
     private void complexity(){
@@ -109,9 +75,10 @@ public class EditBugController {
         else
             low.setSelected(true);
     }
+
     private String checkStatus(){
         if(fixedRb.isSelected()) return "Fixed/Riješen";
-        return "New/Novi";
+        return "Assigned/Dodijeljen";
     }
 
 
@@ -128,18 +95,16 @@ public class EditBugController {
         return true;
     }
 
-
-
     @FXML
     public void saveChangesAction(ActionEvent actionEvent){
         if(checkField()) {
             Bug newBug = new Bug(nameFld.getText(), descFld.getText(), typeFld.getText(), checkStatus(), project, checkComplexity());
             newBug.setDate_created(bug.getDate_created());
-            if (fixedRb.isSelected() && solverChoice.getSelectionModel().getSelectedItem() == null) {
+
+            if (fixedRb.isSelected()) {
                 newBug.setRequest_id(0);
-                newBug.setSolver_id(developerDAO.findIdOfDeveloper(project.getCreator().getUsername()));
-            } else if (fixedRb.isSelected())
-                newBug.setSolver_id(developerDAO.findIdOfDeveloper(solverChoice.getSelectionModel().getSelectedItem().getUsername()));
+                newBug.setSolver_id(developerDAO.findIdOfDeveloper(bug.getAssigned().getUsername()));
+            }
 
             bugDAO.editBug(newBug, bug.getBug_name(), projectDAO.findID(project));
             cancleAction(actionEvent);
