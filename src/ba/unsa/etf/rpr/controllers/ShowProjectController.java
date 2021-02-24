@@ -73,6 +73,27 @@ public class ShowProjectController {
     @FXML
     public TableColumn colCompl;
 
+    @FXML
+    TableView<Bug> tableViewAssignedBugs;
+
+    @FXML
+    public TableColumn colAsgnName;
+
+    @FXML
+    public TableColumn colAsgnType;
+
+    @FXML
+    public TableColumn colAsgnStatus;
+
+    @FXML
+    public TableColumn colAsgnDate;
+
+    @FXML
+    public TableColumn colAsgnCompl;
+
+    @FXML
+    public TableColumn colAsgn;
+
 
     @FXML
     TableView<Bug> tableViewSolvedBugs;
@@ -168,6 +189,7 @@ public class ShowProjectController {
     private ObservableList<Developer> listDevelopers;
     private ObservableList<Developer> listSearchDevelopers;
     private ObservableList<Developer> allDevelopers;
+    private ObservableList<Bug> listAssignedBugs;
 
     private final int projectId;
 
@@ -185,6 +207,7 @@ public class ShowProjectController {
         listDevelopers = FXCollections.observableArrayList(projectDAO.getAllDevelopersWhoWorksOnAProject(projectId));
         allDevelopers =  FXCollections.observableArrayList(developerDAO.getAllDevelopers(developerDAO.findIdOfDeveloper(project.getCreator().getUsername())));
         listSearchDevelopers = FXCollections.observableArrayList(allDevelopers);
+        listAssignedBugs = FXCollections.observableArrayList(bugDAO.getAllAssignedBugs(projectId,0));
     }
 
     private void loadData() {
@@ -197,12 +220,14 @@ public class ShowProjectController {
         listBugs.setAll(bugDAO.getAllBugsForProject(projectId));
         listSolvedBugs.setAll(bugDAO.getAllSolvedBugsForProject(projectId));
         listReguest.setAll(bugDAO.getBugReportsForProject(projectId));
+        listAssignedBugs.setAll(bugDAO.getAllAssignedBugs(projectId,0));
         setNotification();
         listDevelopers.setAll(projectDAO.getAllDevelopersWhoWorksOnAProject(projectId));
         tableViewRequest.refresh();
         tableViewBugs.refresh();
         tableViewDevelopers.refresh();
         tableViewSolvedBugs.refresh();
+        tableViewAssignedBugs.refresh();
     }
     @FXML
     public void initialize(){
@@ -224,6 +249,14 @@ public class ShowProjectController {
         colStatus.setCellValueFactory(new PropertyValueFactory("status"));
         colDate.setCellValueFactory(new PropertyValueFactory("date_created"));
         colCompl.setCellValueFactory(new PropertyValueFactory("complexity"));
+
+        tableViewAssignedBugs.setItems(listAssignedBugs);
+        colAsgnName.setCellValueFactory(new PropertyValueFactory("bug_name"));
+        colAsgnType.setCellValueFactory(new PropertyValueFactory("bug_type"));
+        colAsgnStatus.setCellValueFactory(new PropertyValueFactory("status"));
+        colAsgnDate.setCellValueFactory(new PropertyValueFactory("date_created"));
+        colAsgnCompl.setCellValueFactory(new PropertyValueFactory("complexity"));
+        colAsgn.setCellValueFactory(new PropertyValueFactory("assigned"));
 
         tableViewSolvedBugs.setItems(listSolvedBugs);
         colSolName.setCellValueFactory(new PropertyValueFactory("bug_name"));
@@ -376,7 +409,7 @@ public class ShowProjectController {
 
     @FXML
     public void addBugAction(ActionEvent actionEvent){
-        AddBugController addBugController = new AddBugController(project);
+        AddBugController addBugController = new AddBugController(project,false);
         Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/addBug.fxml"),StageEnums.ADD_BUG,addBugController);
         stage.setOnHiding( event -> {
             refresh();
@@ -385,6 +418,25 @@ public class ShowProjectController {
 
     @FXML
     public void editBugAction(ActionEvent actionEvent){
+        EditBugController editBugController = new EditBugController(project,tableViewBugs.getSelectionModel().getSelectedItem());
+        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editBug.fxml"), StageEnums.EDIT_BUG,editBugController);
+        stage.setOnHiding(event->{
+            refresh();
+        });
+    }
+
+    @FXML
+    public void addAssignedBugAction(ActionEvent actionEvent){
+        System.out.println("ASSIGNED");
+        AddBugController addBugController = new AddBugController(project,true);
+        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/addBug.fxml"),StageEnums.ADD_BUG,addBugController);
+        stage.setOnHiding( event -> {
+            refresh();
+        });
+    }
+
+    @FXML
+    public void editAssignedBugAction(ActionEvent actionEvent){
         EditBugController editBugController = new EditBugController(project,tableViewBugs.getSelectionModel().getSelectedItem());
         Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editBug.fxml"), StageEnums.EDIT_BUG,editBugController);
         stage.setOnHiding(event->{

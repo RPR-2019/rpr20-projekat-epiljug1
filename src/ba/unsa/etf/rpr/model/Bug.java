@@ -11,6 +11,7 @@ public class Bug {
     private String date_created;
     private Project project;
     private String complexity;
+    private Developer assigned;
     private int solver_id;
     private int request_id;
     private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
@@ -47,6 +48,14 @@ public class Bug {
         this.complexity = complexity;
         solver_id = 0;
         request_id = 0;
+    }
+
+    public Developer getAssigned() {
+        return assigned;
+    }
+
+    public void setAssigned(Developer assigned) {
+        this.assigned = assigned;
     }
 
     public String getBug_desc() {

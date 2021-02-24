@@ -31,6 +31,11 @@ CREATE TABLE IF NOT EXISTS "request" (
 	"project_id"	INTEGER,
 	"bug_id"	INTEGER
 );
+CREATE TABLE IF NOT EXISTS "bug_assigned" (
+	"project_id"	INTEGER,
+	"bug_id"	INTEGER,
+	"developer_id"	INTEGER
+);
 CREATE TABLE IF NOT EXISTS "bug" (
 	"bug_id"	INTEGER,
 	"bug_name"	TEXT,
@@ -66,6 +71,7 @@ INSERT INTO "project" VALUES (6,'RPR-tutorijal-7','a',1,'10-Feb-2021','aaa','a2'
 INSERT INTO "project" VALUES (7,'naziv','desc',1,'10-Feb-2021','client','mejl','link');
 INSERT INTO "project" VALUES (8,'naziv','desc',1,'11-Feb-2021','client','mejl','link');
 INSERT INTO "request" VALUES (2,1,1);
+INSERT INTO "bug_assigned" VALUES (1,1,3);
 INSERT INTO "bug" VALUES (1,'bugName','bug description','bugType','new','11-Feb-2021',1,'high',0,2);
 INSERT INTO "bug" VALUES (2,'asdasd','bug description','asd','sdf','11-Feb-2021',1,'asd',0,0);
 COMMIT;

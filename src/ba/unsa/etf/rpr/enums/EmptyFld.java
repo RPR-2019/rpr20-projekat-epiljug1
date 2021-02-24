@@ -48,13 +48,24 @@ public enum EmptyFld {
                 return "Polje za ime je prazno!";
         }
     },
-    TYPE{
+    TYPE {
         @Override
         public String toString() {
-            if(Locale.getDefault().getCountry().equals("US"))
+            if (Locale.getDefault().getCountry().equals("US"))
                 return "Bug type field is empty!";
             else
                 return "Polje za tip bug-a je prazno!";
         }
-    };
+    },
+    SELECT_DEV {
+        @Override
+        public String toString() {
+            if (Locale.getDefault().getCountry().equals("US"))
+                return "You did not select any developer!";
+            else
+                return "Niste izabrali ni jednog developera!";
+        }
+    }
+
+    ;
 }
