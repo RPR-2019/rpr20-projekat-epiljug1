@@ -7,6 +7,7 @@ import ba.unsa.etf.rpr.database.BugDAO;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.database.ProjectDAO;
 import ba.unsa.etf.rpr.enums.BugInfo;
+import ba.unsa.etf.rpr.enums.StageEnums;
 import ba.unsa.etf.rpr.model.Bug;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
@@ -16,12 +17,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
+import java.util.Optional;
 
 public class ShowOtherProjectController {
 
@@ -94,6 +94,11 @@ public class ShowOtherProjectController {
     @FXML
     public TableColumn colEmailDev;
 
+    @FXML
+    public Button requestBtn;
+
+    @FXML
+    public Button requestAssignedBtn;
 
     private Project project;
     private Developer developer;
@@ -121,9 +126,19 @@ public class ShowOtherProjectController {
         listDevelopers = FXCollections.observableArrayList(projectDAO.getAllDevelopersWhoWorksOnAProject(projectId));
         listAssignedBugs = FXCollections.observableArrayList(bugDAO.getAllAssignedBugs(projectId,developerDAO.findIdOfDeveloper(developer.getUsername())));
     }
-
+    private void refresh(){
+        listBugs.setAll(bugDAO.getAllBugsForProject(projectId));
+        listDevelopers.setAll(projectDAO.getAllDevelopersWhoWorksOnAProject(projectId));
+        listAssignedBugs.setAll(bugDAO.getAllAssignedBugs(projectId,developerDAO.findIdOfDeveloper(developer.getUsername())));
+        tableViewBugs.refresh();
+        tableViewDevelopers.refresh();
+        tableViewAssignedBugs.refresh();
+    }
     @FXML
     public void initialize(){
+
+        requestBtn.setTooltip(new Tooltip(BugInfo.SEND_REQUEST.toString()));
+        requestAssignedBtn.setTooltip(new Tooltip(BugInfo.SEND_REQUEST.toString()));
         pie.setData(projectDAO.getProjectGraphStatistic(project));
         nameFld.setText(project.getName());
         creatorFld.setText(project.getCreator().toString());
@@ -182,6 +197,31 @@ public class ShowOtherProjectController {
         }
     }
 
+    @FXML
+    public void requestAction(ActionEvent actionEvent){
+        if(tableViewBugs.getSelectionModel().getSelectedItem()!=null) {
+            Optional<ButtonType> result = AlertMaker.alertCONFIRMATION(BugInfo.SEND_REQUEST_BUG.toString(), BugInfo.CONFIRM_SEND_REQUEST.toString());
+            if (result.get() == ButtonType.OK) {
+             //   bugDAO.addNewRequest(developerDAO.findIdOfDeveloper(developer.getUsername()), projectId, bugDAO.findId(tableViewBugs.getSelectionModel().getSelectedItem()));
+                bugDAO.addRequestForBug(bugDAO.findId(tableViewBugs.getSelectionModel().getSelectedItem()),developerDAO.findIdOfDeveloper(developer.getUsername()) );
+                tableViewBugs.getSelectionModel().getSelectedItem().setStatus("Pending/Čekanje");
+                refresh();
+            }
+        }else AlertMaker.alertERROR("Error occured",BugInfo.SELECT.toString());
+    }
+
+    @FXML
+    public void requestAssignedAction(ActionEvent actionEvent){
+        if(tableViewAssignedBugs.getSelectionModel().getSelectedItem()!=null) {
+            Optional<ButtonType> result = AlertMaker.alertCONFIRMATION(BugInfo.SEND_REQUEST_BUG.toString(), BugInfo.CONFIRM_SEND_REQUEST.toString());
+            if (result.get() == ButtonType.OK) {
+           //     bugDAO.addNewRequest(developerDAO.findIdOfDeveloper(developer.getUsername()), projectId, bugDAO.findId(tableViewAssignedBugs.getSelectionModel().getSelectedItem()));
+                bugDAO.addRequestForBug(bugDAO.findId(tableViewAssignedBugs.getSelectionModel().getSelectedItem()),developerDAO.findIdOfDeveloper(developer.getUsername()) );
+                tableViewAssignedBugs.getSelectionModel().getSelectedItem().setStatus("Pending/Čekanje");
+                refresh();
+            }
+        }else AlertMaker.alertERROR("Error occured",BugInfo.SELECT.toString());
+    }
 
     @FXML
     public void closeAction(ActionEvent actionEvent){

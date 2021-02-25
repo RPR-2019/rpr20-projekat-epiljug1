@@ -59,5 +59,34 @@ public enum BugInfo {
             else
                 return "Informacije o bug-u";
         }
-    };
+    },
+    SEND_REQUEST{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "Send request for solving selected bug";
+            else
+                return "Pošaljte zahtjev za rješavanje odabranog bug-a";
+        }
+    },
+    SEND_REQUEST_BUG{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "Send request";
+            else
+                return "Pošaljte zahtjev";
+        }
+    },
+    CONFIRM_SEND_REQUEST{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "Do you want to send request for selected bug?";
+            else
+                return "Da li želite da pošaljete zahtjev za odabrani bug?";
+        }
+    }
+
+    ;
 }

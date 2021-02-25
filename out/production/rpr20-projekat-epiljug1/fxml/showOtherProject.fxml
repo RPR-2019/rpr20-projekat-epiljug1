@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1048.0" style="-fx-background-color: #2A2E37;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="622.0" prefWidth="1048.0" style="-fx-background-color: #2A2E37;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TabPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/dark-theme.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -125,20 +126,6 @@
             <Tab text="Bugs">
                 <content>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <right>
-                            <VBox alignment="TOP_CENTER" prefHeight="242.0" prefWidth="126.0" spacing="5.0" stylesheets="@../css/dark-theme.css" BorderPane.alignment="CENTER">
-                                <children>
-                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#openBugAction" prefHeight="42.0" prefWidth="125.0" text="%open" VBox.vgrow="NEVER">
-                                        <VBox.margin>
-                                            <Insets />
-                                        </VBox.margin>
-                                    </Button>
-                                </children>
-                                <padding>
-                                    <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
-                                </padding>
-                            </VBox>
-                     </right>
                      <center>
                             <TableView fx:id="tableViewBugs" prefHeight="582.0" prefWidth="918.0" style="-fx-border-color: transparent;" stylesheets="@../css/dark-theme.css" BorderPane.alignment="CENTER">
                                 <columns>
@@ -152,38 +139,35 @@
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                 </columnResizePolicy>
                            <BorderPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets />
                            </BorderPane.margin>
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                             </TableView>
                      </center>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
+                     <top>
+                        <HBox prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+                           <children>
+                                   <Button alignment="CENTER" mnemonicParsing="false" onAction="#openBugAction" prefHeight="42.0" prefWidth="125.0" text="%open" />
+                              <Button fx:id="requestBtn" alignment="CENTER" mnemonicParsing="false" onAction="#requestAction" prefHeight="42.0" prefWidth="125.0" text="%request" />
+                           </children>
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </BorderPane.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </top>
                   </BorderPane>
                 </content>
             </Tab>
             <Tab text="%assigned_bugs">
                 <content>
                     <BorderPane prefHeight="200.0" prefWidth="200.0">
-                        <right>
-                            <VBox alignment="TOP_CENTER" prefHeight="242.0" prefWidth="126.0" spacing="5.0" stylesheets="@../css/dark-theme.css" BorderPane.alignment="CENTER">
-                                <children>
-                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#openBugActionAssigned" prefHeight="42.0" prefWidth="125.0" text="%open" VBox.vgrow="NEVER">
-                                        <VBox.margin>
-                                            <Insets />
-                                        </VBox.margin>
-                                    </Button>
-                                </children>
-                                <padding>
-                                    <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
-                                </padding>
-                            </VBox>
-                        </right>
                         <center>
-                            <TableView fx:id="tableViewAssignedBugs" prefHeight="582.0" prefWidth="918.0" style="-fx-border-color: transparent;" stylesheets="@../css/dark-theme.css" BorderPane.alignment="CENTER">
+                            <TableView fx:id="tableViewAssignedBugs" prefHeight="523.0" prefWidth="1003.0" style="-fx-border-color: transparent;" stylesheets="@../css/dark-theme.css" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
                                 <columns>
                                     <TableColumn fx:id="colAsgnName" prefWidth="139.0" text="%name" />
                                     <TableColumn fx:id="colAsgnType" prefWidth="111.0" text="%type" />
@@ -195,24 +179,35 @@
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                 </columnResizePolicy>
                                 <BorderPane.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets />
                                 </BorderPane.margin>
                                 <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                 </padding>
                             </TableView>
                         </center>
-                        <padding>
-                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                        </padding>
+                     <top>
+                        <HBox alignment="BOTTOM_LEFT" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+                           <children>
+                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#openBugActionAssigned" prefHeight="42.0" prefWidth="125.0" text="%open" />
+                              <Button fx:id="requestAssignedBtn" alignment="CENTER" mnemonicParsing="false" onAction="#requestAssignedAction" prefHeight="42.0" prefWidth="125.0" text="%request" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </BorderPane.margin>
+                        </HBox>
+                     </top>
                     </BorderPane>
                 </content>
             </Tab>
             <Tab text="%developers">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TableView fx:id="tableViewDevelopers" layoutY="50.0" prefHeight="531.0" prefWidth="1048.0" style="-fx-border-color: transparent;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="47.0">
+                  <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="584.0" prefWidth="1048.0">
+                     <center>
+                        <TableView fx:id="tableViewDevelopers" prefHeight="531.0" prefWidth="1048.0" style="-fx-border-color: transparent;" BorderPane.alignment="CENTER">
                           <columns>
                             <TableColumn fx:id="colNameDev" prefWidth="75.0" text="%name" />
                             <TableColumn fx:id="colUsernameDev" prefWidth="75.0" text="%username" />
@@ -225,13 +220,21 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </TableView>
-                        <Label layoutX="14.0" layoutY="12.0" text="%dev_who_works_on_project" textFill="WHITE">
+                     </center>
+                     <top>
+                        <Label text="%dev_who_works_on_project" textFill="WHITE" BorderPane.alignment="CENTER_LEFT">
                            <font>
                               <Font size="20.0" />
                            </font>
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </BorderPane.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
                         </Label>
-                     </children>
-                  </AnchorPane>
+                     </top>
+                  </BorderPane>
               </content>
             </Tab>
         </tabs>

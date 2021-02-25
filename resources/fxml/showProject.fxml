@@ -125,9 +125,9 @@
           </Tab>
           <Tab text="%active_bugs">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                         <TableView fx:id="tableViewBugs" layoutY="1.0" prefHeight="582.0" prefWidth="918.0" style="-fx-border-color: transparent;" stylesheets="@../css/dark-theme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="1.0" BorderPane.alignment="CENTER">
+                  <BorderPane>
+                     <center>
+                         <TableView fx:id="tableViewBugs" prefHeight="582.0" prefWidth="918.0" style="-fx-border-color: transparent;" stylesheets="@../css/dark-theme.css">
                              <columns>
                                  <TableColumn fx:id="colName" prefWidth="139.0" text="%name" />
                                  <TableColumn fx:id="colType" prefWidth="111.0" text="%type" />
@@ -142,28 +142,30 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                          </TableView>
-                        <VBox alignment="TOP_CENTER" layoutX="921.0" layoutY="1.0" prefHeight="242.0" prefWidth="126.0" spacing="5.0" stylesheets="@../css/dark-theme.css" AnchorPane.bottomAnchor="340.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+                     </center>
+                     <top>
+                        <HBox prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
                            <children>
-                               <Button alignment="CENTER" mnemonicParsing="false" onAction="#openBugAction" prefHeight="42.0" prefWidth="125.0" text="%open" VBox.vgrow="NEVER" />
-                               <Button alignment="CENTER" mnemonicParsing="false" onAction="#addBugAction" prefHeight="42.0" prefWidth="125.0" text="%add" VBox.vgrow="NEVER" />
-                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#editBugAction" prefHeight="42.0" prefWidth="125.0" text="%edit" VBox.vgrow="NEVER">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </Button>
+                               <Button alignment="CENTER" mnemonicParsing="false" onAction="#openBugAction" prefHeight="42.0" prefWidth="125.0" text="%open" />
+                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#editBugAction" prefHeight="42.0" prefWidth="125.0" text="%edit" />
+                               <Button alignment="CENTER" mnemonicParsing="false" onAction="#addBugAction" prefHeight="42.0" prefWidth="125.0" text="%add" />
                            </children>
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </BorderPane.margin>
                            <padding>
-                              <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
-                        </VBox>
-                     </children></AnchorPane>
+                        </HBox>
+                     </top>
+                  </BorderPane>
             </content>
           </Tab>
             <Tab text="%assigned_bugs">
                 <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                        <children>
-                            <TableView fx:id="tableViewAssignedBugs" layoutY="1.0" prefHeight="582.0" prefWidth="918.0" style="-fx-border-color: transparent;" stylesheets="@../css/dark-theme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="1.0" BorderPane.alignment="CENTER">
+                  <BorderPane>
+                     <center>
+                            <TableView fx:id="tableViewAssignedBugs" prefHeight="582.0" prefWidth="918.0" style="-fx-border-color: transparent;" stylesheets="@../css/dark-theme.css">
                                 <columns>
                                     <TableColumn fx:id="colAsgnName" prefWidth="139.0" text="%name" />
                                     <TableColumn fx:id="colAsgnType" prefWidth="130.0" text="%type" />
@@ -175,22 +177,30 @@
                                 <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                 </padding>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <BorderPane.margin>
+                              <Insets />
+                           </BorderPane.margin>
                             </TableView>
-                            <VBox alignment="TOP_CENTER" layoutX="921.0" layoutY="1.0" prefHeight="242.0" prefWidth="126.0" spacing="5.0" stylesheets="@../css/dark-theme.css" AnchorPane.bottomAnchor="340.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
-                                <children>
-                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#openBugActionAssigned" prefHeight="42.0" prefWidth="125.0" text="%open" VBox.vgrow="NEVER" />
-                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#addAssignedBugAction" prefHeight="42.0" prefWidth="125.0" text="%add" VBox.vgrow="NEVER" />
-                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#editAssignedBugAction" prefHeight="42.0" prefWidth="125.0" text="%edit" VBox.vgrow="NEVER">
-                                        <VBox.margin>
-                                            <Insets />
-                                        </VBox.margin>
-                                    </Button>
-                                </children>
-                                <padding>
-                                    <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
-                                </padding>
-                            </VBox>
-                        </children></AnchorPane>
+                     </center>
+                     <top>
+                        <HBox prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+                           <children>
+                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#openBugActionAssigned" prefHeight="42.0" prefWidth="125.0" text="%open" />
+                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#editAssignedBugAction" prefHeight="42.0" prefWidth="125.0" text="%edit" />
+                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#addAssignedBugAction" prefHeight="42.0" prefWidth="125.0" text="%add" />
+                           </children>
+                           <BorderPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </BorderPane.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </top>
+                  </BorderPane>
                 </content>
             </Tab>
 

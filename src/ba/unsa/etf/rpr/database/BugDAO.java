@@ -19,7 +19,7 @@ public class BugDAO {
     }
 
     private PreparedStatement findId, getAllBugs,findBugByID, addBug, findMax,getAllBugsForProject, getBugReguest, approveRequest,
-            denyRequest,getSolvedBugs,editBug, getAssignedBugs, getAssignedBugsDev, addAssign;
+            denyRequest,getSolvedBugs,editBug, getAssignedBugs, getAssignedBugsDev, addAssign,addRequest,addRequestForBug;
 
     public  Connection getConn() {
         return conn;
@@ -68,6 +68,8 @@ public class BugDAO {
             getAssignedBugs = conn.prepareStatement("SELECT bug.*,bug_assigned.developer_id FROM bug,bug_assigned where bug.solver_id=0 and bug.bug_id=bug_assigned.bug_id and bug_assigned.project_id=?");
             getAssignedBugsDev = conn.prepareStatement("SELECT bug.*,bug_assigned.developer_id FROM bug,bug_assigned where bug.solver_id=0 and bug.bug_id=bug_assigned.bug_id and bug_assigned.project_id=? and bug_assigned.developer_id=?");
             addAssign = conn.prepareStatement("INSERT INTO bug_assigned VALUES(?,?,?)");
+            addRequest = conn.prepareStatement("INSERT INTO request VALUES (?,?,?)");
+            addRequestForBug = conn.prepareStatement("UPDATE bug SET status='Pending/Čekanje',request_id=? where bug_id=?");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -116,6 +118,29 @@ public class BugDAO {
         }
         return novi;
     }
+
+    public void addNewRequest(int developerID, int projectID, int bugID){
+        try{
+            addRequest.setInt(1,developerID);
+            addRequest.setInt(2,projectID);
+            addRequest.setInt(3,bugID);
+            addRequest.executeUpdate();
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+    }
+
+    public void addRequestForBug(int bugID, int developerID){
+        try {
+            addRequestForBug.setInt(1,developerID);
+            addRequestForBug.setInt(2,bugID);
+            addRequestForBug.executeUpdate();
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+    }
+
+
     public void addNewBug(Bug newBug){
         try{
             addBug.setInt(1,maxIndex());
