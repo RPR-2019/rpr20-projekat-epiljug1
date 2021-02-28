@@ -15,36 +15,34 @@ import javafx.stage.Stage;
 
 public class EditAssignedBugController {
     @FXML
-    TextField nameFld;
+    public TextField nameFld;
 
     @FXML
-    TextField typeFld;
+    public TextField typeFld;
 
     @FXML
-    TextArea descFld;
+    public TextArea descFld;
 
     @FXML
-    RadioButton high;
+    public RadioButton high;
 
     @FXML
-    RadioButton medium;
+    public RadioButton medium;
 
     @FXML
-    RadioButton low;
+    public RadioButton low;
 
     @FXML
-    RadioButton assignedRb;
+    public RadioButton assignedRb;
 
     @FXML
-    RadioButton fixedRb;
-
+    public RadioButton fixedRb;
 
     @FXML
-    TextField assignedFld;
+    public TextField assignedFld;
 
     private Project project;
     private Bug bug;
-
     private DeveloperDAO developerDAO;
     private ProjectDAO projectDAO;
     private BugDAO bugDAO;

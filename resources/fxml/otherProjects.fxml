@@ -52,20 +52,10 @@
     <top>
         <MenuBar stylesheets="@../css/dark-theme.css" BorderPane.alignment="CENTER">
             <menus>
-                <Menu mnemonicParsing="false" text="File">
+                <Menu mnemonicParsing="false" text="%file">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#exportAction" text="Export as PDF" />
-                        <MenuItem mnemonicParsing="false" onAction="#closeWindow" text="Close" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Delete" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
+                        <MenuItem mnemonicParsing="false" onAction="#exportAction" text="%export" />
+                        <MenuItem mnemonicParsing="false" onAction="#closeWindow" text="%close" />
                     </items>
                 </Menu>
             </menus>

@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -26,17 +27,32 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 public class LoginController {
     @FXML
     public TextField usernamefld;
+
     @FXML
     public PasswordField passwordfld;
+
     @FXML
     public Button signin;
+
     @FXML
     public Button signup;
+
     @FXML
     public Label welcome;
 
     @FXML
     public AnchorPane anchorPane;
+
+
+    private DeveloperDAO developerDAO;
+    private Developer developer;
+
+
+    public LoginController(){
+        developerDAO=DeveloperDAO.getInstance();
+
+    }
+
 
     @FXML
     public void initialize(){
@@ -69,12 +85,7 @@ public class LoginController {
             }
         } );
     }
-    private DeveloperDAO developerDAO;
-    private Developer developer;
-    public LoginController(){
-        developerDAO=DeveloperDAO.getInstance();
 
-    }
 
     public void signinAction(ActionEvent actionEvent) throws IOException {
         if(usernamefld.getText().trim().isEmpty())
@@ -131,6 +142,7 @@ public class LoginController {
 
             homePageStage.setScene(new Scene(secRoot,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
             homePageStage.setTitle(StageEnums.HOME_PAGE.toString());
+            homePageStage.getIcons().add(new Image("/images/bug_image.png"));
             homePageStage.show();
 
             Thread thread = new Thread(loadingTask);

@@ -4,6 +4,8 @@ import ba.unsa.etf.rpr.StageHandler;
 import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.database.ProjectDAO;
+import ba.unsa.etf.rpr.enums.Placeholders;
+import ba.unsa.etf.rpr.enums.Validation;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.reports.ReportsListDevelopersEN;
 import javafx.collections.FXCollections;
@@ -26,16 +28,20 @@ import java.util.stream.Collectors;
 
 public class ListDevelopersController {
         @FXML
-        BorderPane mainStage;
+        public BorderPane mainStage;
 
         @FXML
-        TableView<Developer> tableViewDevelopers;
+        public TableView<Developer> tableViewDevelopers;
+
         @FXML
         public TableColumn colName;
+
         @FXML
         public TableColumn colSurname;
+
         @FXML
         public TableColumn colUsername;
+
         @FXML
         public TableColumn colEmail;
 
@@ -78,11 +84,18 @@ public class ListDevelopersController {
                     tableViewDevelopers.refresh();
                 }
             });
-            tableViewDevelopers.setPlaceholder(new Label("There is no developers"));
+            tableViewDevelopers.setPlaceholder(new Label(Placeholders.DEVELOPERS.toString()));
         }
+
+        private boolean check(TableView tableView){
+            if(tableView.getSelectionModel().getSelectedItem()!=null) return true;
+            AlertMaker.alertERROR("Error occured!", Validation.SELECT.toString());
+            return false;
+        }
+
         @FXML
         public void showDeveloperAction(ActionEvent actionEvent) throws IOException {
-            if(tableViewDevelopers.getSelectionModel().getSelectedItem()!=null) {
+            if(check(tableViewDevelopers)) {
                 Stage stage = (Stage) tableViewDevelopers.getScene().getWindow();
                 stage.close();
                 ShowDeveloperController ctrl = new ShowDeveloperController(tableViewDevelopers.getSelectionModel().getSelectedItem());
@@ -90,12 +103,12 @@ public class ListDevelopersController {
                 signUpStage.setOnHiding(windowEvent -> {
                     stage.show();
                 });
-            }else AlertMaker.alertERROR("Error occured!","You did not selected any developer!");
+            }
 
         }
         @FXML
         public void  sendMailAction(ActionEvent actionEvent){
-            if(tableViewDevelopers.getSelectionModel().getSelectedItem()!=null){
+            if(check(tableViewDevelopers)){
                 MailSenderController mailSenderController = new MailSenderController(developer.getEmail(),tableViewDevelopers.getSelectionModel().getSelectedItem().getEmail());
                 BoxBlur blur = new BoxBlur(3, 3, 3);
                 mainStage.setEffect(blur);

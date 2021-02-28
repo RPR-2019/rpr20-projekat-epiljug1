@@ -62,6 +62,21 @@
     -fx-border-width: 0.7px 0.7px 0.7px 0.7px;
 }
 
+
+.changeLangButton{
+    -fx-text-fill: white;
+    -fx-background-color: -fx-primary;
+    -fx-border-color: transparent;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-font-size: 10pt;
+}
+.changeLangButton:hover{
+    -fx-text-fill: red;
+}
+
+
+
 .button:focused{
     -fx-border-color: red;
 

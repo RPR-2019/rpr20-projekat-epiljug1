@@ -26,28 +26,28 @@ import java.util.Optional;
 public class ShowOtherProjectController {
 
     @FXML
-    PieChart pie;
+    public PieChart pie;
 
     @FXML
-    TextField nameFld;
+    public TextField nameFld;
 
     @FXML
-    TextField creatorFld;
+    public TextField creatorFld;
 
     @FXML
-    TextField clientFld;
+    public TextField clientFld;
 
     @FXML
-    TextField clientEmailFld;
+    public TextField clientEmailFld;
 
     @FXML
-    TextField dateFld;
+    public TextField dateFld;
 
     @FXML
-    TextArea descFld;
+    public TextArea descFld;
 
     @FXML
-    TableView<Bug> tableViewBugs;
+    public TableView<Bug> tableViewBugs;
 
     @FXML
     public TableColumn colName;
@@ -65,7 +65,7 @@ public class ShowOtherProjectController {
     public TableColumn colCompl;
 
     @FXML
-    TableView<Bug> tableViewAssignedBugs;
+    public TableView<Bug> tableViewAssignedBugs;
 
     @FXML
     public TableColumn colAsgnName;
@@ -83,7 +83,7 @@ public class ShowOtherProjectController {
     public TableColumn colAsgnCompl;
 
     @FXML
-    TableView<Developer> tableViewDevelopers;
+    public TableView<Developer> tableViewDevelopers;
 
     @FXML
     public TableColumn<Developer,String> colNameDev;

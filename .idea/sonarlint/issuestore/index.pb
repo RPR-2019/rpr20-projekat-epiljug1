@@ -121,22 +121,10 @@ h
 8out/production/rpr20-projekat-epiljug1/fxml/loading.fxml,f\f\ffbbed49050a2c667ccc7437b51879f6dedd4385
 K
 resources/fxml/loading.fxml,4\9\49e05e9edc218e2f577906be69c35969b72c7c1a
-I
-resources/fxml/login.fxml,8\2\82c591fb13b8d561beda7548c6e5f0df218b604c
-M
-resources/fxml/mailLogin.fxml,4\b\4bb18e271255fa137d84bf6bc965add075bf3210
-N
-resources/fxml/mailSender.fxml,b\4\b463fafbca721a32edb515b0a99a8b632b22080d
-Q
-!resources/fxml/otherProjects.fxml,9\d\9d5f21a4f4b64121e12c44c159e54e1411ec19f8
 n
 >out/production/rpr20-projekat-epiljug1/fxml/showDeveloper.fxml,8\9\89cba61043abd1694a22e1133e8b8f517fd61a3e
 g
 7out/production/rpr20-projekat-epiljug1/fxml/signup.fxml,b\c\bcd1a4eb055bb7d19072e77c3b5ca5e061e1fbcc
-J
-resources/fxml/signup.fxml,d\6\d6bb1988d34202d2d4f15aef9842285995613abf
-P
- resources/fxml/userProjects.fxml,e\5\e59f81dcbe4e0f9d4bed65b6cb437ff9928edadf
 Y
 )src/ba/unsa/etf/rpr/enums/StageEnums.java,f\a\fa3da34b6d4e818325146875445da8fc39b12560
 V

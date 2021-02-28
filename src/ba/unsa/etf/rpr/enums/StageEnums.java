@@ -101,6 +101,15 @@ public enum StageEnums {
             else
                 return "Uredi profil";
         }
+    },
+    CONFIRMATION{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "Confirmation";
+            else
+                return "Potvrda";
+        }
     }
     ;
 

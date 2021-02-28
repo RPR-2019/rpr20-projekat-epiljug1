@@ -11,20 +11,19 @@ import javafx.stage.Stage;
 
 public class OpenBugController {
     @FXML
-    TextField nameFld;
+    public TextField nameFld;
 
     @FXML
-    TextField typeFld;
+    public TextField typeFld;
 
     @FXML
-    TextField complFld;
+    public TextField complFld;
 
     @FXML
-    TextField assignFld;
-
+    public TextField assignFld;
 
     @FXML
-    TextArea descFld;
+    public TextArea descFld;
 
     private Bug bug;
 

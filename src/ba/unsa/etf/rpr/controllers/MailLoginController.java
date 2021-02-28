@@ -11,10 +11,10 @@ import javafx.stage.Stage;
 public class MailLoginController {
 
     @FXML
-    TextField emailSender;
+    public TextField emailSender;
 
     @FXML
-    PasswordField passwordSender;
+    public PasswordField passwordSender;
 
     private Developer developer;
 

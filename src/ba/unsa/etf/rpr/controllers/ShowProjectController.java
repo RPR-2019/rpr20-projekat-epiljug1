@@ -33,32 +33,32 @@ import java.util.stream.Collectors;
 public class ShowProjectController {
 
     @FXML
-    StackPane stackPane;
+    public StackPane stackPane;
 
     @FXML
-    PieChart pie;
+    public PieChart pie;
 
     @FXML
-    TextField nameFld;
+    public TextField nameFld;
 
     @FXML
-    TextField creatorFld;
+    public TextField creatorFld;
 
     @FXML
-    TextField clientFld;
+    public TextField clientFld;
 
     @FXML
-    TextField clientEmailFld;
+    public TextField clientEmailFld;
 
     @FXML
-    TextField dateFld;
+    public TextField dateFld;
 
     @FXML
-    TextArea descFld;
+    public TextArea descFld;
 
 
     @FXML
-    TableView<Bug> tableViewBugs;
+    public TableView<Bug> tableViewBugs;
 
     @FXML
     public TableColumn colName;
@@ -76,7 +76,7 @@ public class ShowProjectController {
     public TableColumn colCompl;
 
     @FXML
-    TableView<Bug> tableViewAssignedBugs;
+    public TableView<Bug> tableViewAssignedBugs;
 
     @FXML
     public TableColumn colAsgnName;
@@ -98,7 +98,7 @@ public class ShowProjectController {
 
 
     @FXML
-    TableView<Bug> tableViewSolvedBugs;
+    public TableView<Bug> tableViewSolvedBugs;
 
     @FXML
     public TableColumn colSolName;
@@ -157,7 +157,8 @@ public class ShowProjectController {
     public TextArea textArea;
 
     @FXML
-    TableView<Developer> tableViewDevelopers;
+    public TableView<Developer> tableViewDevelopers;
+
     @FXML
     public TableColumn<Developer,String> colNameDev;
 

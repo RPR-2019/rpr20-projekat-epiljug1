@@ -5,12 +5,14 @@ import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.database.ProjectDAO;
 import ba.unsa.etf.rpr.enums.StageEnums;
+import ba.unsa.etf.rpr.enums.Tooltips;
 import ba.unsa.etf.rpr.model.Developer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -21,21 +23,27 @@ import java.util.ResourceBundle;
 
 public class HomepageController {
     @FXML
-    Button btnYourProjects;
+    public Button btnYourProjects;
+
     @FXML
-    Button btnAllProjects;
+    public Button btnAllProjects;
+
     @FXML
-    Button btnAllDev;
+    public Button btnAllDev;
+
     @FXML
-    Button btnLogOut;
+    public Button btnAddProject;
+
     @FXML
-    Button btnAddProject;
+    public Button editProfile;
+
     @FXML
-    Button btnSettings;
+    public TextField date;
+
     @FXML
-    TextField date;
-    @FXML
-    Label user;
+    public Label user;
+
+
     private Developer developer;
     private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
     private ProjectDAO projectDAO;
@@ -54,12 +62,12 @@ public class HomepageController {
         user.setText(developer.getName()+ " "+developer.getSurname());
         date.setText(LocalDate.now().format(myFormatObj));
 
-        Tooltip tooltip = new Tooltip();
-        if(Locale.getDefault().getCountry().equals("US"))
-            tooltip.setText("List all developers who are connected to this server");
-        else
-            tooltip.setText("Prikaži sve developere koji su konektovani na server");
-        btnAllDev.setTooltip(tooltip);
+
+        btnYourProjects.setTooltip(new Tooltip(Tooltips.YOUR_PROJECTS.toString()));
+        btnAllProjects.setTooltip(new Tooltip(Tooltips.OTHER_PROJECTS.toString()));
+        btnAllDev.setTooltip(new Tooltip(Tooltips.ALL_DEVELOPERS.toString()));
+        btnAddProject.setTooltip(new Tooltip(Tooltips.ADD_PROJECT.toString()));
+        editProfile.setTooltip(new Tooltip(Tooltips.EDIT_PROFILE.toString()));
 
     }
 
@@ -79,17 +87,13 @@ public class HomepageController {
     }
     @FXML
     public void logoutAction(ActionEvent actionEvent){
-
         Optional<ButtonType> result = AlertMaker.alertCONFIRMATION("",StageEnums.QUESTION_LOGOUT.toString());
 
         if (result.get() == ButtonType.OK){
             closeWindow();
             LoginController ctrl = new LoginController();
             StageHandler.loadWindow(getClass().getResource("/fxml/login.fxml"),StageEnums.LOGIN ,ctrl);
-        } else {
-
         }
-
     }
 
     @FXML
@@ -103,6 +107,7 @@ public class HomepageController {
         stage.setTitle(StageEnums.LOGIN.toString());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/homepage.fxml"), ResourceBundle.getBundle("Translation"));
         loader.setController(this);
+        stage.setTitle(StageEnums.HOME_PAGE.toString());
         stage.setScene(new Scene(loader.load()));
     }
 
@@ -116,6 +121,14 @@ public class HomepageController {
         changeLang();
     }
 
+    public void changeLangAction(MouseEvent mouseEvent) throws IOException {
+        if(Locale.getDefault().getCountry().equals("US"))
+            Locale.setDefault(new Locale("bs","BA"));
+        else
+            Locale.setDefault(new Locale("en","US"));
+        changeLang();
+    }
+
     public void aboutAction(ActionEvent actionEvent){
         AboutAppController aboutAppController = new AboutAppController();
         Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/aboutApp.fxml"),StageEnums.ABOUT_APP,aboutAppController);
@@ -125,6 +138,7 @@ public class HomepageController {
     public void editProfileAction(ActionEvent actionEvent){
         EditProfileController editProfileController = new EditProfileController(developer);
         Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editProfile.fxml"),StageEnums.EDIT_PROFILE.toString(),editProfileController);
+        stage.setResizable(false);
         stage.setOnHiding(event->{
             developer = developerDAO.findDeveloperByIDorUsername(developerID,"");
             user.setText(developer.getName()+ " "+developer.getSurname());

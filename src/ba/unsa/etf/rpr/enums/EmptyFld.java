@@ -83,6 +83,15 @@ public enum EmptyFld {
             else
                 return "Niste izabrali ni jedan projekat!";
         }
+    },
+    SOURCE_CODE{
+        @Override
+        public String toString() {
+            if (Locale.getDefault().getCountry().equals("US"))
+                return "You did not added a link for source code!";
+            else
+                return "Niste dodali link za izvorni kod!";
+        }
     }
 
     ;

@@ -4,6 +4,7 @@ import ba.unsa.etf.rpr.StageHandler;
 import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.database.ProjectDAO;
+import ba.unsa.etf.rpr.enums.Validation;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
 import ba.unsa.etf.rpr.reports.ReportsListDevelopersEN;
@@ -22,15 +23,20 @@ import java.io.IOException;
 
 public class OtherProjectsController {
     @FXML
-    TableView<Project> tableViewProjects;
+    public TableView<Project> tableViewProjects;
+
     @FXML
     public TableColumn colName;
+
     @FXML
     public TableColumn colDate;
+
     @FXML
     public TableColumn colClient;
+
     @FXML
     public TableColumn colClientEmail;
+
     @FXML
     public TableColumn<Project,String> colCreator;
 
@@ -88,7 +94,7 @@ public class OtherProjectsController {
                getStage().show();
             });
 
-        }else AlertMaker.alertERROR("Error occured","You did not select any project!");
+        }else AlertMaker.alertERROR("Error occured", Validation.SELECT_PROJECT.toString());
     }
 
 

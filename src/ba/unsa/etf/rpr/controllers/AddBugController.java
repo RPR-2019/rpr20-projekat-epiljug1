@@ -17,29 +17,29 @@ import javafx.stage.Stage;
 
 public class AddBugController {
     @FXML
-    TextField nameFld;
+    public TextField nameFld;
 
     @FXML
-    TextField typeFld;
+    public TextField typeFld;
 
 
     @FXML
-    RadioButton high;
+    public RadioButton high;
 
     @FXML
-    RadioButton medium;
+    public RadioButton medium;
 
     @FXML
-    RadioButton low;
+    public RadioButton low;
 
     @FXML
-    TextArea descFld;
+    public TextArea descFld;
 
     @FXML
-    ChoiceBox<Developer> choiceAssign;
+    public ChoiceBox<Developer> choiceAssign;
 
     @FXML
-    Label assignLbl;
+    public Label assignLbl;
 
 
     private ProjectDAO projectDAO;
@@ -48,6 +48,8 @@ public class AddBugController {
     private Project project;
     private ObservableList<Developer> listDevelopers;
     private boolean isForAssign;
+
+
     public AddBugController(Project project,boolean isForAssign){
         this.project=project;
         bugDAO = BugDAO.getInstance();
@@ -55,7 +57,6 @@ public class AddBugController {
         developerDAO = DeveloperDAO.getInstance();
         listDevelopers = FXCollections.observableArrayList(projectDAO.getAllDevelopersWhoWorksOnAProject(projectDAO.findID(project)));
         this.isForAssign=isForAssign;
-        //if(isForAssign) setVisibleForAssign();
     }
 
 
@@ -94,7 +95,6 @@ public class AddBugController {
             bugDAO.addNewBug(newBug);
             if(isForAssign){
                 System.out.println("DODAVANJE U TABLU ASSIGN");
-
                 bugDAO.addAssign(projectDAO.findID(project),bugDAO.findId(newBug),developerDAO.findIdOfDeveloper(choiceAssign.getSelectionModel().getSelectedItem().getUsername()));
             }
 

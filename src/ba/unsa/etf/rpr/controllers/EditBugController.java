@@ -24,36 +24,35 @@ import java.util.ArrayList;
 
 public class EditBugController {
     @FXML
-    TextField nameFld;
+    public TextField nameFld;
 
     @FXML
-    TextField typeFld;
-
-
-    @FXML
-    TextArea descFld;
-
-    @FXML
-    RadioButton high;
-
-    @FXML
-    RadioButton medium;
-
-    @FXML
-    RadioButton low;
-
-    @FXML
-    RadioButton newRb;
-
-    @FXML
-    RadioButton fixedRb;
+    public TextField typeFld;
 
 
     @FXML
-    ChoiceBox<Developer> solverChoice;
+    public TextArea descFld;
 
     @FXML
-    Label solverLbl;
+    public RadioButton high;
+
+    @FXML
+    public RadioButton medium;
+
+    @FXML
+    public RadioButton low;
+
+    @FXML
+    public RadioButton newRb;
+
+    @FXML
+    public RadioButton fixedRb;
+
+    @FXML
+    public ChoiceBox<Developer> solverChoice;
+
+    @FXML
+    public Label solverLbl;
 
 
     private ProjectDAO projectDAO;
@@ -61,7 +60,6 @@ public class EditBugController {
     private DeveloperDAO developerDAO;
     private Project project;
     private Bug bug;
-
     private ObservableList<Developer> listOfDevelopers;
 
     public EditBugController(Project project,Bug bug){

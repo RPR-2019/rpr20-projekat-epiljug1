@@ -17,33 +17,47 @@ import javafx.stage.Stage;
 
 public class ShowDeveloperController {
     @FXML
-    TextField nameFld;
+    public TextField nameFld;
+
     @FXML
-    TextField usernameFld;
+    public TextField usernameFld;
+
     @FXML
-    TextField emailFld;
+    public TextField emailFld;
+
     @FXML
-    TextField surnameFld;
+    public TextField surnameFld;
+
     @FXML
-    TableView<Project> tableViewProjects;
+    public TableView<Project> tableViewProjects;
+
     @FXML
     public TableColumn colName;
+
     @FXML
     public TableColumn colDate;
+
     @FXML
     public TableColumn colClient;
+
     @FXML
     public TableColumn colClientEmail;
+
     @FXML
-    TableView<Project> tableViewOtherProjects;
+    public TableView<Project> tableViewOtherProjects;
+
     @FXML
     public TableColumn colName2;
+
     @FXML
     public TableColumn colDate2;
+
     @FXML
     public TableColumn colClient2;
+
     @FXML
     public TableColumn colClientEmail2;
+
     @FXML
     public TableColumn<Project,String> colCreator;
 

@@ -17,6 +17,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -211,6 +212,8 @@ public class SignupController {
                 }
 
                 signUpStage.setScene(new Scene(secRoot,USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+
+                signUpStage.getIcons().add(new Image("/images/bug_image.png"));
                 signUpStage.show();
 
                 Thread thread = new Thread(loadingTask);

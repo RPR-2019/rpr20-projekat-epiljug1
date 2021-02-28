@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.alert;
 
+import ba.unsa.etf.rpr.enums.StageEnums;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.Dialog;
@@ -31,31 +32,13 @@ public class AlertMaker {
     }
     public static Optional<ButtonType> alertCONFIRMATION(String title, String content){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
+        alert.setTitle(StageEnums.CONFIRMATION.toString());
         alert.setHeaderText(title);
         alert.setContentText(content);styleAlert(alert);
 
         return  alert.showAndWait();
     }
-    public static Dialog loadingMail( ){
 
-        Dialog dialog = new Dialog();
-
-
-        ButtonType type = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
-        ProgressIndicator progressIndicator = new ProgressIndicator();
-        dialog.setHeaderText("Sending...");
-     //   dialog.setContentText(body);
-       dialog.getDialogPane().getButtonTypes().add(type);
-
-        DialogPane dialogPane = dialog.getDialogPane();
-        dialogPane.getStylesheets().add(AlertMaker.class.getResource("/css/dark-theme.css").toExternalForm());
-        dialogPane.getStyleClass().add("custom-alert");
-
-        dialog.show();
-
-        return dialog;
-    }
     public static void showMaterialDialog( Node nodeToBeBlurred, String header, String body) {
         BoxBlur blur = new BoxBlur(3, 3, 3);
 

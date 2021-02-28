@@ -31,6 +31,8 @@ public class EditProfileController {
     private Developer developer;
     private DeveloperDAO developerDAO;
     private int developerID;
+
+
     public EditProfileController(Developer developer){
         this.developer=developer;
         developerDAO= DeveloperDAO.getInstance();
@@ -62,7 +64,6 @@ public class EditProfileController {
             developerDAO.editProfileInfo(edit, developerID);
             closeAction(actionEvent);
         }
-        System.out.println("SAVE ACTION");
     }
 
     @FXML

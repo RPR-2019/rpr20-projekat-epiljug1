@@ -47,6 +47,24 @@ public enum Validation {
             else
                 return "Ova e-mail aderesa je u upotrebi!";
         }
+    },
+    SELECT{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "You did not select any developer!";
+            else
+                return "Niste odabrali niti jedanog developera!";
+        }
+    },
+    SELECT_PROJECT{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "You did not select any project!";
+            else
+                return "Niste odabrali niti jedan projekat!";
+        }
     };
 
 }

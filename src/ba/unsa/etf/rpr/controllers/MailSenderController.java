@@ -13,19 +13,19 @@ import javax.mail.MessagingException;
 
 public class MailSenderController {
     @FXML
-    TextField senderMailFld;
+    public TextField senderMailFld;
 
     @FXML
-    PasswordField senderPassFld;
+    public PasswordField senderPassFld;
 
     @FXML
-    TextField receiverFld;
+    public TextField receiverFld;
 
     @FXML
-    TextArea textArea;
+    public TextArea textArea;
 
     @FXML
-    TextField subjectFld;
+    public TextField subjectFld;
 
     private final String sender;
     private final String receiver;

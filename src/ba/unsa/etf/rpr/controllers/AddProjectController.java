@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.alert.AlertMaker;
+import ba.unsa.etf.rpr.enums.EmptyFld;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
 import ba.unsa.etf.rpr.database.ProjectDAO;
@@ -14,22 +15,22 @@ import javafx.stage.Stage;
 
 public class AddProjectController {
     @FXML
-    TextField nameFld;
+    public TextField nameFld;
 
     @FXML
-    TextArea descriptionFld;
+    public TextArea descriptionFld;
 
     @FXML
-    TextField clientNameFld;
+    public TextField clientNameFld;
 
     @FXML
-    TextField clientEmailFld;
+    public TextField clientEmailFld;
 
     @FXML
-    AnchorPane anchorPane;
+    public AnchorPane anchorPane;
 
     @FXML
-    TextField sourceCodeFld;
+    public TextField sourceCodeFld;
 
     private ProjectDAO projectDAO;
     private Developer developer;
@@ -39,19 +40,17 @@ public class AddProjectController {
         this.developer = developer;
     }
 
-    public boolean check(String field, String nameField){
-        if(field.trim().isEmpty()) {
-            AlertMaker.alertERROR("Error occured", nameField + " field is empty");
-            return  false;
-        }
-        return true;
+
+    private boolean check(){
+        if(nameFld.getText().trim().isEmpty()){ AlertMaker.alertERROR("Error occured", EmptyFld.NAME.toString()); return false;}
+        if(sourceCodeFld.getText().trim().isEmpty()){AlertMaker.alertERROR("Error occured", EmptyFld.SOURCE_CODE.toString()); return false;}
+        return  true;
     }
 
     public void addAction(ActionEvent actionEvent){
-        if(check(nameFld.getText(),"Name") && check(descriptionFld.getText(),"Description") && check(clientNameFld.getText(),"Client name field")
-                && check(clientEmailFld.getText(),"Client e-mail") && check(sourceCodeFld.getText(),"Source code")){
+        if(check()){
             projectDAO.addNewProject(new Project(nameFld.getText(),descriptionFld.getText(),developer,clientNameFld.getText(),clientEmailFld.getText(), sourceCodeFld.getText()));
-            //AlertMaker.alertINFORMATION("Information","Project has been successfully added!");
+
             AlertMaker.showMaterialDialog(anchorPane,"New project added",nameFld.getText()+" has been added!");
             reset();
         }

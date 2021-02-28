@@ -1,9 +1,8 @@
 package ba.unsa.etf.rpr.controllers;
 
-import ba.unsa.etf.rpr.LoadWebPage;
 import ba.unsa.etf.rpr.alert.AlertMaker;
-import ba.unsa.etf.rpr.model.Project;
 import ba.unsa.etf.rpr.database.ProjectDAO;
+import ba.unsa.etf.rpr.model.Project;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -13,22 +12,22 @@ import javafx.stage.Stage;
 
 public class EditProjectController {
     @FXML
-    TextField nameFld;
+    public TextField nameFld;
 
     @FXML
-    TextArea descriptionFld;
+    public TextArea descriptionFld;
 
     @FXML
-    TextField clientNameFld;
+    public TextField clientNameFld;
 
     @FXML
-    TextField clientEmailFld;
+    public TextField clientEmailFld;
 
     @FXML
-    TextField sourceCodeFld;
+    public TextField sourceCodeFld;
 
     @FXML
-    AnchorPane anchorPane;
+    public AnchorPane anchorPane;
 
     private Project project;
     private ProjectDAO projectDAO;

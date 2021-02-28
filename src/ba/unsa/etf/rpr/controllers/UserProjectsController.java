@@ -4,6 +4,7 @@ import ba.unsa.etf.rpr.StageHandler;
 import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.database.ProjectDAO;
+import ba.unsa.etf.rpr.enums.Validation;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
 import ba.unsa.etf.rpr.reports.ReportsListDevelopersEN;
@@ -21,13 +22,17 @@ import java.io.IOException;
 
 public class UserProjectsController {
     @FXML
-    TableView<Project> tableViewProjects;
+    public TableView<Project> tableViewProjects;
+
     @FXML
     public TableColumn colName;
+
     @FXML
     public TableColumn colDate;
+
     @FXML
     public TableColumn colClient;
+
     @FXML
     public TableColumn colClientEmail;
 
@@ -52,8 +57,15 @@ public class UserProjectsController {
         colClientEmail.setCellValueFactory(new PropertyValueFactory("client_email"));
     }
 
+
+    public boolean check(TableView tableView){
+        if(tableView.getSelectionModel().getSelectedItem()!=null) return true;
+        AlertMaker.alertERROR("Error occured", Validation.SELECT_PROJECT.toString());
+        return false;
+    }
+
     public void openProjectAction(javafx.event.ActionEvent actionEvent) throws IOException {
-        if(tableViewProjects.getSelectionModel().getSelectedItem()!=null) {
+        if(check(tableViewProjects)) {
             System.out.println("OPEN");
             Project project = tableViewProjects.getSelectionModel().getSelectedItem();
 
@@ -65,11 +77,11 @@ public class UserProjectsController {
             signUpStage.setOnHiding(event -> {
                 main.show();
             });
-        }else AlertMaker.alertERROR("Error occured","You did not select any project!");
+        }
     }
 
     public void editProjectAction(ActionEvent actionEvent) throws IOException {
-        if(tableViewProjects.getSelectionModel().getSelectedItem()!=null) {
+        if(check(tableViewProjects)) {
             closeWindow(actionEvent);
             EditProjectController ctrl = new EditProjectController(tableViewProjects.getSelectionModel().getSelectedItem());
 
@@ -87,7 +99,7 @@ public class UserProjectsController {
                     }
                 }
             });
-        }else AlertMaker.alertERROR("Error occured","You did not select any project!");
+        }
     }
 
     @FXML
@@ -102,10 +114,5 @@ public class UserProjectsController {
     public void setDeveloper(Developer developer) {
         this.developer = developer;
     }
-
-
-    public void closeWindow(javafx.event.ActionEvent actionEvent){
-        Stage stage = (Stage) tableViewProjects.getScene().getWindow();
-        stage.close();
-    }
+    public void closeWindow(javafx.event.ActionEvent actionEvent){ ((Stage) tableViewProjects.getScene().getWindow()).close(); }
 }
