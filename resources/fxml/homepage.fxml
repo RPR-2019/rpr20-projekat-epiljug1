@@ -10,25 +10,20 @@
    <children>
       <MenuBar layoutY="-1.0" prefHeight="31.0" prefWidth="675.0" stylesheets="@../css/dark-theme.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="140.0">
         <menus>
-          <Menu fx:id="file" mnemonicParsing="false" text="File">
+          <Menu fx:id="file" mnemonicParsing="false" text="%file">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#logoutAction" text="Close" />
-                  <Menu mnemonicParsing="false" text="Language">
+              <MenuItem mnemonicParsing="false" onAction="#logoutAction" text="%close" />
+                  <Menu mnemonicParsing="false" text="%language">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#switchToEN" text="English" />
-                      <MenuItem mnemonicParsing="false" onAction="#switchToBS" text="Bosnian" />
+                        <MenuItem mnemonicParsing="false" onAction="#switchToEN" text="%english" />
+                      <MenuItem mnemonicParsing="false" onAction="#switchToBS" text="%bosnian" />
                     </items>
                   </Menu>
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="%help">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#aboutAction" text="%about" />
             </items>
           </Menu>
         </menus>
@@ -100,7 +95,7 @@
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button fx:id="btnSettings" contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Settings" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#editProfileAction" text="%edit_profile" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>

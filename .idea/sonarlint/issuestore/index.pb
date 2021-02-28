@@ -117,8 +117,6 @@ s
 Cout/production/rpr20-projekat-epiljug1/Translation_bs_BA.properties,d\2\d2b9b6550b0f67c41f787f03d66d69d4fcb33c6d
 s
 Cout/production/rpr20-projekat-epiljug1/Translation_en_US.properties,d\1\d17888927b82e9492ef0bea8c01363021804bfef
-L
-resources/css/dark-theme.css,7\4\74c9d3a2e304a8b43ce174351f803f2362a0371d
 h
 8out/production/rpr20-projekat-epiljug1/fxml/loading.fxml,f\f\ffbbed49050a2c667ccc7437b51879f6dedd4385
 K

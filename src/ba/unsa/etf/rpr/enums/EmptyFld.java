@@ -65,6 +65,24 @@ public enum EmptyFld {
             else
                 return "Niste izabrali ni jednog developera!";
         }
+    },
+    SELECT_BUG {
+        @Override
+        public String toString() {
+            if (Locale.getDefault().getCountry().equals("US"))
+                return "You did not select any bug!";
+            else
+                return "Niste izabrali ni jedan bug!";
+        }
+    },
+    SELECT_PROJECT {
+        @Override
+        public String toString() {
+            if (Locale.getDefault().getCountry().equals("US"))
+                return "You did not select any project!";
+            else
+                return "Niste izabrali ni jedan projekat!";
+        }
     }
 
     ;

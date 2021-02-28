@@ -95,6 +95,15 @@ public enum BugInfo {
             else
                 return "Jedan od developera je već poslao zahtjev za rješavanje bug-a";
         }
+    },
+    SELECT_REQUEST{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "You did not select any request!";
+            else
+                return "Niste odabrali niti jedan zahtjev za rješavanje!";
+        }
     }
 
     ;

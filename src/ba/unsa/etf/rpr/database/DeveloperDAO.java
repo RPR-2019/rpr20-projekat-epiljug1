@@ -11,7 +11,9 @@ import java.util.Scanner;
 public class DeveloperDAO {
     private static DeveloperDAO instance = null;
     private static Connection conn;
-    private PreparedStatement getAllDevelopers,  addDeveloper, findMax, findDeveloperByIdorUsername, findId, getAllProjectsForDeveloper,getAllDevelopersInsteadOfOne;
+    private PreparedStatement getAllDevelopers,  addDeveloper, findMax,
+            findDeveloperByIdorUsername, findId, getAllProjectsForDeveloper,getAllDevelopersInsteadOfOne
+            ,checkUsername,checkEmail,editProfile;
 
     public static Connection getConn() {
         return conn;
@@ -51,6 +53,9 @@ public class DeveloperDAO {
                     "FROM project, connections, developer\n" +
                     "WHERE project_id=connections.pr_id AND connections.de_id=developer_id AND developer_id=?;\n");
             getAllDevelopersInsteadOfOne = conn.prepareStatement("select * from developer where developer.developer_id!=?");
+            checkUsername = conn.prepareStatement("SELECT Count(*) FROM developer WHERE developer_id!=? AND username=?  ");
+            checkEmail = conn.prepareStatement("SELECT Count(*) FROM developer WHERE developer_id!=? AND email=?  ");
+            editProfile  = conn.prepareStatement("UPDATE developer set ime=?, prezime=?, email=?, username=?,password=? WHERE developer_id=?");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -139,6 +144,46 @@ public class DeveloperDAO {
             sqlException.printStackTrace();
         }
         return 0;
+    }
+
+    public boolean checkUsername(int developerID, String username){
+        try{
+            checkUsername.setInt(1,developerID);
+            checkUsername.setString(2,username);
+            ResultSet rs = checkUsername.executeQuery();
+            if(rs.next())
+                if(rs.getInt(1)!=0) return false;
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        return true;
+    }
+
+    public boolean checkEmail(int developerID, String email){
+        try{
+            checkEmail.setInt(1,developerID);
+            checkEmail.setString(2,email);
+            ResultSet rs = checkEmail.executeQuery();
+            if(rs.next())
+                if(rs.getInt(1)!=0) return false;
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        return true;
+    }
+
+    public void editProfileInfo(Developer developer, int developerID){
+        try{
+            editProfile.setString(1,developer.getName());
+            editProfile.setString(2,developer.getSurname());
+            editProfile.setString(3,developer.getEmail());
+            editProfile.setString(4,developer.getUsername());
+            editProfile.setString(5,developer.getPassword());
+            editProfile.setInt(6,developerID);
+            editProfile.executeUpdate();
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
     }
 
     public void addDeveloper(Developer developer){

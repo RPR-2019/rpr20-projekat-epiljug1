@@ -4,6 +4,7 @@ import ba.unsa.etf.rpr.*;
 import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.email.MailSender;
 import ba.unsa.etf.rpr.enums.BugInfo;
+import ba.unsa.etf.rpr.enums.EmptyFld;
 import ba.unsa.etf.rpr.enums.StageEnums;
 import ba.unsa.etf.rpr.enums.Validation;
 import ba.unsa.etf.rpr.model.Bug;
@@ -310,7 +311,7 @@ public class ShowProjectController {
         if(approveChk.isSelected()){
             reset();
             if(tableViewRequest.getSelectionModel().getSelectedItem()==null){
-                AlertMaker.alertERROR("Error occured","You need to select the item!");
+                AlertMaker.alertERROR("Error occured",BugInfo.SELECT_REQUEST.toString());
                 approveChk.setSelected(false);
             }else{
                 setData();
@@ -325,7 +326,7 @@ public class ShowProjectController {
     public void denyAction(ActionEvent actionEvent){
         if(denyChk.isSelected()){
             if(tableViewRequest.getSelectionModel().getSelectedItem()==null){
-                AlertMaker.alertERROR("Error occured","You need to select the item!");
+                AlertMaker.alertERROR("Error occured",BugInfo.SELECT_REQUEST.toString());
                 denyChk.setSelected(false);
             }else {
                 setData();
@@ -389,7 +390,7 @@ public class ShowProjectController {
                     refresh(false);
                 }
 
-            }else AlertMaker.alertERROR("Error occured","You did not select any developer!");
+            }else AlertMaker.alertERROR("Error occured",EmptyFld.SELECT_DEV.toString());;
     }
 
 
@@ -403,7 +404,7 @@ public class ShowProjectController {
 
             AlertMaker.showMaterialDialog(stackPane,"Successfuly removed","\""+username+"\" has been succesfuly removed from this project!");
             refresh(true);
-        } else AlertMaker.alertERROR("Error occured","You did not select any developer!");
+        } else AlertMaker.alertERROR("Error occured",EmptyFld.SELECT_DEV.toString());
     }
 
     @FXML
@@ -417,11 +418,13 @@ public class ShowProjectController {
 
     @FXML
     public void editBugAction(ActionEvent actionEvent){
-        EditBugController editBugController = new EditBugController(project,tableViewBugs.getSelectionModel().getSelectedItem());
-        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editBug.fxml"), StageEnums.EDIT_BUG,editBugController);
-        stage.setOnHiding(event->{
-            refresh(true);
-        });
+        if(checkTable(tableViewRequest)) {
+            EditBugController editBugController = new EditBugController(project, tableViewBugs.getSelectionModel().getSelectedItem());
+            Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editBug.fxml"), StageEnums.EDIT_BUG, editBugController);
+            stage.setOnHiding(event -> {
+                refresh(true);
+            });
+        }
     }
 
     @FXML
@@ -436,23 +439,23 @@ public class ShowProjectController {
 
     @FXML
     public void editAssignedBugAction(ActionEvent actionEvent){
-        if(tableViewAssignedBugs.getSelectionModel().getSelectedItem()!=null) {
+        if(checkTable(tableViewAssignedBugs)) {
             EditAssignedBugController editAssignedBugController = new EditAssignedBugController(project, tableViewAssignedBugs.getSelectionModel().getSelectedItem());
             Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editAssignedBug.fxml"), StageEnums.EDIT_BUG, editAssignedBugController);
             stage.setOnHiding(event -> {
                 refresh(true);
             });
-        }else AlertMaker.alertERROR("Error occured!",BugInfo.SELECT.toString());
+        }
     }
 
-    private Bug checkTable(TableView<Bug>table){
-        if(table.getSelectionModel().getSelectedItem()==null){ AlertMaker.alertERROR("Error occured", BugInfo.SELECT.toString()); return null;}
-        else return table.getSelectionModel().getSelectedItem();
+    private boolean checkTable(TableView<Bug>table){
+        if(table.getSelectionModel().getSelectedItem()==null){ AlertMaker.alertERROR("Error occured", BugInfo.SELECT.toString()); return false;}
+        else return true;
     }
 
     @FXML
     public void openBugAction(ActionEvent actionEvent){
-        if(checkTable(tableViewBugs)!=null){
+        if(checkTable(tableViewBugs)){
             OpenBugController ctrl = new OpenBugController(tableViewBugs.getSelectionModel().getSelectedItem());
             StageHandler.loadWindow(getClass().getResource("/fxml/openBug.fxml"),BugInfo.INFO.toString(),ctrl);
         }
@@ -460,7 +463,7 @@ public class ShowProjectController {
 
     @FXML
     public void openBugActionAssigned(ActionEvent actionEvent){
-        if(checkTable(tableViewAssignedBugs)!=null){
+        if(checkTable(tableViewAssignedBugs)){
             OpenBugController ctrl = new OpenBugController(tableViewAssignedBugs.getSelectionModel().getSelectedItem());
             StageHandler.loadWindow(getClass().getResource("/fxml/openBug.fxml"),BugInfo.INFO.toString(),ctrl);
         }

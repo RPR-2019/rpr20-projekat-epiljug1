@@ -83,6 +83,24 @@ public enum StageEnums {
             else
                 return "Uredi bug";
         }
+    },
+    ABOUT_APP{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "About app info";
+            else
+                return "Informacije o aplikaciji";
+        }
+    },
+    EDIT_PROFILE{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "Edit profile";
+            else
+                return "Uredi profil";
+        }
     }
     ;
 

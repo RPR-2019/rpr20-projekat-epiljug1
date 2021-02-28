@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.StageHandler;
 import ba.unsa.etf.rpr.alert.AlertMaker;
+import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.database.ProjectDAO;
 import ba.unsa.etf.rpr.enums.StageEnums;
 import ba.unsa.etf.rpr.model.Developer;
@@ -38,9 +39,13 @@ public class HomepageController {
     private Developer developer;
     private DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
     private ProjectDAO projectDAO;
+    private DeveloperDAO developerDAO;
+    private int developerID;
     public HomepageController(Developer developer){
         projectDAO=ProjectDAO.getInstance();
         this.developer=developer;
+        developerDAO = DeveloperDAO.getInstance();
+        developerID = developerDAO.findIdOfDeveloper(developer.getUsername());
     }
 
 
@@ -109,6 +114,21 @@ public class HomepageController {
     public void switchToEN(ActionEvent mouseEvent) throws IOException {
         Locale.setDefault(new Locale("en","US"));
         changeLang();
+    }
+
+    public void aboutAction(ActionEvent actionEvent){
+        AboutAppController aboutAppController = new AboutAppController();
+        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/aboutApp.fxml"),StageEnums.ABOUT_APP,aboutAppController);
+        stage.setResizable(false);
+    }
+
+    public void editProfileAction(ActionEvent actionEvent){
+        EditProfileController editProfileController = new EditProfileController(developer);
+        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editProfile.fxml"),StageEnums.EDIT_PROFILE.toString(),editProfileController);
+        stage.setOnHiding(event->{
+            developer = developerDAO.findDeveloperByIDorUsername(developerID,"");
+            user.setText(developer.getName()+ " "+developer.getSurname());
+        });
     }
 
     public void closeWindow(){

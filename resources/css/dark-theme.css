@@ -77,7 +77,9 @@
 }
 
 
-
+.hyper:hover{
+    -fx-text-fill:lightblue;
+}
 
 .button:hover {
     -fx-border-color: -fx-secondary;
@@ -101,6 +103,16 @@
     -fx-background-radius: 20px;
     -fx-border-width: 1.5px 1.5px 1.5px 1.5px;
 }
+
+.text-field4
+{
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-secondary;
+    -fx-border-width: 0px 0px 1.5px 0px;
+    -fx-text-fill: white;
+    -fx-font-size : 15pt;
+}
+
 
 .text-field3
 {

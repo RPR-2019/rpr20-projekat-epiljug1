@@ -29,5 +29,24 @@ public enum Validation {
             else
                 return "Broj zahtjeva: ";
         }
+    },
+    USERNAME_ERROR{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "This username is already used!";
+            else
+                return "Ovo korisničko ime je korišteno!";
+        }
+    },
+    EMAIL_ERROR{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "This e-mail is already used!";
+            else
+                return "Ova e-mail aderesa je u upotrebi!";
+        }
     };
+
 }
