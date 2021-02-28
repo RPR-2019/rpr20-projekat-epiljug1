@@ -123,7 +123,7 @@
                     </AnchorPane>
                 </content>
             </Tab>
-            <Tab text="Bugs">
+            <Tab text="%active_bugs">
                 <content>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <center>
@@ -151,6 +151,7 @@
                            <children>
                                    <Button alignment="CENTER" mnemonicParsing="false" onAction="#openBugAction" prefHeight="42.0" prefWidth="125.0" text="%open" />
                               <Button fx:id="requestBtn" alignment="CENTER" mnemonicParsing="false" onAction="#requestAction" prefHeight="42.0" prefWidth="125.0" text="%request" />
+                              <Button alignment="CENTER" mnemonicParsing="false" onAction="#addBugAction" prefHeight="42.0" prefWidth="125.0" text="%add" />
                            </children>
                            <BorderPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

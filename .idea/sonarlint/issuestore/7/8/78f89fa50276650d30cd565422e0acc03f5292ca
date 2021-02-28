@@ -1,33 +1,33 @@
 
-B
-java:S1602Z",Remove useless curly braces around statement(Áâ¿„
 W
 java:S2209q"5Change this instance-reference to a static reference.(Ôüäÿÿÿÿÿ8®èû.
-G
-java:S2116F"%Use "Arrays.toString(array)" instead.(®„áøÿÿÿÿ8·…·¼û.
-J
-java:S3740""/Provide the parametrized type for this generic.(ÊÚÎ¨ùÿÿÿÿ
-‰
-java:S1130T"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(’·à²8ÖŞ€Îü.
-J
-java:S3740A"/Provide the parametrized type for this generic.(ÇØÑ°úÿÿÿÿ
-J
-java:S3740&"/Provide the parametrized type for this generic.(â¬Ëûşÿÿÿÿ
-K
-java:S10680".Remove this unused "projectDAO" private field.(µ»ãË8õêÚ¼û.
-J
-java:S3740B"/Provide the parametrized type for this generic.(Åõ€¥ûÿÿÿÿ
-p
-java:S1602H"SRemove useless curly braces around statement and then remove useless return keyword(×ĞëØ8­»Ä¼û.
 N
 java:S1602g",Remove useless curly braces around statement(°Î“éùÿÿÿÿ8Ğîã³ú.
-E
-java:S3740("/Provide the parametrized type for this generic.(ƒäÆ
+‰
+java:S1130T"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(’·à²8ÖŞ€Îü.
+T
+java:S1172{"2Remove this unused method parameter "actionEvent".(Ô¯ëèûÿÿÿÿ8°Ëá³ú.
+K
+java:S10680".Remove this unused "projectDAO" private field.(µ»ãË8õêÚ¼û.
+G
+java:S2116F"%Use "Arrays.toString(array)" instead.(®„áøÿÿÿÿ8·…·¼û.
+B
+java:S1602Z",Remove useless curly braces around statement(Áâ¿„
+J
+java:S3740B"/Provide the parametrized type for this generic.(Åõ€¥ûÿÿÿÿ
+J
+java:S3740@"/Provide the parametrized type for this generic.(—‡ïÂùÿÿÿÿ
+J
+java:S3740$"/Provide the parametrized type for this generic.(²¢Ìïúÿÿÿÿ
+p
+java:S1602H"SRemove useless curly braces around statement and then remove useless return keyword(×ĞëØ8­»Ä¼û.
 L
 java:S3740C"/Provide the parametrized type for this generic.(…»Ì‹8ËÌá·ü.
 J
-java:S3740@"/Provide the parametrized type for this generic.(—‡ïÂùÿÿÿÿ
-T
-java:S1172{"2Remove this unused method parameter "actionEvent".(Ô¯ëèûÿÿÿÿ8°Ëá³ú.
+java:S3740""/Provide the parametrized type for this generic.(ÊÚÎ¨ùÿÿÿÿ
 J
-java:S3740$"/Provide the parametrized type for this generic.(²¢Ìïúÿÿÿÿ
+java:S3740&"/Provide the parametrized type for this generic.(â¬Ëûşÿÿÿÿ
+J
+java:S3740A"/Provide the parametrized type for this generic.(ÇØÑ°úÿÿÿÿ
+E
+java:S3740("/Provide the parametrized type for this generic.(ƒäÆ

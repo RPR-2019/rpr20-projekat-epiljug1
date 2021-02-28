@@ -1,55 +1,112 @@
 
-P
-java:S1144§"-Remove this unused private "loadData" method.(ÍÛµíıÿÿÿÿ8õ×ãçù.
-L
-java:S3740?"/Provide the parametrized type for this generic.(ö¶Ü’8ø¦Êáù.
-Q
-java:S3740E"/Provide the parametrized type for this generic.(ïû©ğÿÿÿÿÿ8ø¦Êáù.
-H
-java:S2116Ú"%Use "Arrays.toString(array)" instead.(®„áøÿÿÿÿ8„ò¼û.
-R
-java:S3740Å"/Provide the parametrized type for this generic.(Øğ¥¥şÿÿÿÿ8ø¦Êáù.
-V	java:S106ù"9Replace this use of System.out or System.err by a logger.(½•À8Ç¡¬»û.
-Q
-java:S3740V"/Provide the parametrized type for this generic.(û¼¿ışÿÿÿÿ8ø¦Êáù.
-l
-java:S1192ö"NDefine a constant instead of duplicating this literal "Error occured" 6 times.(õÏÇ€8Ç¡¬»û.
-V	java:S106‰"9Replace this use of System.out or System.err by a logger.(ñ¦™¢8Ç¡¬»û.
-R
-java:S3740Í"/Provide the parametrized type for this generic.(·ŠÚåøÿÿÿÿ8Ìü¦äù.
-M
-java:S3740È"/Provide the parametrized type for this generic.(¢Â„Œ8ààúäû.
-R
-java:S3740Ñ"/Provide the parametrized type for this generic.(İİÊùÿÿÿÿ8Ìü¦äù.
-M
-java:S3740Ä"/Provide the parametrized type for this generic.(×Ø–8ø¦Êáù.
-v
-java:S1602Ü"SRemove useless curly braces around statement and then remove useless return keyword(³Ìóåùÿÿÿÿ8„ò¼û.
-M
-java:S1481á"*Remove this unused "stage" local variable.(µ¾‚Œüÿÿÿÿ8ÚÂá¬ü.
-{
-java:S1192ö"]Define a constant instead of duplicating this literal "You need to select the item!" 3 times.(õÏÇ€8Ç¡¬»û.
-L
-java:S3740}"/Provide the parametrized type for this generic.(…ÃÉ½8ààúäû.
-R
-java:S3740Æ"/Provide the parametrized type for this generic.(ª¿îùÿÿÿÿ8ø¦Êáù.
-\
-java:S1854á"9Remove this useless assignment to local variable "stage".(µ¾‚Œüÿÿÿÿ8ÚÂá¬ü.
-Q
-java:S3740z"/Provide the parametrized type for this generic.(‰˜˜Ùúÿÿÿÿ8ÌãËáù.
-M
-java:S3740Ç"/Provide the parametrized type for this generic.(ŠÌ´Õ8ààúäû.
-L
-java:S3740B"/Provide the parametrized type for this generic.(”Ç«¢8ø¦Êáù.
-M
-java:S3740Ò"/Provide the parametrized type for this generic.(ü¨ô‰8Ôş’âù.
-L
-java:S3740H"/Provide the parametrized type for this generic.(å±ĞÎ8ø¦Êáù.
-v
-java:S1602¿"SRemove useless curly braces around statement and then remove useless return keyword(•’÷ùÿÿÿÿ8Ç¡¬»û.
-Q
-java:S3740<"/Provide the parametrized type for this generic.(ÊÚÎ¨ùÿÿÿÿ8ø¦Êáù.
 a
-java:S1155é">Use isEmpty() to check whether the collection is empty or not.(ÔŒ²Úşÿÿÿÿ8Ç¡¬»û.
+java:S1155¯">Use isEmpty() to check whether the collection is empty or not.(ÔŒ²Úşÿÿÿÿ8Ç¡¬»û.
+R
+java:S3740—"/Provide the parametrized type for this generic.(İİÊùÿÿÿÿ8Ìü¦äù.
+M
+java:S3740ü"/Provide the parametrized type for this generic.(¢Â„Œ8ààúäû.
+L
+java:S3740B"/Provide the parametrized type for this generic.(ö¶Ü’8ø¦Êáù.
+L
+java:S3740E"/Provide the parametrized type for this generic.(”Ç«¢8ø¦Êáù.
+P
+java:S1144Ö"-Remove this unused private "loadData" method.(ÍÛµíıÿÿÿÿ8õ×ãçù.
+M
+java:S3740¨"/Provide the parametrized type for this generic.(…ÃÉ½8ààúäû.
+{
+java:S1192¼"]Define a constant instead of duplicating this literal "You need to select the item!" 3 times.(õÏÇ€8Ç¡¬»û.
+R
+java:S3740“"/Provide the parametrized type for this generic.(·ŠÚåøÿÿÿÿ8Ìü¦äù.
+V	java:S106Ï"9Replace this use of System.out or System.err by a logger.(ñ¦™¢8Ç¡¬»û.
+Q
+java:S3740?"/Provide the parametrized type for this generic.(ÊÚÎ¨ùÿÿÿÿ8ø¦Êáù.
+R
+java:S3740ú"/Provide the parametrized type for this generic.(ª¿îùÿÿÿÿ8ø¦Êáù.
+R
+java:S3740¥"/Provide the parametrized type for this generic.(‰˜˜Ùúÿÿÿÿ8ÌãËáù.
+R
+java:S3740ù"/Provide the parametrized type for this generic.(Øğ¥¥şÿÿÿÿ8ø¦Êáù.
 O
-java:S1602Ù",Remove useless curly braces around statement(ïÄÁèıÿÿÿÿ8ÚÂá¬ü.
+java:S1602Ÿ",Remove useless curly braces around statement(ïÄÁèıÿÿÿÿ8ÚÂá¬ü.
+M
+java:S3740ø"/Provide the parametrized type for this generic.(×Ø–8ø¦Êáù.
+R
+java:S3740"/Provide the parametrized type for this generic.(û¼¿ışÿÿÿÿ8ø¦Êáù.
+Q
+java:S3740H"/Provide the parametrized type for this generic.(ïû©ğÿÿÿÿÿ8ø¦Êáù.
+M
+java:S3740˜"/Provide the parametrized type for this generic.(ü¨ô‰8Ôş’âù.
+H
+java:S2116 "%Use "Arrays.toString(array)" instead.(®„áøÿÿÿÿ8„ò¼û.
+V	java:S106¿"9Replace this use of System.out or System.err by a logger.(½•À8Ç¡¬»û.
+M
+java:S3740û"/Provide the parametrized type for this generic.(ŠÌ´Õ8ààúäû.
+v
+java:S1602…"SRemove useless curly braces around statement and then remove useless return keyword(•’÷ùÿÿÿÿ8Ç¡¬»û.
+l
+java:S1192¼"NDefine a constant instead of duplicating this literal "Error occured" 7 times.(õÏÇ€8Ç¡¬»û.
+v
+java:S1602¢"SRemove useless curly braces around statement and then remove useless return keyword(³Ìóåùÿÿÿÿ8„ò¼û.
+L
+java:S3740K"/Provide the parametrized type for this generic.(å±ĞÎ8£ëˆƒş.
+Q
+java:S3740Q"/Provide the parametrized type for this generic.(ÏÇ“ìıÿÿÿÿ8£ëˆƒş.
+L
+java:S3740T"/Provide the parametrized type for this generic.(‘­×É8£ëˆƒş.
+Q
+java:S3740W"/Provide the parametrized type for this generic.(¶†ŸĞüÿÿÿÿ8£ëˆƒş.
+L
+java:S3740Z"/Provide the parametrized type for this generic.(¬å—ß8£ëˆƒş.
+Q
+java:S3740]"/Provide the parametrized type for this generic.(ù–àåùÿÿÿÿ8£ëˆƒş.
+Q
+java:S3740`"/Provide the parametrized type for this generic.(™Åõ½üÿÿÿÿ8£ëˆƒş.
+L
+java:S3740g"/Provide the parametrized type for this generic.(Üä“¾8£ëˆƒş.
+L
+java:S3740j"/Provide the parametrized type for this generic.(Û°‰Ö8£ëˆƒş.
+Q
+java:S3740m"/Provide the parametrized type for this generic.(ÑñÀûÿÿÿÿ8£ëˆƒş.
+L
+java:S3740p"/Provide the parametrized type for this generic.(§½Ÿ‰8£ëˆƒş.
+Q
+java:S3740s"/Provide the parametrized type for this generic.(˜óîÛüÿÿÿÿ8£ëˆƒş.
+R
+java:S3740ÿ"/Provide the parametrized type for this generic.(¡«ùÿÿÿÿ8£ëˆƒş.
+R
+java:S3740€"/Provide the parametrized type for this generic.(ˆáúÿÿÿÿ8£ëˆƒş.
+R
+java:S3740"/Provide the parametrized type for this generic.(¨ı˜öøÿÿÿÿ8£ëˆƒş.
+R
+java:S3740‚"/Provide the parametrized type for this generic.(õî´ÿÿÿÿÿ8£ëˆƒş.
+M
+java:S3740ƒ"/Provide the parametrized type for this generic.(Ã­şù8£ëˆƒş.
+M
+java:S3740„"/Provide the parametrized type for this generic.(ÊùÔü8£ëˆƒş.
+R
+java:S3740‡"/Provide the parametrized type for this generic.(Éù²éüÿÿÿÿ8£ëˆƒş.
+R
+java:S3740ˆ"/Provide the parametrized type for this generic.(ĞÏÚ¬úÿÿÿÿ8£ëˆƒş.
+R
+java:S3740‰"/Provide the parametrized type for this generic.(‡¾ìàøÿÿÿÿ8£ëˆƒş.
+L
+java:S3740Š"/Provide the parametrized type for this generic.(í“ó%8£ëˆƒş.
+M
+java:S3740‹"/Provide the parametrized type for this generic.(ÔÕ  8£ëˆƒş.
+l
+java:S1192ù"IDefine a constant instead of duplicating this literal "bug_type" 3 times.(Øğ¥¥şÿÿÿÿ8£ëˆƒş.
+i
+java:S1192ü"KDefine a constant instead of duplicating this literal "complexity" 3 times.(¢Â„Œ8£ëˆƒş.
+j
+java:S1192ú"GDefine a constant instead of duplicating this literal "status" 3 times.(ª¿îùÿÿÿÿ8£ëˆƒş.
+g
+java:S1192ø"IDefine a constant instead of duplicating this literal "bug_name" 4 times.(×Ø–8£ëˆƒş.
+k
+java:S1192û"MDefine a constant instead of duplicating this literal "date_created" 3 times.(ŠÌ´Õ8£ëˆƒş.
+O
+java:S1602¨",Remove useless curly braces around statement(ïÄÁèıÿÿÿÿ8£ëˆƒş.
+V	java:S106¯"9Replace this use of System.out or System.err by a logger.(´úû‰8£ëˆƒş.
+O
+java:S1602²",Remove useless curly braces around statement(ïÄÁèıÿÿÿÿ8£ëˆƒş.
+O
+java:S1602¼",Remove useless curly braces around statement(ïÄÁèıÿÿÿÿ8£ëˆƒş.

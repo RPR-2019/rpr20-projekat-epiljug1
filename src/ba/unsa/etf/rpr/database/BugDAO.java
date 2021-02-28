@@ -19,7 +19,8 @@ public class BugDAO {
     }
 
     private PreparedStatement findId, getAllBugs,findBugByID, addBug, findMax,getAllBugsForProject, getBugReguest, approveRequest,
-            denyRequest,getSolvedBugs,editBug, getAssignedBugs, getAssignedBugsDev, addAssign,addRequest,addRequestForBug;
+            denyRequest,getSolvedBugs,editBug, getAssignedBugs, getAssignedBugsDev, addAssign ,addRequestForBug, checkForRequest
+            ,removeBugsForDeveloper,getAssignedBugsForDeveloper,removeAssignedBugs;
 
     public  Connection getConn() {
         return conn;
@@ -61,15 +62,18 @@ public class BugDAO {
                     "from bug where bug.projectID=? and bug.solver_id=0 " +
                     "and (select count(*) from bug_assigned where bug_assigned.project_id=bug.projectID and bug_assigned.bug_id=bug.bug_id)=0");
             getBugReguest = conn.prepareStatement("SELECT DISTINCT bug.* from bug, project where project.project_id=? and project.project_id=bug.projectID and bug.solver_id==0 and bug.request_id!=0");
-            approveRequest = conn.prepareStatement("UPDATE bug SET status='fixed', solver_id=?, request_id=0 where bug_name=? and projectID=?");
-            denyRequest = conn.prepareStatement("UPDATE bug SET request_id=0 where bug_name=? and projectID=?");
+            approveRequest = conn.prepareStatement("UPDATE bug SET status='Fixed/Riješen', solver_id=?, request_id=0 where bug_name=? and projectID=?");
+            denyRequest = conn.prepareStatement("UPDATE bug SET request_id=0,status='Active/Aktivan' where bug_name=? and projectID=?");
             getSolvedBugs = conn.prepareStatement("SELECT * FROM bug where projectID=? and solver_id!=0");
             editBug = conn.prepareStatement("UPDATE bug set bug_name=?,bug_desc=?,bug_type=?,status=?,complexity=?,solver_id=? where bug_name=? and projectID=?");
             getAssignedBugs = conn.prepareStatement("SELECT bug.*,bug_assigned.developer_id FROM bug,bug_assigned where bug.solver_id=0 and bug.bug_id=bug_assigned.bug_id and bug_assigned.project_id=?");
             getAssignedBugsDev = conn.prepareStatement("SELECT bug.*,bug_assigned.developer_id FROM bug,bug_assigned where bug.solver_id=0 and bug.bug_id=bug_assigned.bug_id and bug_assigned.project_id=? and bug_assigned.developer_id=?");
             addAssign = conn.prepareStatement("INSERT INTO bug_assigned VALUES(?,?,?)");
-            addRequest = conn.prepareStatement("INSERT INTO request VALUES (?,?,?)");
+            checkForRequest = conn.prepareStatement("SELECT Count(*) FROM bug WHERE bug_id=? and status='Pending/Čekanje'");
             addRequestForBug = conn.prepareStatement("UPDATE bug SET status='Pending/Čekanje',request_id=? where bug_id=?");
+            removeBugsForDeveloper= conn.prepareStatement("DELETE FROM bug_assigned where project_id=? and developer_id=?");
+            getAssignedBugsForDeveloper = conn.prepareStatement("SELECT bug.bug_name FROM bug,bug_assigned WHERE bug.bug_id=bug_assigned.bug_id AND bug_assigned.project_id=? AND bug_assigned.developer_id=?");
+            removeAssignedBugs = conn.prepareStatement("DELETE FROM bug WHERE bug_name=? and projectID=?");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -119,25 +123,21 @@ public class BugDAO {
         return novi;
     }
 
-    public void addNewRequest(int developerID, int projectID, int bugID){
-        try{
-            addRequest.setInt(1,developerID);
-            addRequest.setInt(2,projectID);
-            addRequest.setInt(3,bugID);
-            addRequest.executeUpdate();
-        }catch (SQLException sqlException){
-            sqlException.printStackTrace();
-        }
-    }
 
-    public void addRequestForBug(int bugID, int developerID){
+    public boolean addRequestForBug(int bugID, int developerID){
         try {
+            checkForRequest.setInt(1,bugID);
+            ResultSet rs = checkForRequest.executeQuery();
+            if(rs.getInt(1)!=0)
+                return false;
+
             addRequestForBug.setInt(1,developerID);
             addRequestForBug.setInt(2,bugID);
             addRequestForBug.executeUpdate();
         }catch (SQLException sqlException){
             sqlException.printStackTrace();
         }
+        return true;
     }
 
 
@@ -306,6 +306,26 @@ public class BugDAO {
             sqlException.printStackTrace();
         }
     }
+
+    public void removeBugsForRemovedDeveloper(int projectID, int developerID){
+        try{
+            getAssignedBugsForDeveloper.setInt(1,projectID);
+            getAssignedBugsForDeveloper.setInt(2,developerID);
+            ResultSet rs = getAssignedBugsForDeveloper.executeQuery();
+            while (rs.next()){
+                removeAssignedBugs.setString(1,rs.getString(1));
+                removeAssignedBugs.setInt(2,projectID);
+                removeAssignedBugs.executeUpdate();
+            }
+            removeBugsForDeveloper.setInt(1,projectID);
+            removeBugsForDeveloper.setInt(2,developerID);
+            removeBugsForDeveloper.executeUpdate();
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+    }
+
+
     public void close() {
         try {
             conn.close();

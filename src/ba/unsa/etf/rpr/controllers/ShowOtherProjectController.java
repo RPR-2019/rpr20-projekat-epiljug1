@@ -203,7 +203,11 @@ public class ShowOtherProjectController {
             Optional<ButtonType> result = AlertMaker.alertCONFIRMATION(BugInfo.SEND_REQUEST_BUG.toString(), BugInfo.CONFIRM_SEND_REQUEST.toString());
             if (result.get() == ButtonType.OK) {
              //   bugDAO.addNewRequest(developerDAO.findIdOfDeveloper(developer.getUsername()), projectId, bugDAO.findId(tableViewBugs.getSelectionModel().getSelectedItem()));
-                bugDAO.addRequestForBug(bugDAO.findId(tableViewBugs.getSelectionModel().getSelectedItem()),developerDAO.findIdOfDeveloper(developer.getUsername()) );
+                boolean isRequested = bugDAO.addRequestForBug(bugDAO.findId(tableViewBugs.getSelectionModel().getSelectedItem()),developerDAO.findIdOfDeveloper(developer.getUsername()) );
+                if(!isRequested){
+                    AlertMaker.alertINFORMATION("",BugInfo.ALREADY_REQUSTED.toString());
+                    return;
+                }
                 tableViewBugs.getSelectionModel().getSelectedItem().setStatus("Pending/Čekanje");
                 refresh();
             }
@@ -222,6 +226,16 @@ public class ShowOtherProjectController {
             }
         }else AlertMaker.alertERROR("Error occured",BugInfo.SELECT.toString());
     }
+
+    @FXML
+    public void addBugAction(ActionEvent actionEvent){
+        AddBugController addBugController = new AddBugController(project,false);
+        Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/addBug.fxml"),StageEnums.ADD_BUG,addBugController);
+        stage.setOnHiding( event -> {
+            refresh();
+        });
+    }
+
 
     @FXML
     public void closeAction(ActionEvent actionEvent){

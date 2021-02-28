@@ -141,3 +141,5 @@ P
  resources/fxml/userProjects.fxml,e\5\e59f81dcbe4e0f9d4bed65b6cb437ff9928edadf
 Y
 )src/ba/unsa/etf/rpr/enums/StageEnums.java,f\a\fa3da34b6d4e818325146875445da8fc39b12560
+V
+&src/ba/unsa/etf/rpr/enums/BugInfo.java,0\a\0ad6a398729bf68c7069c3877743b4a4320c0e30

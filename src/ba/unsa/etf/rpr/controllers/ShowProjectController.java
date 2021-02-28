@@ -217,7 +217,7 @@ public class ShowProjectController {
         listReguest = FXCollections.observableArrayList(bugDAO.getBugReportsForProject(id));
         listDevelopers = FXCollections.observableArrayList(projectDAO.getAllDevelopersWhoWorksOnAProject(id));
     }
-    private void refresh(){
+    private void refresh(boolean pieRefresh){
         listBugs.setAll(bugDAO.getAllBugsForProject(projectId));
         listSolvedBugs.setAll(bugDAO.getAllSolvedBugsForProject(projectId));
         listReguest.setAll(bugDAO.getBugReportsForProject(projectId));
@@ -229,6 +229,7 @@ public class ShowProjectController {
         tableViewDevelopers.refresh();
         tableViewSolvedBugs.refresh();
         tableViewAssignedBugs.refresh();
+        if(pieRefresh) pie.setData(projectDAO.getProjectGraphStatistic(project));
     }
     @FXML
     public void initialize(){
@@ -300,11 +301,7 @@ public class ShowProjectController {
 
     }
     private void setNotification(){
-        if (listReguest.size() != 0) {
-            notificationLbl.setText( Validation.REQUESTS.toString() + listReguest.size()  );
-        } else {
-            notificationLbl.setText("");
-        }
+        notificationLbl.setText( Validation.REQUESTS.toString() + listReguest.size()  );
     }
 
     @FXML
@@ -316,9 +313,10 @@ public class ShowProjectController {
                 AlertMaker.alertERROR("Error occured","You need to select the item!");
                 approveChk.setSelected(false);
             }else{
+                setData();
                 System.out.println("APROVE");
-                grid.setDisable(true);
-                hboxSend.setDisable(true);
+                grid.setDisable(false);
+                hboxSend.setDisable(false);
                 denyChk.setSelected(false);
             }
         }
@@ -331,12 +329,10 @@ public class ShowProjectController {
                 denyChk.setSelected(false);
             }else {
                 setData();
-
                 System.out.println("DNY");
-                approveChk.setSelected(false);
                 grid.setDisable(false);
-                grid.setVisible(true);
                 hboxSend.setDisable(false);
+                approveChk.setSelected(false);
             }
         }
     }
@@ -351,13 +347,12 @@ public class ShowProjectController {
         if( approveChk.isSelected()) {
             approveChk.setSelected(false);
             bugDAO.approveRequestForSolving(bug.getRequest_id(), bug.getBug_name(), projectDAO.findID(bug.getProject()));
-            refresh();
-            pie.setData(projectDAO.getProjectGraphStatistic(project));
+            refresh(true);
         }
         else if(denyChk.isSelected()){
             denyChk.setSelected(false);
             bugDAO.denyRequestForSolving(bug.getBug_name(), projectDAO.findID(bug.getProject()));
-            refresh();
+            refresh(false);
         }
     }
 
@@ -391,7 +386,7 @@ public class ShowProjectController {
                 }else{
                     projectDAO.addDeveloperOnProject(projectId,developerDAO.findIdOfDeveloper(username));
                     AlertMaker.showMaterialDialog(stackPane,"Successfuly added","\""+username+"\" has been succesfuly added to this project!");
-                    refresh();
+                    refresh(false);
                 }
 
             }else AlertMaker.alertERROR("Error occured","You did not select any developer!");
@@ -402,9 +397,12 @@ public class ShowProjectController {
     public void removeDeveloperAction(ActionEvent actionEvent){
         if(tableViewDevelopers.getSelectionModel().getSelectedItem()!=null){
             String username = tableViewDevelopers.getSelectionModel().getSelectedItem().getUsername();
+
+            bugDAO.removeBugsForRemovedDeveloper(projectId,developerDAO.findIdOfDeveloper(username));
             projectDAO.removeDeveloperFromProject(projectId,developerDAO.findIdOfDeveloper(username));
+
             AlertMaker.showMaterialDialog(stackPane,"Successfuly removed","\""+username+"\" has been succesfuly removed from this project!");
-            refresh();
+            refresh(true);
         } else AlertMaker.alertERROR("Error occured","You did not select any developer!");
     }
 
@@ -413,7 +411,7 @@ public class ShowProjectController {
         AddBugController addBugController = new AddBugController(project,false);
         Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/addBug.fxml"),StageEnums.ADD_BUG,addBugController);
         stage.setOnHiding( event -> {
-            refresh();
+            refresh(true);
         });
     }
 
@@ -422,7 +420,7 @@ public class ShowProjectController {
         EditBugController editBugController = new EditBugController(project,tableViewBugs.getSelectionModel().getSelectedItem());
         Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editBug.fxml"), StageEnums.EDIT_BUG,editBugController);
         stage.setOnHiding(event->{
-            refresh();
+            refresh(true);
         });
     }
 
@@ -432,7 +430,7 @@ public class ShowProjectController {
         AddBugController addBugController = new AddBugController(project,true);
         Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/addBug.fxml"),StageEnums.ADD_BUG,addBugController);
         stage.setOnHiding( event -> {
-            refresh();
+            refresh(true);
         });
     }
 
@@ -442,7 +440,7 @@ public class ShowProjectController {
             EditAssignedBugController editAssignedBugController = new EditAssignedBugController(project, tableViewAssignedBugs.getSelectionModel().getSelectedItem());
             Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/editAssignedBug.fxml"), StageEnums.EDIT_BUG, editAssignedBugController);
             stage.setOnHiding(event -> {
-                refresh();
+                refresh(true);
             });
         }else AlertMaker.alertERROR("Error occured!",BugInfo.SELECT.toString());
     }

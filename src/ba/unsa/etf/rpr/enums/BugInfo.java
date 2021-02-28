@@ -86,6 +86,15 @@ public enum BugInfo {
             else
                 return "Da li želite da pošaljete zahtjev za odabrani bug?";
         }
+    },
+    ALREADY_REQUSTED{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "One of developers already sent a request for this bug.";
+            else
+                return "Jedan od developera je već poslao zahtjev za rješavanje bug-a";
+        }
     }
 
     ;
