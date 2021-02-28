@@ -7,6 +7,7 @@ import ba.unsa.etf.rpr.database.BugDAO;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.database.ProjectDAO;
 import ba.unsa.etf.rpr.enums.BugInfo;
+import ba.unsa.etf.rpr.enums.Placeholders;
 import ba.unsa.etf.rpr.enums.StageEnums;
 import ba.unsa.etf.rpr.model.Bug;
 import ba.unsa.etf.rpr.model.Developer;
@@ -166,6 +167,10 @@ public class ShowOtherProjectController {
         colNameDev.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().toString()));
         colUsernameDev.setCellValueFactory(new PropertyValueFactory("username"));
         colEmailDev.setCellValueFactory(new PropertyValueFactory("email"));
+
+        tableViewBugs.setPlaceholder(new Label(Placeholders.BUGS.toString()));
+        tableViewDevelopers.setPlaceholder(new Label(Placeholders.DEVELOPERS.toString()));
+        tableViewAssignedBugs.setPlaceholder(new Label(Placeholders.BUGS.toString()));
 
     }
 

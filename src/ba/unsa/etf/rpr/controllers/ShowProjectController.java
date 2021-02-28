@@ -3,10 +3,7 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.*;
 import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.email.MailSender;
-import ba.unsa.etf.rpr.enums.BugInfo;
-import ba.unsa.etf.rpr.enums.EmptyFld;
-import ba.unsa.etf.rpr.enums.StageEnums;
-import ba.unsa.etf.rpr.enums.Validation;
+import ba.unsa.etf.rpr.enums.*;
 import ba.unsa.etf.rpr.model.Bug;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
@@ -289,7 +286,6 @@ public class ShowProjectController {
 
         searchFld.textProperty().addListener((observableValue, oldValue, newValue) ->{
             if(!newValue.getBytes().toString().trim().isEmpty()){
-
                 listSearchDevelopers.setAll(allDevelopers.stream().filter(developer1 -> {
                     return  developer1.getName().toLowerCase().contains(newValue.toLowerCase()) || developer1.getSurname().toLowerCase().contains(newValue.toLowerCase()) ||developer1.getUsername().toLowerCase().contains(newValue.toLowerCase()) || developer1.getEmail().toLowerCase().contains(newValue.toLowerCase());
                 }).collect(Collectors.toCollection(ArrayList::new)));
@@ -300,6 +296,12 @@ public class ShowProjectController {
             }
         });
 
+        tableViewBugs.setPlaceholder(new Label(Placeholders.BUGS.toString()));
+        tableViewAssignedBugs.setPlaceholder(new Label(Placeholders.BUGS.toString()));
+        tableViewRequest.setPlaceholder(new Label(Placeholders.REQUSETS.toString()));
+        tableViewSolvedBugs.setPlaceholder(new Label(Placeholders.BUGS.toString()));
+        tableViewSearch.setPlaceholder(new Label(Placeholders.DEVELOPERS.toString()));
+        tableViewDevelopers.setPlaceholder(new Label(Placeholders.DEVELOPERS.toString()));
 
     }
     private void setNotification(){

@@ -50,7 +50,7 @@ public class SignupController {
 
     private DeveloperDAO developerDAO;
     private Developer developer;
-
+    private final String passwordValidation = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}";
 
     public SignupController(){
         System.out.println("SIGNUP CONTROLLER CTOR");
@@ -124,7 +124,7 @@ public class SignupController {
         } );
 
         passwordfld.textProperty().addListener((observableValue, oldValue, newValue) ->{
-            if(passwordfld.getText().trim().isEmpty()){
+            if(!newValue.matches(passwordValidation)){
                 passwordfld.setStyle("-fx-border-color: red");
                 passwordfld.getStyleClass().add("ok");
             }
@@ -151,21 +151,34 @@ public class SignupController {
         StageHandler.loadWindow(getClass().getResource("/fxml/login.fxml"),"Sign in",ctrl);
     }
 
+
+    private boolean check(){
+        if(namefld.getText().trim().isEmpty()){ AlertMaker.alertERROR("Error occured",EmptyFld.NAME.toString()); return false;}
+        else if(surnamefld.getText().trim().isEmpty()){ AlertMaker.alertERROR("Error occured",EmptyFld.SURNAME.toString());return false;}
+        else if(emailfld.getText().trim().isEmpty()){ AlertMaker.alertERROR("Error occured",EmptyFld.EMAIL.toString());return false;}
+        else if(!isValid(emailfld.getText())){ AlertMaker.alertERROR("Error occured", Validation.EMAIL.toString());return false;}
+        else if(usernamefld.getText().trim().isEmpty()){ AlertMaker.alertERROR("Error occured",EmptyFld.USERNAME.toString());return false;}
+        else if(passwordfld.getText().trim().isEmpty()){ AlertMaker.alertERROR("Error occured", EmptyFld.PASSWORD.toString());return false;}
+        return true;
+    }
+
+    private boolean checkPassword(String password){
+        if(password.matches(passwordValidation)) return true;
+        AlertMaker.alertINFORMATION("",Validation.PASSWORD_REGEX.toString());
+        return false;
+    }
+
     @FXML
     public void signinAction(ActionEvent actionEvent) throws IOException {
 
 
         System.out.println("SIGN IN ACTION");
-        if(namefld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured",EmptyFld.NAME.toString());
-        else if(surnamefld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured",EmptyFld.SURNAME.toString());
-        else if(emailfld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured",EmptyFld.EMAIL.toString());
-        else if(!isValid(emailfld.getText())) AlertMaker.alertERROR("Error occured", Validation.EMAIL.toString());
-        else if(usernamefld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured",EmptyFld.USERNAME.toString());
-        else if(passwordfld.getText().trim().isEmpty()) AlertMaker.alertERROR("Error occured", EmptyFld.PASSWORD.toString());
-        else {
+        if(check()) {
             if(developerDAO.findIdOfDeveloper(usernamefld.getText())!=0){
                 AlertMaker.alertERROR("Error occured","Already exist developer with username: " + usernamefld.getText());
-            }else {
+            }
+            else if(checkPassword(passwordfld.getText()))
+             {
                 System.out.println("ADDING MEMBER TO DATABASE");
                 developer = new Developer(namefld.getText(),surnamefld.getText(),emailfld.getText(),usernamefld.getText(),passwordfld.getText());
                 developerDAO.addDeveloper(developer);

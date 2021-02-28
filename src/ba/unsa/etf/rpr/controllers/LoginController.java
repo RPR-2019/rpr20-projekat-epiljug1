@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.enums.EmptyFld;
 import ba.unsa.etf.rpr.enums.StageEnums;
+import ba.unsa.etf.rpr.enums.Validation;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.StageHandler;
@@ -98,7 +99,13 @@ public class LoginController {
             else
                 AlertMaker.alertERROR("Error occured","Developer sa korisničkim imenom: \""+usernamefld.getText()+"\" ne postoji!");
         else {
-            developer = developerDAO.findDeveloperByIDorUsername(0, usernamefld.getText());
+            System.out.println("USERNAME >"  + usernamefld.getText() + "<");
+            System.out.println("PASSWORD >" + passwordfld.getText() + "<");
+            developer = developerDAO.loginGetDeveloper(usernamefld.getText(),passwordfld.getText());
+            if(developer==null){
+                AlertMaker.alertERROR("Error occured", Validation.PASSWORD.toString());
+                return;
+            }
             closeWindow();
 
             Stage homePageStage = new Stage();

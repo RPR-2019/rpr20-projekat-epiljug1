@@ -4,6 +4,7 @@ import ba.unsa.etf.rpr.StageHandler;
 import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.database.ProjectDAO;
+import ba.unsa.etf.rpr.enums.Placeholders;
 import ba.unsa.etf.rpr.enums.Validation;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
@@ -13,6 +14,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -51,9 +53,11 @@ public class OtherProjectsController {
         projectDAO = ProjectDAO.getInstance();
         listProjects = FXCollections.observableArrayList(projectDAO.getAllProjectsForDeveloper(developer));
     }
+
     private Stage getStage(){
         return (Stage) tableViewProjects.getScene().getWindow();
     }
+
     @FXML
     public void initialize(){
         tableViewProjects.setItems(listProjects);
@@ -62,6 +66,8 @@ public class OtherProjectsController {
         colCreator.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getCreator().toString()));
         colClient.setCellValueFactory(new PropertyValueFactory("client_name"));
         colClientEmail.setCellValueFactory(new PropertyValueFactory("client_email"));
+
+        tableViewProjects.setPlaceholder(new Label(Placeholders.PROJECTS.toString()));
     }
 
 

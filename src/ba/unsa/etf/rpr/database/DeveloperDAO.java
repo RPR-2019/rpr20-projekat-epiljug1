@@ -13,7 +13,7 @@ public class DeveloperDAO {
     private static Connection conn;
     private PreparedStatement getAllDevelopers,  addDeveloper, findMax,
             findDeveloperByIdorUsername, findId, getAllProjectsForDeveloper,getAllDevelopersInsteadOfOne
-            ,checkUsername,checkEmail,editProfile;
+            ,checkUsername,checkEmail,editProfile,login;
 
     public static Connection getConn() {
         return conn;
@@ -56,6 +56,7 @@ public class DeveloperDAO {
             checkUsername = conn.prepareStatement("SELECT Count(*) FROM developer WHERE developer_id!=? AND username=?  ");
             checkEmail = conn.prepareStatement("SELECT Count(*) FROM developer WHERE developer_id!=? AND email=?  ");
             editProfile  = conn.prepareStatement("UPDATE developer set ime=?, prezime=?, email=?, username=?,password=? WHERE developer_id=?");
+            login = conn.prepareStatement("SELECT * FROM developer WHERE username=? AND password=?");
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -123,6 +124,20 @@ public class DeveloperDAO {
             sqlException.printStackTrace();
         }
         if(novi==null) return new Developer("","","","","");
+        return novi;
+    }
+
+    public Developer loginGetDeveloper(String username,String password){
+        Developer novi = null;
+        try {
+            login.setString(1,username);
+            login.setString(2,password);
+            ResultSet rs = login.executeQuery();
+            if(rs.next())
+                novi = new Developer(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+        } catch (SQLException sqlException) {
+            sqlException.printStackTrace();
+        }
         return novi;
     }
 

@@ -11,7 +11,7 @@
         <URL value="@/css/dark-theme.css" />
     </stylesheets>
     <center>
-        <TableView fx:id="tableViewProjects" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/dark-theme.css" BorderPane.alignment="CENTER">
+        <TableView fx:id="tableViewProjects" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: transparent;" stylesheets="@../css/dark-theme.css" BorderPane.alignment="CENTER">
             <columns>
                 <TableColumn fx:id="colName" prefWidth="139.0" text="%name" />
                 <TableColumn fx:id="colDate" prefWidth="111.0" text="%date_created" />
@@ -33,6 +33,12 @@
                     </styleClass>
                 </ContextMenu>
             </contextMenu>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
         </TableView>
     </center>
     <right>

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="568.0" prefWidth="815.0" styleClass="anchor" stylesheets="@../css/dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="homepage" prefHeight="568.0" prefWidth="815.0" styleClass="anchor" stylesheets="@../css/dark-theme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar layoutY="-1.0" prefHeight="31.0" prefWidth="675.0" stylesheets="@../css/dark-theme.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="140.0">
         <menus>

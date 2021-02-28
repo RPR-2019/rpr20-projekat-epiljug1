@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.enums.Placeholders;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
 import ba.unsa.etf.rpr.database.ProjectDAO;
@@ -8,6 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -79,6 +81,7 @@ public class ShowDeveloperController {
         surnameFld.setText(developer.getSurname());
         emailFld.setText(developer.getEmail());
         usernameFld.setText(developer.getUsername());
+
         tableViewProjects.setItems(listProjects);
         colName.setCellValueFactory(new PropertyValueFactory("name"));
         colDate.setCellValueFactory(new PropertyValueFactory("dateProjectCreated"));
@@ -91,11 +94,11 @@ public class ShowDeveloperController {
         colCreator.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getCreator().toString()));
         colClient2.setCellValueFactory(new PropertyValueFactory("client_name"));
         colClientEmail2.setCellValueFactory(new PropertyValueFactory("client_email"));
+
+        tableViewOtherProjects.setPlaceholder(new Label(Placeholders.PROJECTS.toString()));
+        tableViewProjects.setPlaceholder(new Label(Placeholders.PROJECTS.toString()));
     }
 
     @FXML
-    public void closeWindowAction(ActionEvent actionEvent){
-        Stage stage = (Stage) nameFld.getScene().getWindow();
-        stage.close();
-    }
+    public void closeWindowAction(ActionEvent actionEvent){ ((Stage) nameFld.getScene().getWindow()).close(); }
 }

@@ -70,7 +70,6 @@ public class AlertMaker {
 
     private static void styleAlert(Alert alert) {
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-//        LibraryAssistantUtil.setStageIcon(stage);
         DialogPane dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(AlertMaker.class.getResource("/css/dark-theme.css").toExternalForm());
         dialogPane.getStyleClass().add("custom-alert");

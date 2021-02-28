@@ -65,6 +65,24 @@ public enum Validation {
             else
                 return "Niste odabrali niti jedan projekat!";
         }
+    },
+    PASSWORD{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "Wrong password!";
+            else
+                return "Pogrešna šifra!";
+        }
+    },
+    PASSWORD_REGEX{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "Password should contain at least 8 chars, one digit, one lower and upper char and without space, tab..";
+            else
+                return "Password treba da sadrži najmanje 8 karaktera, jedno malo i veliko slovo, bez razmaka, novih redova..";
+        }
     };
 
 }

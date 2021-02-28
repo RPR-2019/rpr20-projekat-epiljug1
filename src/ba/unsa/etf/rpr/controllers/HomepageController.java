@@ -12,7 +12,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.BoxBlur;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -22,6 +24,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class HomepageController {
+    @FXML
+    public AnchorPane homepage;
+
     @FXML
     public Button btnYourProjects;
 
@@ -130,9 +135,14 @@ public class HomepageController {
     }
 
     public void aboutAction(ActionEvent actionEvent){
+        BoxBlur blur = new BoxBlur(3, 3, 3);
+        homepage.setEffect(blur);
         AboutAppController aboutAppController = new AboutAppController();
         Stage stage = StageHandler.loadWindow(getClass().getResource("/fxml/aboutApp.fxml"),StageEnums.ABOUT_APP,aboutAppController);
         stage.setResizable(false);
+        stage.setOnHiding(event->{
+            homepage.setEffect(null);
+        });
     }
 
     public void editProfileAction(ActionEvent actionEvent){
