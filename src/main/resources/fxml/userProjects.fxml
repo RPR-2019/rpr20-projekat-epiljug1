@@ -24,8 +24,8 @@
          <contextMenu>
             <ContextMenu>
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#openProjectAction" text="Open project" />
-                  <MenuItem mnemonicParsing="false" onAction="#editProjectAction" text="Edit" />
+                <MenuItem mnemonicParsing="false" onAction="#openProjectAction" text="%open" />
+                  <MenuItem mnemonicParsing="false" onAction="#editProjectAction" text="%edit" />
               </items>
                <styleClass>
                   <String fx:value="table-context" />

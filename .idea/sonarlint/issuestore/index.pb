@@ -17,8 +17,6 @@ H
 BugTracker.db.properties,a\7\a7ac1d865fc48413e32a785179bd2acfea3195f7
 D
 BugTracker.db.script,3\3\3384f628c343bfbf8b354d6e7f9389c282054035
-[
-+src/main/resources/fxml/listDevelopers.fxml,7\2\72ccc9b3d325b6511da41c23539703daf4646dd9
 V
 &src/main/resources/fxml/mailLogin.fxml,1\3\133dc5c69fa8ac62ac8b67c9bfdbfe8206fda446
 r
@@ -27,12 +25,8 @@ Z
 *src/main/resources/fxml/showDeveloper.fxml,a\7\a7dd6c9772c98e08919aa340b1c81c5b54e2411f
 _
 /src/main/java/ba/unsa/etf/rpr/StageHandler.java,c\7\c7a916fc566adcf4ac5111c16019f0ef70a369e6
-Y
-)src/main/resources/fxml/userProjects.fxml,b\5\b5ea1e2e128999f98ee8bb9fbc5d65d51499c9af
 i
 9.idea/libraries/org_testfx_testfx_junit5_4_0_15_alpha.xml,a\8\a8f48de4ecfdd46bf246473730bfcac7810419aa
-Z
-*src/main/resources/fxml/otherProjects.fxml,8\9\89bfcba6e61bd38b4c2db1b7756ecf283b2b065e
 W
 'src/main/java/ba/unsa/etf/rpr/Main.java,3\d\3dbd83fde0d005d38a2cbad2040e98ef5907ebb9
 q

@@ -5,6 +5,7 @@ ba\unsa\etf\rpr\enums\ReportsEnum$9.class
 ba\unsa\etf\rpr\enums\Tooltips.class
 ba\unsa\etf\rpr\enums\BugInfo$7.class
 ba\unsa\etf\rpr\enums\StageEnums$4.class
+ba\unsa\etf\rpr\enums\StageEnums$18.class
 ba\unsa\etf\rpr\controllers\AddBugController.class
 ba\unsa\etf\rpr\LoadWebPage.class
 ba\unsa\etf\rpr\enums\EmptyFld$3.class
@@ -92,6 +93,7 @@ ba\unsa\etf\rpr\enums\EmptyFld$5.class
 ba\unsa\etf\rpr\controllers\OpenBugController.class
 ba\unsa\etf\rpr\NewMain.class
 ba\unsa\etf\rpr\enums\StageEnums$13.class
+ba\unsa\etf\rpr\enums\StageEnums$19.class
 ba\unsa\etf\rpr\reports\ReportsHandler.class
 ba\unsa\etf\rpr\controllers\LoginController.class
 ba\unsa\etf\rpr\enums\StageEnums$2.class
