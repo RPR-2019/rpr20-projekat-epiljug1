@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.alert.AlertMaker;
 import ba.unsa.etf.rpr.database.DeveloperDAO;
 import ba.unsa.etf.rpr.enums.EmptyFld;
+import ba.unsa.etf.rpr.enums.StageEnums;
 import ba.unsa.etf.rpr.enums.Validation;
 import ba.unsa.etf.rpr.model.Developer;
 import javafx.event.ActionEvent;
@@ -75,6 +76,14 @@ public class EditProfileController {
         if(check() &&  checkPassword(passFld.getText())){
             if(!isValid(emailFld.getText())) {
                 AlertMaker.alertERROR("Error occured", Validation.EMAIL.toString());
+                return;
+            }
+            if(!developer.getUsername().equals(usernameFld.getText()) && developerDAO.findIdOfDeveloper(usernameFld.getText())!=0){
+                AlertMaker.alertERROR("Error occured", StageEnums.ALREADY_EXIST.toString()  + usernameFld.getText());
+                return;
+            }
+            if(!developer.getEmail().equals(emailFld.getText()) && developerDAO.findIdOfDeveloperWithEmail(emailFld.getText())!=0){
+                AlertMaker.alertERROR("Error occured", StageEnums.ALREADY_EXIST_MAIL.toString() );
                 return;
             }
 

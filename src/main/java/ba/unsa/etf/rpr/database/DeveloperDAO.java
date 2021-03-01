@@ -13,7 +13,7 @@ public class DeveloperDAO {
     private static Connection conn;
     private PreparedStatement getAllDevelopers,  addDeveloper, findMax,
             findDeveloperByIdorUsername, findId, getAllProjectsForDeveloper,getAllDevelopersInsteadOfOne
-            ,checkUsername,checkEmail,editProfile,login;
+            ,checkUsername,checkEmail,editProfile,login,findIdWithEmail;
 
     public static Connection getConn() {
         return conn;
@@ -49,6 +49,7 @@ public class DeveloperDAO {
             findMax = conn.prepareStatement("SELECT Max(developer_id) from developer");
             findDeveloperByIdorUsername = conn.prepareStatement("SELECT * FROM developer where   developer_id=? or username = ? ");
             findId = conn.prepareStatement("SELECT developer_id from developer where username=?");
+            findIdWithEmail= conn.prepareStatement("SELECT developer_id from developer where email=?");
             getAllProjectsForDeveloper = conn.prepareStatement("SELECT DISTINCT project.*\n" +
                     "FROM project, connections, developer\n" +
                     "WHERE project_id=connections.pr_id AND connections.de_id=developer_id AND developer_id=?;\n");
@@ -170,6 +171,16 @@ public class DeveloperDAO {
         try{
             findId.setString(1,username);
             ResultSet rs = findId.executeQuery();
+            if(rs.next())return rs.getInt(1);
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+        return 0;
+    }
+    public int findIdOfDeveloperWithEmail(String email){
+        try{
+            findIdWithEmail.setString(1,email);
+            ResultSet rs = findIdWithEmail.executeQuery();
             if(rs.next())return rs.getInt(1);
         }catch (SQLException sqlException){
             sqlException.printStackTrace();

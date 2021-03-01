@@ -175,8 +175,12 @@ public class SignupController {
         System.out.println("SIGN IN ACTION");
         if(check()) {
             if(developerDAO.findIdOfDeveloper(usernamefld.getText())!=0){
-                AlertMaker.alertERROR("Error occured","Already exist developer with username: " + usernamefld.getText());
-            }
+                AlertMaker.alertERROR("Error occured",StageEnums.ALREADY_EXIST.toString() + usernamefld.getText());
+            }else
+                if(developerDAO.findIdOfDeveloperWithEmail(emailfld.getText())!=0){
+                    AlertMaker.alertERROR("Error occured", StageEnums.ALREADY_EXIST_MAIL.toString() );
+
+                }
             else if(checkPassword(passwordfld.getText()))
              {
                 System.out.println("ADDING MEMBER TO DATABASE");

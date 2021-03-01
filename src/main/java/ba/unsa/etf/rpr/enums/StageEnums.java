@@ -157,6 +157,24 @@ public enum StageEnums {
             else
                 return " već radi na ovom projektu!";
         }
+    },
+    ALREADY_EXIST{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "Already exist developer with username: ";
+            else
+                return "Već postoji developer sa korisničkim imenom: ";
+        }
+    },
+    ALREADY_EXIST_MAIL{
+        @Override
+        public String toString() {
+            if(Locale.getDefault().getCountry().equals("US"))
+                return "Already exist developer with this e-mail";
+            else
+                return "Već postoji developer sa istim e-mailom";
+        }
     }
     ;
 
