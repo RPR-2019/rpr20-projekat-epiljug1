@@ -5,6 +5,12 @@
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="developers.xml"/>
 	<parameter name="developer_id" class="java.lang.Integer"/>
 	<parameter name="name_of_developer" class="java.lang.String"/>
+	<parameter name="assigned_projects" class="java.lang.String"/>
+	<parameter name="name" class="java.lang.String"/>
+	<parameter name="creator" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<parameter name="client_name" class="java.lang.String"/>
+	<parameter name="client_email" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[select p.naziv, p.date_created, p.client_name, p.client_email,d.ime, d.prezime
  from project p, developer d, connections c
@@ -44,10 +50,16 @@
 				</textElement>
 				<text><![CDATA[Bug Tracker]]></text>
 			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="60" y="52" width="458" height="1" forecolor="#000000" backcolor="#000000" uuid="a2ad1035-447f-42ce-af0c-3fc52ed91289"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="60" splitType="Stretch">
+		<band height="70" splitType="Stretch">
 			<textField>
 				<reportElement x="128" y="7" width="180" height="30" uuid="481567de-a628-4b4f-b0cc-505bdf07171e"/>
 				<textElement>
@@ -62,54 +74,59 @@
 				</textElement>
 				<text><![CDATA[Developer :]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="40" y="30" width="480" height="30" uuid="374bf0b8-9fe1-49a2-8fd6-91e326b51d41"/>
+			<textField>
+				<reportElement x="40" y="30" width="500" height="30" uuid="5cb3006d-501f-4eb9-81e6-8fb13b43cde9"/>
 				<textElement>
 					<font size="16"/>
 				</textElement>
-				<text><![CDATA[Projects to which the developer has been added]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA[$P{assigned_projects}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="43" splitType="Stretch">
 			<frame>
 				<reportElement mode="Opaque" x="30" y="0" width="514" height="20" forecolor="#FFFFFF" backcolor="#666666" uuid="a39ccec5-fc01-40b7-b12b-bdd712a61e6f"/>
-				<staticText>
-					<reportElement x="38" y="0" width="50" height="19" forecolor="#FFFFFF" uuid="37351166-62f1-4b97-8726-3880344cc20f"/>
-					<textElement>
-						<font size="12"/>
-					</textElement>
-					<text><![CDATA[Name]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="207" y="-1" width="73" height="19" forecolor="#FFFFFF" uuid="b9de5336-a25d-4281-a502-02011c4a998b"/>
-					<textElement>
-						<font size="12"/>
-					</textElement>
-					<text><![CDATA[Date created]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="311" y="0" width="100" height="19" forecolor="#FFFFFF" uuid="5af42fe3-980e-436a-bbad-117bfa8f1bc4"/>
-					<textElement>
-						<font size="12"/>
-					</textElement>
-					<text><![CDATA[Client name]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="403" y="0" width="97" height="19" forecolor="#FFFFFF" uuid="7ecd9696-6470-461a-bd57-44ec227f54e1"/>
-					<textElement>
-						<font size="12"/>
-					</textElement>
-					<text><![CDATA[Client e-mail]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="129" y="1" width="60" height="18" forecolor="#FFFFFF" uuid="7519574f-6ba9-4436-ad8f-d4ca1f40034a"/>
-					<textElement>
-						<font size="12"/>
-					</textElement>
-					<text><![CDATA[Creator]]></text>
-				</staticText>
+				<textField>
+					<reportElement x="2" y="0" width="92" height="19" forecolor="#FFFFFF" uuid="8bbd638a-35c8-477b-9095-dc92a790e480">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="91" y="0" width="112" height="19" forecolor="#FFFFFF" uuid="7c0e53a7-b65e-4b95-a3d4-0e79e46f8f23">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$P{creator}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="200" y="0" width="78" height="19" forecolor="#FFFFFF" uuid="20c48166-262e-4eb8-a756-a9a0e64ba534">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="278" y="0" width="112" height="19" forecolor="#FFFFFF" uuid="2aad8585-9e9d-49e4-b223-d4ea67db4520">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$P{client_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="390" y="0" width="122" height="19" forecolor="#FFFFFF" uuid="12690507-6cf8-41e4-9d0c-a0c52b463bcf">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$P{client_email}]]></textFieldExpression>
+				</textField>
 			</frame>
 		</band>
 	</columnHeader>
@@ -124,7 +141,7 @@
 					</graphicElement>
 				</line>
 				<textField>
-					<reportElement x="10" y="-2" width="82" height="22" uuid="38378b36-1c86-4bc3-bf12-680bb6bc1060"/>
+					<reportElement x="0" y="-2" width="91" height="22" uuid="38378b36-1c86-4bc3-bf12-680bb6bc1060"/>
 					<textElement textAlignment="Center"/>
 					<textFieldExpression><![CDATA[$F{naziv}]]></textFieldExpression>
 				</textField>
@@ -134,17 +151,17 @@
 					<textFieldExpression><![CDATA[$F{ime}+" "+$F{prezime}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="203" y="0" width="80" height="22" uuid="519ce78d-f543-4092-abc6-145e37409014"/>
+					<reportElement x="203" y="0" width="75" height="22" uuid="519ce78d-f543-4092-abc6-145e37409014"/>
 					<textElement textAlignment="Center"/>
 					<textFieldExpression><![CDATA[$F{date_created}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="300" y="0" width="90" height="22" uuid="60ab95d5-5cc4-41a7-b469-0f59e2d1ea55"/>
+					<reportElement x="278" y="0" width="112" height="22" uuid="60ab95d5-5cc4-41a7-b469-0f59e2d1ea55"/>
 					<textElement textAlignment="Center"/>
 					<textFieldExpression><![CDATA[$F{client_name}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="405" y="0" width="109" height="22" uuid="1e1e9868-930f-4d3e-852e-b0f7e337098e"/>
+					<reportElement x="390" y="0" width="124" height="22" uuid="1e1e9868-930f-4d3e-852e-b0f7e337098e"/>
 					<textElement textAlignment="Center"/>
 					<textFieldExpression><![CDATA[$F{client_email}]]></textFieldExpression>
 				</textField>

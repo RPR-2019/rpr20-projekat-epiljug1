@@ -62,7 +62,7 @@ public class DeveloperDAO {
         }
     }
 
-    private void createDataBase() {
+    private static void createDataBase() {
         Scanner ulaz = null;
         try {
             ulaz = new Scanner( new FileInputStream("BugTracker.db.sql"));
@@ -83,6 +83,22 @@ public class DeveloperDAO {
             e.printStackTrace();
         }
     }
+
+    public static void backToDefault(){
+        try{
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate("DELETE FROM bug_assigned");
+            stmt.executeUpdate("DELETE FROM connections");
+            stmt.executeUpdate("DELETE FROM bug");
+            stmt.executeUpdate("DELETE FROM project");
+            stmt.executeUpdate("DELETE FROM developer");
+            createDataBase();
+        }catch (SQLException sqlException){
+            sqlException.printStackTrace();
+        }
+    }
+
+
 
     public ArrayList<Developer> getAllDevelopers(int id){
         ArrayList<Developer> developers = new ArrayList<>();

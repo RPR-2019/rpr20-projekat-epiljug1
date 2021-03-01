@@ -8,7 +8,7 @@ import ba.unsa.etf.rpr.enums.Placeholders;
 import ba.unsa.etf.rpr.enums.Validation;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
-import ba.unsa.etf.rpr.reports.ReportsListDevelopersEN;
+import ba.unsa.etf.rpr.reports.ReportsHandler;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -84,7 +84,7 @@ public class OtherProjectsController {
     @FXML
     public void exportAction(ActionEvent actionEvent){
         try {
-            new ReportsListDevelopersEN().showReport(projectDAO.getConn(),developerDAO.findIdOfDeveloper(developer.getUsername()),developer.getName()+" "+developer.getSurname() + "("+developer.getUsername()+")");
+            new ReportsHandler().showReport(projectDAO.getConn(),developerDAO.findIdOfDeveloper(developer.getUsername()),developer.getName()+" "+developer.getSurname() + "("+developer.getUsername()+")");
         } catch (JRException e1) {
             e1.printStackTrace();
         }

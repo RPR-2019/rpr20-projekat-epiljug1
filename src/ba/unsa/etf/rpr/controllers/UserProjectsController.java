@@ -7,7 +7,7 @@ import ba.unsa.etf.rpr.database.ProjectDAO;
 import ba.unsa.etf.rpr.enums.Validation;
 import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
-import ba.unsa.etf.rpr.reports.ReportsListDevelopersEN;
+import ba.unsa.etf.rpr.reports.ReportsHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -105,7 +105,7 @@ public class UserProjectsController {
     @FXML
     public void exportAction(ActionEvent actionEvent){
         try {
-            new ReportsListDevelopersEN().showReport(projectDAO.getConn(), developerDAO.findIdOfDeveloper(developer.getUsername()), developer);
+            new ReportsHandler().showReport(projectDAO.getConn(), developerDAO.findIdOfDeveloper(developer.getUsername()), developer);
         } catch (JRException e1) {
             e1.printStackTrace();
         }

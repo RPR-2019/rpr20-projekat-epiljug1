@@ -45,7 +45,7 @@ public class BugDAO {
         try{
             getAllBugs = conn.prepareStatement("SELECT * FROM bug");
         }catch (SQLException e){
-            createDataBase();
+            DeveloperDAO.backToDefault();
             try{
                 getAllBugs = conn.prepareStatement("SELECT * FROM bug");
             }catch (SQLException e2){
@@ -79,27 +79,7 @@ public class BugDAO {
         }
     }
 
-    private void createDataBase() {
-        Scanner ulaz = null;
-        try {
-            ulaz = new Scanner( new FileInputStream("BugTracker.db.sql"));
-            String sqlUpit="";
-            while(ulaz.hasNext()){
-                sqlUpit+=ulaz.nextLine();
-                if(sqlUpit.charAt(sqlUpit.length()-1)==';') {
-                    try {
-                        Statement stmt = conn.createStatement();
-                        stmt.execute(sqlUpit);
-                        sqlUpit="";
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
+
     private int maxIndex(){
         try {
             ResultSet rs = findMax.executeQuery();

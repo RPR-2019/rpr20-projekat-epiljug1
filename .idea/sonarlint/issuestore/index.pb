@@ -93,8 +93,6 @@ h
 8src/ba/unsa/etf/rpr/reports/ReportsListDevelopersBS.java,0\2\0200e3ccf9a54edfd9ce3e3d3bd4ae65c95a9dfd
 h
 8src/ba/unsa/etf/rpr/reports/ReportsListDevelopersEN.java,2\6\26fba831f191c2496b767b7fc6dd43907009dd68
-Y
-)resources/reports/all_Developers_BS.jrxml,1\6\1686f743140fed0289b978510ec2bcb6353e40a0
 A
 BugTracker.db.log,1\4\1444d9132226c4c010f7a25d71fef29b519de121
 H

@@ -51,7 +51,7 @@
          <children>
             <Label layoutX="453.0" layoutY="408.0" prefHeight="34.0" prefWidth="191.0" text="%new_acc" textFill="#f2f2f2">
                <font>
-                  <Font size="19.0" />
+                  <Font size="15.0" />
                </font>
             </Label>
             <Button fx:id="signup" layoutX="630.0" layoutY="404.0" mnemonicParsing="false" onAction="#signupAction" prefHeight="39.0" prefWidth="108.0" style="-fx-border-color: transparent;" styleClass="signup" stylesheets="@../css/dark-theme.css" text="%sign_up" textAlignment="CENTER" textFill="WHITE" underline="true">

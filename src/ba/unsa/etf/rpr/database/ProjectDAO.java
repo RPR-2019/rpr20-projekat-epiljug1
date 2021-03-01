@@ -52,7 +52,7 @@ public class ProjectDAO {
         try{
             getAllProjects = conn.prepareStatement("SELECT * FROM project");
         }catch (SQLException e){
-            createDataBase();
+            DeveloperDAO.backToDefault();
             try{
                 getAllProjects = conn.prepareStatement("SELECT * FROM project");
             }catch (SQLException e2){
@@ -92,27 +92,7 @@ public class ProjectDAO {
         }
         return 1;
     }
-    private void createDataBase() {
-        Scanner ulaz = null;
-        try {
-            ulaz = new Scanner( new FileInputStream("BugTracker.db.sql"));
-            String sqlUpit="";
-            while(ulaz.hasNext()){
-                sqlUpit+=ulaz.nextLine();
-                if(sqlUpit.charAt(sqlUpit.length()-1)==';') {
-                    try {
-                        Statement stmt = conn.createStatement();
-                        stmt.execute(sqlUpit);
-                        sqlUpit="";
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
+
 
     public  LocalDate getDate(String date){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy.");
@@ -137,20 +117,15 @@ public class ProjectDAO {
     public void addNewProject(Project project){
         try{
             int id = maxIndex();
-          //  int idDevelopera = instanceDeveloper.findIdOfDeveloper(project.getCreator().getUsername());
-           int idDevelopera = 1;
+
             addProject.setInt(1,id);
             addProject.setString(2,project.getName());
             addProject.setString(3,project.getDescription());
-            addProject.setInt(4,idDevelopera);
+            addProject.setInt(4,instanceDeveloper.findIdOfDeveloper(project.getCreator().getUsername()));
             addProject.setString(5,project.getDateProjectCreated());
             addProject.setString(6,project.getClient_name());
             addProject.setString(7,project.getClient_email());
             addProject.setString(8,project.getCode_link());
-//            addProjectConnectionTable.setInt(1,id);
-//            addProjectConnectionTable.setInt(2,idDevelopera);
-//
-//            addProjectConnectionTable.executeUpdate();
 
             addProject.executeUpdate();
 

@@ -81,7 +81,7 @@
                <children>
                   <ButtonBar prefHeight="40.0" prefWidth="200.0">
                      <buttons>
-                        <Button defaultButton="true" mnemonicParsing="false" onAction="#addAction" prefHeight="39.0" prefWidth="98.0" stylesheets="@../css/dark-theme.css" text="%add" />
+                        <Button fx:id="addButton" defaultButton="true" mnemonicParsing="false" onAction="#addAction" prefHeight="39.0" prefWidth="98.0" stylesheets="@../css/dark-theme.css" text="%add" />
                         <Button cancelButton="true" mnemonicParsing="false" onAction="#closeWindowAction" prefHeight="39.0" prefWidth="98.0" stylesheets="@../css/dark-theme.css" text="%close" />
                      </buttons>
                   </ButtonBar>

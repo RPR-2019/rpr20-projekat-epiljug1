@@ -7,7 +7,7 @@ import ba.unsa.etf.rpr.database.ProjectDAO;
 import ba.unsa.etf.rpr.enums.Placeholders;
 import ba.unsa.etf.rpr.enums.Validation;
 import ba.unsa.etf.rpr.model.Developer;
-import ba.unsa.etf.rpr.reports.ReportsListDevelopersEN;
+import ba.unsa.etf.rpr.reports.ReportsHandler;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -123,7 +123,7 @@ public class ListDevelopersController {
         @FXML
         public void exportAction(ActionEvent actionEvent){
                 try {
-                    new ReportsListDevelopersEN().showReport(developerDAO.getConn(),developerDAO.findIdOfDeveloper(developer.getUsername()));
+                    new ReportsHandler().showReport(developerDAO.getConn(),developerDAO.findIdOfDeveloper(developer.getUsername()));
                 } catch (JRException e1) {
                     e1.printStackTrace();
                 }

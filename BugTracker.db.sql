@@ -45,12 +45,8 @@ CREATE TABLE IF NOT EXISTS "bug" (
 	PRIMARY KEY("bug_id"),
 	FOREIGN KEY("projectID") REFERENCES "project"("project_id")
 );
-INSERT INTO "developer" VALUES (1,'Evelin','Piljug','piljugevelin28@gmail.com','pilja','pass');
-INSERT INTO "developer" VALUES (2,'Evelin2','Piljug2','epiljug1@etf.unsa.ba','pilja2','pass');
-INSERT INTO "developer" VALUES (3,'test','test','test','test','test');
-INSERT INTO "developer" VALUES (4,'Novi','korisniilk','mail@mail.com','username','password');
-INSERT INTO "developer" VALUES (5,'novi','korisnik','mail@noviMail.com','nkorisnik','test');
-INSERT INTO "project" VALUES (1,'projekat1','opis111fasodjkng;ljsdfn;lgjns;dkfjng;kdfsjng;vkjsdfn;kvnbsdfg;kjnbeiastrngbs;dkfljnbstirgnbkdjfneustrbngpk;djfnbvigusrtnbvikjnsdfigb',1,'09-Feb-2021','kompanije.doo','client@mail.com','https://github.com/RPR-2019/rpr20-projekat-epiljug1');
-INSERT INTO "project" VALUES (2,'projekat2','opis2',2,'09-Feb-2021','kompanija2.doo','client2@mail.com','link');
-INSERT INTO "project" VALUES (3,'Novi projekat','Deskripcija',1,'10-Feb-2021','Klijent','Klijent email','link');
+INSERT INTO "developer" VALUES (1,'Evelin','Piljug','piljugevelin28@gmail.com','admin','Password1');
+INSERT INTO "developer" VALUES (2,'Evelin2','Piljug2','epiljug1@etf.unsa.ba','admin2','Password2');
+INSERT INTO "project" VALUES (1,'projekat1','opis projekta 1',1,'09-Feb-2021','kompanije.doo','client@mail.com','https://github.com/RPR-2019/rpr20-projekat-epiljug1');
+INSERT INTO "bug" VALUES (1,'bug_name','bug_desc','bug_type','status','01-Feb-2021',1,'High',0,0);
 COMMIT;
