@@ -1,0 +1,49 @@
+
+
+java:S1319£"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ñ¿ëæ8ÈéËíş.
+
+java:S1319Ä"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ºö¥8ÈéËíş.
+“
+java:S1319Û"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Õäª­ùÿÿÿÿ8ÈéËíş.
+“
+java:S1319ë"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‘é½Öúÿÿÿÿ8ÈéËíş.
+
+java:S1319ù"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(æØ›æ8ÈéËíş.
+J
+java:S1659"(Declare "getAllBugs" on a separate line.(òŠÎşÿÿÿÿ8ÈéËíş.
+K
+java:S1659")Declare "findBugByID" on a separate line.(òŠÎşÿÿÿÿ8ÈéËíş.
+F
+java:S1659"$Declare "addBug" on a separate line.(òŠÎşÿÿÿÿ8ÈéËíş.
+G
+java:S1659"%Declare "findMax" on a separate line.(òŠÎşÿÿÿÿ8ÈéËíş.
+T
+java:S1659"2Declare "getAllBugsForProject" on a separate line.(òŠÎşÿÿÿÿ8ÈéËíş.
+M
+java:S1659"+Declare "getBugReguest" on a separate line.(òŠÎşÿÿÿÿ8ÈéËíş.
+N
+java:S1659",Declare "approveRequest" on a separate line.(òŠÎşÿÿÿÿ8ÈéËíş.
+F
+java:S1659")Declare "denyRequest" on a separate line.(§È®°8ÈéËíş.
+H
+java:S1659"+Declare "getSolvedBugs" on a separate line.(§È®°8ÈéËíş.
+B
+java:S1659"%Declare "editBug" on a separate line.(§È®°8ÈéËíş.
+J
+java:S1659"-Declare "getAssignedBugs" on a separate line.(§È®°8ÈéËíş.
+M
+java:S1659"0Declare "getAssignedBugsDev" on a separate line.(§È®°8ÈéËíş.
+D
+java:S1659"'Declare "addAssign" on a separate line.(§È®°8ÈéËíş.
+K
+java:S1659".Declare "addRequestForBug" on a separate line.(§È®°8ÈéËíş.
+J
+java:S1659"-Declare "checkForRequest" on a separate line.(§È®°8ÈéËíş.
+Q
+java:S1659"4Declare "removeBugsForDeveloper" on a separate line.(˜±®š8ÈéËíş.
+V
+java:S1659"9Declare "getAssignedBugsForDeveloper" on a separate line.(˜±®š8ÈéËíş.
+M
+java:S1659"0Declare "removeAssignedBugs" on a separate line.(˜±®š8ÈéËíş.
+K
+java:S2115%")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ8ÈéËíş.

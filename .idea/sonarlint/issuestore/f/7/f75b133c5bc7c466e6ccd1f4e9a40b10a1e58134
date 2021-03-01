@@ -1,0 +1,53 @@
+
+
+java:S1319‡"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(éÃ²Ò8÷‹Ìíş.
+
+java:S1319–"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(‡³©8÷‹Ìíş.
+“
+java:S1319¨"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¡­Îìüÿÿÿÿ8÷‹Ìíş.
+“
+java:S1319é"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¡†âáıÿÿÿÿ8÷‹Ìíş.
+“
+java:S1319ú"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ƒ³¦§ÿÿÿÿÿ8÷‹Ìíş.
+n	java:S117º"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÈ’É8÷‹Ìíş.
+n	java:S117º"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÈ’É8÷‹Ìíş.
+n	java:S117º"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÈ’É8÷‹Ìíş.
+K
+java:S1659")Declare "findProject" on a separate line.(şÖ……ûÿÿÿÿ8÷‹Ìíş.
+J
+java:S1659"(Declare "addProject" on a separate line.(şÖ……ûÿÿÿÿ8÷‹Ìíş.
+G
+java:S1659"%Declare "findMax" on a separate line.(şÖ……ûÿÿÿÿ8÷‹Ìíş.
+F
+java:S1659"$Declare "findId" on a separate line.(şÖ……ûÿÿÿÿ8÷‹Ìíş.
+Y
+java:S1659"7Declare "addProjectConnectionTable" on a separate line.(şÖ……ûÿÿÿÿ8÷‹Ìíş.
+Y
+java:S1659"7Declare "getAllProjectsOfDeveloper" on a separate line.(«êÕóùÿÿÿÿ8÷‹Ìíş.
+\
+java:S1659":Declare "getAllProjectsUserIsAssigned" on a separate line.(«êÕóùÿÿÿÿ8÷‹Ìíş.
+M
+java:S1659"+Declare "updateProject" on a separate line.(«êÕóùÿÿÿÿ8÷‹Ìíş.
+I
+java:S1659"'Declare "countBugs" on a separate line.(«êÕóùÿÿÿÿ8÷‹Ìíş.
+O
+java:S1659"-Declare "countSolvedBugs" on a separate line.(«êÕóùÿÿÿÿ8÷‹Ìíş.
+\
+java:S1659"?Declare "getAllDevelopersWhoWorksOnProject" on a separate line.(ßËĞ8÷‹Ìíş.
+M
+java:S1659"0Declare "searchForDeveloper" on a separate line.(ßËĞ8÷‹Ìíş.
+P
+java:S1659"3Declare "addDeveloperOnProject" on a separate line.(ßËĞ8÷‹Ìíş.
+J
+java:S1659"-Declare "removeDeveloper" on a separate line.(ßËĞ8÷‹Ìíş.
+K
+java:S3010&".Remove this assignment of "instanceDeveloper".(°ÊÈ¨8÷‹Ìíş.
+K
+java:S2115,")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ8÷‹Ìíş.
+[	java:S106É"9Replace this use of System.out or System.err by a logger.(ñÌû¬úÿÿÿÿ8÷‹Ìíş.
+[	java:S106Ó"9Replace this use of System.out or System.err by a logger.(±ı‡£øÿÿÿÿ8÷‹Ìíş.
+[	java:S106Ü"9Replace this use of System.out or System.err by a logger.(Î£çÔúÿÿÿÿ8÷‹Ìíş.
+Y	java:S125ì"<This block of commented-out lines of code should be removed.(ãñìË8÷‹Ìíş.
+Y	java:S125ğ"<This block of commented-out lines of code should be removed.(äØñ„8÷‹Ìíş.
+_
+java:S1068"=Remove this unused "addProjectConnectionTable" private field.(şÖ……ûÿÿÿÿ8÷‹Ìíş.

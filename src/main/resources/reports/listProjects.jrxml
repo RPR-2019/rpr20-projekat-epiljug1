@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="listProjects" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8f96e795-5396-49a8-93d5-c010875067ad">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="developers.xml"/>
+	<parameter name="creator_id" class="java.lang.Integer"/>
+	<parameter name="name_of_creator" class="java.lang.String"/>
+	<parameter name="project_created" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT  p.naziv, p.date_created, p.client_name, p.client_email
+from project p 
+where p.creator_id=$P{creator_id}]]>
+	</queryString>
+	<field name="naziv" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="naziv"/>
+		<property name="com.jaspersoft.studio.field.label" value="naziv"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="project"/>
+	</field>
+	<field name="date_created" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="date_created"/>
+		<property name="com.jaspersoft.studio.field.label" value="date_created"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="project"/>
+	</field>
+	<field name="client_name" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="client_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="client_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="project"/>
+	</field>
+	<field name="client_email" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="client_email"/>
+		<property name="com.jaspersoft.studio.field.label" value="client_email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="project"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="560" height="79" uuid="087b7d54-578c-49bd-913f-85662fd22a16"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="51" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Bug Tracker]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="60" y="52" width="458" height="1" forecolor="#000000" backcolor="#000000" uuid="d2b022a5-14f9-4a56-8958-dcc3b542b791"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="59" splitType="Stretch">
+			<textField>
+				<reportElement x="196" y="28" width="302" height="30" uuid="2185a3b7-c54b-4c58-830c-2057bb53dccd"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{name_of_creator}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="44" y="29" width="145" height="30" uuid="dc790560-2296-4dfd-861b-69b42de28ade"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{project_created}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="40" y="5" width="458" height="20" forecolor="#FFFFFF" backcolor="#666666" uuid="572d157d-9f51-4c62-8986-c17a810816f8"/>
+				<staticText>
+					<reportElement x="0" y="1" width="130" height="19" forecolor="#FFFFFF" uuid="825b4091-5ad0-4f47-99eb-90e496c343c5"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="130" y="0" width="96" height="19" forecolor="#FFFFFF" uuid="953c996c-345d-41c3-992a-2500293f39c0"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Date created]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="226" y="0" width="96" height="19" forecolor="#FFFFFF" uuid="3a097feb-6730-4eb8-9d9a-7fc2d681bed2"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Client name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="322" y="0" width="136" height="19" forecolor="#FFFFFF" uuid="4314e873-cd31-487f-9333-2a8763d03ebe"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Client e-mail]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<frame>
+				<reportElement x="44" y="-9" width="458" height="22" uuid="88d92780-af84-4feb-a77e-7aac2ec76fba"/>
+				<textField>
+					<reportElement x="0" y="0" width="126" height="20" uuid="d2d5b466-6460-41dd-b165-5d8786b5e6ea"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{naziv}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="126" y="0" width="96" height="21" uuid="b4e58870-f8a1-4d6f-b0c0-d1bc4ba0459b"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{date_created}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="222" y="0" width="96" height="20" uuid="534f0fb9-16e0-44fc-adc6-52a782427582"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{client_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="318" y="1" width="136" height="21" uuid="06f835c9-51b5-40cf-9c0e-849a16db00ed"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{client_email}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="-5" y="21" width="458" height="1" uuid="13940d8f-4dc9-4ebe-b5b8-44f149b9a6f3"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineColor="#999999"/>
+					</graphicElement>
+				</line>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

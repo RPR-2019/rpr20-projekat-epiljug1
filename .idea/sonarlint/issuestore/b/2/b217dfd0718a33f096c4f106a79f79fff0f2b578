@@ -1,0 +1,53 @@
+
+’
+java:S1319g"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÔÈ©óüÿÿÿÿ8ÙğËíş.
+
+java:S1319v"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¬ˆíò8ÙğËíş.
+g
+java:S2095D"EUse try-with-resources or close this "Scanner" in a "finally" clause.(Üı™éşÿÿÿÿ8ÙğËíş.
+i
+java:S2095Y"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8ÙğËíş.
+i
+java:S2095J"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8ÙğËíş.
+j
+java:S2095ì"GUse try-with-resources or close this "Statement" in a "finally" clause.(ìï‡Àûÿÿÿÿ8ÙğËíş.
+M
+java:S1066º"/Merge this if statement with the enclosing one.(¾¤ 8ÙğËíş.
+M
+java:S1066Ç"/Merge this if statement with the enclosing one.(¾¤ 8ÙğËíş.
+>
+java:S1643G"Use a StringBuilder instead.(¥…ˆÇşÿÿÿÿ8ÙğËíş.
+W
+java:S1141I"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8ÙğËíş.
+L
+java:S1659"*Declare "addDeveloper" on a separate line.(Ê¹ şÿÿÿÿ8ÙğËíş.
+G
+java:S1659"%Declare "findMax" on a separate line.(Ê¹ şÿÿÿÿ8ÙğËíş.
+[
+java:S1659"9Declare "findDeveloperByIdorUsername" on a separate line.(µ…üÿÿÿÿ8ÙğËíş.
+F
+java:S1659"$Declare "findId" on a separate line.(µ…üÿÿÿÿ8ÙğËíş.
+Z
+java:S1659"8Declare "getAllProjectsForDeveloper" on a separate line.(µ…üÿÿÿÿ8ÙğËíş.
+\
+java:S1659":Declare "getAllDevelopersInsteadOfOne" on a separate line.(µ…üÿÿÿÿ8ÙğËíş.
+M
+java:S1659"+Declare "checkUsername" on a separate line.(Áììÿÿÿÿÿ8ÙğËíş.
+J
+java:S1659"(Declare "checkEmail" on a separate line.(Áììÿÿÿÿÿ8ÙğËíş.
+K
+java:S1659")Declare "editProfile" on a separate line.(Áììÿÿÿÿÿ8ÙğËíş.
+E
+java:S1659"#Declare "login" on a separate line.(Áììÿÿÿÿÿ8ÙğËíş.
+C
+java:S3010"!Remove this assignment of "conn".(”ÛÚ¬şÿÿÿÿ8ÙğËíş.
+K
+java:S2115")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ8ÙğËíş.
+X	java:S125n"<This block of commented-out lines of code should be removed.(Ï­Íº8ÙğËíş.
+X	java:S125|"<This block of commented-out lines of code should be removed.(Ï­Íº8ÙğËíş.
+Y
+java:S2696ø"6Make the enclosing method "static" or remove this set.(”ÛÚ¬şÿÿÿÿ8ÙğËíş.
+L
+java:S2115ø")Add password protection to this database.(”ÛÚ¬şÿÿÿÿ8ÙğËíş.
+`
+java:S1068">Remove this unused "getAllProjectsForDeveloper" private field.(µ…üÿÿÿÿ8ÙğËíş.

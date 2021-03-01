@@ -1,0 +1,23 @@
+
+x
+java:S1192>"VDefine a constant instead of duplicating this literal "-fx-border-color: red" 4 times.(ÛÎ’Ïüÿÿÿÿ8ÌÉíş.
+p
+java:S1192]"NDefine a constant instead of duplicating this literal "Error occured" 5 times.(¾ÃËëüÿÿÿÿ8ÌÉíş.
+z
+java:S14501"XRemove the "developer" field and declare it as a local variable in the relevant methods.(‚•è§ÿÿÿÿÿ8ÌÉíş.
+T
+java:S1172["2Remove this unused method parameter "actionEvent".(™öÊÆûÿÿÿÿ8ÌÉíş.
+t
+java:S3776["RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(™öÊÆûÿÿÿÿ8ÌÉíş.
+S
+java:S5261c"1Add explicit curly braces to avoid dangling else.(„¶áìøÿÿÿÿ8ÌÉíş.
+U	java:S106f"9Replace this use of System.out or System.err by a logger.(ÒÅïğ8ÌÉíş.
+U	java:S106g"9Replace this use of System.out or System.err by a logger.(íí¹½8ÌÉíş.
+d
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8ÌÉíş.
+O
+java:S1172¢"2Remove this unused method parameter "actionEvent".(êÕ†A8ÌÉíş.
+T
+java:S1172¸"1Remove this unused method parameter "mouseEvent".(‡Àƒüüÿÿÿÿ8ÌÉíş.
+T
+java:S1172½"1Remove this unused method parameter "mouseEvent".(ºŸ…ñûÿÿÿÿ8ÌÉíş.

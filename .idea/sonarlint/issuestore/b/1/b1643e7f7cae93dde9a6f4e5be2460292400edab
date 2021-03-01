@@ -1,0 +1,27 @@
+
+y
+java:S1192J"WDefine a constant instead of duplicating this literal "-fx-border-color: red" 10 times.(¼Æ‚åùÿÿÿÿ8Á¿Ëíş.
+j
+java:S1192Ä"LDefine a constant instead of duplicating this literal "Translation" 3 times.(½Ñ…‘8Á¿Ëíş.
+z
+java:S1192Y"]Define a constant instead of duplicating this literal "-fx-border-color: lightgreen" 5 times.(°¾²ò8Á¿Ëíş.
+l
+java:S1192œ"NDefine a constant instead of duplicating this literal "Error occured" 7 times.(à€£…8Á¿Ëíş.
+z
+java:S14504"XRemove the "developer" field and declare it as a local variable in the relevant methods.(‚•è§ÿÿÿÿÿ8Á¿Ëíş.
+C
+java:S11705"!Make this final field static too.(Ü¯©Šøÿÿÿÿ8Á¿Ëíş.
+U	java:S1068"9Replace this use of System.out or System.err by a logger.(£ï«¦8Á¿Ëíş.
+t
+java:S3776H"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(·òşÿÿÿÿ8Á¿Ëíş.
+a
+java:S58405"?Remove this boundary that can never match or rewrite the regex.(Ü¯©Šøÿÿÿÿ8Á¿Ëíş.
+k	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îıã8Á¿Ëíş.
+[	java:S106¯"9Replace this use of System.out or System.err by a logger.(æŸ¯Îıÿÿÿÿ8Á¿Ëíş.
+[	java:S106¶"9Replace this use of System.out or System.err by a logger.(ÌÇ‹šøÿÿÿÿ8Á¿Ëíş.
+d
+java:S2142Í"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€8Á¿Ëíş.
+T
+java:S1172ö"1Remove this unused method parameter "mouseEvent".(‡Àƒüüÿÿÿÿ8Á¿Ëíş.
+T
+java:S1172û"1Remove this unused method parameter "mouseEvent".(ºŸ…ñûÿÿÿÿ8Á¿Ëíş.
