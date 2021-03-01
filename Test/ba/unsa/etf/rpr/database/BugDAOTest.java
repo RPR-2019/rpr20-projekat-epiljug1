@@ -34,8 +34,10 @@ class BugDAOTest {
 
     @Test
     void assignedBug(){
+        int number = bugDAO.getAllAssignedBugs(1,0).size();
         bugDAO.addAssign(1,1,2);
-        assertEquals(1,bugDAO.getAllAssignedBugs(1,0).size());
+
+        assertEquals(number+1,bugDAO.getAllAssignedBugs(1,0).size());
     }
 
 }

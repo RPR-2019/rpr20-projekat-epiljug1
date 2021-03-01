@@ -419,24 +419,7 @@
 }
 
 
-/*JFXDialog styling*/
-.jfx-layout-heading
-{
-    -fx-background-color: -fx-color-1;
-}
-.jfx-layout-heading .label
-{
-    -fx-text-fill: white;
-    -fx-font-size: 12pt;
-}
-.jfx-layout-body, .jfx-layout-actions{
-    -fx-background-color: -fx-primary;
-}
-.jfx-layout-body .label
-{
-    -fx-text-fill: white;
-    -fx-padding: 20px 0 0 0;
-}
+
 
 
 /*Dashboard label*/
@@ -455,21 +438,7 @@
     -fx-font-size: 10pt;
 }
 
-/*Progrss bar*/
 
-.progress-bar-main .track{
-    -fx-background-color: -fx-primary;
-}
-.progress-bar-main .bar{
-    -fx-background-color: -fx-secondary;
-    -fx-padding: 5px;
-}
-
-.common-label{
-    -fx-background-color: transparent;
-    -fx-text-fill: -fx-secondary;
-    -fx-font-size: 12pt;
-}
 
 /*Alert Dialog*/
 

@@ -12,6 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.util.Locale;
+
 
 public class AddProjectController {
     @FXML
@@ -50,8 +52,11 @@ public class AddProjectController {
     public void addAction(ActionEvent actionEvent){
         if(check()){
             projectDAO.addNewProject(new Project(nameFld.getText(),descriptionFld.getText(),developer,clientNameFld.getText(),clientEmailFld.getText(), sourceCodeFld.getText()));
+            if(Locale.getDefault().getCountry().equals("US"))
+                 AlertMaker.showMaterialDialog(anchorPane,"New project added",nameFld.getText()+" has been added!");
+            else
+                AlertMaker.showMaterialDialog(anchorPane,"Novi projekat je dodan",nameFld.getText()+" je uspješo dodan!");
 
-            AlertMaker.showMaterialDialog(anchorPane,"New project added",nameFld.getText()+" has been added!");
             reset();
         }
     }
@@ -65,7 +70,6 @@ public class AddProjectController {
     }
 
     public void closeWindowAction(ActionEvent actionEvent){
-        Stage stage = (Stage) nameFld.getScene().getWindow();
-        stage.close();
+        ((Stage) nameFld.getScene().getWindow()).close();
     }
 }
