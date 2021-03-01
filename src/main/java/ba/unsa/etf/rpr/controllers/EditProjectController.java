@@ -5,6 +5,7 @@ import ba.unsa.etf.rpr.database.ProjectDAO;
 import ba.unsa.etf.rpr.model.Project;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -67,8 +68,10 @@ public class EditProjectController {
         int id = projectDAO.findID(project);
         if(check()){
             projectDAO.updateProject(id,nameFld.getText(),descriptionFld.getText(),clientNameFld.getText(),clientEmailFld.getText(),sourceCodeFld.getText());
-            AlertMaker.showMaterialDialog(anchorPane,"Changes saved","Project has been successfully edited!");
-            closeWindowAction(actionEvent);
+            Dialog dialog = AlertMaker.showMaterialDialog(anchorPane,"Changes saved","Project has been successfully edited!");
+            dialog.setOnHiding(dialogEvent -> {
+                closeWindowAction(actionEvent);
+            });
         }
     }
 

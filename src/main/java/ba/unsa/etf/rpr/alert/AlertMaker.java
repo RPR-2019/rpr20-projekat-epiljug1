@@ -42,7 +42,7 @@ public class AlertMaker {
         return  alert.showAndWait();
     }
 
-    public static void showMaterialDialog( Node nodeToBeBlurred, String header, String body) {
+    public static Dialog showMaterialDialog( Node nodeToBeBlurred, String header, String body) {
         BoxBlur blur = new BoxBlur(3, 3, 3);
 
         Dialog dialog = new Dialog();
@@ -67,6 +67,7 @@ public class AlertMaker {
         });
 
         nodeToBeBlurred.setEffect(blur);
+        return dialog;
     }
 
 

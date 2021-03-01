@@ -7,12 +7,15 @@ import ba.unsa.etf.rpr.model.Developer;
 import ba.unsa.etf.rpr.model.Project;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.util.Locale;
+import java.util.Optional;
 
 
 public class AddProjectController {
@@ -52,12 +55,14 @@ public class AddProjectController {
     public void addAction(ActionEvent actionEvent){
         if(check()){
             projectDAO.addNewProject(new Project(nameFld.getText(),descriptionFld.getText(),developer,clientNameFld.getText(),clientEmailFld.getText(), sourceCodeFld.getText()));
+            Dialog dialog;
             if(Locale.getDefault().getCountry().equals("US"))
-                 AlertMaker.showMaterialDialog(anchorPane,"New project added",nameFld.getText()+" has been added!");
+                dialog= AlertMaker.showMaterialDialog(anchorPane,"New project added",nameFld.getText()+" has been added!");
             else
-                AlertMaker.showMaterialDialog(anchorPane,"Novi projekat je dodan",nameFld.getText()+" je uspješo dodan!");
-            closeWindowAction(actionEvent);
-           // reset();
+                dialog= AlertMaker.showMaterialDialog(anchorPane,"Novi projekat je dodan",nameFld.getText()+" je uspješo dodan!");
+            dialog.setOnHiding(dialogEvent -> {
+                closeWindowAction(actionEvent);
+            });
         }
     }
 
